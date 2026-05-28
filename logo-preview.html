@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>1 to 100 Advisors — Logo assets</title>
+<style>
+  :root {
+    --bg: #f5f5f7; --ink: #1d1d1f; --muted: #6e6e73; --line: rgba(0,0,0,0.08);
+    --dark-bg: #0e1726;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", Arial, sans-serif;
+    background: var(--bg); color: var(--ink); padding: 48px 24px;
+  }
+  .wrap { width: min(1100px, 100%); margin: 0 auto; }
+  h1 {
+    font-family: -apple-system, "SF Pro Display", sans-serif;
+    font-weight: 600; letter-spacing: -0.02em; font-size: 32px; margin: 0 0 6px;
+  }
+  .lede { color: var(--muted); margin: 0 0 40px; }
+  h2 {
+    font-family: -apple-system, "SF Pro Display", sans-serif;
+    font-weight: 600; letter-spacing: -0.01em; font-size: 14px;
+    text-transform: uppercase; color: var(--muted); margin: 32px 0 12px;
+    letter-spacing: 0.14em;
+  }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card {
+    border-radius: 18px; padding: 32px; box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 200px;
+  }
+  .card.light { background: #ffffff; border: 1px solid var(--line); }
+  .card.dark  { background: var(--dark-bg); color: #fff; }
+  .card .name {
+    margin-top: 16px; font-size: 12px; color: var(--muted); letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .card.dark .name { color: rgba(255,255,255,0.55); }
+  .icon-row { display: flex; gap: 24px; align-items: center; justify-content: center; flex-wrap: wrap; }
+  img.primary { max-width: 100%; height: auto; max-height: 96px; }
+  img.icon { width: 80px; height: 80px; }
+  img.app   { width: 110px; height: 110px; }
+  img.fav   { width: 32px; height: 32px; }
+  @media (max-width: 720px) { .row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Logo asset preview</h1>
+  <p class="lede">All variants. Drag any file from <code>/assets/</code> into your editor — they're standard SVG.</p>
+
+  <h2>Primary lockup</h2>
+  <div class="row">
+    <div class="card light">
+      <img class="primary" src="assets/logo-primary-light.svg" alt="Primary logo, light">
+      <div class="name">logo-primary-light.svg</div>
+    </div>
+    <div class="card dark">
+      <img class="primary" src="assets/logo-primary-dark.svg" alt="Primary logo, dark">
+      <div class="name">logo-primary-dark.svg</div>
+    </div>
+  </div>
+
+  <h2>Icon only</h2>
+  <div class="row">
+    <div class="card light">
+      <div class="icon-row">
+        <img class="icon" src="assets/logo-icon-light.svg" alt="Icon, light">
+      </div>
+      <div class="name">logo-icon-light.svg</div>
+    </div>
+    <div class="card dark">
+      <div class="icon-row">
+        <img class="icon" src="assets/logo-icon-dark.svg" alt="Icon, dark">
+      </div>
+      <div class="name">logo-icon-dark.svg</div>
+    </div>
+  </div>
+
+  <h2>App icon (square)</h2>
+  <div class="row">
+    <div class="card light">
+      <img class="app" src="assets/logo-app-icon-light.svg" alt="App icon, light">
+      <div class="name">logo-app-icon-light.svg</div>
+    </div>
+    <div class="card dark">
+      <img class="app" src="assets/logo-app-icon-dark.svg" alt="App icon, dark">
+      <div class="name">logo-app-icon-dark.svg</div>
+    </div>
+  </div>
+
+  <h2>Favicon</h2>
+  <div class="row">
+    <div class="card light">
+      <div class="icon-row">
+        <img class="fav" src="assets/favicon.svg" alt="Favicon at 16px">
+        <img class="fav" src="assets/favicon.svg" alt="Favicon at 32px" style="width:32px;height:32px">
+        <img class="fav" src="assets/favicon.svg" alt="Favicon at 64px" style="width:64px;height:64px">
+      </div>
+      <div class="name">favicon.svg &nbsp;·&nbsp; 16 / 32 / 64 px</div>
+    </div>
+    <div class="card dark">
+      <div class="icon-row" style="background:#fff; padding:14px 20px; border-radius:12px;">
+        <img class="fav" src="assets/favicon.svg" alt="Favicon on white">
+        <img class="fav" src="assets/favicon.svg" alt="Favicon on white" style="width:32px;height:32px">
+        <img class="fav" src="assets/favicon.svg" alt="Favicon on white" style="width:64px;height:64px">
+      </div>
+      <div class="name">on browser tab (always renders on white)</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

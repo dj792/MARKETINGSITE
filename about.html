@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>About — 1 to 100 Advisors</title>
+<meta name="description" content="1 to 100 Advisors helps small-company CEOs win with data. Founded by DJ Muller — three decades of building, leading, and advising technology companies." />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="apple-touch-icon" href="assets/logo-app-icon-light.svg" />
+<style>
+  /* ---------- Reset & base ---------- */
+  *,*::before,*::after { box-sizing: border-box; }
+  html,body { margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+  img,svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  :root {
+    --bg: #f5f5f7;
+    --surface: #ffffff;
+    --ink: #1d1d1f;
+    --ink-2: #424245;
+    --muted: #6e6e73;
+    --line: rgba(0,0,0,0.08);
+    --accent: #0a84ff;
+    --accent-2: #5e5ce6;
+    --accent-3: #ff375f;
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    --shadow-2: 0 2px 6px rgba(0,0,0,0.06), 0 30px 60px -20px rgba(0,0,0,0.18);
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-text:    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-text);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Typography ---------- */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.04;
+  }
+  h1.display { font-size: clamp(44px, 7.2vw, 104px); }
+  h2.display { font-size: clamp(36px, 5.2vw, 72px); }
+  h3.display { font-size: clamp(24px, 2.6vw, 38px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.1; }
+  .eyebrow {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--accent);
+  }
+  .lede {
+    font-size: clamp(18px, 1.4vw, 22px);
+    color: var(--ink-2);
+    max-width: 62ch;
+    line-height: 1.45;
+  }
+  .small { font-size: 13px; color: var(--muted); }
+
+  /* ---------- Layout ---------- */
+  .wrap { width: min(1180px, 92vw); margin-inline: auto; }
+  section { padding: clamp(80px, 12vh, 160px) 0; position: relative; }
+  section + section { padding-top: clamp(40px, 8vh, 120px); }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background: rgba(245, 245, 247, 0.72);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 600; letter-spacing: -0.01em;
+    font-size: 15px;
+  }
+  .brand-logo { height: 32px; width: auto; display: block; }
+  .brand-logo.footer { height: 38px; }
+  .nav ul {
+    display: flex; gap: 28px; list-style: none; margin: 0; padding: 0;
+    font-size: 13px; color: var(--ink-2);
+  }
+  .nav ul a:hover { color: var(--ink); }
+  .nav ul a.current { color: var(--ink); font-weight: 600; }
+  .nav-cta {
+    background: var(--ink); color: #fff;
+    padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 500;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .nav-cta:hover { background: #000; transform: translateY(-1px); }
+  @media (max-width: 720px) { .nav ul { display: none; } }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 22px; border-radius: 999px;
+    font-weight: 500; font-size: 15px;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--ink); color: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(0,0,0,0.22); background: #000; }
+  .btn-ghost {
+    color: var(--ink); border-color: rgba(0,0,0,0.18);
+    background: rgba(255,255,255,0.6);
+  }
+  .btn-ghost:hover { border-color: var(--ink); }
+  .arrow { transition: transform .2s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* ---------- Hero (About) ---------- */
+  .hero {
+    position: relative;
+    padding-top: clamp(80px, 12vh, 140px);
+    padding-bottom: clamp(40px, 8vh, 80px);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: -20% -10% auto -10%; height: 90%;
+    background:
+      radial-gradient(40% 60% at 20% 30%, rgba(10,132,255,0.18), transparent 60%),
+      radial-gradient(50% 60% at 80% 10%, rgba(94,92,230,0.20), transparent 60%),
+      radial-gradient(40% 50% at 70% 70%, rgba(255,55,95,0.10), transparent 60%);
+    filter: blur(20px);
+    pointer-events: none; z-index: 0;
+  }
+  .hero-inner { position: relative; z-index: 1; text-align: center; }
+  .hero h1 { margin: 16px auto 18px; max-width: 18ch; }
+  .hero .lede { margin: 0 auto; }
+
+  /* ---------- Who we serve ---------- */
+  .who { background: #ffffff; }
+  .who-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center;
+  }
+  @media (max-width: 900px) { .who-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* ---------- Founder ---------- */
+  .founder {
+    background: linear-gradient(180deg, #f5f5f7 0%, #ebebef 100%);
+  }
+  .founder-grid {
+    display: grid; grid-template-columns: 0.9fr 1.2fr; gap: 60px; align-items: start;
+  }
+  @media (max-width: 900px) { .founder-grid { grid-template-columns: 1fr; } }
+  .headshot-card {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow-2);
+    background: linear-gradient(135deg, #f7f7fa, #ebebef);
+    position: relative;
+    aspect-ratio: 4/5;
+  }
+  .headshot-card img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .headshot-card .placeholder {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted);
+    font-size: 13px;
+    background:
+      radial-gradient(80% 80% at 30% 20%, #cfe1ff 0%, transparent 60%),
+      radial-gradient(80% 80% at 80% 80%, #e7dcff 0%, transparent 60%),
+      linear-gradient(135deg, #f7f7fa, #ebebef);
+  }
+  .founder-body h2 { margin: 14px 0 22px; max-width: 16ch; }
+  .founder-body p { color: var(--ink-2); max-width: 60ch; }
+  .founder-body p + p { margin-top: 14px; }
+
+  /* ---------- Highlights ---------- */
+  .highlights { background: #ffffff; }
+  .highlights h2 { margin: 14px 0 48px; max-width: 18ch; }
+  .highlight-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  }
+  @media (max-width: 800px) { .highlight-grid { grid-template-columns: 1fr; } }
+  .highlight {
+    padding: 28px 28px 24px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(180deg, #ffffff, #fafafc);
+    box-shadow: var(--shadow-1);
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .highlight:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); }
+  .highlight .cat {
+    font-family: var(--font-display); font-weight: 600; font-size: 12px;
+    color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .highlight h3 {
+    margin: 10px 0 16px;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 20px; letter-spacing: -0.015em;
+  }
+  .highlight ul {
+    margin: 0; padding: 0; list-style: none;
+  }
+  .highlight li {
+    color: var(--ink-2); font-size: 15px; padding: 8px 0;
+    border-top: 1px solid var(--line);
+  }
+  .highlight li:first-child { border-top: 0; padding-top: 0; }
+
+  /* ---------- Mission / How we work ---------- */
+  .mission {
+    background: linear-gradient(180deg, #0b0b0d 0%, #141417 100%);
+    color: #f5f5f7;
+    border-radius: clamp(20px, 3vw, 36px);
+    margin: 0 auto;
+    width: min(1280px, 96vw);
+    overflow: hidden;
+    position: relative;
+  }
+  .mission::before {
+    content: ""; position: absolute; inset: -30%;
+    background:
+      radial-gradient(40% 40% at 20% 30%, rgba(10,132,255,0.30), transparent 60%),
+      radial-gradient(40% 40% at 80% 70%, rgba(255,55,95,0.18), transparent 60%),
+      radial-gradient(40% 40% at 70% 20%, rgba(94,92,230,0.25), transparent 60%);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+  .mission-inner { position: relative; padding: clamp(60px, 8vw, 110px) clamp(28px, 5vw, 80px); }
+  .mission .eyebrow { color: #7aa7ff; }
+  .mission h2 { color: #fff; max-width: 22ch; margin: 16px 0 28px; }
+  .mission p {
+    font-size: clamp(18px, 1.4vw, 22px);
+    color: rgba(245,245,247,0.85);
+    max-width: 62ch; line-height: 1.5;
+  }
+  .mission p + p { margin-top: 18px; }
+
+  /* ---------- Final CTA ---------- */
+  .cta-final { text-align: center; }
+  .cta-card {
+    margin: 0 auto;
+    width: min(1180px, 92vw);
+    padding: clamp(60px, 8vw, 110px) 28px;
+    border-radius: clamp(20px, 3vw, 36px);
+    background:
+      radial-gradient(60% 80% at 50% 0%, rgba(10,132,255,0.18), transparent 60%),
+      linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+    box-shadow: var(--shadow-2);
+    position: relative; overflow: hidden;
+  }
+  .cta-card h2 { max-width: 18ch; margin: 16px auto 14px; }
+  .cta-card .lede { margin: 0 auto; }
+  .cta-ctas {
+    display: flex; gap: 12px; justify-content: center;
+    margin-top: 32px; flex-wrap: wrap;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 60px 0 40px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    margin-top: 80px;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 24px; flex-wrap: wrap;
+  }
+  footer ul {
+    display: flex; gap: 22px; list-style: none; margin: 0; padding: 0;
+    font-size: 13px;
+  }
+
+  /* ---------- Scroll reveals ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.delay-1 { transition-delay: .08s; }
+  .reveal.delay-2 { transition-delay: .16s; }
+  .reveal.delay-3 { transition-delay: .24s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="1 to 100 Advisors home">
+      <img class="brand-logo" src="assets/logo-primary-light.svg" alt="1 to 100 Advisors Inc" />
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html#system">The System</a></li>
+        <li><a href="index.html#beliefs">Principles</a></li>
+        <li><a href="index.html#customers">Customers</a></li>
+        <li><a href="about.html" class="current">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="contact.html">Book a call</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow reveal">About 1 to 100 Advisors</div>
+    <h1 class="display reveal delay-1">We help small-company CEOs win with data.</h1>
+    <p class="lede reveal delay-2">
+      Big corporations have entire teams turning data into better decisions. Most small
+      companies don't &mdash; and they pay for it in slower growth, missed risks, and
+      gut-feel calls that could have been informed ones. We close that gap.
+    </p>
+  </div>
+</section>
+
+<!-- ================= WHO WE SERVE ================= -->
+<section class="who">
+  <div class="wrap who-grid">
+    <div class="reveal">
+      <div class="eyebrow">Who we work with</div>
+      <h2 class="display" style="margin: 14px 0 0; font-size: clamp(28px, 3.4vw, 44px);">
+        Founders and CEOs going from first hires to first hundred.
+      </h2>
+    </div>
+    <div class="reveal delay-1">
+      <p class="lede" style="margin: 0;">
+        Our clients lead small to mid-sized companies &mdash; particularly in technology,
+        chambers of commerce, and member-based associations &mdash; who are ready to scale
+        and want an experienced operator in the room. We bring AI tools and decades of
+        operating experience to surface the data your business actually needs, so you can
+        grow faster, manage risk smarter, and run with more clarity and less friction.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOUNDER ================= -->
+<section class="founder">
+  <div class="wrap founder-grid">
+    <div class="reveal">
+      <div class="headshot-card">
+        <img src="assets/DJ_headshot.jpg" alt="DJ Muller, Founder of 1 to 100 Advisors"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="placeholder" style="display:none;">Headshot not found at assets/DJ_headshot.jpg</div>
+      </div>
+    </div>
+    <div class="founder-body reveal delay-1">
+      <div class="eyebrow">Founder</div>
+      <h2 class="display">DJ Muller</h2>
+      <p>
+        DJ founded 1 to 100 Advisors to give small-company CEOs the same caliber of data
+        insight that large corporations take for granted. He's spent three decades building,
+        leading, and advising technology companies &mdash; including founding
+        <strong>WebLink International</strong>, the first online membership platform for
+        associations (now part of Momentive Software, serving 3,000+ chambers and associations).
+      </p>
+      <p>
+        His entrepreneurial path started early: he founded his first tech company at 14 and
+        sold it at 17 in the Apple ed-tech space. Since then, he's served 18 years as CEO
+        of two venture-backed companies valued at over $100M, coached CEOs and senior leaders
+        across multiple industries for more than a decade, and advised venture capital and
+        private equity firms on strategy.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HIGHLIGHTS ================= -->
+<section class="highlights">
+  <div class="wrap">
+    <div class="eyebrow reveal">Highlights</div>
+    <h2 class="display reveal delay-1" style="font-size: clamp(28px, 3.6vw, 48px);">
+      Three decades of operating, advising, and coaching.
+    </h2>
+
+    <div class="highlight-grid">
+      <article class="highlight reveal">
+        <div class="cat">Operating leadership</div>
+        <h3>Built and led from the front.</h3>
+        <ul>
+          <li>Founder, 1 to 100 Advisors &mdash; AI and executive consulting</li>
+          <li>Founder, WebLink International (now part of Momentive) &mdash; 3,000+ chambers and associations served</li>
+          <li>18 years as CEO of two venture-backed technology companies valued at $100M+</li>
+        </ul>
+      </article>
+
+      <article class="highlight reveal delay-1">
+        <div class="cat">Advisory &amp; coaching</div>
+        <h3>Trusted in the room with leaders and investors.</h3>
+        <ul>
+          <li>10+ years coaching CEOs and senior executives across multiple industries</li>
+          <li>Trusted advisor to venture capital and private equity firms</li>
+        </ul>
+      </article>
+
+      <article class="highlight reveal delay-2">
+        <div class="cat">Recognition</div>
+        <h3>Recognized for technology leadership.</h3>
+        <ul>
+          <li>Indiana "Tech Sales and Marketing" award winner</li>
+          <li>Recognized by Microsoft as a technology innovator</li>
+        </ul>
+      </article>
+
+      <article class="highlight reveal delay-3">
+        <div class="cat">Origin</div>
+        <h3>An entrepreneur since age 14.</h3>
+        <ul>
+          <li>Founded first tech company at age 14; sold at 17 (Apple ed-tech)</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MISSION / HOW WE WORK ================= -->
+<section style="background: transparent;">
+  <div class="mission">
+    <div class="mission-inner">
+      <div class="eyebrow reveal">How we work</div>
+      <h2 class="display reveal delay-1">An extension of your executive team &mdash; not a vendor.</h2>
+      <p class="reveal delay-2">
+        We bring the technical depth to deploy modern AI and data tools, paired with the
+        operating instincts to know which numbers actually move the business.
+      </p>
+      <p class="reveal delay-3">
+        The result: less friction, sharper decisions, and the peace of mind that comes
+        from running your company on real data instead of best guesses.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="cta-final" id="contact">
+  <div class="cta-card">
+    <div class="eyebrow reveal">Let's talk</div>
+    <h2 class="display reveal delay-1">See what 1 to 100 Advisors can do for your business.</h2>
+    <p class="lede reveal delay-2">
+      A 30-minute call. One honest read on your numbers. We'll show you how the
+      CEO Operating System would make your business more visible &mdash; and what
+      the first 30 days would look like.
+    </p>
+    <div class="cta-ctas reveal delay-3">
+      <a class="btn btn-primary" href="contact.html">Book a 30-minute call <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-ghost" href="mailto:dj@1to100advisors.com">Email DJ directly</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="brand" style="margin-bottom: 12px;">
+        <img class="brand-logo footer" src="assets/logo-primary-light.svg" alt="1 to 100 Advisors Inc" />
+      </div>
+      <div class="small">© <span id="yr"></span> 1 to 100 Advisors. The CEO Operating System&trade;.</div>
+    </div>
+    <ul>
+      <li><a href="index.html#system">The System</a></li>
+      <li><a href="index.html#beliefs">Principles</a></li>
+      <li><a href="index.html#customers">Customers</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

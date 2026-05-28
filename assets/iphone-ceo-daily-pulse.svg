@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 860" role="img" aria-label="CEO Daily Pulse mobile dashboard on iPhone">
+  <defs>
+    <!-- Titanium body gradient (catches light along the sides) -->
+    <linearGradient id="ti-edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"    stop-color="#3a3a3c"/>
+      <stop offset="0.04" stop-color="#a8a8aa"/>
+      <stop offset="0.10" stop-color="#5e5e60"/>
+      <stop offset="0.50" stop-color="#48484a"/>
+      <stop offset="0.90" stop-color="#5e5e60"/>
+      <stop offset="0.96" stop-color="#a8a8aa"/>
+      <stop offset="1"    stop-color="#3a3a3c"/>
+    </linearGradient>
+    <!-- Subtle vertical sheen on the screen glass -->
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#ffffff" stop-opacity="0.04"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1"   stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+    <!-- Soft drop shadow under the phone -->
+    <filter id="ds" x="-20%" y="-5%" width="140%" height="120%">
+      <feDropShadow dx="0" dy="28" stdDeviation="26" flood-color="#000" flood-opacity="0.32"/>
+    </filter>
+    <!-- Article image placeholders -->
+    <linearGradient id="art1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5a708e"/><stop offset="1" stop-color="#243246"/>
+    </linearGradient>
+    <linearGradient id="art2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7e6a52"/><stop offset="1" stop-color="#3a2f24"/>
+    </linearGradient>
+    <!-- Clip content to the screen rect -->
+    <clipPath id="screen-clip">
+      <rect x="14" y="14" width="392" height="832" rx="52" ry="52"/>
+    </clipPath>
+  </defs>
+
+  <!-- ===== iPhone body ===== -->
+  <!-- Outer titanium frame (with drop shadow) -->
+  <rect x="0" y="0" width="420" height="860" rx="62" ry="62" fill="url(#ti-edge)" filter="url(#ds)"/>
+  <!-- Inner bevel highlight -->
+  <rect x="3" y="3" width="414" height="854" rx="60" ry="60" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+  <!-- Black bezel ring -->
+  <rect x="8" y="8" width="404" height="844" rx="58" ry="58" fill="#0a0a0c"/>
+  <!-- Screen background -->
+  <rect x="14" y="14" width="392" height="832" rx="52" ry="52" fill="#0b0e14"/>
+
+  <!-- ===== Screen content (clipped) ===== -->
+  <g clip-path="url(#screen-clip)" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', Helvetica, Arial, sans-serif">
+
+    <!-- Status bar -->
+    <text x="42" y="44" font-size="15" font-weight="600" fill="#ffffff">9:41</text>
+    <!-- Status icons on the right -->
+    <g transform="translate(322, 32)" fill="#ffffff">
+      <!-- Signal bars -->
+      <rect x="0"  y="6" width="3" height="6"  rx="0.6"/>
+      <rect x="5"  y="4" width="3" height="8"  rx="0.6"/>
+      <rect x="10" y="2" width="3" height="10" rx="0.6"/>
+      <rect x="15" y="0" width="3" height="12" rx="0.6"/>
+      <!-- Wifi -->
+      <g transform="translate(24, 0)" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round">
+        <path d="M 0 7  a 7 7 0 0 1 14 0"/>
+        <path d="M 3 10 a 4 4 0 0 1 8 0"/>
+      </g>
+      <circle cx="31" cy="11.5" r="1.4" fill="#ffffff"/>
+      <!-- Battery -->
+      <g transform="translate(44, 2)">
+        <rect x="0" y="0" width="24" height="11" rx="2.5" ry="2.5" fill="none" stroke="#ffffff" stroke-width="1"/>
+        <rect x="2" y="2" width="17" height="7"  rx="1" fill="#ffffff"/>
+        <rect x="25" y="3" width="2" height="5"  rx="1" fill="#ffffff"/>
+      </g>
+    </g>
+
+    <!-- Dynamic Island -->
+    <rect x="160" y="22" width="100" height="32" rx="16" fill="#000000"/>
+
+    <!-- ===== Header ===== -->
+    <text x="24" y="102" font-size="26" font-weight="700" fill="#ffffff" letter-spacing="-0.5">CEO Daily Pulse</text>
+    <text x="24" y="124" font-size="15" font-weight="500" fill="#8e8e93">March 2</text>
+    <!-- Search button -->
+    <g transform="translate(322, 96)">
+      <circle cx="14" cy="14" r="16" fill="#1c1c1e"/>
+      <circle cx="12" cy="12" r="5" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+      <line x1="16" y1="16" x2="20" y2="20" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/>
+    </g>
+    <!-- Menu (3 dots) -->
+    <g transform="translate(360, 96)">
+      <circle cx="14" cy="14" r="16" fill="#1c1c1e"/>
+      <circle cx="8"  cy="14" r="1.6" fill="#ffffff"/>
+      <circle cx="14" cy="14" r="1.6" fill="#ffffff"/>
+      <circle cx="20" cy="14" r="1.6" fill="#ffffff"/>
+    </g>
+
+    <!-- ===== KPI Rows ===== -->
+    <!-- helper: row top edge at y = 150 + i*70 -->
+
+    <!-- 1. Revenue -->
+    <g transform="translate(0, 150)">
+      <text x="24" y="22" font-size="17" font-weight="700" fill="#ffffff">Revenue</text>
+      <text x="24" y="42" font-size="12" font-weight="500" fill="#8e8e93">Annual Recurring Revenue</text>
+      <polyline points="160,32 170,30 180,34 190,30 200,28 210,32 220,34 230,32 240,38 250,42 260,40 270,18"
+                fill="none" stroke="#ff453a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="396" y="22" font-size="17" font-weight="700" fill="#ffffff" text-anchor="end">$1.605M</text>
+      <rect x="340" y="32" width="56" height="20" rx="5" fill="#ff3b30"/>
+      <text x="368" y="46" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">-73.14</text>
+      <line x1="24" y1="64" x2="396" y2="64" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </g>
+
+    <!-- 2. Cash Balance -->
+    <g transform="translate(0, 220)">
+      <text x="24" y="22" font-size="17" font-weight="700" fill="#ffffff">Cash Balance</text>
+      <text x="24" y="42" font-size="12" font-weight="500" fill="#8e8e93">Chase Bank Balance</text>
+      <polyline points="160,44 170,42 180,40 190,36 200,38 210,32 220,30 230,24 240,22 250,16 260,12 270,8"
+                fill="none" stroke="#30d158" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="396" y="22" font-size="17" font-weight="700" fill="#ffffff" text-anchor="end">$732K</text>
+      <rect x="340" y="32" width="56" height="20" rx="5" fill="#34c759"/>
+      <text x="368" y="46" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">+80.65</text>
+      <line x1="24" y1="64" x2="396" y2="64" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </g>
+
+    <!-- 3. Runway -->
+    <g transform="translate(0, 290)">
+      <text x="24" y="22" font-size="17" font-weight="700" fill="#ffffff">Runway</text>
+      <text x="24" y="42" font-size="12" font-weight="500" fill="#8e8e93">Months of Cash runway</text>
+      <line x1="160" y1="18" x2="270" y2="18" stroke="#ff453a" stroke-width="1" stroke-dasharray="3 3" opacity="0.55"/>
+      <polyline points="160,16 170,18 180,16 190,22 200,24 210,28 220,32 230,34 240,38 250,36 260,40 270,42"
+                fill="none" stroke="#ff453a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="396" y="22" font-size="17" font-weight="700" fill="#ffffff" text-anchor="end">3.6</text>
+      <rect x="340" y="32" width="56" height="20" rx="5" fill="#ff3b30"/>
+      <text x="368" y="46" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">-1.61</text>
+      <line x1="24" y1="64" x2="396" y2="64" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </g>
+
+    <!-- 4. Retention -->
+    <g transform="translate(0, 360)">
+      <text x="24" y="22" font-size="17" font-weight="700" fill="#ffffff">Retention</text>
+      <text x="24" y="42" font-size="12" font-weight="500" fill="#8e8e93">TTM Gross Dollar Retention</text>
+      <polyline points="160,20 170,22 180,20 190,32 200,28 210,36 220,30 230,38 240,32 250,40 260,36 270,38"
+                fill="none" stroke="#ff453a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="396" y="22" font-size="17" font-weight="700" fill="#ffffff" text-anchor="end">91%</text>
+      <rect x="340" y="32" width="56" height="20" rx="5" fill="#ff3b30"/>
+      <text x="368" y="46" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">-0.70</text>
+      <line x1="24" y1="64" x2="396" y2="64" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </g>
+
+    <!-- 5. Sales v Budget -->
+    <g transform="translate(0, 430)">
+      <text x="24" y="22" font-size="17" font-weight="700" fill="#ffffff">Sales v Budget</text>
+      <text x="24" y="42" font-size="12" font-weight="500" fill="#8e8e93">YTD Sales versus Budget</text>
+      <polyline points="160,38 170,34 180,36 190,30 200,26 210,30 220,22 230,18 240,24 250,14 260,10 270,6"
+                fill="none" stroke="#30d158" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="396" y="22" font-size="17" font-weight="700" fill="#ffffff" text-anchor="end">105%</text>
+      <rect x="340" y="32" width="56" height="20" rx="5" fill="#34c759"/>
+      <text x="368" y="46" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">+0.54</text>
+    </g>
+
+    <!-- ===== News card ===== -->
+    <g transform="translate(0, 520)">
+      <!-- Card background -->
+      <rect x="14" y="0" width="392" height="330" rx="22" fill="#1c1c1e"/>
+      <!-- Title -->
+      <text x="210" y="34" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">Member Stories in the News</text>
+      <line x1="32" y1="56" x2="388" y2="56" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+
+      <!-- Article 1 -->
+      <g transform="translate(0, 70)">
+        <text x="32" y="20" font-size="15" font-weight="700" fill="#ffffff">House Panel Considers</text>
+        <text x="32" y="40" font-size="15" font-weight="700" fill="#ffffff">Data center expansion,</text>
+        <text x="32" y="60" font-size="15" font-weight="700" fill="#ffffff">local chamber</text>
+        <text x="32" y="80" font-size="15" font-weight="700" fill="#ffffff">organizing meeting</text>
+        <text x="32" y="106" font-size="11" font-weight="500" fill="#8e8e93">3h ago · Pia Singh</text>
+        <!-- Image placeholder -->
+        <rect x="276" y="14" width="100" height="100" rx="10" fill="url(#art1)"/>
+        <!-- subtle person silhouette -->
+        <g transform="translate(326, 64)" opacity="0.55" fill="#ffffff">
+          <circle cx="0" cy="-14" r="9"/>
+          <path d="M -20 18 C -16 -2 16 -2 20 18 Z"/>
+        </g>
+      </g>
+
+      <!-- Divider -->
+      <line x1="32" y1="200" x2="388" y2="200" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+
+      <!-- Article 2 -->
+      <g transform="translate(0, 218)">
+        <text x="32" y="20" font-size="15" font-weight="700" fill="#ffffff">State Supreme Court</text>
+        <text x="32" y="40" font-size="15" font-weight="700" fill="#ffffff">rules on major law in</text>
+        <text x="32" y="60" font-size="15" font-weight="700" fill="#ffffff">dispute with HOA</text>
+        <!-- Image placeholder -->
+        <rect x="276" y="6" width="100" height="80" rx="10" fill="url(#art2)"/>
+        <!-- subtle building silhouette -->
+        <g transform="translate(296, 30)" opacity="0.55" fill="#ffffff">
+          <rect x="0" y="20" width="60" height="36" rx="2"/>
+          <rect x="6"  y="26" width="6" height="6"/>
+          <rect x="18" y="26" width="6" height="6"/>
+          <rect x="30" y="26" width="6" height="6"/>
+          <rect x="42" y="26" width="6" height="6"/>
+          <rect x="6"  y="40" width="6" height="6"/>
+          <rect x="18" y="40" width="6" height="6"/>
+          <rect x="30" y="40" width="6" height="6"/>
+          <rect x="42" y="40" width="6" height="6"/>
+          <polygon points="0,20 30,2 60,20"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Subtle glass sheen across the whole screen -->
+    <rect x="14" y="14" width="392" height="832" rx="52" ry="52" fill="url(#glass)" pointer-events="none"/>
+  </g>
+</svg>
