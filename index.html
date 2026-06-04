@@ -414,6 +414,28 @@
   }
   .belief p { color: rgba(245,245,247,0.7); margin: 0; }
 
+  .privacy-promise {
+    margin-top: 48px;
+    padding: 28px 32px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; gap: 22px;
+  }
+  .privacy-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    color: #7aa7ff;
+  }
+  .privacy-promise h4 {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(17px, 1.4vw, 20px); letter-spacing: -0.015em;
+    margin: 0 0 4px; color: #fff;
+  }
+  .privacy-promise p { color: rgba(245,245,247,0.75); margin: 0; font-size: 15px; }
+  @media (max-width: 600px) {
+    .privacy-promise { flex-direction: column; text-align: center; gap: 14px; padding: 24px; }
+  }
+
   /* ---------- Built for ---------- */
   .built {
     text-align: center;
@@ -804,6 +826,11 @@
         numbers reach you, the moment to act has already passed. You don't need
         more dashboards &mdash; you need the right ones, and you need them now.
       </p>
+      <p class="lede" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line);">
+        And more and more AI systems and tools just add to the overwhelm.
+        We leverage every major AI engine behind the scenes to produce the highest-quality
+        insights and KPIs &mdash; so you get the answers without having to learn yet another AI tool.
+      </p>
     </div>
     <div class="quote reveal delay-2">
       <strong>&ldquo;I had 14 tabs open and still couldn't tell you, in one sentence,
@@ -926,6 +953,17 @@
           <div class="n">03</div>
           <h4>Tools should empower, not overwhelm.</h4>
           <p>Software should give CEOs insight on the way to a decision — never another inbox to clear.</p>
+        </div>
+      </div>
+
+      <div class="privacy-promise reveal">
+        <svg class="privacy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2 L4 6 v6 c0 5 3.5 8.5 8 10 c4.5-1.5 8-5 8-10 V6 z"/>
+          <path d="M9 12 l2 2 4-4"/>
+        </svg>
+        <div>
+          <h4>Our promise: your data stays private.</h4>
+          <p>Your numbers are yours. We never sell, share, or train third-party AI models on your data &mdash; ever.</p>
         </div>
       </div>
     </div>
