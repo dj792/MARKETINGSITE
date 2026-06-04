@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Examples — Aligned KPIs™</title>
+<meta name="description" content="Sample dashboards, scorecards, and board reporting from Aligned KPIs™ — and why each one matters for CEOs and their boards." />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="apple-touch-icon" href="assets/logo-app-icon-light.svg" />
+<style>
+  /* ---------- Reset & base ---------- */
+  *,*::before,*::after { box-sizing: border-box; }
+  html,body { margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+  img,svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  :root {
+    --bg: #f5f5f7;
+    --surface: #ffffff;
+    --ink: #1d1d1f;
+    --ink-2: #424245;
+    --muted: #6e6e73;
+    --line: rgba(0,0,0,0.08);
+    --accent: #0a84ff;
+    --accent-2: #5e5ce6;
+    --accent-3: #ff375f;
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    --shadow-2: 0 2px 6px rgba(0,0,0,0.06), 0 30px 60px -20px rgba(0,0,0,0.18);
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-text:    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-text);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Typography ---------- */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.04;
+  }
+  h1.display { font-size: clamp(44px, 7.2vw, 104px); }
+  h2.display { font-size: clamp(32px, 4.4vw, 56px); }
+  .eyebrow {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--accent);
+  }
+  .lede {
+    font-size: clamp(18px, 1.4vw, 22px);
+    color: var(--ink-2);
+    max-width: 62ch;
+    line-height: 1.45;
+  }
+  .small { font-size: 13px; color: var(--muted); }
+
+  /* ---------- Layout ---------- */
+  .wrap { width: min(1180px, 92vw); margin-inline: auto; }
+  section { padding: clamp(80px, 12vh, 160px) 0; position: relative; }
+  section + section { padding-top: clamp(40px, 8vh, 120px); }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background: rgba(245, 245, 247, 0.72);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 600; letter-spacing: -0.01em;
+    font-size: 15px;
+  }
+  .brand-logo { height: 32px; width: auto; display: block; }
+  .brand-logo.footer { height: 38px; }
+  .nav ul {
+    display: flex; gap: 28px; list-style: none; margin: 0; padding: 0;
+    font-size: 13px; color: var(--ink-2);
+  }
+  .nav ul a:hover { color: var(--ink); }
+  .nav ul a.current { color: var(--ink); font-weight: 600; }
+  .nav-cta {
+    background: var(--ink); color: #fff;
+    padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 500;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .nav-cta:hover { background: #000; transform: translateY(-1px); }
+  @media (max-width: 720px) { .nav ul { display: none; } }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 22px; border-radius: 999px;
+    font-weight: 500; font-size: 15px;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--ink); color: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(0,0,0,0.22); background: #000; }
+  .btn-ghost {
+    color: var(--ink); border-color: rgba(0,0,0,0.18);
+    background: rgba(255,255,255,0.6);
+  }
+  .btn-ghost:hover { border-color: var(--ink); }
+  .arrow { transition: transform .2s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding-top: clamp(80px, 12vh, 140px);
+    padding-bottom: clamp(40px, 8vh, 80px);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: -20% -10% auto -10%; height: 90%;
+    background:
+      radial-gradient(40% 60% at 20% 30%, rgba(10,132,255,0.18), transparent 60%),
+      radial-gradient(50% 60% at 80% 10%, rgba(94,92,230,0.20), transparent 60%),
+      radial-gradient(40% 50% at 70% 70%, rgba(255,55,95,0.10), transparent 60%);
+    filter: blur(20px);
+    pointer-events: none; z-index: 0;
+  }
+  .hero-inner { position: relative; z-index: 1; text-align: center; }
+  .hero h1 { margin: 16px auto 18px; max-width: 18ch; }
+  .hero .lede { margin: 0 auto; }
+
+  /* ---------- Examples ---------- */
+  .example { padding-top: 0; }
+  .example + .example { padding-top: 0; }
+  .example-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-1);
+    overflow: hidden;
+  }
+  .example-head {
+    padding: clamp(36px, 5vw, 64px) clamp(24px, 5vw, 72px) 0;
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(20px, 4vw, 56px);
+  }
+  @media (max-width: 860px) { .example-head { grid-template-columns: 1fr; } }
+  .example-head h2 { margin: 12px 0 0; max-width: 14ch; }
+  .example-head .why {
+    color: var(--ink-2);
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.55;
+  }
+  .example-head .why p { margin: 0; }
+  .example-head .why p + p { margin-top: 12px; }
+  .example-shot {
+    margin: clamp(28px, 4vw, 48px) clamp(24px, 5vw, 72px) clamp(36px, 5vw, 64px);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 30px 60px -25px rgba(0,0,0,0.25);
+    background: #eef0f4;
+  }
+  .example-shot img { width: 100%; display: block; }
+  .example-shot .placeholder {
+    aspect-ratio: 2 / 1;
+    display: none; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 14px; text-align: center; padding: 24px;
+    background:
+      radial-gradient(80% 80% at 30% 20%, #dbe7ff 0%, transparent 60%),
+      radial-gradient(80% 80% at 80% 80%, #e9e2ff 0%, transparent 60%),
+      linear-gradient(135deg, #f7f7fa, #ebebef);
+  }
+
+  /* ---------- Final CTA ---------- */
+  .cta-final { text-align: center; }
+  .cta-card {
+    margin: 0 auto;
+    width: min(1180px, 92vw);
+    padding: clamp(60px, 8vw, 110px) 28px;
+    border-radius: clamp(20px, 3vw, 36px);
+    background:
+      radial-gradient(60% 80% at 50% 0%, rgba(10,132,255,0.18), transparent 60%),
+      linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+    box-shadow: var(--shadow-2);
+    position: relative; overflow: hidden;
+  }
+  .cta-card h2 { max-width: 18ch; margin: 16px auto 14px; }
+  .cta-card .lede { margin: 0 auto; }
+  .cta-ctas {
+    display: flex; gap: 12px; justify-content: center;
+    margin-top: 32px; flex-wrap: wrap;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 60px 0 40px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    margin-top: 80px;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 24px; flex-wrap: wrap;
+  }
+  footer ul {
+    display: flex; gap: 22px; list-style: none; margin: 0; padding: 0;
+    font-size: 13px;
+  }
+
+  /* ---------- Scroll reveals ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.delay-1 { transition-delay: .08s; }
+  .reveal.delay-2 { transition-delay: .16s; }
+  .reveal.delay-3 { transition-delay: .24s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Aligned KPIs home">
+      <img class="brand-logo" src="assets/AlignedKPIsLogo-web.png" alt="Aligned KPIs" />
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html#process">How It Works</a></li>
+        <li><a href="examples.html" class="current">Examples</a></li>
+        <li><a href="index.html#beliefs">Principles</a></li>
+        <li><a href="index.html#customers">Customers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="contact.html">Schedule a Demo</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow reveal">Aligned KPIs&trade;</div>
+    <h1 class="display reveal delay-1">See the platform in action.</h1>
+    <p class="lede reveal delay-2">
+      Real dashboards, scorecards, and board reporting from the platform &mdash;
+      and why each one earns its place in front of a CEO and their board.
+    </p>
+  </div>
+</section>
+
+<!-- ================= EXAMPLE: BOARD DASHBOARD ================= -->
+<section class="example">
+  <div class="wrap">
+    <div class="example-card reveal">
+      <div class="example-head">
+        <div>
+          <div class="eyebrow">Board Reporting</div>
+          <h2 class="display">The Board Dashboard</h2>
+        </div>
+        <div class="why">
+          <p>
+            This dashboard is projected at the monthly board meeting, as a complement
+            to the detailed financial statements the board receives by email. It keeps
+            the conversation focused on what matters: revenue versus budget, the health
+            of the membership as a whole, and a breakdown of current membership by
+            market location.
+          </p>
+          <p>
+            Instead of paging through spreadsheets, the board sees the state of the
+            organization in one view &mdash; and the meeting starts from shared facts,
+            not competing versions of the numbers.
+          </p>
+        </div>
+      </div>
+      <div class="example-shot">
+        <img src="assets/example-board-dashboard.png" alt="Board dashboard showing bank balance, runway, budget versus actuals, membership by market, and new member trends"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="placeholder">Screenshot coming soon &mdash; add assets/example-board-dashboard.png</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="cta-final">
+  <div class="cta-card">
+    <div class="eyebrow reveal">See yours</div>
+    <h2 class="display reveal delay-1">Imagine this view of your organization.</h2>
+    <p class="lede reveal delay-2">
+      In a 30-minute demo, we'll walk through these examples and show you what
+      your first dashboards would look like &mdash; live, in days, not months.
+    </p>
+    <div class="cta-ctas reveal delay-3">
+      <a class="btn btn-primary" href="contact.html">Schedule a Demo <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-ghost" href="index.html#process">See how it works</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="brand" style="margin-bottom: 12px;">
+        <img class="brand-logo footer" src="assets/logo-primary-light.svg" alt="1 to 100 Advisors Inc" />
+      </div>
+      <div class="small">© <span id="yr"></span> 1 to 100 Advisors. The CEO Operating System&trade;.</div>
+    </div>
+    <ul>
+      <li><a href="index.html#process">How It Works</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="index.html#beliefs">Principles</a></li>
+      <li><a href="index.html#customers">Customers</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
