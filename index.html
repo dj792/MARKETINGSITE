@@ -487,6 +487,7 @@
     display: flex; align-items: flex-end; justify-content: center;
   }
   .avatar svg { width: 70%; }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .founder-q {
     font-family: var(--font-display); font-weight: 500;
     font-size: clamp(22px, 2.1vw, 30px); line-height: 1.35; letter-spacing: -0.015em;
@@ -1016,9 +1017,11 @@
 <!-- ================= FOUNDER ================= -->
 <section class="founder" id="founder">
   <div class="wrap founder-grid">
-    <div class="avatar reveal" aria-hidden="true">
-      <!-- abstract founder silhouette -->
-      <svg viewBox="0 0 200 220">
+    <div class="avatar reveal">
+      <img src="assets/DJ_headshot.jpg" alt="DJ Muller, Founder of 1 to 100 Advisors"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <!-- fallback: abstract founder silhouette -->
+      <svg viewBox="0 0 200 220" style="display:none;">
         <defs>
           <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="#0a84ff"/>
