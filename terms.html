@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Terms of Service — Aligned KPIs™</title>
+<meta name="description" content="Terms of Service for Aligned KPIs™, a product of 1 to 100 Advisors, Inc." />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="apple-touch-icon" href="assets/logo-app-icon-light.svg" />
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  html,body { margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+  img,svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  :root {
+    --bg: #f5f5f7; --surface: #ffffff; --ink: #1d1d1f; --ink-2: #424245; --muted: #6e6e73;
+    --line: rgba(0,0,0,0.08); --accent: #0a84ff; --accent-2: #5e5ce6; --accent-3: #ff375f;
+    --radius-md: 18px; --radius-sm: 12px;
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-text:    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+  }
+  body { font-family: var(--font-text); color: var(--ink); background: var(--bg); line-height: 1.55; letter-spacing: -0.005em; overflow-x: hidden; }
+
+  .display { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.035em; line-height: 1.05; }
+  .eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.18em; font-weight: 600; font-size: 12px; color: var(--accent); }
+  .wrap { width: min(820px, 92vw); margin-inline: auto; }
+  .wrap-wide { width: min(1180px, 92vw); margin-inline: auto; }
+
+  .nav { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); background: rgba(245,245,247,0.72); border-bottom: 1px solid var(--line); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-logo { height: 32px; width: auto; display: block; }
+  .brand-logo.footer { height: 34px; }
+  .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 13px; color: var(--ink-2); }
+  .nav ul a:hover { color: var(--ink); }
+  .nav-cta { background: var(--ink); color: #fff; padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 500; }
+  @media (max-width: 760px) { .nav ul { display: none; } }
+
+  .legal-hero { padding: clamp(56px, 9vh, 100px) 0 0; }
+  .legal-hero h1 { font-size: clamp(34px, 5vw, 56px); margin: 14px 0 10px; }
+  .legal-meta { color: var(--muted); font-size: 14px; }
+  .draft-banner { margin: 28px auto 0; width: min(820px, 92vw); background: rgba(255,55,95,0.08); border: 1px solid rgba(255,55,95,0.25); color: #9b1c39; border-radius: var(--radius-sm); padding: 14px 18px; font-size: 14px; }
+  .legal-body { padding: clamp(36px, 6vh, 64px) 0 80px; }
+  .legal-body h2 { font-family: var(--font-display); font-weight: 600; font-size: 22px; letter-spacing: -0.02em; margin: 40px 0 12px; }
+  .legal-body h2:first-child { margin-top: 0; }
+  .legal-body p, .legal-body li { color: var(--ink-2); font-size: 16px; }
+  .legal-body p { margin: 0 0 14px; }
+  .legal-body ul { margin: 0 0 14px; padding-left: 22px; }
+  .legal-body li { margin: 6px 0; }
+  .legal-body strong { color: var(--ink); font-weight: 600; }
+
+  footer { padding: 64px 0 40px; color: var(--muted); border-top: 1px solid var(--line); margin-top: 80px; font-size: 13px; }
+  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; align-items: start; }
+  @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .footer-brand .brand-logo.footer { height: 34px; margin-bottom: 16px; }
+  .footer-tag { font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: 15px; margin: 0 0 6px; }
+  .footer-sub { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .footer-col .footer-h { font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: 13px; margin-bottom: 14px; }
+  footer ul { display: flex; flex-direction: column; gap: 10px; list-style: none; margin: 0; padding: 0; font-size: 13px; }
+  footer ul a:hover { color: var(--ink); }
+  .footer-legal { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+  .footer-legal-links { display: flex; gap: 18px; }
+  .footer-legal-links a:hover { color: var(--ink); }
+  .footer-tm { flex-basis: 100%; color: var(--muted); opacity: 0.85; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap-wide nav-inner">
+    <a class="brand" href="index.html" aria-label="Aligned KPIs home">
+      <img class="brand-logo" src="assets/logo-primary-light.svg" alt="1 to 100 Advisors Inc" />
+    </a>
+    <nav>
+      <ul>
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="examples.html">Examples</a></li>
+        <li><a href="index.html#customers">Customers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="contact.html">Schedule a Demo</a>
+  </div>
+</header>
+
+<section class="legal-hero">
+  <div class="wrap">
+    <div class="eyebrow">Legal</div>
+    <h1 class="display">Terms of Service</h1>
+    <div class="legal-meta">Last updated <span id="updated"></span></div>
+  </div>
+  <div class="draft-banner">
+    <strong>Draft for review.</strong> These terms are a working draft and have not yet been reviewed by legal counsel. Please review and have them approved before relying on them.
+  </div>
+</section>
+
+<section class="legal-body">
+  <div class="wrap">
+    <p>
+      These Terms of Service ("Terms") govern your access to and use of the Aligned KPIs&trade;
+      platform and related services (the "Services") provided by <strong>1 to 100 Advisors,
+      Inc.</strong> ("1 to 100," "we," "us"). By accessing or using the Services, you agree to
+      these Terms. If you are using the Services on behalf of an organization, you agree on its
+      behalf.
+    </p>
+
+    <h2>The Services</h2>
+    <p>
+      Aligned KPIs&trade; is an executive reporting platform that connects your business systems
+      and transforms data into dashboards, KPIs, and reports. We may update, improve, or change
+      the Services over time.
+    </p>
+
+    <h2>Accounts</h2>
+    <p>
+      You are responsible for the accuracy of your account information, for maintaining the
+      confidentiality of your credentials, and for all activity under your account. Notify us
+      promptly of any unauthorized use.
+    </p>
+
+    <h2>Acceptable use</h2>
+    <ul>
+      <li>Do not use the Services for unlawful purposes or in violation of others' rights.</li>
+      <li>Do not attempt to disrupt, reverse engineer, or gain unauthorized access to the Services.</li>
+      <li>Do not upload data you do not have the right to share.</li>
+    </ul>
+
+    <h2>Your data</h2>
+    <p>
+      You retain ownership of the data you connect or provide ("Customer Data"). You grant us a
+      limited license to process Customer Data solely to provide and improve the Services for you.
+      Our handling of personal information is described in our
+      <a href="privacy.html" style="color: var(--accent);">Privacy Policy</a>. We do not sell
+      Customer Data or use it to train third-party AI models.
+    </p>
+
+    <h2>Fees</h2>
+    <p>
+      Fees, if any, will be described in a separate order form or agreement. Unless stated
+      otherwise, fees are non-refundable and exclusive of applicable taxes.
+    </p>
+
+    <h2>Intellectual property</h2>
+    <p>
+      The Services, including the Aligned KPIs&trade; and CEO Operating System&trade; brands and
+      all related software and content, are owned by 1 to 100 Advisors, Inc. and protected by
+      applicable laws. These Terms do not grant you any rights in our intellectual property except
+      the limited right to use the Services.
+    </p>
+
+    <h2>Third-party services</h2>
+    <p>
+      The Services may integrate with third-party systems. We are not responsible for those
+      services, and your use of them is governed by their own terms.
+    </p>
+
+    <h2>Disclaimers</h2>
+    <p>
+      The Services are provided "as is" and "as available." To the fullest extent permitted by
+      law, we disclaim all warranties, express or implied. The Services support decision-making
+      but do not constitute financial, legal, or professional advice.
+    </p>
+
+    <h2>Limitation of liability</h2>
+    <p>
+      To the fullest extent permitted by law, 1 to 100 Advisors, Inc. will not be liable for any
+      indirect, incidental, special, consequential, or punitive damages, or for any loss of
+      profits or data, arising out of or related to your use of the Services.
+    </p>
+
+    <h2>Termination</h2>
+    <p>
+      You may stop using the Services at any time. We may suspend or terminate access if you
+      violate these Terms or to protect the Services. Upon termination, your right to use the
+      Services ends.
+    </p>
+
+    <h2>Governing law</h2>
+    <p>
+      These Terms are governed by the laws of the State of Indiana, without regard to its conflict
+      of laws rules.
+    </p>
+
+    <h2>Changes to these Terms</h2>
+    <p>
+      We may update these Terms from time to time. We will post the updated version here and
+      revise the "last updated" date above. Continued use of the Services means you accept the
+      updated Terms.
+    </p>
+
+    <h2>Contact us</h2>
+    <p>
+      1 to 100 Advisors, Inc.<br/>
+      Email: <a href="mailto:dj@1to100advisors.com" style="color: var(--accent);">dj@1to100advisors.com</a><br/>
+      Phone: <a href="tel:+13174138304" style="color: var(--accent);">317.413.8304</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-wide footer-grid">
+    <div class="footer-brand">
+      <img class="brand-logo footer" src="assets/logo-aligned-kpis.svg" alt="Aligned KPIs" onerror="this.onerror=null; this.src='assets/logo-primary-light.svg';" />
+      <p class="footer-tag">Align Your Team. Accelerate Growth.</p>
+      <p class="footer-sub">Executive Reporting Platform for CEOs.<br/>Powered by the CEO Operating System&trade;.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-h">Explore</div>
+      <ul>
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="examples.html">Examples</a></li>
+        <li><a href="index.html#customers">Customers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-h">Contact</div>
+      <ul>
+        <li><a href="mailto:dj@1to100advisors.com">dj@1to100advisors.com</a></li>
+        <li><a href="tel:+13174138304">317.413.8304</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap-wide footer-legal">
+    <div>&copy; <span id="yr"></span> 1 to 100 Advisors, Inc. All rights reserved.</div>
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-tm">Aligned KPIs&trade; and the CEO Operating System&trade; are trademarks of 1 to 100 Advisors, Inc.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.getElementById('updated').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+</script>
+
+</body>
+</html>

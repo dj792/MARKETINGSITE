@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Privacy Policy — Aligned KPIs™</title>
+<meta name="description" content="Privacy Policy for Aligned KPIs™, a product of 1 to 100 Advisors, Inc." />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="apple-touch-icon" href="assets/logo-app-icon-light.svg" />
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  html,body { margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+  img,svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  :root {
+    --bg: #f5f5f7; --surface: #ffffff; --ink: #1d1d1f; --ink-2: #424245; --muted: #6e6e73;
+    --line: rgba(0,0,0,0.08); --accent: #0a84ff; --accent-2: #5e5ce6; --accent-3: #ff375f;
+    --radius-md: 18px; --radius-sm: 12px;
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-text:    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+  }
+  body { font-family: var(--font-text); color: var(--ink); background: var(--bg); line-height: 1.55; letter-spacing: -0.005em; overflow-x: hidden; }
+
+  .display { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.035em; line-height: 1.05; }
+  .eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.18em; font-weight: 600; font-size: 12px; color: var(--accent); }
+  .wrap { width: min(820px, 92vw); margin-inline: auto; }
+  .wrap-wide { width: min(1180px, 92vw); margin-inline: auto; }
+
+  /* Nav */
+  .nav { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); background: rgba(245,245,247,0.72); border-bottom: 1px solid var(--line); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-logo { height: 32px; width: auto; display: block; }
+  .brand-logo.footer { height: 34px; }
+  .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 13px; color: var(--ink-2); }
+  .nav ul a:hover { color: var(--ink); }
+  .nav ul a.current { color: var(--ink); font-weight: 600; }
+  .nav-cta { background: var(--ink); color: #fff; padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 500; }
+  @media (max-width: 760px) { .nav ul { display: none; } }
+
+  /* Legal content */
+  .legal-hero { padding: clamp(56px, 9vh, 100px) 0 0; }
+  .legal-hero h1 { font-size: clamp(34px, 5vw, 56px); margin: 14px 0 10px; }
+  .legal-meta { color: var(--muted); font-size: 14px; }
+  .draft-banner {
+    margin: 28px auto 0; width: min(820px, 92vw);
+    background: rgba(255,55,95,0.08); border: 1px solid rgba(255,55,95,0.25);
+    color: #9b1c39; border-radius: var(--radius-sm); padding: 14px 18px; font-size: 14px;
+  }
+  .legal-body { padding: clamp(36px, 6vh, 64px) 0 80px; }
+  .legal-body h2 { font-family: var(--font-display); font-weight: 600; font-size: 22px; letter-spacing: -0.02em; margin: 40px 0 12px; }
+  .legal-body h2:first-child { margin-top: 0; }
+  .legal-body p, .legal-body li { color: var(--ink-2); font-size: 16px; }
+  .legal-body p { margin: 0 0 14px; }
+  .legal-body ul { margin: 0 0 14px; padding-left: 22px; }
+  .legal-body li { margin: 6px 0; }
+  .legal-body strong { color: var(--ink); font-weight: 600; }
+
+  /* Footer */
+  footer { padding: 64px 0 40px; color: var(--muted); border-top: 1px solid var(--line); margin-top: 80px; font-size: 13px; }
+  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; align-items: start; }
+  @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .footer-brand .brand-logo.footer { height: 34px; margin-bottom: 16px; }
+  .footer-tag { font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: 15px; margin: 0 0 6px; }
+  .footer-sub { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .footer-col .footer-h { font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: 13px; margin-bottom: 14px; }
+  footer ul { display: flex; flex-direction: column; gap: 10px; list-style: none; margin: 0; padding: 0; font-size: 13px; }
+  footer ul a:hover { color: var(--ink); }
+  .footer-legal { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+  .footer-legal-links { display: flex; gap: 18px; }
+  .footer-legal-links a:hover { color: var(--ink); }
+  .footer-tm { flex-basis: 100%; color: var(--muted); opacity: 0.85; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap-wide nav-inner">
+    <a class="brand" href="index.html" aria-label="Aligned KPIs home">
+      <img class="brand-logo" src="assets/logo-primary-light.svg" alt="1 to 100 Advisors Inc" />
+    </a>
+    <nav>
+      <ul>
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="examples.html">Examples</a></li>
+        <li><a href="index.html#customers">Customers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="contact.html">Schedule a Demo</a>
+  </div>
+</header>
+
+<section class="legal-hero">
+  <div class="wrap">
+    <div class="eyebrow">Legal</div>
+    <h1 class="display">Privacy Policy</h1>
+    <div class="legal-meta">Last updated <span id="updated"></span></div>
+  </div>
+  <div class="draft-banner">
+    <strong>Draft for review.</strong> This policy is a working draft and has not yet been reviewed by legal counsel. Please review and have it approved before relying on it.
+  </div>
+</section>
+
+<section class="legal-body">
+  <div class="wrap">
+    <p>
+      This Privacy Policy explains how <strong>1 to 100 Advisors, Inc.</strong> ("1 to 100,"
+      "we," "us") collects, uses, and protects information in connection with the
+      Aligned KPIs&trade; platform and related services (the "Services"). By using the
+      Services, you agree to the practices described here.
+    </p>
+
+    <h2>Our core promise</h2>
+    <p>
+      Your numbers are yours. <strong>We never sell or rent your data, and we never share
+      it with, or use it to train, third-party AI models.</strong> We use your data only to
+      provide and improve the Services for you.
+    </p>
+
+    <h2>Information we collect</h2>
+    <ul>
+      <li><strong>Account information</strong> &mdash; name, email, phone, organization, and role.</li>
+      <li><strong>Connected business data</strong> &mdash; information you authorize us to access from systems you connect, such as accounting, CRM/membership, marketing, and operational platforms, used to build your dashboards and reports.</li>
+      <li><strong>Usage information</strong> &mdash; how you interact with the Services, including log data, device and browser information, and analytics.</li>
+      <li><strong>Communications</strong> &mdash; information you provide when you contact us or request a demo.</li>
+    </ul>
+
+    <h2>How we use information</h2>
+    <ul>
+      <li>To provide, operate, secure, and improve the Services.</li>
+      <li>To build and maintain your executive dashboards, KPIs, and reports.</li>
+      <li>To communicate with you about your account, support, and updates.</li>
+      <li>To comply with legal obligations and enforce our agreements.</li>
+    </ul>
+
+    <h2>How we share information</h2>
+    <p>
+      We share information only with service providers who help us operate the Services
+      (for example, hosting and infrastructure providers), under contracts that require
+      them to protect it; when required by law; or in connection with a business transfer.
+      We do not sell your data.
+    </p>
+
+    <h2>Third-party integrations</h2>
+    <p>
+      When you connect a third-party system, we access only the data needed to deliver the
+      Services and in line with the permissions you grant. Your use of those third-party
+      systems remains governed by their own terms and privacy policies.
+    </p>
+
+    <h2>Data security</h2>
+    <p>
+      We use administrative, technical, and physical safeguards designed to protect your
+      information. No method of transmission or storage is completely secure, but we work
+      to protect your data and to limit access to those who need it to deliver the Services.
+    </p>
+
+    <h2>Data retention</h2>
+    <p>
+      We retain information for as long as needed to provide the Services and for legitimate
+      business or legal purposes. You may request deletion of your data as described below.
+    </p>
+
+    <h2>Cookies and analytics</h2>
+    <p>
+      We may use cookies and similar technologies to operate the site, remember preferences,
+      and understand usage. You can control cookies through your browser settings.
+    </p>
+
+    <h2>Your choices and rights</h2>
+    <p>
+      Depending on your location, you may have rights to access, correct, export, or delete
+      your personal information, or to object to certain processing. To make a request,
+      contact us at <a href="mailto:dj@1to100advisors.com" style="color: var(--accent);">dj@1to100advisors.com</a>.
+    </p>
+
+    <h2>Children's privacy</h2>
+    <p>
+      The Services are intended for businesses and are not directed to children under 16.
+      We do not knowingly collect personal information from children.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      We may update this policy from time to time. We will post the updated version here and
+      revise the "last updated" date above.
+    </p>
+
+    <h2>Contact us</h2>
+    <p>
+      1 to 100 Advisors, Inc.<br/>
+      Email: <a href="mailto:dj@1to100advisors.com" style="color: var(--accent);">dj@1to100advisors.com</a><br/>
+      Phone: <a href="tel:+13174138304" style="color: var(--accent);">317.413.8304</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-wide footer-grid">
+    <div class="footer-brand">
+      <img class="brand-logo footer" src="assets/logo-aligned-kpis.svg" alt="Aligned KPIs" onerror="this.onerror=null; this.src='assets/logo-primary-light.svg';" />
+      <p class="footer-tag">Align Your Team. Accelerate Growth.</p>
+      <p class="footer-sub">Executive Reporting Platform for CEOs.<br/>Powered by the CEO Operating System&trade;.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-h">Explore</div>
+      <ul>
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="examples.html">Examples</a></li>
+        <li><a href="index.html#customers">Customers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-h">Contact</div>
+      <ul>
+        <li><a href="mailto:dj@1to100advisors.com">dj@1to100advisors.com</a></li>
+        <li><a href="tel:+13174138304">317.413.8304</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap-wide footer-legal">
+    <div>&copy; <span id="yr"></span> 1 to 100 Advisors, Inc. All rights reserved.</div>
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-tm">Aligned KPIs&trade; and the CEO Operating System&trade; are trademarks of 1 to 100 Advisors, Inc.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.getElementById('updated').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+</script>
+
+</body>
+</html>
