@@ -399,6 +399,22 @@
   }
   .func-foundation .fn { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--ink); }
   .func-foundation .fd { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .proc-outcomes-label {
+    text-align: center; font-family: var(--font-display); font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px;
+    color: var(--muted); margin: 18px 0 12px;
+  }
+  .proc-outcomes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  @media (max-width: 620px) { .proc-outcomes { grid-template-columns: repeat(2, 1fr); } }
+  .outcome-card {
+    border-radius: var(--radius-md); padding: 16px 12px; text-align: center;
+    font-family: var(--font-display); font-weight: 700; font-size: clamp(14px, 1.2vw, 16px);
+    color: #fff; box-shadow: var(--shadow-1);
+  }
+  .oc1 { background: linear-gradient(180deg, #43cd65, #1f9d44); }
+  .oc2 { background: linear-gradient(180deg, #2a8cff, #0a6ae0); }
+  .oc3 { background: linear-gradient(180deg, #6a68ee, #4b49c8); }
+  .oc4 { background: linear-gradient(180deg, #ff5a7a, #e62a52); }
   .proc-loop {
     display: flex; align-items: center; justify-content: center; gap: 8px;
     margin: 20px auto 0; color: var(--muted); font-size: 13px;
@@ -504,23 +520,27 @@
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wrap hero-inner">
-    <div class="eyebrow reveal">The KPI alignment process</div>
-    <h1 class="display reveal delay-1">Aligning KPIs is a continuous cadence.</h1>
+    <div class="eyebrow reveal">The Aligned Growth Framework&trade;</div>
+    <h1 class="display reveal delay-1">From Prospect to Promoter</h1>
+    <p class="lede reveal delay-2" style="max-width: 46ch; margin: 16px auto 0;">
+      A proven framework for aligning strategy, KPIs, and financial outcomes to accelerate
+      growth, improve retention, and increase profitability.
+    </p>
 
     <div class="proc-wrap reveal delay-2">
       <p class="proc-goal">
         The goal is to move members from <strong>Prospect</strong> to
-        <strong>Promoter</strong> as quickly as we can &mdash; continually evaluating how
-        we're doing on <strong>member happiness, effectiveness, and efficiency</strong>.
+        <strong>Promoter</strong> while continually improving <strong>growth, retention,
+        profitability, and member satisfaction</strong>.
       </p>
 
       <!-- Annual -->
       <div class="proc-band annual">
         <span class="tag">Annually</span>
         <p>
-          <strong>Assess revenue streams and KPI performance</strong> to identify the
-          right daily, weekly, and monthly indicators of success &mdash; all aligned with
-          growth, retention, and profitability goals.
+          <strong>Define Success.</strong> Assess member segments, revenue streams,
+          profitability, and strategic goals to identify the KPIs that drive growth,
+          retention, and financial performance.
         </p>
       </div>
 
@@ -560,14 +580,23 @@
         <div class="fd">KPIs that keep the whole engine healthy, underpinning every stage.</div>
       </div>
 
+      <div class="proc-outcomes-label">All aligned to drive</div>
+      <div class="proc-outcomes">
+        <div class="outcome-card oc1">Revenue Growth</div>
+        <div class="outcome-card oc2">Profitability</div>
+        <div class="outcome-card oc3">Retention</div>
+        <div class="outcome-card oc4">Member Satisfaction</div>
+      </div>
+
       <div class="proc-down" aria-hidden="true">&darr;</div>
 
       <!-- Weekly -->
       <div class="proc-band weekly">
         <span class="tag">Weekly</span>
         <p>
-          <strong>Review progress against the KPIs</strong> in a standing weekly meeting
-          &mdash; and adjust as necessary.
+          <strong>Execute &amp; Improve.</strong> Review KPI performance on easy-to-read
+          dashboards and scorecards to identify opportunities, and adjust priorities to keep
+          the organization aligned and moving toward its goals.
         </p>
       </div>
 
