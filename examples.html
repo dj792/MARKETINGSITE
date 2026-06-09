@@ -157,6 +157,7 @@
   /* ---------- Examples ---------- */
   .example { padding-top: 0; }
   .example + .example { padding-top: 0; }
+  .example-card + .example-card { margin-top: clamp(32px, 5vw, 72px); }
   .example-card {
     background: var(--surface);
     border-radius: var(--radius-lg);
@@ -297,36 +298,151 @@
   </div>
 </section>
 
-<!-- ================= EXAMPLE: BOARD DASHBOARD ================= -->
+<!-- ================= EXAMPLES ================= -->
 <section class="example">
   <div class="wrap">
+
+    <!-- Board Meeting Dashboard -->
     <div class="example-card reveal">
       <div class="example-head">
         <div>
           <div class="eyebrow">Board Reporting</div>
-          <h2 class="display">The Board Dashboard</h2>
+          <h2 class="display">The Board Meeting Dashboard</h2>
         </div>
         <div class="why">
           <p>
-            This dashboard is projected at the monthly board meeting, as a complement
-            to the detailed financial statements the board receives by email. It keeps
-            the conversation focused on what matters: revenue versus budget, the health
-            of the membership as a whole, and a breakdown of current membership by
-            market location.
+            Projected on the big screen at the monthly board meeting, this single view
+            puts bank balance, cash runway, and revenue versus budget alongside membership
+            by market and new-member trends.
           </p>
           <p>
-            Instead of paging through spreadsheets, the board sees the state of the
-            organization in one view &mdash; and the meeting starts from shared facts,
-            not competing versions of the numbers.
+            The QR code provides mobile access to board financials and other materials
+            right on the members' phones.
           </p>
         </div>
       </div>
       <div class="example-shot">
-        <img src="assets/example-board-dashboard.png" alt="Board dashboard showing bank balance, runway, budget versus actuals, membership by market, and new member trends"
+        <img src="assets/SampleBoardMeetingDashboard.png" alt="Board meeting dashboard showing bank balance, runway months, revenue versus budget, members by market, and new member trends"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder">Screenshot coming soon &mdash; add assets/example-board-dashboard.png</div>
+        <div class="placeholder">Screenshot coming soon &mdash; add assets/SampleBoardMeetingDashboard.png</div>
       </div>
     </div>
+
+    <!-- Membership Dashboard -->
+    <div class="example-card reveal">
+      <div class="example-head">
+        <div>
+          <div class="eyebrow">Membership Health</div>
+          <h2 class="display">The Membership Dashboard</h2>
+        </div>
+        <div class="why">
+          <p>
+            A live read on the health of the membership base: LinkedIn followers vs goal;
+            total members and membership revenue, net new memberships, paid and count
+            retention rates, and lost members YTD &mdash; with upcoming events and
+            prospecting activity in the same view.
+          </p>
+        </div>
+      </div>
+      <div class="example-shot">
+        <img src="assets/SampleMembershipDashboard.png" alt="Membership dashboard showing total members, membership revenue, retention rates, net new memberships, lost members, and upcoming events"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="placeholder">Screenshot coming soon &mdash; add assets/SampleMembershipDashboard.png</div>
+      </div>
+    </div>
+
+    <!-- Profitability Dashboard -->
+    <div class="example-card reveal">
+      <div class="example-head">
+        <div>
+          <div class="eyebrow">Profitability</div>
+          <h2 class="display">The Profitability Dashboard</h2>
+        </div>
+        <div class="why">
+          <p>
+            Derived from a deep dive into at least two years of financials and expense
+            allocations, real insights appear. This dashboard shows where the margin
+            really comes from: most and least profitable members, profitability by
+            membership tier, and profitability by location &mdash; so leadership can see
+            which relationships and segments need strategic attention.
+          </p>
+        </div>
+      </div>
+      <div class="example-shot">
+        <img src="assets/SampleProfitabilityDashboard.png" alt="Profitability dashboard showing most and least profitable members, profitability by tier, and profitability by location"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="placeholder">Screenshot coming soon &mdash; add assets/SampleProfitabilityDashboard.png</div>
+      </div>
+    </div>
+
+    <!-- Sales Pacing Dashboard -->
+    <div class="example-card reveal">
+      <div class="example-head">
+        <div>
+          <div class="eyebrow">Sales</div>
+          <h2 class="display">The Sales Pacing Dashboard</h2>
+        </div>
+        <div class="why">
+          <p>
+            Tracks the monthly membership sales in flight: sales against goal, pacing
+            forecast, current daily pace versus the pace needed to hit target, and selling
+            days remaining &mdash; so the team knows exactly where it stands before the
+            month closes.
+          </p>
+        </div>
+      </div>
+      <div class="example-shot">
+        <img src="assets/SampleSalesPacingDashboard.png" alt="Sales pacing dashboard showing sales versus goal, pacing forecast, current daily pace, daily pace needed, and selling days remaining"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="placeholder">Screenshot coming soon &mdash; add assets/SampleSalesPacingDashboard.png</div>
+      </div>
+    </div>
+
+    <!-- Lead Funnel / Marketing Dashboard -->
+    <div class="example-card reveal">
+      <div class="example-head">
+        <div>
+          <div class="eyebrow">Marketing</div>
+          <h2 class="display">The Lead Funnel Dashboard</h2>
+        </div>
+        <div class="why">
+          <p>
+            Pulls new leads straight from HubSpot, but can be pulled from any online sales
+            system. This dashboard breaks them down by day, week, month, and quarter
+            &mdash; with status across the funnel, from new and attempting to connected
+            and demo-ready, so marketing and sales work the same pipeline.
+          </p>
+        </div>
+      </div>
+      <div class="example-shot">
+        <img src="assets/SampleMarketingDashboard.png" alt="Marketing dashboard showing new leads from HubSpot by day, week, month, and quarter with funnel status breakdowns"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="placeholder">Screenshot coming soon &mdash; add assets/SampleMarketingDashboard.png</div>
+      </div>
+    </div>
+
+    <!-- Membership vs Budget Dashboard -->
+    <div class="example-card reveal">
+      <div class="example-head">
+        <div>
+          <div class="eyebrow">Budgeting</div>
+          <h2 class="display">Membership vs. Budget</h2>
+        </div>
+        <div class="why">
+          <p>
+            Compares new membership to budget by count and dollars, month by month and
+            cumulatively, with variance in dollars and percent &mdash; making it clear at
+            a glance whether growth is tracking ahead of or behind budget.
+          </p>
+        </div>
+      </div>
+      <div class="example-shot">
+        <img src="assets/SampleMembervsBudgetDashboard.png" alt="Membership versus budget dashboard showing monthly and cumulative new membership against plan with dollar and percent variance"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="placeholder">Screenshot coming soon &mdash; add assets/SampleMembervsBudgetDashboard.png</div>
+      </div>
+    </div>
+
   </div>
 </section>
 

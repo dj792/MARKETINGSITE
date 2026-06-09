@@ -341,6 +341,69 @@
     text-align: center;
   }
 
+  /* ---------- KPI alignment process ---------- */
+  .proc-wrap { max-width: 1040px; margin: clamp(40px,6vh,64px) auto 0; }
+  .proc-goal {
+    max-width: 780px; margin: 0 auto clamp(36px,5vh,52px);
+    text-align: center; font-size: clamp(18px,1.5vw,22px); color: var(--ink-2);
+  }
+  .proc-goal strong { color: var(--ink); font-weight: 600; }
+
+  .proc-band {
+    display: flex; align-items: center; gap: 16px;
+    border-radius: var(--radius-md);
+    padding: 16px 24px;
+    max-width: 860px; margin: 0 auto;
+    background: var(--surface);
+    box-shadow: var(--shadow-1);
+    border: 1px solid var(--line);
+  }
+  .proc-band .tag {
+    font-family: var(--font-display); font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px;
+    padding: 7px 13px; border-radius: 999px; white-space: nowrap; flex: 0 0 auto;
+  }
+  .proc-band.annual .tag { background: rgba(94,92,230,0.12); color: var(--accent-2); }
+  .proc-band.weekly .tag { background: rgba(10,132,255,0.12); color: var(--accent); }
+  .proc-band p { margin: 0; font-size: clamp(14px,1.1vw,16px); color: var(--ink-2); text-align: left; }
+  .proc-band p strong { color: var(--ink); font-weight: 600; }
+  @media (max-width: 620px) { .proc-band { flex-direction: column; text-align: center; } .proc-band p { text-align: center; } }
+
+  .proc-down { display: flex; justify-content: center; color: var(--muted); font-size: 24px; margin: 12px 0; }
+
+  .proc-step-label {
+    text-align: center; font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(15px,1.3vw,18px); color: var(--ink); margin-bottom: 16px;
+  }
+  .func-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; align-items: stretch; }
+  @media (max-width: 900px) { .func-flow { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .func-flow { grid-template-columns: 1fr; } }
+  .func-card {
+    border-radius: var(--radius-md); color: #fff; padding: 18px 14px 16px;
+    box-shadow: var(--shadow-1); display: flex; flex-direction: column; gap: 6px; text-align: center;
+  }
+  .func-card .fn { font-family: var(--font-display); font-weight: 700; font-size: 15px; }
+  .func-card .fd { font-size: 12.5px; line-height: 1.35; opacity: 0.92; flex: 1; }
+  .func-card .stage {
+    margin-top: 10px; align-self: center; font-size: 11px; font-weight: 600; letter-spacing: 0.03em;
+    background: rgba(255,255,255,0.22); border-radius: 999px; padding: 4px 11px;
+  }
+  .fc1 { background: linear-gradient(180deg, #97979c, #76767c); }
+  .fc2 { background: linear-gradient(180deg, #6b89ad, #52729a); }
+  .fc3 { background: linear-gradient(180deg, #3a72b8, #235ea5); }
+  .fc4 { background: linear-gradient(180deg, #2a8cff, #0a6ae0); }
+  .fc5 { background: linear-gradient(180deg, #43cd65, #28a745); }
+  .func-foundation {
+    margin-top: 10px; text-align: center; border-radius: var(--radius-md);
+    padding: 14px 18px; background: var(--surface); border: 1px dashed var(--line); box-shadow: var(--shadow-1);
+  }
+  .func-foundation .fn { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--ink); }
+  .func-foundation .fd { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .proc-loop {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin: 20px auto 0; color: var(--muted); font-size: 13px;
+  }
+
   /* ---------- Results ---------- */
   .results-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 12px 28px;
@@ -441,15 +504,80 @@
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wrap hero-inner">
-    <div class="eyebrow reveal">The Aligned Growth Framework&trade;</div>
-    <h1 class="display reveal delay-1">Align Your Team. Accelerate Growth.</h1>
-    <p class="lede reveal delay-2">
-      <strong style="font-weight: 600; color: var(--ink);">Most organizations have plenty of data.
-      What they lack is alignment.</strong><br/>
-      The Aligned Growth Framework&trade; helps CEOs connect strategy, people, KPIs,
-      and financial outcomes into a single operating model that drives measurable results.
-    </p>
-    <div class="hero-ctas reveal delay-3">
+    <div class="eyebrow reveal">The KPI alignment process</div>
+    <h1 class="display reveal delay-1">Aligning KPIs is a continuous cadence.</h1>
+
+    <div class="proc-wrap reveal delay-2">
+      <p class="proc-goal">
+        The goal is to move members from <strong>Prospect</strong> to
+        <strong>Promoter</strong> as quickly as we can &mdash; continually evaluating how
+        we're doing on <strong>member happiness, effectiveness, and efficiency</strong>.
+      </p>
+
+      <!-- Annual -->
+      <div class="proc-band annual">
+        <span class="tag">Annually</span>
+        <p>
+          <strong>Assess revenue streams and KPI performance</strong> to identify the
+          right daily, weekly, and monthly indicators of success &mdash; all aligned with
+          growth, retention, and profitability goals.
+        </p>
+      </div>
+
+      <div class="proc-down" aria-hidden="true">&darr;</div>
+
+      <!-- KPIs by function -->
+      <div class="proc-step-label">KPIs aligned by function</div>
+      <div class="func-flow">
+        <div class="func-card fc1">
+          <div class="fn">Marketing</div>
+          <div class="fd">Attract and capture the right prospects.</div>
+          <div class="stage">&rarr; Prospect</div>
+        </div>
+        <div class="func-card fc2">
+          <div class="fn">Sales</div>
+          <div class="fd">Convert prospects into members.</div>
+          <div class="stage">&rarr; New Member</div>
+        </div>
+        <div class="func-card fc3">
+          <div class="fn">Member Onboarding</div>
+          <div class="fd">Get new members active fast.</div>
+          <div class="stage">&rarr; Engaged</div>
+        </div>
+        <div class="func-card fc4">
+          <div class="fn">Member Engagement</div>
+          <div class="fd">Deepen participation and value.</div>
+          <div class="stage">&rarr; Renewing</div>
+        </div>
+        <div class="func-card fc5">
+          <div class="fn">Member Retention</div>
+          <div class="fd">Earn the renewal &mdash; and the referral.</div>
+          <div class="stage">&rarr; Promoter</div>
+        </div>
+      </div>
+      <div class="func-foundation">
+        <div class="fn">Supporting functions &mdash; HR &amp; Finance</div>
+        <div class="fd">KPIs that keep the whole engine healthy, underpinning every stage.</div>
+      </div>
+
+      <div class="proc-down" aria-hidden="true">&darr;</div>
+
+      <!-- Weekly -->
+      <div class="proc-band weekly">
+        <span class="tag">Weekly</span>
+        <p>
+          <strong>Review progress against the KPIs</strong> in a standing weekly meeting
+          &mdash; and adjust as necessary.
+        </p>
+      </div>
+
+      <div class="proc-loop">
+        <span aria-hidden="true">&#8635;</span>
+        <span>Reviewed every week, reset every year &mdash; a continuous loop.</span>
+      </div>
+    </div>
+
+    <div class="hero-ctas reveal delay-3" style="margin-top: clamp(36px,5vh,52px);">
       <a class="btn btn-primary" href="contact.html">Schedule a Demo <span class="arrow">&rarr;</span></a>
     </div>
     <p class="hero-powered reveal delay-3">Powered by Aligned KPIs&trade; and the CEO Operating System&trade;</p>
