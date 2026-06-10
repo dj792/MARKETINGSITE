@@ -384,6 +384,32 @@
   }
   .quote strong { color: var(--ink); font-weight: 600; }
 
+  /* ---------- Section: Why (human expertise) ---------- */
+  .why { text-align: center; }
+  .why-card {
+    width: min(1040px, 92vw); margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: clamp(20px, 3vw, 32px);
+    box-shadow: var(--shadow-2);
+    padding: clamp(44px, 6vw, 80px) clamp(24px, 5vw, 64px);
+    position: relative; overflow: hidden;
+  }
+  .why-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #0a84ff, #5e5ce6 55%, #34c759);
+  }
+  .why-lines { margin: 22px auto 0; display: flex; flex-direction: column; gap: 8px; max-width: 24ch; }
+  .why-line { font-family: var(--font-display); font-size: clamp(18px, 1.7vw, 23px); color: var(--muted); letter-spacing: -0.01em; }
+  .why-line.lead {
+    color: var(--ink); font-weight: 700; max-width: none;
+    font-size: clamp(24px, 3vw, 38px); line-height: 1.12; letter-spacing: -0.03em;
+    margin-top: 10px;
+  }
+  .why-lines { max-width: 46ch; }
+  .why-note { color: var(--ink-2); font-size: clamp(16px, 1.3vw, 18px); max-width: 60ch; margin: 26px auto 0; line-height: 1.6; }
+  .why-kicker { font-family: var(--font-display); font-weight: 600; color: var(--accent); margin: 22px auto 0; font-size: clamp(17px, 1.5vw, 21px); }
+
   /* ---------- Section: Pillars ---------- */
   .pillars { background: #ffffff; }
   .pillars-grid {
@@ -954,6 +980,23 @@
       whether we were ahead of plan.&rdquo;</strong>
       <div class="small" style="margin-top: 14px;">— President &amp; CEO, regional chamber of commerce</div>
     </div>
+  </div>
+</section>
+
+<!-- ================= WHY (HUMAN EXPERTISE) ================= -->
+<section class="why">
+  <div class="why-card reveal">
+    <div class="eyebrow reveal">Why Aligned KPIs&trade;</div>
+    <div class="why-lines">
+      <div class="why-line reveal delay-1">Most dashboard platforms provide data.</div>
+      <div class="why-line reveal delay-1">Most AI tools provide answers.</div>
+      <div class="why-line lead reveal delay-2">Aligned KPIs&trade; combines technology with decades of executive operating experience.</div>
+    </div>
+    <p class="why-note reveal delay-3">
+      Every KPI, dashboard, report, and recommendation is reviewed through the lens of
+      experienced CEOs who have built, scaled, and led growth organizations.
+    </p>
+    <p class="why-kicker reveal delay-3">Because leadership decisions deserve more than software.</p>
   </div>
 </section>
 
