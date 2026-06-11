@@ -484,6 +484,16 @@
     background: rgba(52,199,89,0.15);
   }
   .result-item .ck svg { width: 12px; height: 12px; stroke: var(--green); fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .results-stat { margin-top: clamp(28px, 4vh, 40px); }
+  .results-stat .n {
+    display: block; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em; line-height: 1;
+    font-size: clamp(44px, 6.5vw, 76px);
+    background: linear-gradient(135deg, #0a84ff, #34c759);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .results-stat .t { display: block; color: var(--ink-2); font-size: clamp(16px, 1.4vw, 19px); font-weight: 500; margin-top: 12px; max-width: 52ch; }
+  .results-stat .t strong { color: var(--ink); font-weight: 600; }
+  .results-stat .note { display: block; color: var(--muted); font-size: 12px; margin-top: 10px; }
 
   /* ---------- Final CTA ---------- */
   .cta-final { text-align: center; }
@@ -867,6 +877,13 @@
     <p class="lede reveal delay-2" style="margin-top: 18px;">
       Organizations implementing the Aligned Growth Framework&trade; gain:
     </p>
+
+    <div class="results-stat reveal delay-2">
+      <span class="n">10&ndash;15%+</span>
+      <span class="t"><strong>improvement in top-line results</strong> &mdash; the lift our clients
+      typically see when their teams align and act on the right KPIs.</span>
+      <span class="note">Results vary by organization.</span>
+    </div>
 
     <div class="results-grid">
       <div class="result-item reveal"><span class="ck"><svg viewBox="0 0 24 24"><polyline points="4 12.5 10 18.5 20 6.5"/></svg></span> Greater visibility into organizational performance</div>

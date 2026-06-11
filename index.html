@@ -410,6 +410,36 @@
   .why-note { color: var(--ink-2); font-size: clamp(16px, 1.3vw, 18px); max-width: 60ch; margin: 26px auto 0; line-height: 1.6; }
   .why-kicker { font-family: var(--font-display); font-weight: 600; color: var(--accent); margin: 22px auto 0; font-size: clamp(17px, 1.5vw, 21px); }
 
+  /* ---------- Result stat band ---------- */
+  .result-stat {
+    background: linear-gradient(180deg, #0b0b0d 0%, #141417 100%);
+    color: #f5f5f7; text-align: center;
+    border-radius: clamp(20px, 3vw, 36px);
+    width: min(1280px, 96vw); margin: 0 auto;
+    position: relative; overflow: hidden;
+  }
+  .result-stat::before {
+    content: ""; position: absolute; inset: -30%;
+    background:
+      radial-gradient(40% 40% at 25% 30%, rgba(10,132,255,0.30), transparent 60%),
+      radial-gradient(40% 40% at 75% 70%, rgba(52,199,89,0.22), transparent 60%),
+      radial-gradient(40% 40% at 70% 20%, rgba(94,92,230,0.22), transparent 60%);
+    filter: blur(40px); pointer-events: none;
+  }
+  .rs-inner { position: relative; padding: clamp(56px, 8vw, 100px) clamp(24px, 5vw, 64px); }
+  .result-stat .eyebrow { color: #7aa7ff; }
+  .rs-num {
+    font-family: var(--font-display); font-weight: 700; letter-spacing: -0.04em; line-height: 1;
+    font-size: clamp(64px, 12vw, 132px);
+    background: linear-gradient(135deg, #5ac8fa, #34c759);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin: 14px 0 10px;
+  }
+  .rs-label { font-family: var(--font-display); font-weight: 600; font-size: clamp(16px, 1.7vw, 22px); color: #fff; }
+  .rs-statement { color: rgba(245,245,247,0.82); font-size: clamp(16px, 1.4vw, 19px); max-width: 60ch; margin: 22px auto 0; line-height: 1.6; }
+  .rs-statement strong { color: #fff; font-weight: 600; }
+  .rs-note { color: rgba(245,245,247,0.5); font-size: 12px; margin: 18px auto 0; }
+
   /* ---------- Section: Pillars ---------- */
   .pillars { background: #ffffff; }
   .pillars-grid {
@@ -1147,6 +1177,23 @@
         <div class="name">DJ Muller</div>
         <div class="role">Founder &middot; previously founder/CEO of WebLink (acquired by Momentive Software)</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESULT STAT ================= -->
+<section style="background: transparent;">
+  <div class="result-stat reveal">
+    <div class="rs-inner">
+      <div class="eyebrow reveal">The payoff</div>
+      <div class="rs-num reveal delay-1">10&ndash;15%+</div>
+      <div class="rs-label reveal delay-1">top-line improvement our clients typically see</div>
+      <p class="rs-statement reveal delay-2">
+        When the right KPIs are visible <strong>daily</strong> and your team is aligned and
+        accountable around them, growth follows. That's the lift Aligned KPIs&trade; is built
+        to deliver.
+      </p>
+      <p class="rs-note reveal delay-3">Results vary by organization.</p>
     </div>
   </div>
 </section>
