@@ -11,81 +11,132 @@
 </script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Sign In — Executive Reporting Platform</title>
+<title>Sign In — CEO Operating System™</title>
 <meta name="description" content="Sign in to the CEO Operating System™ — the executive reporting platform powered by Aligned KPIs™." />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="apple-touch-icon" href="assets/logo-app-icon-light.svg" />
+<!-- Theme init: default dark, before first paint -->
+<script>
+  (function(){
+    try { document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark'); }
+    catch(e){ document.documentElement.setAttribute('data-theme','dark'); }
+  })();
+</script>
 <style>
   *,*::before,*::after { box-sizing: border-box; }
   html,body { margin: 0; padding: 0; height: 100%; }
   html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
   img,svg { display: block; max-width: 100%; }
   a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
 
+  /* Dark theme (default) */
   :root {
+    --bg: #0b0b0d;
+    --bg-2: #15151a;
+    --surface: #1a1a1f;
+    --ink: #f5f5f7;
+    --ink-2: #c7c7cc;
+    --muted: #8e8e93;
+    --line: rgba(255,255,255,0.10);
+    --accent: #2a8cff;
+    --input-bg: #232329;
+    --input-border: rgba(255,255,255,0.14);
+    --btn-bg: #2a8cff;
+    --btn-bg-hover: #1f7ae6;
+    --btn-ink: #ffffff;
+    --shadow: 0 2px 8px rgba(0,0,0,0.5), 0 40px 80px -30px rgba(0,0,0,0.85);
+    --glow-1: rgba(10,132,255,0.22);
+    --glow-2: rgba(94,92,230,0.20);
+    --radius-lg: 28px;
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-text:    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+  }
+  /* Light theme */
+  [data-theme="light"] {
     --bg: #f5f5f7;
+    --bg-2: #ebebef;
     --surface: #ffffff;
     --ink: #1d1d1f;
     --ink-2: #424245;
     --muted: #6e6e73;
     --line: rgba(0,0,0,0.08);
     --accent: #0a84ff;
-    --radius-lg: 28px;
-    --radius-md: 18px;
-    --shadow-2: 0 2px 6px rgba(0,0,0,0.06), 0 30px 60px -20px rgba(0,0,0,0.18);
-    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
-    --font-text:    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+    --input-bg: #fafafc;
+    --input-border: rgba(0,0,0,0.15);
+    --btn-bg: #1d1d1f;
+    --btn-bg-hover: #000000;
+    --btn-ink: #ffffff;
+    --shadow: 0 2px 6px rgba(0,0,0,0.06), 0 30px 60px -20px rgba(0,0,0,0.18);
+    --glow-1: rgba(10,132,255,0.16);
+    --glow-2: rgba(94,92,230,0.18);
   }
 
   body {
     font-family: var(--font-text);
     color: var(--ink);
-    background: var(--bg);
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
     line-height: 1.5;
     display: flex; flex-direction: column;
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
+    transition: color .3s ease, background-color .3s ease;
   }
   body::before {
     content: ""; position: absolute; inset: -10% -10% auto -10%; height: 70%;
     background:
-      radial-gradient(40% 60% at 20% 30%, rgba(10,132,255,0.16), transparent 60%),
-      radial-gradient(50% 60% at 80% 10%, rgba(94,92,230,0.18), transparent 60%);
+      radial-gradient(40% 60% at 20% 30%, var(--glow-1), transparent 60%),
+      radial-gradient(50% 60% at 80% 10%, var(--glow-2), transparent 60%);
     filter: blur(20px);
     pointer-events: none;
   }
 
-  .card-logo { display: block; margin: 2px auto 26px; }
-  .card-logo img { width: 100%; max-width: 300px; height: auto; margin: 0 auto; }
+  /* Theme toggle */
+  .theme-toggle {
+    position: fixed; top: 18px; right: 18px; z-index: 10;
+    width: 40px; height: 40px; border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink-2);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow);
+    transition: transform .2s ease, color .2s ease;
+  }
+  .theme-toggle:hover { transform: translateY(-1px); color: var(--ink); }
+  .theme-toggle svg { width: 18px; height: 18px; }
+  .theme-toggle .icon-moon { display: none; }
+  .theme-toggle .icon-sun  { display: block; }
+  [data-theme="light"] .theme-toggle .icon-moon { display: block; }
+  [data-theme="light"] .theme-toggle .icon-sun  { display: none; }
 
   main {
     position: relative; z-index: 1;
     flex: 1;
     display: flex; align-items: center; justify-content: center;
-    padding: 40px 20px;
+    padding: 56px 20px;
   }
   .card {
-    width: min(420px, 100%);
+    width: min(440px, 100%);
     background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--shadow);
     padding: clamp(32px, 5vw, 48px);
     text-align: center;
+    transition: background-color .3s ease, border-color .3s ease;
   }
-  .product-mark {
-    width: 56px; height: 56px; border-radius: 16px;
-    margin: 0 auto 18px;
-    background:
-      radial-gradient(120% 120% at 0% 0%, #7aa7ff 0%, transparent 55%),
-      radial-gradient(120% 120% at 100% 100%, #b388ff 0%, transparent 55%),
-      linear-gradient(135deg, #0a84ff, #5e5ce6 60%, #ff2d92);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4), 0 10px 24px rgba(10,132,255,0.35);
-  }
+
+  .card-logo { display: block; margin: 2px auto 26px; }
+  .card-logo img { width: 100%; max-width: 320px; height: auto; margin: 0 auto; }
+  .logo-light { display: none; }
+  [data-theme="light"] .logo-dark { display: none; }
+  [data-theme="light"] .logo-light { display: block; }
+
   h1 {
     font-family: var(--font-display);
     font-size: 24px; font-weight: 700; letter-spacing: -0.02em;
-    margin: 0 0 6px;
+    margin: 0 0 6px; color: var(--ink);
   }
   .sub { color: var(--muted); font-size: 14px; margin: 0 0 28px; }
 
@@ -95,34 +146,37 @@
     width: 100%; font: inherit;
     padding: 12px 14px;
     border-radius: 12px;
-    border: 1px solid rgba(0,0,0,0.15);
-    background: #fafafc;
+    border: 1px solid var(--input-border);
+    background: var(--input-bg);
+    color: var(--ink);
     margin-bottom: 16px;
     outline: none;
     transition: border-color .2s ease, box-shadow .2s ease;
   }
-  input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(10,132,255,0.15); }
-  button {
-    width: 100%; font: inherit; cursor: pointer;
+  input::placeholder { color: var(--muted); }
+  input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(42,140,255,0.22); }
+
+  .btn-submit {
+    width: 100%;
     padding: 13px 0;
     border: 0; border-radius: 999px;
-    background: var(--ink); color: #fff;
-    font-weight: 500; font-size: 15px;
-    transition: transform .2s ease, background .2s ease;
+    background: var(--btn-bg); color: var(--btn-ink);
+    font-weight: 600; font-size: 15px;
+    transition: transform .2s ease, background-color .2s ease;
   }
-  button:hover { background: #000; transform: translateY(-1px); }
+  .btn-submit:hover { background: var(--btn-bg-hover); transform: translateY(-1px); }
 
   .notice {
     display: none;
     margin-top: 18px;
     padding: 14px 16px;
     border-radius: 12px;
-    background: rgba(10,132,255,0.08);
+    background: rgba(42,140,255,0.12);
     color: var(--ink-2);
     font-size: 14px;
     text-align: left;
   }
-  .notice a { color: var(--accent); font-weight: 500; }
+  .notice a { color: var(--accent); font-weight: 600; }
 
   .links { margin-top: 22px; font-size: 13px; color: var(--muted); }
   .links a:hover { color: var(--ink); }
@@ -136,10 +190,21 @@
 </head>
 <body>
 
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+  </svg>
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/>
+  </svg>
+</button>
+
 <main>
   <div class="card">
     <a href="index.html" class="card-logo" aria-label="CEO Operating System — Align Your Team. Accelerate Growth.">
-      <img src="assets/executive-reporting-platform-logo.svg" alt="CEO Operating System™ — Align Your Team. Accelerate Growth." />
+      <img class="logo-dark"  src="assets/ceo-operating-system-logo-dark.svg" alt="CEO Operating System™ — Align Your Team. Accelerate Growth." />
+      <img class="logo-light" src="assets/ceo-operating-system-logo.svg"      alt="CEO Operating System™ — Align Your Team. Accelerate Growth." />
     </a>
     <h1>Sign in</h1>
     <p class="sub">Access your executive dashboard.</p>
@@ -151,7 +216,7 @@
       <label for="password">Password</label>
       <input type="password" id="password" name="password" placeholder="••••••••" required />
 
-      <button type="submit">Sign In</button>
+      <button type="submit" class="btn-submit">Sign In</button>
     </form>
 
     <div class="notice" id="notice">
@@ -172,6 +237,18 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Theme toggle
+  (function(){
+    var root = document.documentElement;
+    document.getElementById('themeToggle').addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch(e){}
+    });
+  })();
+
+  // Coming-soon notice
   document.getElementById('login-form').addEventListener('submit', function (e) {
     e.preventDefault();
     document.getElementById('notice').style.display = 'block';
