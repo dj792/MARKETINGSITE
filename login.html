@@ -412,22 +412,43 @@
     function startAmbient(){
       if (!ctx || ambient) return;
       ambient = ctx.createGain(); ambient.gain.value = 0.0; ambient.connect(master);
-      // low engine hum: two detuned sines
-      var o1 = ctx.createOscillator(); o1.type='sine'; o1.frequency.value = 52;
-      var o2 = ctx.createOscillator(); o2.type='sine'; o2.frequency.value = 52.4;
-      var lp = ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value = 320;
-      o1.connect(lp); o2.connect(lp); lp.connect(ambient);
-      // rumble noise bed
-      var n = ctx.createBufferSource(); n.buffer = noiseBuffer(2); n.loop = true;
-      var nlp = ctx.createBiquadFilter(); nlp.type='lowpass'; nlp.frequency.value = 140;
-      var ng = ctx.createGain(); ng.gain.value = 0.35;
-      n.connect(nlp); nlp.connect(ng); ng.connect(ambient);
-      // breathing LFO on ambient gain
-      var lfo = ctx.createOscillator(); lfo.frequency.value = 0.12;
-      var lfoGain = ctx.createGain(); lfoGain.gain.value = 0.018;
-      lfo.connect(lfoGain); lfoGain.connect(ambient.gain);
-      o1.start(); o2.start(); n.start(); lfo.start();
-      ambient.gain.setTargetAtTime(0.05, ctx.currentTime, 1.5);
+      var nb = noiseBuffer(3);
+
+      // Deep sub-bass body (detuned low sines) — the "weight" of the engines
+      var subG = ctx.createGain(); subG.gain.value = 0.42; subG.connect(ambient);
+      [30, 41, 57].forEach(function(f){
+        var o = ctx.createOscillator(); o.type = 'sine'; o.frequency.value = f;
+        var g = ctx.createGain(); g.gain.value = 0.5;
+        o.connect(g); g.connect(subG); o.start();
+      });
+
+      // Main rumble bed: low-passed noise (turbulence modulated below)
+      var n1 = ctx.createBufferSource(); n1.buffer = nb; n1.loop = true;
+      var lp1 = ctx.createBiquadFilter(); lp1.type = 'lowpass'; lp1.frequency.value = 170; lp1.Q.value = 0.8;
+      var ng1 = ctx.createGain(); ng1.gain.value = 0.85;
+      n1.connect(lp1); lp1.connect(ng1); ng1.connect(ambient);
+      n1.start();
+
+      // Roar texture: band-passed noise (engine hiss / churn)
+      var n2 = ctx.createBufferSource(); n2.buffer = nb; n2.loop = true;
+      var bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 230; bp.Q.value = 0.5;
+      var ng2 = ctx.createGain(); ng2.gain.value = 0.28;
+      n2.connect(bp); bp.connect(ng2); ng2.connect(ambient);
+      n2.start();
+
+      // Turbulence: layered slow LFOs churning the rumble — feels alive/building
+      [{f:0.11,a:0.30},{f:0.27,a:0.17},{f:0.63,a:0.10}].forEach(function(L){
+        var lfo = ctx.createOscillator(); lfo.type = 'sine'; lfo.frequency.value = L.f;
+        var lg = ctx.createGain(); lg.gain.value = L.a;
+        lfo.connect(lg); lg.connect(ng1.gain); lfo.start();
+      });
+      // Slow filter wobble — engines breathing on the pad
+      var flfo = ctx.createOscillator(); flfo.type = 'sine'; flfo.frequency.value = 0.07;
+      var flg = ctx.createGain(); flg.gain.value = 55;
+      flfo.connect(flg); flg.connect(lp1.frequency); flfo.start();
+
+      // Spool up the engines
+      ambient.gain.setTargetAtTime(0.13, ctx.currentTime, 2.5);
     }
     return {
       toggle: function(){
@@ -452,6 +473,12 @@
       launch: function(){
         if (!ctx || !on) return;
         var t = ctx.currentTime;
+        // engines surge, then settle
+        if (ambient){
+          ambient.gain.cancelScheduledValues(t);
+          ambient.gain.setTargetAtTime(0.30, t, 0.08);
+          ambient.gain.setTargetAtTime(0.13, t + 1.2, 0.5);
+        }
         // sub sweep
         var o = ctx.createOscillator(); o.type='sawtooth';
         var og = ctx.createGain(); og.gain.value = 0;
