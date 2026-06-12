@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 185" role="img" aria-label="Executive Reporting Platform — Chamber Edition by 1 to 100 Advisors, Inc.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 884 185" role="img" aria-label="CEO Operating System — Align Your Team. Accelerate Growth.">
   <defs>
     <linearGradient id="erp-bars" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#3f9ad6"/>
@@ -25,10 +25,11 @@
 
   <!-- Wordmark -->
   <g font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif">
-    <text x="205" y="92" font-size="52" font-weight="700" fill="#16314f">Executive</text>
-    <text x="472" y="92" font-size="52" font-weight="700" fill="#2178c4">Reporting</text>
-    <text x="752" y="92" font-size="52" font-weight="700" fill="#16314f">Platform</text>
-    <line x1="207" y1="113" x2="975" y2="113" stroke="#cdd5e0" stroke-width="2"/>
-    <text x="207" y="151" font-size="25" font-weight="500" letter-spacing="0.3" fill="#6e6e73">Chamber Edition &#8226; by 1 to 100 Advisors, Inc.</text>
+    <text x="205" y="92" font-size="52" font-weight="700" fill="#16314f">CEO</text>
+    <text x="356" y="92" font-size="52" font-weight="700" fill="#2178c4">Operating</text>
+    <text x="640" y="92" font-size="52" font-weight="700" fill="#16314f">System</text>
+    <text x="828" y="60" font-size="26" font-weight="700" fill="#2178c4">&#8482;</text>
+    <line x1="207" y1="113" x2="858" y2="113" stroke="#cdd5e0" stroke-width="2"/>
+    <text x="207" y="151" font-size="25" font-weight="500" letter-spacing="0.3" fill="#6e6e73">Align Your Team. Accelerate Growth.</text>
   </g>
 </svg>
