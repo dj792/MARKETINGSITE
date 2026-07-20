@@ -43,9 +43,13 @@
     --ink-2: #424245;
     --muted: #6e6e73;
     --line: rgba(0,0,0,0.08);
-    --accent: #0a84ff;
-    --accent-2: #5e5ce6;
-    --accent-3: #ff375f;
+    --accent: #2178c4;
+    /* Brand palette (canonical — see Brand Strategy.md → Brand Tokens) */
+    --brand-blue: #2178c4;
+    --brand-navy: #16314f;
+    --brand-green: #6fb52c;
+    --accent-2: #6fb52c;
+    --accent-3: #16314f;
     --radius-lg: 28px;
     --radius-md: 18px;
     --radius-sm: 12px;
@@ -181,15 +185,44 @@
   .hero::before {
     content: ""; position: absolute; inset: -20% -10% auto -10%; height: 90%;
     background:
-      radial-gradient(40% 60% at 20% 30%, rgba(10,132,255,0.18), transparent 60%),
-      radial-gradient(50% 60% at 80% 10%, rgba(94,92,230,0.20), transparent 60%),
-      radial-gradient(40% 50% at 70% 70%, rgba(255,55,95,0.10), transparent 60%);
+      radial-gradient(40% 60% at 20% 30%, rgba(33,120,196,0.18), transparent 60%),
+      radial-gradient(50% 60% at 80% 10%, rgba(111,181,44,0.20), transparent 60%),
+      radial-gradient(40% 50% at 70% 70%, rgba(22,49,79,0.10), transparent 60%);
     filter: blur(20px);
     pointer-events: none; z-index: 0;
   }
-  .hero-inner { position: relative; z-index: 1; text-align: center; }
-  .hero h1 { margin: 16px auto 18px; max-width: 18ch; }
-  .hero .lede { margin: 0 auto; }
+  .hero-grid {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+  }
+  .hero-text h1 { margin: 16px 0 18px; max-width: 15ch; }
+  .hero-text .lede { margin: 0; }
+  .hero-photo { display: flex; flex-direction: column; align-items: center; }
+  .hero-figure { margin: 0; width: 100%; max-width: 400px; }
+  .hero-figure .headshot-card { width: 100%; max-width: none; aspect-ratio: 4/5; }
+  .hero-cred {
+    margin-top: 18px; text-align: center; line-height: 1.2;
+  }
+  .hero-name {
+    display: block;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 19px; letter-spacing: -0.015em; color: var(--ink);
+  }
+  .hero-role {
+    display: block; margin-top: 3px;
+    font-family: var(--font-display); font-weight: 600; font-size: 12px;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: clamp(28px, 6vw, 40px); text-align: center; }
+    .hero-text h1, .hero-text .lede { margin-inline: auto; }
+    .hero-text .lede { max-width: 60ch; }
+    .hero-photo { order: -1; }
+    .hero-figure { max-width: 300px; }
+  }
 
   /* ---------- Who we serve ---------- */
   .who { background: #ffffff; }
@@ -206,6 +239,10 @@
     display: grid; grid-template-columns: 0.9fr 1.2fr; gap: 60px; align-items: start;
   }
   @media (max-width: 900px) { .founder-grid { grid-template-columns: 1fr; } }
+  .founder-copy { max-width: 760px; }
+  .founder-copy h2 { max-width: 20ch; margin: 14px 0 22px; font-size: clamp(28px, 3.6vw, 48px); }
+  .founder-copy p { color: var(--ink-2); font-size: clamp(16px, 1.15vw, 18px); max-width: 70ch; }
+  .founder-copy p + p { margin-top: 16px; }
   .headshot-card {
     width: 100%;
     max-width: 420px;
@@ -279,9 +316,9 @@
   .mission::before {
     content: ""; position: absolute; inset: -30%;
     background:
-      radial-gradient(40% 40% at 20% 30%, rgba(10,132,255,0.30), transparent 60%),
-      radial-gradient(40% 40% at 80% 70%, rgba(255,55,95,0.18), transparent 60%),
-      radial-gradient(40% 40% at 70% 20%, rgba(94,92,230,0.25), transparent 60%);
+      radial-gradient(40% 40% at 20% 30%, rgba(33,120,196,0.30), transparent 60%),
+      radial-gradient(40% 40% at 80% 70%, rgba(22,49,79,0.18), transparent 60%),
+      radial-gradient(40% 40% at 70% 20%, rgba(111,181,44,0.25), transparent 60%);
     filter: blur(40px);
     pointer-events: none;
   }
@@ -303,7 +340,7 @@
     padding: clamp(60px, 8vw, 110px) 28px;
     border-radius: clamp(20px, 3vw, 36px);
     background:
-      radial-gradient(60% 80% at 50% 0%, rgba(10,132,255,0.18), transparent 60%),
+      radial-gradient(60% 80% at 50% 0%, rgba(33,120,196,0.18), transparent 60%),
       linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
     box-shadow: var(--shadow-2);
     position: relative; overflow: hidden;
@@ -381,16 +418,30 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="wrap hero-inner">
-    <div class="eyebrow reveal">About 1 to 100 Advisors</div>
-    <h1 class="display reveal delay-1">We help chamber and association CEOs win with data.</h1>
-    <p class="lede reveal delay-2">
-      Big corporations have entire teams turning data into better decisions. Chambers,
-      associations, and the small businesses around them rarely do &mdash; and they pay
-      for it in slower growth, missed risks, and gut-feel calls that could have been
-      informed ones. We close that gap with Aligned KPIs&trade;, our Executive Reporting
-      Platform built for lean organizations of 100 employees or less.
-    </p>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow reveal">About 1 to 100 Advisors</div>
+      <h1 class="display reveal delay-1">We help chamber and association CEOs win with data.</h1>
+      <p class="lede reveal delay-2">
+        Big corporations have entire teams turning data into better decisions. Chambers,
+        associations, and the small businesses around them rarely do &mdash; and they pay
+        for it in slower growth, missed risks, and gut-feel calls that could have been
+        informed ones. We close that gap with Aligned KPIs&trade;, our Executive Visibility &amp; Intelligence Platform built for lean organizations of 100 employees or less.
+      </p>
+    </div>
+    <div class="hero-photo reveal delay-1">
+      <figure class="hero-figure">
+        <div class="headshot-card">
+          <img src="assets/DJ_headshot.jpg" alt="DJ Muller, Founder of 1 to 100 Advisors"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="placeholder" style="display:none;">Headshot not found at assets/DJ_headshot.jpg</div>
+        </div>
+        <figcaption class="hero-cred">
+          <span class="hero-name">DJ Muller</span>
+          <span class="hero-role">Founder</span>
+        </figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -408,7 +459,7 @@
         Our clients lead chambers of commerce, member-based associations, and growth-focused
         small businesses &mdash; organizations of 100 employees or less, running lean with
         limited staff, limited budget, and no data team, who want an experienced operator in
-        the room. Through Aligned KPIs&trade;, our Executive Reporting Platform, we pair AI
+        the room. Through Aligned KPIs&trade;, our Executive Visibility &amp; Intelligence Platform, we pair AI
         with decades of operating experience to give you and your team daily visibility into
         the data that matters most &mdash; so you can grow faster, manage risk smarter, and
         lead with more clarity and less friction.
@@ -419,33 +470,24 @@
 
 <!-- ================= FOUNDER ================= -->
 <section class="founder">
-  <div class="wrap founder-grid">
-    <div class="reveal">
-      <div class="headshot-card">
-        <img src="assets/DJ_headshot.jpg" alt="DJ Muller, Founder of 1 to 100 Advisors"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder" style="display:none;">Headshot not found at assets/DJ_headshot.jpg</div>
-      </div>
-    </div>
-    <div class="founder-body reveal delay-1">
-      <div class="eyebrow">Founder</div>
-      <h2 class="display">DJ Muller</h2>
-      <p>
-        DJ founded 1 to 100 Advisors to give chamber, association, and small-business CEOs
-        the same caliber of data insight that large corporations take for granted. He's spent three decades building,
-        leading, and advising technology companies &mdash; including founding
-        <strong>WebLink International</strong>, the first online membership platform for
-        associations (now part of Momentive Software, serving 3,000+ chambers and associations
-        representing over 1.5 million small businesses).
-      </p>
-      <p>
-        His entrepreneurial path started early: he founded his first tech company at 14 and
-        sold it at 17 in the Apple ed-tech space. Since then, he's served 18 years as CEO
-        of two venture-backed companies valued at over $100M, coached CEOs and senior leaders
-        across multiple industries for more than a decade, and advised venture capital and
-        private equity firms on strategy.
-      </p>
-    </div>
+  <div class="wrap founder-copy">
+    <div class="eyebrow reveal">Meet the founder</div>
+    <h2 class="display reveal delay-1">Three decades building, leading, and advising.</h2>
+    <p class="reveal delay-1">
+      DJ founded 1 to 100 Advisors to give chamber, association, and small-business CEOs
+      the same caliber of data insight that large corporations take for granted. He's spent three decades building,
+      leading, and advising technology companies &mdash; including founding
+      <strong>WebLink International</strong>, the first online membership platform for
+      associations (now part of Momentive Software, serving 3,000+ chambers and associations
+      representing over 1.5 million small businesses).
+    </p>
+    <p class="reveal delay-2">
+      His entrepreneurial path started early: he founded his first tech company at 14 and
+      sold it at 17 in the Apple ed-tech space. Since then, he's served 18 years as CEO
+      of two venture-backed companies valued at over $100M, coached CEOs and senior leaders
+      across multiple industries for more than a decade, and advised venture capital and
+      private equity firms on strategy.
+    </p>
   </div>
 </section>
 
@@ -543,7 +585,7 @@
     <div class="footer-brand">
       <img class="brand-logo footer" src="assets/logo-aligned-kpis.svg" alt="Aligned KPIs" onerror="this.onerror=null; this.src='assets/logo-primary-light.svg';" />
       <p class="footer-tag">Align Your Team. Accelerate Growth.</p>
-      <p class="footer-sub">Executive Reporting Platform for CEOs.<br/>Powered by the CEO Operating System&trade;.</p>
+      <p class="footer-sub">Executive Visibility &amp; Intelligence Platform for CEOs.<br/>Powered by the CEO Operating System&trade;.</p>
     </div>
     <div class="footer-col">
       <div class="footer-h">Explore</div>
