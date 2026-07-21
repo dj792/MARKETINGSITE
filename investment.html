@@ -11,19 +11,19 @@
 </script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Examples — Aligned KPIs™</title>
-<meta name="description" content="Sample dashboards, scorecards, and board reporting from Aligned KPIs™ — and why each one matters for CEOs and their boards." />
+<title>Investment — Aligned KPIs™</title>
+<meta name="description" content="What's included and what it costs: six board-ready executive dashboards, full data integration, and a year of live streaming and monitoring from Aligned KPIs™." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Aligned KPIs" />
-<meta property="og:title" content="Examples — Aligned KPIs™" />
-<meta property="og:description" content="Sample dashboards, scorecards, and board reporting from Aligned KPIs™ — and why each one matters for CEOs and their boards." />
-<meta property="og:url" content="https://alignedkpis.com/examples.html" />
+<meta property="og:title" content="Investment — Aligned KPIs™" />
+<meta property="og:description" content="What's included and what it costs: six board-ready executive dashboards, full data integration, and a year of live streaming and monitoring from Aligned KPIs™." />
+<meta property="og:url" content="https://alignedkpis.com/investment.html" />
 <meta property="og:image" content="https://alignedkpis.com/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Examples — Aligned KPIs™" />
-<meta name="twitter:description" content="Sample dashboards, scorecards, and board reporting from Aligned KPIs™ — and why each one matters for CEOs and their boards." />
+<meta name="twitter:title" content="Investment — Aligned KPIs™" />
+<meta name="twitter:description" content="What's included and what it costs: six board-ready executive dashboards, full data integration, and a year of live streaming and monitoring from Aligned KPIs™." />
 <meta name="twitter:image" content="https://alignedkpis.com/assets/og-image.png" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="apple-touch-icon" href="assets/logo-app-icon-light.svg" />
@@ -298,6 +298,34 @@
     .reveal { opacity: 1; transform: none; transition: none; }
     html { scroll-behavior: auto; }
   }
+
+  /* ---------- Investment page ---------- */
+  .hero-ctas { display:flex; gap:12px; justify-content:center; margin-top:28px; flex-wrap:wrap; }
+  .sec-head { text-align:center; max-width:780px; margin:0 auto; }
+  .sec-head h2 { margin:12px auto 0; max-width:18ch; }
+  .sec-head .lede { margin:14px auto 0; }
+  .dash-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,1.8vw,24px); margin-top:clamp(30px,4vw,52px); }
+  @media (max-width:900px){ .dash-grid { grid-template-columns:1fr 1fr; } }
+  @media (max-width:600px){ .dash-grid { grid-template-columns:1fr; } }
+  .dash-card { background:var(--surface); border-radius:var(--radius-md); box-shadow:var(--shadow-1); padding:clamp(24px,2.4vw,30px); }
+  .dash-ic { width:48px; height:48px; border-radius:14px; display:flex; align-items:center; justify-content:center; color:var(--accent); background:linear-gradient(160deg, rgba(33,120,196,0.14), rgba(111,181,44,0.12)); margin-bottom:16px; }
+  .dash-ic svg { width:24px; height:24px; }
+  .dash-card h3 { font-family:var(--font-display); font-weight:600; font-size:18px; letter-spacing:-0.01em; margin:0 0 8px; color:var(--ink); }
+  .dash-card p { margin:0; font-size:14.5px; line-height:1.5; color:var(--ink-2); }
+  .pricing { padding-top: clamp(20px, 4vh, 56px); }
+  .price-card { background:var(--surface); border-radius:var(--radius-lg); box-shadow:var(--shadow-2); max-width:680px; margin:clamp(28px,4vw,44px) auto 0; padding:clamp(32px,5vw,56px); }
+  .price-lines { list-style:none; margin:0; padding:0; }
+  .price-lines li { display:flex; align-items:baseline; gap:20px; padding:22px 0; border-bottom:1px solid var(--line); }
+  .price-lines li:first-child { padding-top:0; }
+  @media (max-width:520px){ .price-lines li { flex-direction:column; gap:6px; } }
+  .pl-left { display:flex; align-items:baseline; gap:10px; min-width:160px; }
+  .pl-amt { font-family:var(--font-display); font-weight:700; font-size:clamp(28px,3.2vw,38px); letter-spacing:-0.03em; color:var(--ink); }
+  .pl-tag { font-size:12px; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted); }
+  .pl-desc { font-size:clamp(15px,1.2vw,17px); color:var(--ink-2); }
+  .price-total { display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:24px 0 2px; }
+  .price-total .ptl { font-family:var(--font-display); font-weight:600; color:var(--ink); font-size:17px; }
+  .pt-amt { font-family:var(--font-display); font-weight:700; font-size:clamp(30px,3.6vw,44px); letter-spacing:-0.03em; color:var(--ink); }
+  .price-note { font-size:14px; color:var(--muted); line-height:1.55; margin:18px 0 26px; }
 </style>
 </head>
 <body>
@@ -311,7 +339,7 @@
     <nav>
       <ul>
         <li><a href="framework.html">Framework</a></li>
-        <li><a href="examples.html" class="current">Examples</a></li>
+        <li><a href="examples.html">Examples</a></li>
         <li><a href="index.html#customers">Customers</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -324,206 +352,113 @@
   </div>
 </header>
 
+
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wrap hero-inner">
-    <div class="eyebrow reveal">Aligned KPIs&trade;</div>
-    <h1 class="display reveal delay-1">Finally, data you can trust.</h1>
+    <div class="eyebrow reveal">Investment</div>
+    <h1 class="display reveal delay-1">Clarity that pays for itself.</h1>
     <p class="lede reveal delay-2">
-      Whether it's a dashboard, a scorecard, or the mobile app, every number is
-      accurately sourced and aligned with your financial and strategic operating
-      plans before it ever renders.
+      A complete executive reporting system &mdash; six board-ready dashboards, fully
+      integrated with the systems you already use, plus a year of live streaming and
+      connectivity monitoring. One simple, transparent investment.
     </p>
-    <p class="lede reveal delay-2">
-      And <strong style="font-weight: 600; color: var(--ink);">before we leverage AI for
-      insights, we make sure AI is trained on the right data.</strong> This is where decades
-      of experience &mdash; working alongside financial experts in the venture capital world
-      &mdash; come to light.
-    </p>
-    <p class="lede reveal delay-2">
-      <strong style="font-weight: 600; color: var(--ink);">Today, anyone can generate a dashboard
-      with AI in minutes.</strong> But the chart was never the hard part&mdash;it's connecting
-      trusted data, choosing the KPIs that actually matter, and aligning your team around them.
-    </p>
-    <p class="lede reveal delay-3" style="margin-top: 4px;">
-      You don't need another dashboard. You need one you can trust.
-    </p>
+    <div class="hero-ctas reveal delay-3">
+      <a class="btn btn-primary" href="contact.html">Book a 15-Minute Call <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-ghost" href="examples.html">See examples</a>
+    </div>
   </div>
 </section>
 
-<!-- ================= LEAD-IN ================= -->
-<section class="lead-in">
-  <div class="wrap lead-in-inner">
-    <div class="eyebrow reveal">See it in action</div>
-    <h2 class="display reveal delay-1">Real visibility, built on data that's already aligned.</h2>
-    <p class="lede reveal delay-2" style="margin: 18px auto 0;">
-      Every example below is built with the Aligned KPIs&trade; Method. These are
-      illustrations, not templates &mdash; each implementation is tailored to the
-      organization's goals, data, and operating plan.
-    </p>
-  </div>
-</section>
-
-<!-- ================= EXAMPLES ================= -->
-<section class="example">
+<!-- ================= DASHBOARDS INCLUDE ================= -->
+<section class="dashboards">
   <div class="wrap">
-
-    <!-- Board Meeting Dashboard -->
-    <div class="example-card reveal">
-      <div class="example-head">
-        <div>
-          <div class="eyebrow">Board Reporting</div>
-          <h2 class="display">The Board Meeting Dashboard</h2>
-        </div>
-        <div class="why">
-          <p>
-            Projected on the big screen at the monthly board meeting, this single view
-            puts bank balance, cash runway, and revenue versus budget alongside membership
-            by market and new-member trends.
-          </p>
-          <p>
-            The QR code provides mobile access to board financials and other materials
-            right on the members' phones.
-          </p>
-        </div>
-      </div>
-      <div class="example-shot">
-        <img src="assets/SampleBoardMeetingDashboard.png" alt="Board meeting dashboard showing bank balance, runway months, revenue versus budget, members by market, and new member trends"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder">Screenshot coming soon &mdash; add assets/SampleBoardMeetingDashboard.png</div>
-      </div>
+    <div class="sec-head">
+      <div class="eyebrow reveal">What&rsquo;s included</div>
+      <h2 class="display reveal delay-1">Dashboards include</h2>
+      <p class="lede reveal delay-2">
+        Six executive dashboards, each built on trusted, aligned data &mdash; ready for
+        your screen and your boardroom.
+      </p>
     </div>
-
-    <!-- Membership Dashboard -->
-    <div class="example-card reveal">
-      <div class="example-head">
-        <div>
-          <div class="eyebrow">Membership Health</div>
-          <h2 class="display">The Membership Dashboard</h2>
-        </div>
-        <div class="why">
-          <p>
-            A live read on the health of the membership base: LinkedIn followers vs goal;
-            total members and membership revenue, net new memberships, paid and count
-            retention rates, and lost members YTD &mdash; with upcoming events and
-            prospecting activity in the same view.
-          </p>
-        </div>
-      </div>
-      <div class="example-shot">
-        <img src="assets/SampleMembershipDashboard.png" alt="Membership dashboard showing total members, membership revenue, retention rates, net new memberships, lost members, and upcoming events"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder">Screenshot coming soon &mdash; add assets/SampleMembershipDashboard.png</div>
-      </div>
+    <div class="dash-grid">
+      <article class="dash-card reveal">
+        <div class="dash-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M12 3v9"/></svg></div>
+        <h3>Member Marketshare</h3>
+        <p>Segmentation by geography, status, and level &mdash; in count, dollars, and marketshare.</p>
+      </article>
+      <article class="dash-card reveal delay-1">
+        <div class="dash-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v4h-4"/></svg></div>
+        <h3>Retention</h3>
+        <p>Member retention segmented in both count and dollars, so you see who stays and what it&rsquo;s worth.</p>
+      </article>
+      <article class="dash-card reveal delay-2">
+        <div class="dash-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div>
+        <h3>Member Engagement</h3>
+        <p>Visibility into member programs and participation, including events and activities.</p>
+      </article>
+      <article class="dash-card reveal">
+        <div class="dash-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M14.5 9.2c0-1.1-1.1-1.7-2.5-1.7s-2.5.6-2.5 1.7c0 2.5 5 1.3 5 3.8 0 1.1-1.1 1.8-2.5 1.8s-2.5-.7-2.5-1.8"/></svg></div>
+        <h3>Financial Daily Dashboard</h3>
+        <p>Daily deposits, cash runway, and accounts receivable &mdash; the numbers that move every day.</p>
+      </article>
+      <article class="dash-card reveal delay-1">
+        <div class="dash-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18M4 4v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4M12 15v4M9 21h6"/></svg></div>
+        <h3>Board Overview</h3>
+        <p>A member and P&amp;L summary built for board meetings &mdash; the full picture on one screen.</p>
+      </article>
+      <article class="dash-card reveal delay-2">
+        <div class="dash-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 7h4v4"/></svg></div>
+        <h3>Member Profitability</h3>
+        <p>Visibility into expenses by member segment and level, so you know where margin really comes from.</p>
+      </article>
     </div>
+  </div>
+</section>
 
-    <!-- Profitability Dashboard -->
-    <div class="example-card reveal">
-      <div class="example-head">
-        <div>
-          <div class="eyebrow">Profitability</div>
-          <h2 class="display">The Profitability Dashboard</h2>
-        </div>
-        <div class="why">
-          <p>
-            Derived from a deep dive into at least two years of financials and expense
-            allocations, real insights appear. This dashboard shows where the margin
-            really comes from: most and least profitable members, profitability by
-            membership tier, and profitability by location &mdash; so leadership can see
-            which relationships and segments need strategic attention.
-          </p>
-        </div>
-      </div>
-      <div class="example-shot">
-        <img src="assets/SampleProfitabilityDashboard.png" alt="Profitability dashboard showing most and least profitable members, profitability by tier, and profitability by location"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder">Screenshot coming soon &mdash; add assets/SampleProfitabilityDashboard.png</div>
-      </div>
+<!-- ================= INVESTMENT / PRICING ================= -->
+<section class="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow reveal">Investment</div>
+      <h2 class="display reveal delay-1">Simple, transparent pricing.</h2>
     </div>
-
-    <!-- Sales Pacing Dashboard -->
-    <div class="example-card reveal">
-      <div class="example-head">
-        <div>
-          <div class="eyebrow">Sales</div>
-          <h2 class="display">The Sales Pacing Dashboard</h2>
-        </div>
-        <div class="why">
-          <p>
-            Tracks the monthly membership sales in flight: sales against goal, pacing
-            forecast, current daily pace versus the pace needed to hit target, and selling
-            days remaining &mdash; so the team knows exactly where it stands before the
-            month closes.
-          </p>
-        </div>
+    <div class="price-card reveal delay-2">
+      <ul class="price-lines">
+        <li>
+          <div class="pl-left"><span class="pl-amt">$1,500</span><span class="pl-tag">One-time</span></div>
+          <div class="pl-desc">Data and system integration</div>
+        </li>
+        <li>
+          <div class="pl-left"><span class="pl-amt">$3,000</span></div>
+          <div class="pl-desc">Dashboard creation and 1 year live streaming</div>
+        </li>
+      </ul>
+      <div class="price-total">
+        <span class="ptl">Total to get started</span>
+        <span class="pt-amt">$4,500</span>
       </div>
-      <div class="example-shot">
-        <img src="assets/SampleSalesPacingDashboard.png" alt="Sales pacing dashboard showing sales versus goal, pacing forecast, current daily pace, daily pace needed, and selling days remaining"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder">Screenshot coming soon &mdash; add assets/SampleSalesPacingDashboard.png</div>
-      </div>
+      <p class="price-note">
+        Support services include one year of live dashboards and connectivity monitoring.
+        Additional custom dashboards are available for separate investment.
+      </p>
+      <a class="btn btn-primary" href="contact.html">Get started <span class="arrow">&rarr;</span></a>
     </div>
-
-    <!-- Lead Funnel / Marketing Dashboard -->
-    <div class="example-card reveal">
-      <div class="example-head">
-        <div>
-          <div class="eyebrow">Marketing</div>
-          <h2 class="display">The Lead Funnel Dashboard</h2>
-        </div>
-        <div class="why">
-          <p>
-            Pulls new leads from your CRM or membership system &mdash; HubSpot in this
-            example &mdash; and breaks them down by day, week, month, and quarter, with
-            status across the funnel from new and attempting to connected and demo-ready,
-            so marketing and sales work the same pipeline.
-          </p>
-        </div>
-      </div>
-      <div class="example-shot">
-        <img src="assets/SampleMarketingDashboard.png" alt="Marketing dashboard showing new leads from HubSpot by day, week, month, and quarter with funnel status breakdowns"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder">Screenshot coming soon &mdash; add assets/SampleMarketingDashboard.png</div>
-      </div>
-    </div>
-
-    <!-- Membership vs Budget Dashboard -->
-    <div class="example-card reveal">
-      <div class="example-head">
-        <div>
-          <div class="eyebrow">Budgeting</div>
-          <h2 class="display">Membership vs. Budget</h2>
-        </div>
-        <div class="why">
-          <p>
-            Compares new membership to budget by count and dollars, month by month and
-            cumulatively, with variance in dollars and percent &mdash; making it clear at
-            a glance whether growth is tracking ahead of or behind budget.
-          </p>
-        </div>
-      </div>
-      <div class="example-shot">
-        <img src="assets/SampleMembervsBudgetDashboard.png" alt="Membership versus budget dashboard showing monthly and cumulative new membership against plan with dollar and percent variance"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder">Screenshot coming soon &mdash; add assets/SampleMembervsBudgetDashboard.png</div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- ================= FINAL CTA ================= -->
 <section class="cta-final">
   <div class="cta-card">
-    <div class="eyebrow reveal">See yours</div>
-    <h2 class="display reveal delay-1">Imagine this view of your organization.</h2>
+    <div class="eyebrow reveal">Get started</div>
+    <h2 class="display reveal delay-1">Ready to see your numbers, aligned?</h2>
     <p class="lede reveal delay-2">
-      In a 15-minute call, we'll walk through these examples and show you what
-      your first dashboards would look like &mdash; live, in days, not months.
+      In a 15-minute call, we&rsquo;ll walk through these dashboards and show you what
+      your first live view would look like &mdash; in days, not months.
     </p>
     <div class="cta-ctas reveal delay-3">
       <a class="btn btn-primary" href="contact.html">Book a 15-Minute Call <span class="arrow">&rarr;</span></a>
-      <a class="btn btn-ghost" href="index.html#process">See how it works</a>
+      <a class="btn btn-ghost" href="examples.html">See examples</a>
     </div>
   </div>
 </section>

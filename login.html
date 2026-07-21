@@ -12,7 +12,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Sign In — CEO Operating System™</title>
-<meta name="description" content="Sign in to the CEO Operating System™ — the executive reporting platform powered by Aligned KPIs™." />
+<meta name="description" content="Sign in to the CEO Operating System™ — the Executive Visibility &amp; Intelligence Platform powered by Aligned KPIs™." />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="apple-touch-icon" href="assets/logo-app-icon-light.svg" />
 <!-- Theme init: default dark, before first paint -->
@@ -39,15 +39,19 @@
     --ink-2: #c7c7cc;
     --muted: #8e8e93;
     --line: rgba(255,255,255,0.12);
-    --accent: #2a8cff;
-    --accent-2: #5e5ce6;
+    --accent: #2178c4;
+    /* Brand palette (canonical — see Brand Strategy.md → Brand Tokens) */
+    --brand-blue: #2178c4;
+    --brand-navy: #16314f;
+    --brand-green: #6fb52c;
+    --accent-2: #6fb52c;
     --input-bg: rgba(255,255,255,0.05);
     --input-border: rgba(255,255,255,0.16);
-    --btn-bg: linear-gradient(135deg, #2a8cff, #5e5ce6);
+    --btn-bg: linear-gradient(135deg, #2178c4, #6fb52c);
     --btn-ink: #ffffff;
     --shadow: 0 2px 8px rgba(0,0,0,0.5), 0 40px 90px -30px rgba(0,0,0,0.9);
-    --glow-1: rgba(10,132,255,0.30);
-    --glow-2: rgba(94,92,230,0.26);
+    --glow-1: rgba(33,120,196,0.30);
+    --glow-2: rgba(111,181,44,0.26);
     --star: 255,255,255;
     --card-blur: 16px;
     --radius-lg: 28px;
@@ -64,15 +68,15 @@
     --ink-2: #424245;
     --muted: #6e6e73;
     --line: rgba(0,0,0,0.08);
-    --accent: #0a84ff;
-    --accent-2: #5e5ce6;
+    --accent: #2178c4;
+    --accent-2: #6fb52c;
     --input-bg: #fafafc;
     --input-border: rgba(0,0,0,0.15);
-    --btn-bg: linear-gradient(135deg, #0a84ff, #5e5ce6);
+    --btn-bg: linear-gradient(135deg, #2178c4, #6fb52c);
     --btn-ink: #ffffff;
     --shadow: 0 2px 6px rgba(0,0,0,0.06), 0 30px 60px -20px rgba(0,0,0,0.18);
-    --glow-1: rgba(10,132,255,0.16);
-    --glow-2: rgba(94,92,230,0.18);
+    --glow-1: rgba(33,120,196,0.16);
+    --glow-2: rgba(111,181,44,0.18);
     --star: 40,70,120;
     --card-blur: 10px;
   }
@@ -162,7 +166,7 @@
   .card::before {
     content: ""; position: absolute; inset: -1px; border-radius: var(--radius-lg);
     padding: 1px;
-    background: linear-gradient(135deg, rgba(42,140,255,0.5), rgba(94,92,230,0.0) 40%, rgba(94,92,230,0.5));
+    background: linear-gradient(135deg, rgba(42,140,255,0.5), rgba(111,181,44,0.0) 40%, rgba(111,181,44,0.5));
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor; mask-composite: exclude;
     opacity: .5; animation: ringPulse 5s ease-in-out infinite;
