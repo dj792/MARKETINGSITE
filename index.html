@@ -208,7 +208,8 @@
     align-items: center;
   }
   .hero-text { text-align: left; }
-  .hero-text h1 { margin: 16px 0 18px; max-width: 15ch; }
+  .hero-text h1 { margin: 16px 0 18px; max-width: none; font-size: clamp(34px, 4.2vw, 54px); line-height: 1.05; }
+  .hero-text h1 span { display: block; }
   .hero-text .lede { margin: 0; max-width: 46ch; }
   .hero-anchor {
     margin: 22px 0 0; padding-top: 20px;
@@ -234,6 +235,7 @@
   .hero-visual-col { position: relative; z-index: 1; }
   /* Frame CSS-crops the navy sides so the phone fills the column */
   .hero-visual-frame {
+    position: relative;
     width: 100%;
     aspect-ratio: 4 / 5;
     border-radius: var(--radius-lg);
@@ -243,6 +245,14 @@
       0 60px 120px -30px rgba(0,0,0,0.34),
       0 30px 60px -30px rgba(22,49,79,0.30);
     transition: transform .6s ease, box-shadow .6s ease;
+  }
+  /* Soft bottom fade so the frame edge reads as the device receding, not a sliced label */
+  .hero-visual-frame::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 15%;
+    background: linear-gradient(to bottom, rgba(9,20,36,0) 0%, rgba(9,20,36,0.5) 55%, rgba(9,20,36,0.92) 100%);
+    pointer-events: none;
   }
   .hero-visual-frame:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 70px 140px -30px rgba(0,0,0,0.40), 0 34px 68px -30px rgba(22,49,79,0.34); }
   .hero-visual {
@@ -918,7 +928,7 @@
   <div class="wrap hero-grid">
     <div class="hero-text">
       <div class="eyebrow reveal">Built by experienced CEOs. Enhanced by AI.</div>
-      <h1 class="display reveal delay-1">Align Your Team. Accelerate Growth.</h1>
+      <h1 class="display reveal delay-1"><span>Align Your Team.</span> <span>Accelerate Growth.</span></h1>
       <p class="lede reveal delay-2">
         <strong style="font-weight: 600; color: var(--ink);">Aligned KPIs&trade; gives CEOs the executive visibility they need to grow confidently.</strong><br/>
         Designed for better decisions.
