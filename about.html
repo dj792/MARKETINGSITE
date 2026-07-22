@@ -12,18 +12,18 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>About — 1 to 100 Advisors</title>
-<meta name="description" content="1 to 100 Advisors helps chamber, association, and small-business CEOs win with data. Founded by DJ Muller — three decades building, leading, and advising membership and technology organizations." />
+<meta name="description" content="1 to 100 Advisors helps chamber, association, and small-business CEOs make better decisions. Founded by DJ Muller — three decades building, leading, and advising membership and technology organizations." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Aligned KPIs" />
 <meta property="og:title" content="About — 1 to 100 Advisors" />
-<meta property="og:description" content="1 to 100 Advisors helps chamber, association, and small-business CEOs win with data. Founded by DJ Muller — three decades building, leading, and advising membership and technology organizations." />
+<meta property="og:description" content="1 to 100 Advisors helps chamber, association, and small-business CEOs make better decisions. Founded by DJ Muller — three decades building, leading, and advising membership and technology organizations." />
 <meta property="og:url" content="https://alignedkpis.com/about.html" />
 <meta property="og:image" content="https://alignedkpis.com/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="About — 1 to 100 Advisors" />
-<meta name="twitter:description" content="1 to 100 Advisors helps chamber, association, and small-business CEOs win with data. Founded by DJ Muller — three decades building, leading, and advising membership and technology organizations." />
+<meta name="twitter:description" content="1 to 100 Advisors helps chamber, association, and small-business CEOs make better decisions. Founded by DJ Muller — three decades building, leading, and advising membership and technology organizations." />
 <meta name="twitter:image" content="https://alignedkpis.com/assets/og-image.png" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="apple-touch-icon" href="assets/logo-app-icon-light.svg" />
@@ -43,9 +43,13 @@
     --ink-2: #424245;
     --muted: #6e6e73;
     --line: rgba(0,0,0,0.08);
-    --accent: #0a84ff;
-    --accent-2: #5e5ce6;
-    --accent-3: #ff375f;
+    --accent: #2178c4;
+    /* Brand palette (canonical — see Brand Strategy.md → Brand Tokens) */
+    --brand-blue: #2178c4;
+    --brand-navy: #16314f;
+    --brand-green: #6fb52c;
+    --accent-2: #6fb52c;
+    --accent-3: #16314f;
     --radius-lg: 28px;
     --radius-md: 18px;
     --radius-sm: 12px;
@@ -181,15 +185,44 @@
   .hero::before {
     content: ""; position: absolute; inset: -20% -10% auto -10%; height: 90%;
     background:
-      radial-gradient(40% 60% at 20% 30%, rgba(10,132,255,0.18), transparent 60%),
-      radial-gradient(50% 60% at 80% 10%, rgba(94,92,230,0.20), transparent 60%),
-      radial-gradient(40% 50% at 70% 70%, rgba(255,55,95,0.10), transparent 60%);
+      radial-gradient(40% 60% at 20% 30%, rgba(33,120,196,0.18), transparent 60%),
+      radial-gradient(50% 60% at 80% 10%, rgba(111,181,44,0.20), transparent 60%),
+      radial-gradient(40% 50% at 70% 70%, rgba(22,49,79,0.10), transparent 60%);
     filter: blur(20px);
     pointer-events: none; z-index: 0;
   }
-  .hero-inner { position: relative; z-index: 1; text-align: center; }
-  .hero h1 { margin: 16px auto 18px; max-width: 18ch; }
-  .hero .lede { margin: 0 auto; }
+  .hero-grid {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+  }
+  .hero-text h1 { margin: 16px 0 18px; max-width: 15ch; }
+  .hero-text .lede { margin: 0; }
+  .hero-photo { display: flex; flex-direction: column; align-items: center; }
+  .hero-figure { margin: 0; width: 100%; max-width: 400px; }
+  .hero-figure .headshot-card { width: 100%; max-width: none; aspect-ratio: 4/5; }
+  .hero-cred {
+    margin-top: 18px; text-align: center; line-height: 1.2;
+  }
+  .hero-name {
+    display: block;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 19px; letter-spacing: -0.015em; color: var(--ink);
+  }
+  .hero-role {
+    display: block; margin-top: 3px;
+    font-family: var(--font-display); font-weight: 600; font-size: 12px;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: clamp(28px, 6vw, 40px); text-align: center; }
+    .hero-text h1, .hero-text .lede { margin-inline: auto; }
+    .hero-text .lede { max-width: 60ch; }
+    .hero-photo { order: -1; }
+    .hero-figure { max-width: 300px; }
+  }
 
   /* ---------- Who we serve ---------- */
   .who { background: #ffffff; }
@@ -206,6 +239,10 @@
     display: grid; grid-template-columns: 0.9fr 1.2fr; gap: 60px; align-items: start;
   }
   @media (max-width: 900px) { .founder-grid { grid-template-columns: 1fr; } }
+  .founder-copy { max-width: 760px; }
+  .founder-copy h2 { max-width: 20ch; margin: 14px 0 22px; font-size: clamp(28px, 3.6vw, 48px); }
+  .founder-copy p { color: var(--ink-2); font-size: clamp(16px, 1.15vw, 18px); max-width: 70ch; }
+  .founder-copy p + p { margin-top: 16px; }
   .headshot-card {
     width: 100%;
     max-width: 420px;
@@ -279,9 +316,9 @@
   .mission::before {
     content: ""; position: absolute; inset: -30%;
     background:
-      radial-gradient(40% 40% at 20% 30%, rgba(10,132,255,0.30), transparent 60%),
-      radial-gradient(40% 40% at 80% 70%, rgba(255,55,95,0.18), transparent 60%),
-      radial-gradient(40% 40% at 70% 20%, rgba(94,92,230,0.25), transparent 60%);
+      radial-gradient(40% 40% at 20% 30%, rgba(33,120,196,0.30), transparent 60%),
+      radial-gradient(40% 40% at 80% 70%, rgba(22,49,79,0.18), transparent 60%),
+      radial-gradient(40% 40% at 70% 20%, rgba(111,181,44,0.25), transparent 60%);
     filter: blur(40px);
     pointer-events: none;
   }
@@ -303,7 +340,7 @@
     padding: clamp(60px, 8vw, 110px) 28px;
     border-radius: clamp(20px, 3vw, 36px);
     background:
-      radial-gradient(60% 80% at 50% 0%, rgba(10,132,255,0.18), transparent 60%),
+      radial-gradient(60% 80% at 50% 0%, rgba(33,120,196,0.18), transparent 60%),
       linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
     box-shadow: var(--shadow-2);
     position: relative; overflow: hidden;
@@ -353,6 +390,127 @@
     .reveal { opacity: 1; transform: none; transition: none; }
     html { scroll-behavior: auto; }
   }
+
+  /* ---------- Hero anchor line ---------- */
+  .hero-anchor {
+    margin: 26px 0 0; padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(19px, 1.8vw, 24px); letter-spacing: -0.02em;
+    line-height: 1.3; color: var(--ink); max-width: 26ch;
+  }
+  .hero-anchor .em { color: var(--accent); }
+  @media (max-width: 900px) { .hero-anchor { margin-inline: auto; } }
+
+  /* ---------- Belief / philosophy (navy) ---------- */
+  .believe {
+    background: linear-gradient(180deg, #16314f 0%, #0f2338 100%);
+    color: #eaf1f8;
+    border-radius: clamp(20px, 3vw, 36px);
+    margin: 0 auto; width: min(1280px, 96vw);
+    overflow: hidden; position: relative;
+  }
+  .believe::before {
+    content: ""; position: absolute; inset: -30%;
+    background:
+      radial-gradient(40% 40% at 15% 25%, rgba(33,120,196,0.30), transparent 60%),
+      radial-gradient(40% 40% at 85% 75%, rgba(111,181,44,0.20), transparent 60%);
+    filter: blur(40px); pointer-events: none;
+  }
+  .believe-inner { position: relative; padding: clamp(56px, 7vw, 100px) clamp(28px, 5vw, 80px); }
+  .believe .eyebrow { color: #7aa7ff; }
+  .believe h2 { color: #fff; max-width: 22ch; margin: 16px 0 34px; font-size: clamp(30px, 4vw, 54px); }
+  .beliefs { display: grid; gap: 20px; max-width: 780px; }
+  .belief {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: clamp(19px, 1.7vw, 26px); line-height: 1.32; letter-spacing: -0.015em;
+    color: rgba(234,241,248,0.72); margin: 0;
+  }
+  .belief .aff { color: var(--brand-green); }
+  .believe .kicker {
+    margin: 34px 0 0; padding-top: 26px; border-top: 1px solid rgba(255,255,255,0.14);
+    font-size: clamp(17px, 1.3vw, 20px); color: rgba(234,241,248,0.85); max-width: 62ch; line-height: 1.5;
+  }
+  .believe .q { color: #fff; font-style: italic; }
+  .believe .belief-note { margin: 26px 0 0; max-width: 64ch; font-size: clamp(17px, 1.3vw, 20px); line-height: 1.5; color: rgba(234,241,248,0.85); }
+  .believe .belief-note .aff { color: var(--brand-green); }
+
+  /* ---------- Credibility ---------- */
+  .cred { background: #ffffff; }
+  .cred h2 { margin: 14px 0 12px; font-size: clamp(28px, 3.6vw, 48px); max-width: 20ch; }
+  .cred-lede { color: var(--ink-2); max-width: 58ch; margin: 0 0 42px; font-size: clamp(16px,1.15vw,18px); }
+  .cred-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: clamp(28px, 5vw, 60px); align-items: start; }
+  @media (max-width: 900px){ .cred-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .weblink-card {
+    padding: 30px 30px 28px; border-radius: var(--radius-md);
+    background: linear-gradient(160deg, #16314f 0%, #1d4a74 100%);
+    color: #eaf1f8; box-shadow: var(--shadow-2); position: relative; overflow: hidden;
+  }
+  .weblink-card .cat { color: #7aa7ff; font-family: var(--font-display); font-weight:600; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; }
+  .weblink-card h3 { color:#fff; font-family: var(--font-display); font-weight:600; font-size: clamp(20px,2vw,26px); letter-spacing:-0.02em; margin: 12px 0 12px; line-height:1.15; }
+  .weblink-card p { color: rgba(234,241,248,0.86); font-size: 15px; margin: 0; line-height:1.5; }
+  .weblink-stat { display:flex; gap: 28px; margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.14); flex-wrap: wrap; }
+  .weblink-stat .n { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px,2.4vw,30px); color:#fff; letter-spacing:-0.02em; line-height:1; }
+  .weblink-stat .l { font-size: 12px; color: rgba(234,241,248,0.7); margin-top: 6px; max-width: 16ch; }
+  .check-list { list-style: none; margin: 0; padding: 0; }
+  .check-list li {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 15px 0; border-top: 1px solid var(--line);
+    color: var(--ink-2); font-size: clamp(15px, 1.1vw, 17px); line-height: 1.4;
+  }
+  .check-list li:first-child { border-top: 0; padding-top: 0; }
+  .check-list strong { color: var(--ink); font-weight: 600; }
+  .ck {
+    flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%;
+    background: rgba(111,181,44,0.15); color: var(--brand-green);
+    display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;
+  }
+
+  /* ---------- Trust logo strip ---------- */
+  .trust { text-align: center; }
+  .trust p { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0 0 24px; }
+  .trust-row { display: flex; flex-wrap: wrap; gap: 28px 56px; justify-content: center; align-items: center; }
+  .trust-logo { height: 52px; width: auto; display: block; opacity: 0.75; transition: opacity .2s ease, transform .2s ease; }
+  .trust-logo:hover { opacity: 1; transform: translateY(-1px); }
+  .trust-badge {
+    width: 52px; height: 52px; border-radius: 12px;
+    background: linear-gradient(135deg, #1d1d1f, #424245);
+    display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18); opacity: 0.85;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .trust-badge:hover { opacity: 1; transform: translateY(-1px); }
+  .trust-badge img { width: 60%; height: 60%; }
+
+  /* ---------- Built by CEOs band ---------- */
+  .proof-band { text-align: center; }
+  .proof-card {
+    margin: 0 auto; width: min(1180px, 92vw);
+    padding: clamp(56px, 7vw, 96px) 28px;
+    border-radius: clamp(20px, 3vw, 36px);
+    background:
+      radial-gradient(60% 80% at 50% 0%, rgba(111,181,44,0.14), transparent 60%),
+      linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+    box-shadow: var(--shadow-2); position: relative; overflow: hidden;
+  }
+  .proof-card .eyebrow { color: var(--brand-green); }
+  .proof-card h2 { max-width: 16ch; margin: 14px auto 18px; }
+  .proof-card p { color: var(--ink-2); max-width: 62ch; margin: 0 auto; font-size: clamp(17px,1.3vw,20px); line-height: 1.5; }
+
+  /* ---------- Emotional outcomes (in navy How-we-work) ---------- */
+  .outcomes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 28px; margin-top: 30px; max-width: 700px; }
+  @media (max-width: 640px){ .outcomes { grid-template-columns: 1fr; } }
+  .outcome { display:flex; gap:12px; align-items:flex-start; color: rgba(245,245,247,0.92); font-size: 16px; line-height:1.4; }
+  .outcome .ck { background: rgba(111,181,44,0.22); width:22px; height:22px; font-size:12px; }
+
+  /* ---------- Why we're different ---------- */
+  .different { background: #ffffff; }
+  .diff-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,28px); margin-top:clamp(30px,4vw,48px); }
+  @media (max-width:820px){ .diff-grid{ grid-template-columns:1fr; } }
+  .diff-card { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md); box-shadow:var(--shadow-1); padding:clamp(26px,2.6vw,34px); transition:transform .3s ease, box-shadow .3s ease; }
+  .diff-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-2); }
+  .diff-num { font-family:var(--font-display); font-weight:700; font-size:14px; letter-spacing:0.14em; color:var(--brand-green); margin-bottom:16px; }
+  .diff-card p { margin:0; font-family:var(--font-display); font-weight:600; font-size:clamp(17px,1.35vw,20px); line-height:1.36; letter-spacing:-0.015em; color:var(--ink); }
 </style>
 </head>
 <body>
@@ -367,6 +525,7 @@
       <ul>
         <li><a href="framework.html">Framework</a></li>
         <li><a href="examples.html">Examples</a></li>
+        <li><a href="assessment.html">Assessment</a></li>
         <li><a href="index.html#customers">Customers</a></li>
         <li><a href="about.html" class="current">About</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -381,119 +540,168 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="wrap hero-inner">
-    <div class="eyebrow reveal">About 1 to 100 Advisors</div>
-    <h1 class="display reveal delay-1">We help chamber and association CEOs win with data.</h1>
-    <p class="lede reveal delay-2">
-      Big corporations have entire teams turning data into better decisions. Chambers,
-      associations, and the small businesses around them rarely do &mdash; and they pay
-      for it in slower growth, missed risks, and gut-feel calls that could have been
-      informed ones. We close that gap with Aligned KPIs&trade;, our Executive Reporting
-      Platform built for lean organizations of 100 employees or less.
-    </p>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow reveal">About Aligned KPIs&trade;</div>
+      <div class="small reveal" style="margin-top: 6px; letter-spacing: 0;">Built by 1 to 100 Advisors, Inc.</div>
+      <h1 class="display reveal delay-1">We help chamber and association leaders make better decisions.</h1>
+      <p class="lede reveal delay-2">
+        Large organizations have analysts, BI teams, and executives dedicated to turning
+        data into better decisions. Most chambers, associations, and growing small businesses don't.
+      </p>
+      <p class="lede reveal delay-2" style="margin-top: 16px;">
+        That's why we built Aligned KPIs&trade; &mdash; an Executive Visibility
+        Platform that combines trusted data, AI, and decades of executive operating experience
+        to help leaders make faster, more confident decisions.
+      </p>
+      <p class="hero-anchor reveal delay-3">
+        We don't believe CEOs need more dashboards. <span class="em">We believe they need better decisions.</span>
+      </p>
+    </div>
+    <div class="hero-photo reveal delay-1">
+      <figure class="hero-figure">
+        <div class="headshot-card">
+          <img src="assets/DJ_headshot.jpg" alt="DJ Muller, Founder of 1 to 100 Advisors"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="placeholder" style="display:none;">Headshot not found at assets/DJ_headshot.jpg</div>
+        </div>
+        <figcaption class="hero-cred">
+          <span class="hero-name">DJ Muller</span>
+          <span class="hero-role">Founder</span>
+        </figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-<!-- ================= WHO WE SERVE ================= -->
-<section class="who">
-  <div class="wrap who-grid">
-    <div class="reveal">
-      <div class="eyebrow">Who we work with</div>
-      <h2 class="display" style="margin: 14px 0 0; font-size: clamp(28px, 3.4vw, 44px);">
-        Chamber, association, and small-business CEOs who run lean.
-      </h2>
-    </div>
-    <div class="reveal delay-1">
-      <p class="lede" style="margin: 0;">
-        Our clients lead chambers of commerce, member-based associations, and growth-focused
-        small businesses &mdash; organizations of 100 employees or less, running lean with
-        limited staff, limited budget, and no data team, who want an experienced operator in
-        the room. Through Aligned KPIs&trade;, our Executive Reporting Platform, we pair AI
-        with decades of operating experience to give you and your team daily visibility into
-        the data that matters most &mdash; so you can grow faster, manage risk smarter, and
-        lead with more clarity and less friction.
+<!-- ================= WHAT WE BELIEVE ================= -->
+<section style="background: transparent;">
+  <div class="believe">
+    <div class="believe-inner">
+      <div class="eyebrow reveal">What we believe</div>
+      <h2 class="display reveal delay-1">Technology is the tailwind. Judgment is the edge.</h2>
+      <div class="beliefs">
+        <p class="belief reveal delay-1">Technology doesn't create better organizations. <span class="aff">Better decisions do.</span></p>
+        <p class="belief reveal delay-2">AI doesn't replace executive judgment. <span class="aff">It amplifies it.</span></p>
+        <p class="belief reveal delay-3">Software shouldn't distract leaders with dashboards. <span class="aff">It should surface the handful of numbers that actually drive growth.</span></p>
+      </div>
+      <p class="belief-note reveal delay-3">
+        AI has made information abundant. The challenge isn't getting more data&mdash;it's
+        knowing what deserves your attention. <span class="aff">That's where executive experience still wins.</span>
       </p>
+      <p class="kicker reveal delay-3">
+        That's why every dashboard, KPI, and recommendation inside Aligned KPIs&trade; is built
+        around a single question: <span class="q">&ldquo;Will this help a CEO make a better decision today?&rdquo;</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY WE'RE DIFFERENT ================= -->
+<section class="different">
+  <div class="wrap">
+    <div class="eyebrow reveal">What sets us apart</div>
+    <h2 class="display reveal delay-1" style="font-size:clamp(28px,3.6vw,48px); margin:14px 0 0; max-width:16ch;">Why we're different.</h2>
+    <div class="diff-grid">
+      <article class="diff-card reveal">
+        <div class="diff-num">01</div>
+        <p>We start with executive decisions&mdash;not dashboards.</p>
+      </article>
+      <article class="diff-card reveal delay-1">
+        <div class="diff-num">02</div>
+        <p>We combine AI with decades of operating experience.</p>
+      </article>
+      <article class="diff-card reveal delay-2">
+        <div class="diff-num">03</div>
+        <p>We measure success by business outcomes, not reports generated.</p>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- ================= FOUNDER ================= -->
 <section class="founder">
-  <div class="wrap founder-grid">
-    <div class="reveal">
-      <div class="headshot-card">
-        <img src="assets/DJ_headshot.jpg" alt="DJ Muller, Founder of 1 to 100 Advisors"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder" style="display:none;">Headshot not found at assets/DJ_headshot.jpg</div>
+  <div class="wrap founder-copy">
+    <div class="eyebrow reveal">Meet the founder</div>
+    <h2 class="display reveal delay-1">He built the platform he wished every CEO had.</h2>
+    <p class="reveal delay-1">
+      After three decades building software companies, leading venture-backed organizations,
+      and working alongside thousands of chamber and association executives, DJ Muller kept
+      seeing the same pattern. Good leaders weren't failing for lack of effort &mdash; they
+      lacked visibility. The numbers they needed lived in accounting systems, CRMs, spreadsheets,
+      and disconnected reports, always a step behind the decisions they had to make.
+    </p>
+    <p class="reveal delay-2">
+      So he built the platform he wished every CEO had. Aligned KPIs&trade; combines trusted data,
+      executive experience, and responsible AI into one Executive Visibility
+      Platform&mdash;giving leaders the clarity to make better decisions every day.
+    </p>
+  </div>
+</section>
+
+<!-- ================= WHY PEOPLE TRUST US ================= -->
+<section class="cred">
+  <div class="wrap">
+    <div class="eyebrow reveal">Why people trust us</div>
+    <h2 class="display reveal delay-1">Three decades building what leaders rely on.</h2>
+    <p class="cred-lede reveal delay-1">
+      DJ isn't new to this problem. He's spent a career building the systems chambers and
+      associations run on &mdash; and leading the companies behind them.
+    </p>
+    <div class="cred-grid">
+      <div class="weblink-card reveal">
+        <div class="cat">The track record</div>
+        <h3>He built WebLink International.</h3>
+        <p>
+          The first online membership platform for associations &mdash; now part of Momentive
+          Software and a backbone for chambers and associations across the country.
+        </p>
+        <p style="margin-top: 14px;">
+          That experience gave him a front-row seat to how thousands of chambers and associations
+          operate &mdash; and where executive visibility consistently breaks down.
+        </p>
+        <div class="weblink-stat">
+          <div><div class="n">3,000+</div><div class="l">chambers &amp; associations served</div></div>
+          <div><div class="n">1.5M+</div><div class="l">businesses represented</div></div>
+        </div>
       </div>
-    </div>
-    <div class="founder-body reveal delay-1">
-      <div class="eyebrow">Founder</div>
-      <h2 class="display">DJ Muller</h2>
-      <p>
-        DJ founded 1 to 100 Advisors to give chamber, association, and small-business CEOs
-        the same caliber of data insight that large corporations take for granted. He's spent three decades building,
-        leading, and advising technology companies &mdash; including founding
-        <strong>WebLink International</strong>, the first online membership platform for
-        associations (now part of Momentive Software, serving 3,000+ chambers and associations
-        representing over 1.5 million small businesses).
-      </p>
-      <p>
-        His entrepreneurial path started early: he founded his first tech company at 14 and
-        sold it at 17 in the Apple ed-tech space. Since then, he's served 18 years as CEO
-        of two venture-backed companies valued at over $100M, coached CEOs and senior leaders
-        across multiple industries for more than a decade, and advised venture capital and
-        private equity firms on strategy.
-      </p>
+      <ul class="check-list reveal delay-1">
+        <li><span class="ck">&#10003;</span><span><strong>Three decades</strong> building technology companies</span></li>
+        <li><span class="ck">&#10003;</span><span><strong>18 years</strong> as CEO of two venture-backed companies valued at $100M+</span></li>
+        <li><span class="ck">&#10003;</span><span><strong>10+ years</strong> coaching CEOs and senior executives across industries</span></li>
+        <li><span class="ck">&#10003;</span><span>Trusted advisor to <strong>venture capital and private equity</strong> firms</span></li>
+        <li><span class="ck">&#10003;</span><span>Recognized by <strong>Microsoft</strong> as a technology innovator</span></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ================= HIGHLIGHTS ================= -->
-<section class="highlights">
-  <div class="wrap">
-    <div class="eyebrow reveal">Highlights</div>
-    <h2 class="display reveal delay-1" style="font-size: clamp(28px, 3.6vw, 48px);">
-      Three decades of operating, advising, and coaching.
-    </h2>
-
-    <div class="highlight-grid">
-      <article class="highlight reveal">
-        <div class="cat">Operating leadership</div>
-        <h3>Built and led from the front.</h3>
-        <ul>
-          <li>Founder, 1 to 100 Advisors &mdash; maker of Aligned KPIs&trade;</li>
-          <li>Founder, WebLink International (now part of Momentive) &mdash; 3,000+ chambers and associations served, representing over 1.5 million small businesses</li>
-          <li>18 years as CEO of two venture-backed technology companies valued at $100M+</li>
-        </ul>
-      </article>
-
-      <article class="highlight reveal delay-1">
-        <div class="cat">Advisory &amp; coaching</div>
-        <h3>Trusted in the room with leaders and investors.</h3>
-        <ul>
-          <li>10+ years coaching CEOs and senior executives across multiple industries</li>
-          <li>Trusted advisor to venture capital and private equity firms</li>
-        </ul>
-      </article>
-
-      <article class="highlight reveal delay-2">
-        <div class="cat">Recognition</div>
-        <h3>Recognized for technology leadership.</h3>
-        <ul>
-          <li>Indiana "Tech Sales and Marketing" award winner</li>
-          <li>Recognized by Microsoft as a technology innovator</li>
-        </ul>
-      </article>
-
-      <article class="highlight reveal delay-3">
-        <div class="cat">Origin</div>
-        <h3>An entrepreneur since age 14.</h3>
-        <ul>
-          <li>Founded first tech company at age 14; sold at 17 (Apple ed-tech)</li>
-        </ul>
-      </article>
+<!-- ================= TRUSTED BY ================= -->
+<section style="background:#ffffff; padding-top: clamp(24px, 4vh, 48px); padding-bottom: clamp(48px, 8vh, 90px);">
+  <div class="wrap trust reveal">
+    <p>Trusted by chamber, association, and small-business leaders</p>
+    <div class="trust-row">
+      <img class="trust-logo" src="assets/PBN-Logo.png" alt="Palm Beach North Chamber of Commerce" />
+      <img class="trust-logo" src="assets/LWRBA-Logo.png" alt="Lakewood Ranch Business Alliance" />
+      <span class="trust-badge" aria-label="MemberShine">
+        <img src="assets/ms-icon-white.svg" alt="MemberShine" />
+      </span>
+      <img class="trust-logo" src="assets/Bloomington-Logo.png" alt="Bloomington Chamber of Commerce" />
+      <img class="trust-logo" src="assets/BocaRatonChamberLogo.png" alt="Boca Raton Chamber of Commerce" />
     </div>
+  </div>
+</section>
+
+<!-- ================= BUILT BY CEOs ================= -->
+<section class="proof-band">
+  <div class="proof-card">
+    <div class="eyebrow reveal">Our difference</div>
+    <h2 class="display reveal delay-1">Built by CEOs. For CEOs.</h2>
+    <p class="reveal delay-2">
+      Every KPI. Every dashboard. Every recommendation &mdash; reviewed through decades of
+      executive operating experience, not just software engineering. That's the difference
+      between a tool that reports your numbers and a partner that helps you make better decisions every day.
+    </p>
   </div>
 </section>
 
@@ -505,17 +713,19 @@
       <h2 class="display reveal delay-1">An extension of your executive team &mdash; not a vendor.</h2>
       <p class="reveal delay-2">
         We bring the technical depth to deploy modern AI and data tools, paired with the
-        operating instincts to know which numbers actually move the business.
+        operating instincts to know which numbers actually move the business. You get an
+        experienced operator in the room &mdash; not another login to manage.
       </p>
       <p class="reveal delay-3">
-        Every dashboard, KPI, and recommendation is reviewed through the lens of experienced
-        CEOs who've built and scaled growth organizations &mdash; because leadership decisions
-        deserve more than software.
+        The result isn't just cleaner reporting. It's how leading feels when the numbers are
+        finally on your side:
       </p>
-      <p class="reveal delay-3">
-        The result: less friction, sharper decisions, and the peace of mind that comes
-        from running your organization on real data instead of best guesses.
-      </p>
+      <div class="outcomes reveal delay-3">
+        <div class="outcome"><span class="ck">&#10003;</span><span>Walking into every board meeting with confidence</span></div>
+        <div class="outcome"><span class="ck">&#10003;</span><span>Knowing exactly where cash and profitability stand</span></div>
+        <div class="outcome"><span class="ck">&#10003;</span><span>Seeing problems early &mdash; while you can still act</span></div>
+        <div class="outcome"><span class="ck">&#10003;</span><span>Trusting your decisions instead of second-guessing</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -524,32 +734,39 @@
 <section class="cta-final" id="contact">
   <div class="cta-card">
     <div class="eyebrow reveal">Let's talk</div>
-    <h2 class="display reveal delay-1">See what 1 to 100 Advisors can do for your organization.</h2>
+    <h2 class="display reveal delay-1">Book a 15-minute Executive KPI Assessment.</h2>
     <p class="lede reveal delay-2">
-      A 15-minute call. One honest read on your numbers. We'll show you how Aligned KPIs&trade;
-      and the CEO Operating System&trade; would make your organization more visible &mdash;
-      and what the first 30 days would look like.
+      We'll review your current reporting, identify the blind spots, and show you how
+      Aligned KPIs&trade; could give your leadership team clearer visibility in the first 30 days.
+      No pressure &mdash; just practical advice from CEOs who've been there.
     </p>
     <div class="cta-ctas reveal delay-3">
-      <a class="btn btn-primary" href="contact.html">Book a 15-Minute Call <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-primary" href="contact.html">Book your assessment <span class="arrow">&rarr;</span></a>
       <a class="btn btn-ghost" href="mailto:info@1to100advisors.com">Email us directly</a>
     </div>
+    <p class="small reveal delay-3" style="margin-top: 24px;">
+      Powered by the CEO Operating System&trade; &mdash; our broader vision for how CEOs run and grow their organizations.
+    </p>
   </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
 <footer>
+  <div class="wrap" style="text-align:center;padding-bottom:40px;margin-bottom:40px;border-bottom:1px solid var(--line);">
+    <p style="font-family:var(--font-display);font-weight:600;font-size:clamp(17px,1.6vw,22px);letter-spacing:-0.02em;line-height:1.35;color:var(--ink);max-width:32ch;margin:0 auto;">We don't believe CEOs need more dashboards. <span style="color:var(--accent);">We believe they need better decisions.</span></p>
+  </div>
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <img class="brand-logo footer" src="assets/logo-aligned-kpis.svg" alt="Aligned KPIs" onerror="this.onerror=null; this.src='assets/logo-primary-light.svg';" />
       <p class="footer-tag">Align Your Team. Accelerate Growth.</p>
-      <p class="footer-sub">Executive Reporting Platform for CEOs.<br/>Powered by the CEO Operating System&trade;.</p>
+      <p class="footer-sub">Executive Visibility Platform for CEOs.<br/>Powered by the CEO Operating System&trade;.</p>
     </div>
     <div class="footer-col">
       <div class="footer-h">Explore</div>
       <ul>
         <li><a href="framework.html">Framework</a></li>
         <li><a href="examples.html">Examples</a></li>
+        <li><a href="assessment.html">KPI Assessment</a></li>
         <li><a href="index.html#customers">Customers</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>

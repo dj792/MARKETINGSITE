@@ -1,6 +1,15 @@
 .DS_Store
 about-us-draft.md
 CONTACT_FORM_SETUP.md
+KPI_ASSESSMENT_SETUP.md
+Aligned KPIs Assessment.xlsx
 1 to 100 - Brand Strategy Summary.pdf
 Brand Strategy.md
 CLAUDE.md
+MasterSalesDeck.pptx
+*.pptx
+Sales Deck — Style Guide.md
+
+# build/temp junk
+_to_delete/
+.fuse_hidden*

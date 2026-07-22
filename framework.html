@@ -43,10 +43,14 @@
     --ink-2: #424245;
     --muted: #6e6e73;
     --line: rgba(0,0,0,0.08);
-    --accent: #0a84ff;
-    --accent-2: #5e5ce6;
-    --accent-3: #ff375f;
-    --green: #34c759;
+    --accent: #2178c4;
+    /* Brand palette (canonical — see Brand Strategy.md → Brand Tokens) */
+    --brand-blue: #2178c4;
+    --brand-navy: #16314f;
+    --brand-green: #6fb52c;
+    --accent-2: #6fb52c;
+    --accent-3: #16314f;
+    --green: #6fb52c;
     --radius-lg: 28px;
     --radius-md: 18px;
     --radius-sm: 12px;
@@ -181,9 +185,9 @@
   .hero::before {
     content: ""; position: absolute; inset: -20% -10% auto -10%; height: 90%;
     background:
-      radial-gradient(40% 60% at 20% 30%, rgba(10,132,255,0.18), transparent 60%),
-      radial-gradient(50% 60% at 80% 10%, rgba(94,92,230,0.20), transparent 60%),
-      radial-gradient(40% 50% at 70% 70%, rgba(255,55,95,0.10), transparent 60%);
+      radial-gradient(40% 60% at 20% 30%, rgba(33,120,196,0.18), transparent 60%),
+      radial-gradient(50% 60% at 80% 10%, rgba(111,181,44,0.20), transparent 60%),
+      radial-gradient(40% 50% at 70% 70%, rgba(22,49,79,0.10), transparent 60%);
     filter: blur(20px);
     pointer-events: none; z-index: 0;
   }
@@ -221,9 +225,9 @@
   .fail-card::before {
     content: ""; position: absolute; inset: -30%;
     background:
-      radial-gradient(40% 40% at 20% 30%, rgba(10,132,255,0.30), transparent 60%),
-      radial-gradient(40% 40% at 80% 70%, rgba(255,55,95,0.18), transparent 60%),
-      radial-gradient(40% 40% at 70% 20%, rgba(94,92,230,0.25), transparent 60%);
+      radial-gradient(40% 40% at 20% 30%, rgba(33,120,196,0.30), transparent 60%),
+      radial-gradient(40% 40% at 80% 70%, rgba(22,49,79,0.18), transparent 60%),
+      radial-gradient(40% 40% at 70% 20%, rgba(111,181,44,0.25), transparent 60%);
     filter: blur(40px);
     pointer-events: none;
   }
@@ -244,7 +248,7 @@
     width: 22px; height: 22px; border-radius: 50%;
     margin-top: 3px;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(255,55,95,0.18); color: #ff6482;
+    background: rgba(214,69,90,0.14); color: #d6455a;
     font-size: 12px; font-weight: 700;
   }
   .fail-result {
@@ -274,7 +278,7 @@
     width: 38px; height: 38px; border-radius: 11px;
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 14px;
-    background: rgba(10,132,255,0.10);
+    background: rgba(33,120,196,0.10);
   }
   .outcome .ic svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .outcome h3 {
@@ -333,8 +337,8 @@
   }
   .ph-outcome {
     align-self: end;
-    background: rgba(10,132,255,0.07);
-    border: 1px solid rgba(10,132,255,0.15);
+    background: rgba(33,120,196,0.07);
+    border: 1px solid rgba(33,120,196,0.15);
     border-radius: var(--radius-md);
     padding: 20px 22px;
     margin-top: 18px;
@@ -366,7 +370,7 @@
   .j1 { background: linear-gradient(180deg, #97979c, #76767c); }
   .j2 { background: linear-gradient(180deg, #6b89ad, #52729a); }
   .j3 { background: linear-gradient(180deg, #3a72b8, #235ea5); }
-  .j4 { background: linear-gradient(180deg, #2a8cff, #0a6ae0); }
+  .j4 { background: linear-gradient(180deg, #2178c4, #0a6ae0); }
   .j5 { background: linear-gradient(180deg, #43cd65, #28a745); }
   .j-arrow {
     display: flex; align-items: center;
@@ -404,8 +408,8 @@
     text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px;
     padding: 7px 13px; border-radius: 999px; white-space: nowrap; flex: 0 0 auto;
   }
-  .proc-band.annual .tag { background: rgba(94,92,230,0.12); color: var(--accent-2); }
-  .proc-band.weekly .tag { background: rgba(10,132,255,0.12); color: var(--accent); }
+  .proc-band.annual .tag { background: rgba(111,181,44,0.12); color: var(--accent-2); }
+  .proc-band.weekly .tag { background: rgba(33,120,196,0.12); color: var(--accent); }
   .proc-band p { margin: 0; font-size: clamp(14px,1.1vw,16px); color: var(--ink-2); text-align: left; }
   .proc-band p strong { color: var(--ink); font-weight: 600; }
   @media (max-width: 620px) { .proc-band { flex-direction: column; text-align: center; } .proc-band p { text-align: center; } }
@@ -432,7 +436,7 @@
   .fc1 { background: linear-gradient(180deg, #97979c, #76767c); }
   .fc2 { background: linear-gradient(180deg, #6b89ad, #52729a); }
   .fc3 { background: linear-gradient(180deg, #3a72b8, #235ea5); }
-  .fc4 { background: linear-gradient(180deg, #2a8cff, #0a6ae0); }
+  .fc4 { background: linear-gradient(180deg, #2178c4, #0a6ae0); }
   .fc5 { background: linear-gradient(180deg, #43cd65, #28a745); }
   .func-foundation {
     margin-top: 10px; text-align: center; border-radius: var(--radius-md);
@@ -453,7 +457,7 @@
     color: #fff; box-shadow: var(--shadow-1);
   }
   .oc1 { background: linear-gradient(180deg, #43cd65, #1f9d44); }
-  .oc2 { background: linear-gradient(180deg, #2a8cff, #0a6ae0); }
+  .oc2 { background: linear-gradient(180deg, #2178c4, #0a6ae0); }
   .oc3 { background: linear-gradient(180deg, #6a68ee, #4b49c8); }
   .oc4 { background: linear-gradient(180deg, #ff5a7a, #e62a52); }
   .proc-loop {
@@ -488,7 +492,7 @@
   .results-stat .n {
     display: block; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em; line-height: 1;
     font-size: clamp(44px, 6.5vw, 76px);
-    background: linear-gradient(135deg, #0a84ff, #34c759);
+    background: linear-gradient(135deg, #2178c4, #6fb52c);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
   .results-stat .t { display: block; color: var(--ink-2); font-size: clamp(16px, 1.4vw, 19px); font-weight: 500; margin-top: 12px; max-width: 52ch; }
@@ -503,7 +507,7 @@
     padding: clamp(60px, 8vw, 110px) 28px;
     border-radius: clamp(20px, 3vw, 36px);
     background:
-      radial-gradient(60% 80% at 50% 0%, rgba(10,132,255,0.18), transparent 60%),
+      radial-gradient(60% 80% at 50% 0%, rgba(33,120,196,0.18), transparent 60%),
       linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
     box-shadow: var(--shadow-2);
     position: relative; overflow: hidden;
@@ -568,6 +572,7 @@
       <ul>
         <li><a href="framework.html" class="current">Framework</a></li>
         <li><a href="examples.html">Examples</a></li>
+        <li><a href="assessment.html">Assessment</a></li>
         <li><a href="index.html#customers">Customers</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -714,16 +719,52 @@
   </div>
 </section>
 
+<!-- ================= LEADERSHIP FLYWHEEL ================= -->
+<section class="flywheel-sec">
+  <style>
+    .flywheel-sec { padding: clamp(40px, 8vh, 100px) 0; }
+    .flywheel { display:flex; flex-wrap:wrap; align-items:stretch; gap:10px; margin-top:clamp(28px,4vw,44px); }
+    .fw-stage { flex:1 1 170px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md); box-shadow:var(--shadow-1); padding:24px 20px; border-top:4px solid var(--c); }
+    .fw-num { width:40px; height:40px; border-radius:999px; background:var(--c); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); margin-bottom:14px; }
+    .fw-name { font-family:var(--font-display); font-weight:600; font-size:18px; letter-spacing:-0.01em; color:var(--ink); margin-bottom:6px; }
+    .fw-desc { font-size:14px; line-height:1.45; color:var(--ink-2); }
+    .fw-arrow { align-self:center; color:var(--muted); font-size:20px; flex:0 0 auto; }
+    @media (max-width:760px){ .fw-arrow{ display:none; } }
+    .fw-loop { margin-top:22px; color:var(--muted); font-size:14px; font-weight:500; }
+  </style>
+  <div class="wrap">
+    <div class="eyebrow reveal">The Aligned KPIs&trade; Method</div>
+    <h2 class="display reveal delay-1" style="max-width: 20ch; margin-top: 14px;">The Leadership Flywheel.</h2>
+    <p class="lede reveal delay-2" style="margin-top: 18px;">
+      One operating model that compounds. Each stage feeds the next &mdash; and growth
+      creates new visibility, so the cycle keeps turning.
+    </p>
+    <div class="flywheel">
+      <div class="fw-stage reveal" style="--c:#97979c"><div class="fw-num">1</div><div class="fw-name">Visibility</div><div class="fw-desc">Know what&rsquo;s happening.</div></div>
+      <div class="fw-arrow reveal">&rarr;</div>
+      <div class="fw-stage reveal" style="--c:#4aa3e0"><div class="fw-num">2</div><div class="fw-name">Intelligence</div><div class="fw-desc">Know what it means.</div></div>
+      <div class="fw-arrow reveal">&rarr;</div>
+      <div class="fw-stage reveal" style="--c:#2178c4"><div class="fw-num">3</div><div class="fw-name">Decisions</div><div class="fw-desc">Know what to do.</div></div>
+      <div class="fw-arrow reveal">&rarr;</div>
+      <div class="fw-stage reveal" style="--c:#1e436b"><div class="fw-num">4</div><div class="fw-name">Execution</div><div class="fw-desc">Create accountability and action.</div></div>
+      <div class="fw-arrow reveal">&rarr;</div>
+      <div class="fw-stage reveal" style="--c:#6fb52c"><div class="fw-num">5</div><div class="fw-name">Growth</div><div class="fw-desc">Achieve measurable outcomes.</div></div>
+    </div>
+    <p class="fw-loop reveal">&#8635;&nbsp; Growth feeds new visibility &mdash; the cycle repeats.</p>
+  </div>
+</section>
+
 <!-- ================= SEVEN PHASES ================= -->
 <section class="phases">
   <div class="wrap">
-    <div class="eyebrow reveal">The Aligned KPIs&trade; Method</div>
+    <div class="eyebrow reveal">The Engagement</div>
     <h2 class="display reveal delay-1" style="max-width: 18ch; margin-top: 14px;">
-      Seven phases. One operating model.
+      How we get you there.
     </h2>
     <p class="lede reveal delay-2" style="margin-top: 18px;">
-      A seven-phase process designed specifically for chambers, associations,
-      and membership-based organizations.
+      The Flywheel is the operating model &mdash; this is how we install it. A proven
+      seven-phase engagement built for chambers, associations, and membership-based
+      organizations, moving you through the Flywheel from Visibility to Growth.
     </p>
 
     <div class="phase-list">
@@ -919,17 +960,21 @@
 
 <!-- ================= FOOTER ================= -->
 <footer>
+  <div class="wrap" style="text-align:center;padding-bottom:40px;margin-bottom:40px;border-bottom:1px solid var(--line);">
+    <p style="font-family:var(--font-display);font-weight:600;font-size:clamp(17px,1.6vw,22px);letter-spacing:-0.02em;line-height:1.35;color:var(--ink);max-width:32ch;margin:0 auto;">We don't believe CEOs need more dashboards. <span style="color:var(--accent);">We believe they need better decisions.</span></p>
+  </div>
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <img class="brand-logo footer" src="assets/logo-aligned-kpis.svg" alt="Aligned KPIs" onerror="this.onerror=null; this.src='assets/logo-primary-light.svg';" />
       <p class="footer-tag">Align Your Team. Accelerate Growth.</p>
-      <p class="footer-sub">Executive Reporting Platform for CEOs.<br/>Powered by the CEO Operating System&trade;.</p>
+      <p class="footer-sub">Executive Visibility Platform for CEOs.<br/>Powered by the CEO Operating System&trade;.</p>
     </div>
     <div class="footer-col">
       <div class="footer-h">Explore</div>
       <ul>
         <li><a href="framework.html">Framework</a></li>
         <li><a href="examples.html">Examples</a></li>
+        <li><a href="assessment.html">KPI Assessment</a></li>
         <li><a href="index.html#customers">Customers</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>

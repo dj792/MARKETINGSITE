@@ -12,18 +12,18 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Aligned KPIs™ — Align Your Team. Accelerate Growth.</title>
-<meta name="description" content="Aligned KPIs™ gives chamber, association, and small-business CEOs daily visibility into the metrics that drive growth, profitability, and retention. Built by experienced CEOs. Powered by AI." />
+<meta name="description" content="Aligned KPIs™ gives chamber, association, and small-business CEOs daily, trustworthy visibility into the numbers that drive growth, profitability, retention, and strategic decisions. Built by experienced CEOs. Enhanced by AI." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Aligned KPIs" />
 <meta property="og:title" content="Aligned KPIs™ — Align Your Team. Accelerate Growth." />
-<meta property="og:description" content="Aligned KPIs™ gives chamber, association, and small-business CEOs daily visibility into the metrics that drive growth, profitability, and retention. Built by experienced CEOs. Powered by AI." />
+<meta property="og:description" content="Aligned KPIs™ gives chamber, association, and small-business CEOs daily, trustworthy visibility into the numbers that drive growth, profitability, retention, and strategic decisions. Built by experienced CEOs. Enhanced by AI." />
 <meta property="og:url" content="https://alignedkpis.com/" />
 <meta property="og:image" content="https://alignedkpis.com/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Aligned KPIs™ — Align Your Team. Accelerate Growth." />
-<meta name="twitter:description" content="Aligned KPIs™ gives chamber, association, and small-business CEOs daily visibility into the metrics that drive growth, profitability, and retention. Built by experienced CEOs. Powered by AI." />
+<meta name="twitter:description" content="Aligned KPIs™ gives chamber, association, and small-business CEOs daily, trustworthy visibility into the numbers that drive growth, profitability, retention, and strategic decisions. Built by experienced CEOs. Enhanced by AI." />
 <meta name="twitter:image" content="https://alignedkpis.com/assets/og-image.png" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="apple-touch-icon" href="assets/logo-app-icon-light.svg" />
@@ -43,9 +43,13 @@
     --ink-2: #424245;
     --muted: #6e6e73;
     --line: rgba(0,0,0,0.08);
-    --accent: #0a84ff;
-    --accent-2: #5e5ce6;
-    --accent-3: #ff375f;
+    --accent: #2178c4;
+    /* Brand palette (canonical — see Brand Strategy.md → Brand Tokens) */
+    --brand-blue: #2178c4;
+    --brand-navy: #16314f;
+    --brand-green: #6fb52c;
+    --accent-2: #6fb52c;
+    --accent-3: #16314f;
     --radius-lg: 28px;
     --radius-md: 18px;
     --radius-sm: 12px;
@@ -118,8 +122,8 @@
     background:
       radial-gradient(120% 120% at 0% 0%, #7aa7ff 0%, transparent 55%),
       radial-gradient(120% 120% at 100% 100%, #b388ff 0%, transparent 55%),
-      linear-gradient(135deg, #0a84ff, #5e5ce6 60%, #ff2d92);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4), 0 6px 16px rgba(10,132,255,0.35);
+      linear-gradient(135deg, #2178c4, #6fb52c 60%, #16314f);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4), 0 6px 16px rgba(33,120,196,0.35);
   }
   .brand-logo { height: 32px; width: auto; display: block; }
   .brand-logo.footer { height: 38px; }
@@ -188,31 +192,84 @@
   .hero::before {
     content: ""; position: absolute; inset: -20% -10% auto -10%; height: 90%;
     background:
-      radial-gradient(40% 60% at 20% 30%, rgba(10,132,255,0.18), transparent 60%),
-      radial-gradient(50% 60% at 80% 10%, rgba(94,92,230,0.20), transparent 60%),
-      radial-gradient(40% 50% at 70% 70%, rgba(255,55,95,0.10), transparent 60%);
+      radial-gradient(40% 60% at 20% 30%, rgba(33,120,196,0.18), transparent 60%),
+      radial-gradient(50% 60% at 80% 10%, rgba(111,181,44,0.20), transparent 60%),
+      radial-gradient(40% 50% at 70% 70%, rgba(22,49,79,0.10), transparent 60%);
     filter: blur(20px);
     pointer-events: none; z-index: 0;
   }
   .hero-inner { position: relative; z-index: 1; text-align: center; }
-  .hero h1 { margin: 16px auto 18px; max-width: 21ch; }
-  .hero .lede { margin: 0 auto; }
+  /* Two-column hero: message left, product visual right */
+  .hero-grid {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1.02fr 0.98fr;
+    gap: clamp(32px, 5vw, 76px);
+    align-items: center;
+  }
+  .hero-text { text-align: left; }
+  .hero-text h1 { margin: 16px 0 18px; max-width: none; font-size: clamp(34px, 4.2vw, 54px); line-height: 1.05; }
+  .hero-text h1 span { display: block; }
+  .hero-text .lede { margin: 0; max-width: 46ch; }
+  .hero-anchor {
+    margin: 22px 0 0; padding-top: 20px;
+    border-top: 1px solid var(--line);
+    max-width: 30ch;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(18px, 1.7vw, 24px); letter-spacing: -0.02em; line-height: 1.3;
+    color: var(--ink);
+  }
+  .hero-anchor span { color: var(--accent); }
   .hero-powered {
-    margin: 18px auto 0;
+    margin: 18px 0 0;
     font-size: 13px;
     letter-spacing: 0.02em;
     color: var(--muted);
   }
   .hero-ctas {
-    display: flex; gap: 12px; justify-content: center;
+    display: flex; gap: 12px; justify-content: flex-start;
     margin-top: 28px; flex-wrap: wrap;
   }
 
-  /* ---------- Hero product visual ---------- */
-  .product-stage {
-    position: relative; z-index: 1;
-    width: min(1100px, 96vw);
-    margin: 64px auto 0;
+  /* ---------- Hero product visual (right column) ---------- */
+  .hero-visual-col { position: relative; z-index: 1; }
+  /* Frame CSS-crops the navy sides so the phone fills the column */
+  .hero-visual-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,0.05),
+      0 60px 120px -30px rgba(0,0,0,0.34),
+      0 30px 60px -30px rgba(22,49,79,0.30);
+    transition: transform .6s ease, box-shadow .6s ease;
+  }
+  /* Soft bottom fade so the frame edge reads as the device receding, not a sliced label */
+  .hero-visual-frame::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 15%;
+    background: linear-gradient(to bottom, rgba(9,20,36,0) 0%, rgba(9,20,36,0.5) 55%, rgba(9,20,36,0.92) 100%);
+    pointer-events: none;
+  }
+  .hero-visual-frame:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 70px 140px -30px rgba(0,0,0,0.40), 0 34px 68px -30px rgba(22,49,79,0.34); }
+  .hero-visual {
+    display: block;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: clamp(28px, 6vw, 44px); text-align: center; }
+    .hero-text { text-align: center; }
+    .hero-text h1 { margin-inline: auto; max-width: 18ch; }
+    .hero-text .lede { margin-inline: auto; }
+    .hero-anchor { margin-inline: auto; }
+    .hero-ctas { justify-content: center; }
+    .hero-powered { text-align: center; }
+    .hero-visual-frame { aspect-ratio: 5 / 4; max-width: 540px; margin-inline: auto; }
   }
   .product {
     position: relative; z-index: 1;
@@ -223,7 +280,7 @@
       0 1px 0 rgba(255,255,255,0.7) inset,
       0 0 0 1px rgba(0,0,0,0.05),
       0 60px 120px -30px rgba(0,0,0,0.30),
-      0 30px 60px -30px rgba(10,132,255,0.18);
+      0 30px 60px -30px rgba(33,120,196,0.18);
     padding: 18px;
     transform: translateY(0);
     transition: transform .6s ease;
@@ -290,7 +347,7 @@
     font-size: 12.5px; color: var(--ink-2); margin-bottom: 2px;
   }
   .nav-item .dot { width: 8px; height: 8px; border-radius: 50%; background: #cfcfd4; }
-  .nav-item.active { background: rgba(10,132,255,0.10); color: var(--accent); }
+  .nav-item.active { background: rgba(33,120,196,0.10); color: var(--accent); }
   .nav-item.active .dot { background: var(--accent); }
   .dash-main { padding: 22px 24px; }
   .dash-h {
@@ -397,7 +454,7 @@
   }
   .why-card::before {
     content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    background: linear-gradient(90deg, #0a84ff, #5e5ce6 55%, #34c759);
+    background: linear-gradient(90deg, #2178c4, #6fb52c 55%, #6fb52c);
   }
   .why-lines { margin: 22px auto 0; display: flex; flex-direction: column; gap: 8px; max-width: 24ch; }
   .why-line { font-family: var(--font-display); font-size: clamp(18px, 1.7vw, 23px); color: var(--muted); letter-spacing: -0.01em; }
@@ -421,9 +478,9 @@
   .result-stat::before {
     content: ""; position: absolute; inset: -30%;
     background:
-      radial-gradient(40% 40% at 25% 30%, rgba(10,132,255,0.30), transparent 60%),
+      radial-gradient(40% 40% at 25% 30%, rgba(33,120,196,0.30), transparent 60%),
       radial-gradient(40% 40% at 75% 70%, rgba(52,199,89,0.22), transparent 60%),
-      radial-gradient(40% 40% at 70% 20%, rgba(94,92,230,0.22), transparent 60%);
+      radial-gradient(40% 40% at 70% 20%, rgba(111,181,44,0.22), transparent 60%);
     filter: blur(40px); pointer-events: none;
   }
   .rs-inner { position: relative; padding: clamp(56px, 8vw, 100px) clamp(24px, 5vw, 64px); }
@@ -431,7 +488,7 @@
   .rs-num {
     font-family: var(--font-display); font-weight: 700; letter-spacing: -0.04em; line-height: 1;
     font-size: clamp(64px, 12vw, 132px);
-    background: linear-gradient(135deg, #5ac8fa, #34c759);
+    background: linear-gradient(135deg, #5ac8fa, #6fb52c);
     -webkit-background-clip: text; background-clip: text; color: transparent;
     margin: 14px 0 10px;
   }
@@ -489,9 +546,9 @@
   .beliefs::before {
     content: ""; position: absolute; inset: -30%;
     background:
-      radial-gradient(40% 40% at 20% 30%, rgba(10,132,255,0.30), transparent 60%),
-      radial-gradient(40% 40% at 80% 70%, rgba(255,55,95,0.18), transparent 60%),
-      radial-gradient(40% 40% at 70% 20%, rgba(94,92,230,0.25), transparent 60%);
+      radial-gradient(40% 40% at 20% 30%, rgba(33,120,196,0.30), transparent 60%),
+      radial-gradient(40% 40% at 80% 70%, rgba(22,49,79,0.18), transparent 60%),
+      radial-gradient(40% 40% at 70% 20%, rgba(111,181,44,0.25), transparent 60%);
     filter: blur(40px);
     pointer-events: none;
   }
@@ -558,7 +615,7 @@
   .stat .big {
     font-family: var(--font-display); font-weight: 600;
     font-size: clamp(40px, 4vw, 56px); letter-spacing: -0.03em;
-    background: linear-gradient(135deg, #0a84ff, #5e5ce6);
+    background: linear-gradient(135deg, #2178c4, #6fb52c);
     -webkit-background-clip: text; background-clip: text; color: transparent;
     line-height: 1;
   }
@@ -739,7 +796,7 @@
     padding: clamp(60px, 8vw, 110px) 28px;
     border-radius: clamp(20px, 3vw, 36px);
     background:
-      radial-gradient(60% 80% at 50% 0%, rgba(10,132,255,0.18), transparent 60%),
+      radial-gradient(60% 80% at 50% 0%, rgba(33,120,196,0.18), transparent 60%),
       linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
     box-shadow: var(--shadow-2);
     position: relative; overflow: hidden;
@@ -803,7 +860,7 @@
   .s1 .step-card { min-height: 250px; background: linear-gradient(180deg, #97979c, #76767c); }
   .s2 .step-card { min-height: 320px; background: linear-gradient(180deg, #6b89ad, #52729a); }
   .s3 .step-card { min-height: 390px; background: linear-gradient(180deg, #3a72b8, #235ea5); }
-  .s4 .step-card { min-height: 460px; background: linear-gradient(180deg, #2a8cff, #0a6ae0); }
+  .s4 .step-card { min-height: 460px; background: linear-gradient(180deg, #2178c4, #0a6ae0); }
   .step-num {
     width: 34px; height: 34px; border-radius: 50%;
     margin: 18px auto 10px;
@@ -854,6 +911,7 @@
       <ul>
         <li><a href="framework.html">Framework</a></li>
         <li><a href="examples.html">Examples</a></li>
+        <li><a href="assessment.html">Assessment</a></li>
         <li><a href="#customers">Customers</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -868,108 +926,30 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="wrap hero-inner">
-    <div class="eyebrow reveal">Executive Reporting Platform for CEOs</div>
-    <h1 class="display reveal delay-1">Align Your Team. Accelerate Growth.</h1>
-    <p class="lede reveal delay-2">
-      <strong style="font-weight: 600; color: var(--ink);">Aligned KPIs&trade; gives CEOs and their teams daily visibility into the metrics that drive growth, profitability, and retention.</strong><br/>
-      Built by experienced CEOs. Enhanced by AI. Designed for better decisions.
-    </p>
-    <div class="hero-ctas reveal delay-3">
-      <a class="btn btn-primary" href="contact.html">Book a 15-Minute Call <span class="arrow">&rarr;</span></a>
-      <a class="btn btn-ghost" href="examples.html">View Sample Dashboards</a>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow reveal">Built by experienced CEOs. Enhanced by AI.</div>
+      <h1 class="display reveal delay-1"><span>Align Your Team.</span> <span>Accelerate Growth.</span></h1>
+      <p class="lede reveal delay-2">
+        <strong style="font-weight: 600; color: var(--ink);">Aligned KPIs&trade; gives CEOs the executive visibility they need to grow confidently.</strong><br/>
+        Designed for better decisions.
+      </p>
+      <p class="hero-anchor reveal delay-2">We don't believe CEOs need more dashboards. <span>We believe they need better decisions.</span></p>
+      <div class="hero-ctas reveal delay-3">
+        <a class="btn btn-primary" href="contact.html">Book a 15-Minute Call <span class="arrow">&rarr;</span></a>
+        <a class="btn btn-ghost" href="assessment.html">Take the free KPI Assessment</a>
+        <a class="btn btn-ghost" href="examples.html">View Sample Dashboards</a>
+      </div>
+      <p class="hero-powered reveal delay-3">Powered by the CEO Operating System&trade;</p>
     </div>
-    <p class="hero-powered reveal delay-3">Powered by the CEO Operating System&trade;</p>
-  </div>
 
-  <!-- Product visual -->
-  <div class="product-stage reveal delay-3" id="dashboard">
-  <div class="product" role="img" aria-label="Preview of the CEO Operating System dashboard">
-    <div class="product-bar"><i></i><i></i><i></i></div>
-    <div class="product-frame">
-      <div class="dash">
-        <aside class="dash-side">
-          <div class="logo"><span class="brand-mark"></span> Aligned KPIs</div>
-          <div class="nav-item active"><span class="dot"></span> Overview</div>
-          <div class="nav-item"><span class="dot"></span> Membership</div>
-          <div class="nav-item"><span class="dot"></span> Revenue</div>
-          <div class="nav-item"><span class="dot"></span> Retention</div>
-          <div class="nav-item"><span class="dot"></span> Events</div>
-          <div class="nav-item"><span class="dot"></span> Cash &amp; runway</div>
-          <div class="nav-item"><span class="dot"></span> Board pack</div>
-        </aside>
-        <div class="dash-main">
-          <div class="dash-h">
-            <h4>This week, at a glance</h4>
-            <span class="pill">On plan</span>
-          </div>
-          <div class="kpis">
-            <div class="kpi"><div class="lbl">Membership revenue</div><div class="val">$838K</div><div class="delta up">&uarr; 6.1% YoY</div></div>
-            <div class="kpi"><div class="lbl">New members MTD</div><div class="val">38</div><div class="delta up">&uarr; 9 vs budget</div></div>
-            <div class="kpi"><div class="lbl">Retention rate</div><div class="val">82%</div><div class="delta up">&uarr; 2 pts</div></div>
-            <div class="kpi"><div class="lbl">Cash runway</div><div class="val">6.1&nbsp;mo</div><div class="delta down">&darr; 1 mo</div></div>
-          </div>
-          <div class="panels">
-            <div class="panel">
-              <h5>Revenue vs. budget &mdash; trailing 12 months</h5>
-              <svg class="chart" viewBox="0 0 360 160" preserveAspectRatio="none" aria-hidden="true">
-                <defs>
-                  <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#0a84ff" stop-opacity="0.35"/>
-                    <stop offset="100%" stop-color="#0a84ff" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <!-- grid -->
-                <g stroke="#eceef2" stroke-width="1">
-                  <line x1="0" y1="40"  x2="360" y2="40"/>
-                  <line x1="0" y1="80"  x2="360" y2="80"/>
-                  <line x1="0" y1="120" x2="360" y2="120"/>
-                </g>
-                <!-- plan line (dashed) -->
-                <polyline fill="none" stroke="#c7c7cc" stroke-width="1.5" stroke-dasharray="4 4"
-                  points="0,118 30,112 60,108 90,100 120,94 150,86 180,80 210,72 240,64 270,58 300,50 330,44 360,38"/>
-                <!-- actual area -->
-                <path d="M0,120 L30,116 L60,108 L90,102 L120,90 L150,86 L180,76 L210,68 L240,62 L270,52 L300,46 L330,38 L360,30 L360,160 L0,160 Z"
-                  fill="url(#g1)"/>
-                <!-- actual line -->
-                <polyline fill="none" stroke="#0a84ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                  points="0,120 30,116 60,108 90,102 120,90 150,86 180,76 210,68 240,62 270,52 300,46 330,38 360,30"/>
-                <!-- last point -->
-                <circle cx="360" cy="30" r="4" fill="#0a84ff"/>
-                <circle cx="360" cy="30" r="8" fill="#0a84ff" opacity="0.18"/>
-              </svg>
-              <div class="legend">
-                <span><i style="background:#0a84ff"></i>Actual</span>
-                <span><i style="background:#c7c7cc"></i>Budget</span>
-              </div>
-            </div>
-            <div class="panel">
-              <h5>Budget attainment</h5>
-              <div class="ring-wrap">
-                <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
-                  <circle cx="60" cy="60" r="48" stroke="#eceef2" stroke-width="12" fill="none"/>
-                  <circle cx="60" cy="60" r="48" stroke="url(#rg)" stroke-width="12" fill="none"
-                    stroke-linecap="round" stroke-dasharray="301.6" stroke-dashoffset="60"
-                    transform="rotate(-90 60 60)"/>
-                  <defs>
-                    <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stop-color="#0a84ff"/>
-                      <stop offset="100%" stop-color="#5e5ce6"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
-                <div class="ring-info">
-                  <div class="num">80%</div>
-                  <div class="lbl">of annual plan</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Product visual -->
+    <div class="hero-visual-col reveal delay-2" id="dashboard">
+      <div class="hero-visual-frame">
+        <img class="hero-visual" src="assets/hero-mobile-dark.png"
+             alt="Executive Pacing view for Metro Chamber of Commerce — total revenue $248K month-to-date, pacing +4 work days ahead of budget, up 6.2% vs budget and 9.1% vs prior year." />
       </div>
     </div>
-  </div>
-  <img class="product-phone" src="assets/iphone-ceo-daily-pulse.svg" alt="CEO Daily Pulse mobile dashboard on iPhone" />
   </div>
 
   <!-- trust strip -->
@@ -1042,7 +1022,7 @@
     <div class="why-lines">
       <div class="why-line reveal delay-1">Most dashboard platforms provide data.</div>
       <div class="why-line reveal delay-1">Most AI tools provide answers.</div>
-      <div class="why-line lead reveal delay-2">Aligned KPIs&trade; provides executive clarity.</div>
+      <div class="why-line lead reveal delay-2">Aligned KPIs&trade; provides executive visibility and intelligence.</div>
     </div>
     <p class="why-note reveal delay-3">
       Aligned KPIs&trade; combines technology with decades of executive operating experience.
@@ -1179,8 +1159,8 @@
       <svg viewBox="0 0 200 220" style="display:none;">
         <defs>
           <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#0a84ff"/>
-            <stop offset="1" stop-color="#5e5ce6"/>
+            <stop offset="0" stop-color="#2178c4"/>
+            <stop offset="1" stop-color="#6fb52c"/>
           </linearGradient>
         </defs>
         <circle cx="100" cy="80" r="42" fill="url(#sg)" opacity="0.85"/>
@@ -1269,7 +1249,7 @@
                alt="Brittany Lamont, CEO/President Lakewood Ranch Business Alliance" />
         </div>
         <blockquote>
-          &ldquo;These live dashboards have transformed how I lead with clarity,
+          &ldquo;This visibility has transformed how I lead &mdash; with clarity,
           transparency, and direction. Our board is more engaged, and our strategy
           is sharper thanks to 1 to 100.&rdquo;
         </blockquote>
@@ -1380,17 +1360,21 @@
 
 <!-- ================= FOOTER ================= -->
 <footer>
+  <div class="wrap" style="text-align:center;padding-bottom:40px;margin-bottom:40px;border-bottom:1px solid var(--line);">
+    <p style="font-family:var(--font-display);font-weight:600;font-size:clamp(17px,1.6vw,22px);letter-spacing:-0.02em;line-height:1.35;color:var(--ink);max-width:32ch;margin:0 auto;">We don't believe CEOs need more dashboards. <span style="color:var(--accent);">We believe they need better decisions.</span></p>
+  </div>
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <img class="brand-logo footer" src="assets/logo-aligned-kpis.svg" alt="Aligned KPIs" onerror="this.onerror=null; this.src='assets/logo-primary-light.svg';" />
       <p class="footer-tag">Align Your Team. Accelerate Growth.</p>
-      <p class="footer-sub">Executive Reporting Platform for CEOs.<br/>Powered by the CEO Operating System&trade;.</p>
+      <p class="footer-sub">Executive Visibility Platform for CEOs.<br/>Powered by the CEO Operating System&trade;.</p>
     </div>
     <div class="footer-col">
       <div class="footer-h">Explore</div>
       <ul>
         <li><a href="framework.html">Framework</a></li>
         <li><a href="examples.html">Examples</a></li>
+        <li><a href="assessment.html">KPI Assessment</a></li>
         <li><a href="index.html#customers">Customers</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>

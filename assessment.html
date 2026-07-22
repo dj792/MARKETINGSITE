@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6EN4CQ96WC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6EN4CQ96WC');
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>KPI Assessment — Aligned KPIs&trade;</title>
+<meta name="description" content="A free self-assessment for CEOs. In about 8 minutes, see how much visibility you really have into the numbers that drive growth, retention, and profitability — and where your biggest blind spots are." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Aligned KPIs" />
+<meta property="og:title" content="KPI Assessment for CEOs — Aligned KPIs&trade;" />
+<meta property="og:description" content="See how much visibility you really have into the numbers that drive your business. Free 8-minute self-assessment with an instant KPI Maturity score." />
+<meta property="og:url" content="https://alignedkpis.com/assessment.html" />
+<meta property="og:image" content="https://alignedkpis.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="KPI Assessment for CEOs — Aligned KPIs&trade;" />
+<meta name="twitter:description" content="See how much visibility you really have into the numbers that drive your business. Free 8-minute self-assessment with an instant KPI Maturity score." />
+<meta name="twitter:image" content="https://alignedkpis.com/assets/og-image.png" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="apple-touch-icon" href="assets/logo-app-icon-light.svg" />
+<style>
+  /* ---------- Reset & base ---------- */
+  *,*::before,*::after { box-sizing: border-box; }
+  html,body { margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+  img,svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  :root {
+    --bg: #f5f5f7;
+    --surface: #ffffff;
+    --ink: #1d1d1f;
+    --ink-2: #424245;
+    --muted: #6e6e73;
+    --line: rgba(0,0,0,0.08);
+    --accent: #2178c4;
+    --brand-blue: #2178c4;
+    --brand-navy: #16314f;
+    --brand-green: #6fb52c;
+    --accent-2: #6fb52c;
+    --accent-3: #16314f;
+    --success: #137333;
+    --error: #c00f0c;
+    --warn: #b8860b;
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    --shadow-2: 0 2px 6px rgba(0,0,0,0.06), 0 30px 60px -20px rgba(0,0,0,0.18);
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-text:    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-text);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Typography ---------- */
+  .display { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.035em; line-height: 1.04; }
+  h1.display { font-size: clamp(36px, 5.2vw, 72px); }
+  h2.display { font-size: clamp(26px, 3vw, 38px); }
+  .eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.18em; font-weight: 600; font-size: 12px; color: var(--accent); }
+  .lede { font-size: clamp(18px, 1.4vw, 22px); color: var(--ink-2); max-width: 62ch; line-height: 1.45; }
+  .small { font-size: 13px; color: var(--muted); }
+
+  /* ---------- Layout ---------- */
+  .wrap { width: min(1180px, 92vw); margin-inline: auto; }
+  .wrap-narrow { width: min(820px, 92vw); margin-inline: auto; }
+  section { padding: clamp(70px, 10vh, 130px) 0; position: relative; }
+
+  /* ---------- Nav ---------- */
+  .nav { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); background: rgba(245, 245, 247, 0.72); border-bottom: 1px solid var(--line); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 600; letter-spacing: -0.01em; font-size: 15px; }
+  .brand-logo { height: 32px; width: auto; display: block; }
+  .brand-logo.footer { height: 38px; }
+  .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 13px; color: var(--ink-2); }
+  .nav ul a:hover { color: var(--ink); }
+  .nav ul a.current { color: var(--ink); font-weight: 600; }
+  .nav-cta { background: var(--ink); color: #fff; padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 500; transition: transform .2s ease, background .2s ease; }
+  .nav-cta:hover { background: #000; transform: translateY(-1px); }
+  .nav-toggle { display: none; background: transparent; border: 0; width: 40px; height: 40px; padding: 8px; cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
+  .nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+  .nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  @media (max-width: 760px) {
+    .nav-toggle { display: flex; }
+    .nav ul { display: none; position: absolute; top: 56px; left: 0; right: 0; flex-direction: column; gap: 0; background: rgba(245,245,247,0.98); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--line); padding: 6px 0; box-shadow: 0 24px 40px -24px rgba(0,0,0,0.30); }
+    .nav.open ul { display: flex; }
+    .nav ul li { width: 100%; }
+    .nav ul a { display: block; padding: 12px 24px; font-size: 15px; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; padding-top: clamp(60px, 9vh, 100px); padding-bottom: clamp(24px, 5vh, 48px); overflow: hidden; text-align: center; }
+  .hero::before { content: ""; position: absolute; inset: -20% -10% auto -10%; height: 90%; background: radial-gradient(40% 60% at 20% 30%, rgba(33,120,196,0.18), transparent 60%), radial-gradient(50% 60% at 80% 10%, rgba(111,181,44,0.20), transparent 60%); filter: blur(20px); pointer-events: none; z-index: 0; }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero h1 { margin: 16px auto 18px; max-width: 20ch; }
+  .hero .lede { margin: 0 auto; }
+  .hero-meta { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
+  .hero-meta div { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 7px; }
+  .hero-meta svg { color: var(--accent-2); }
+
+  /* ---------- Assessment card ---------- */
+  .assess { padding-top: clamp(10px, 3vh, 40px); }
+  .card { background: #fff; border-radius: var(--radius-lg); padding: clamp(26px, 4vw, 46px); box-shadow: var(--shadow-2); }
+
+  /* progress */
+  .progress-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+  .progress-cat { font-family: var(--font-display); font-weight: 600; font-size: clamp(19px, 2.2vw, 24px); color: var(--ink); }
+  .progress-count { font-size: 13px; color: var(--muted); white-space: nowrap; }
+  .progress-track { height: 6px; border-radius: 999px; background: #ececf0; overflow: hidden; margin: 14px 0 6px; }
+  .progress-fill { height: 100%; width: 0%; border-radius: 999px; background: linear-gradient(90deg, var(--brand-blue), var(--brand-green)); transition: width .4s ease; }
+  .progress-sub { font-size: 12px; color: var(--muted); margin-bottom: 26px; }
+
+  .cat-note { font-size: 13px; color: var(--ink-2); background: rgba(33,120,196,0.06); border: 1px solid rgba(33,120,196,0.15); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 22px; line-height: 1.5; }
+
+  /* question */
+  .q { padding: 18px 0; border-top: 1px solid var(--line); }
+  .q:first-of-type { border-top: 0; }
+  .q-text { font-size: 15px; color: var(--ink); margin-bottom: 12px; line-height: 1.45; }
+  .q-text .qnum { color: var(--muted); font-weight: 600; margin-right: 8px; font-variant-numeric: tabular-nums; }
+  .opts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  @media (max-width: 640px) { .opts { grid-template-columns: repeat(2, 1fr); } }
+  .opt { position: relative; }
+  .opt input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .opt label { display: flex; align-items: center; justify-content: center; text-align: center; gap: 6px; padding: 11px 8px; border-radius: 12px; border: 1px solid var(--line); background: #f7f7fa; font-size: 13.5px; font-weight: 500; color: var(--ink-2); cursor: pointer; transition: all .15s ease; min-height: 44px; }
+  .opt label:hover { border-color: rgba(33,120,196,0.5); background: #fff; }
+  .opt input:checked + label { color: #fff; border-color: transparent; box-shadow: 0 6px 16px -6px rgba(0,0,0,0.35); }
+  .opt.yes input:checked + label { background: var(--success); }
+  .opt.no input:checked + label { background: #b1442f; }
+  .opt.unsure input:checked + label { background: var(--warn); }
+  .opt.na input:checked + label { background: #6e6e73; }
+  .opt input:focus-visible + label { outline: 3px solid rgba(33,120,196,0.4); outline-offset: 2px; }
+
+  /* nav buttons */
+  .step-nav { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; font-weight: 500; font-size: 15px; border: 1px solid transparent; transition: transform .2s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease; cursor: pointer; }
+  .btn-primary { background: var(--ink); color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+  .btn-primary:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(0,0,0,0.22); background: #000; }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-ghost { background: transparent; color: var(--ink-2); border-color: var(--line); }
+  .btn-ghost:hover { background: #fff; color: var(--ink); }
+  .arrow { transition: transform .2s ease; }
+  .btn:hover:not(:disabled) .arrow { transform: translateX(3px); }
+  .btn-primary .spinner { width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.4); border-top-color: #fff; animation: spin .8s linear infinite; display: none; }
+  .btn-primary.loading .spinner { display: inline-block; }
+  .btn-primary.loading .btn-label, .btn-primary.loading .arrow { display: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .step-warn { font-size: 12.5px; color: var(--warn); display: none; }
+  .step-warn.show { display: block; }
+
+  /* intro / start */
+  .start-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; }
+  @media (max-width: 860px) { .start-grid { grid-template-columns: 1fr; gap: 28px; } }
+  .start-list { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+  .start-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--ink-2); }
+  .start-list .tick { flex: 0 0 22px; width: 22px; height: 22px; border-radius: 50%; background: rgba(111,181,44,0.15); color: var(--brand-green); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; margin-top: 1px; }
+  .cat-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .cat-chip { font-size: 12px; color: var(--ink-2); background: #f0f0f4; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
+
+  /* fields (contact step) */
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-family: var(--font-display); font-weight: 600; font-size: 13px; color: var(--ink); margin-bottom: 8px; }
+  .field .req { color: var(--accent-3); margin-left: 2px; }
+  .field input, .field select { width: 100%; font: inherit; font-size: 15px; color: var(--ink); background: #f7f7fa; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; transition: border-color .2s ease, background .2s ease, box-shadow .2s ease; }
+  .field input:focus, .field select:focus { outline: none; background: #fff; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(33,120,196,0.12); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .field-row { grid-template-columns: 1fr; } }
+  .privacy-note { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+
+  .form-msg { display: none; margin-top: 16px; padding: 14px 16px; border-radius: 12px; font-size: 14px; line-height: 1.45; }
+  .form-msg.show { display: block; }
+  .form-msg.error { background: rgba(192,15,12,0.06); color: var(--error); border: 1px solid rgba(192,15,12,0.18); }
+
+  /* ---------- Results ---------- */
+  .result-hero { text-align: center; margin-bottom: 8px; }
+  .score-ring { position: relative; width: 200px; height: 200px; margin: 6px auto 20px; }
+  .score-ring svg { transform: rotate(-90deg); width: 200px; height: 200px; }
+  .score-ring .val { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .score-ring .num { font-family: var(--font-display); font-weight: 700; font-size: 52px; letter-spacing: -0.03em; line-height: 1; color: var(--ink); }
+  .score-ring .pct { font-size: 15px; color: var(--muted); margin-top: 2px; }
+  .level-badge { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.02em; padding: 7px 16px; border-radius: 999px; margin-bottom: 12px; }
+  .result-summary { max-width: 60ch; margin: 0 auto 8px; color: var(--ink-2); font-size: 16px; line-height: 1.55; }
+
+  .cat-scores { margin-top: 36px; display: flex; flex-direction: column; gap: 16px; }
+  .cat-row { }
+  .cat-row .cat-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; gap: 12px; }
+  .cat-row .cat-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .cat-row .cat-val { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .cat-bar { height: 9px; border-radius: 999px; background: #ececf0; overflow: hidden; }
+  .cat-bar span { display: block; height: 100%; border-radius: 999px; transition: width .8s ease; }
+
+  .opps { margin-top: 40px; }
+  .opps h3, .strengths h3 { font-family: var(--font-display); font-weight: 700; font-size: 20px; margin: 0 0 6px; letter-spacing: -0.02em; }
+  .opps > p { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
+  .opp-card { border: 1px solid var(--line); border-radius: var(--radius-md); padding: 20px 22px; margin-bottom: 12px; background: linear-gradient(180deg, #fff, #fafafc); }
+  .opp-card .opp-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  .opp-card .opp-name { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink); }
+  .opp-card .opp-score { font-size: 12px; font-weight: 600; color: #fff; background: #b1442f; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+  .opp-card p { margin: 0; font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+
+  .result-cta { margin-top: 40px; text-align: center; background: var(--brand-navy); color: #fff; border-radius: var(--radius-lg); padding: clamp(30px, 5vw, 52px); }
+  .result-cta h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 2.6vw, 32px); letter-spacing: -0.02em; margin: 0 0 10px; }
+  .result-cta p { color: rgba(255,255,255,0.82); font-size: 16px; max-width: 52ch; margin: 0 auto 22px; line-height: 1.55; }
+  .result-cta .btn-white { background: #fff; color: var(--brand-navy); }
+  .result-cta .btn-white:hover { transform: translateY(-1px); box-shadow: 0 14px 30px -10px rgba(0,0,0,0.5); }
+  .result-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .result-cta .btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+  .result-cta .btn-outline:hover { background: rgba(255,255,255,0.1); }
+  .print-only { display: none; }
+
+  /* ---------- Footer ---------- */
+  footer { padding: 64px 0 40px; color: var(--muted); border-top: 1px solid var(--line); margin-top: 80px; font-size: 13px; }
+  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; align-items: start; }
+  @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .footer-brand .brand-logo.footer { height: 34px; margin-bottom: 16px; }
+  .footer-tag { font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: 15px; margin: 0 0 6px; }
+  .footer-sub { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .footer-col .footer-h { font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: 13px; margin-bottom: 14px; }
+  footer ul { display: flex; flex-direction: column; gap: 10px; list-style: none; margin: 0; padding: 0; font-size: 13px; }
+  footer ul a:hover { color: var(--ink); }
+  .footer-legal { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+  .footer-legal-links { display: flex; gap: 18px; }
+  .footer-legal-links a:hover { color: var(--ink); }
+  .footer-tm { flex-basis: 100%; color: var(--muted); opacity: 0.85; }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.delay-1 { transition-delay: .08s; }
+  .reveal.delay-2 { transition-delay: .16s; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  @media print {
+    .nav, footer, .result-cta, .step-nav { display: none !important; }
+    .print-only { display: block; }
+    body { background: #fff; }
+    .card { box-shadow: none; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="1 to 100 Advisors home">
+      <img class="brand-logo" src="assets/AlignedKPIsLogo-web.png" alt="Aligned KPIs" />
+    </a>
+    <nav>
+      <ul>
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="examples.html">Examples</a></li>
+        <li><a href="assessment.html" class="current">Assessment</a></li>
+        <li><a href="index.html#customers">Customers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="contact.html">Book a 15-Minute Call</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow reveal">Free CEO Self-Assessment</div>
+    <h1 class="display reveal delay-1">How much do you really see in your business?</h1>
+    <p class="lede reveal delay-2">
+      Most CEOs run on lagging financials and gut feel. In about 8 minutes, find out
+      how much live, trustworthy visibility you have into the numbers that drive
+      growth, retention, and profitability &mdash; and exactly where your blind spots are.
+    </p>
+    <div class="hero-meta reveal delay-2">
+      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg> About 8 minutes</div>
+      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Instant KPI Maturity score</div>
+      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Your answers stay private</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ASSESSMENT ================= -->
+<section class="assess">
+  <div class="wrap-narrow">
+    <div class="card reveal" id="card">
+
+      <!-- INTRO -->
+      <div id="view-intro">
+        <div class="start-grid">
+          <div>
+            <div class="eyebrow" style="margin-bottom:10px;">The Aligned KPIs&trade; Assessment</div>
+            <h2 class="display" style="margin:0 0 14px;">Ten areas. One honest read.</h2>
+            <p style="color:var(--ink-2);font-size:16px;line-height:1.55;margin:0;">
+              Answer a short set of yes / no questions across the ten areas that determine
+              whether a CEO is flying blind or steering with data. You'll get an instant
+              maturity score, a breakdown by area, and your biggest opportunities.
+            </p>
+            <ul class="start-list">
+              <li><span class="tick">&#10003;</span> Honest is better than generous &mdash; answer for how things actually work today.</li>
+              <li><span class="tick">&#10003;</span> Use <strong>Not sure</strong> freely; it's a finding in itself.</li>
+              <li><span class="tick">&#10003;</span> Use <strong>N/A</strong> for anything that doesn't apply to your model &mdash; it won't count against you.</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-family:var(--font-display);font-weight:600;font-size:13px;color:var(--ink);margin-bottom:10px;">What we look at</div>
+            <div class="cat-chips" id="introChips"></div>
+            <button class="btn btn-primary" style="margin-top:26px;width:100%;justify-content:center;" onclick="Assessment.start()">
+              <span class="btn-label">Start the assessment</span><span class="arrow">&rarr;</span>
+            </button>
+            <p class="small" style="text-align:center;margin-top:12px;">No account needed. You'll enter your details at the end to unlock your report.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUESTION STEPS (rendered) -->
+      <div id="view-steps" style="display:none;">
+        <div class="progress-head">
+          <div class="progress-cat" id="stepCat">Category</div>
+          <div class="progress-count" id="stepCount">Step 1 of 10</div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-sub" id="progressSub"></div>
+        <div id="stepNote"></div>
+        <div id="stepQuestions"></div>
+        <div class="step-nav">
+          <button class="btn btn-ghost" id="btnBack" onclick="Assessment.back()">&larr; Back</button>
+          <span class="step-warn" id="stepWarn">Please answer every question to continue.</span>
+          <button class="btn btn-primary" id="btnNext" onclick="Assessment.next()">
+            <span class="btn-label">Next</span><span class="arrow">&rarr;</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CONTACT GATE -->
+      <div id="view-contact" style="display:none;">
+        <div class="progress-head">
+          <div class="progress-cat">Almost there &mdash; unlock your results</div>
+          <div class="progress-count">Final step</div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+        <p style="color:var(--ink-2);font-size:15px;line-height:1.55;margin:16px 0 26px;">
+          Tell us where to send your results. We'll show your KPI Maturity score on the next
+          screen and email you a copy along with a short set of recommended next steps.
+        </p>
+        <form id="leadForm" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Full name <span class="req">*</span></label>
+              <input id="name" name="name" type="text" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="email">Work email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="company">Organization <span class="req">*</span></label>
+              <input id="company" name="company" type="text" required autocomplete="organization" />
+            </div>
+            <div class="field">
+              <label for="role">Your role</label>
+              <input id="role" name="role" type="text" placeholder="CEO, Executive Director, Founder…" autocomplete="organization-title" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="companySize">Organization size</label>
+              <select id="companySize" name="companySize">
+                <option value="">Select…</option>
+                <option>1–10 employees</option>
+                <option>11–25 employees</option>
+                <option>26–50 employees</option>
+                <option>51–100 employees</option>
+                <option>100+ employees</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="phone">Phone (optional)</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+          </div>
+          <div class="step-nav">
+            <button type="button" class="btn btn-ghost" onclick="Assessment.back()">&larr; Back</button>
+            <button type="submit" class="btn btn-primary" id="leadSubmit">
+              <span class="spinner"></span>
+              <span class="btn-label">See my results</span><span class="arrow">&rarr;</span>
+            </button>
+          </div>
+          <p class="privacy-note">
+            By submitting, you agree we may contact you about your results. We never sell your
+            data. See our <a href="privacy.html" style="color:var(--accent);">Privacy Policy</a>.
+          </p>
+          <div class="form-msg error" id="leadError">
+            Something went wrong saving your assessment &mdash; but we still have your results below.
+            If you'd like a copy, email <a href="mailto:info@1to100advisors.com">info@1to100advisors.com</a>.
+          </div>
+        </form>
+      </div>
+
+      <!-- RESULTS -->
+      <div id="view-results" style="display:none;">
+        <div class="result-hero">
+          <div class="eyebrow" style="margin-bottom:12px;">Your KPI Maturity Score</div>
+          <div class="score-ring">
+            <svg viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="88" fill="none" stroke="#ececf0" stroke-width="16"/>
+              <circle id="ringFill" cx="100" cy="100" r="88" fill="none" stroke="var(--brand-blue)" stroke-width="16" stroke-linecap="round" stroke-dasharray="552.9" stroke-dashoffset="552.9"/>
+            </svg>
+            <div class="val"><span class="num" id="scoreNum">0</span><span class="pct">out of 100</span></div>
+          </div>
+          <div class="level-badge" id="levelBadge">Level</div>
+          <p class="result-summary" id="levelSummary"></p>
+        </div>
+
+        <div class="strengths" style="margin-top:34px;">
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin:0 0 14px;letter-spacing:-0.02em;">How you scored, area by area</h3>
+          <div class="cat-scores" id="catScores"></div>
+        </div>
+
+        <div class="opps">
+          <h3>Your biggest opportunities</h3>
+          <p>The areas below are where more visibility would move the needle fastest.</p>
+          <div id="oppList"></div>
+        </div>
+
+        <div class="result-cta">
+          <h3>Want help closing these gaps?</h3>
+          <p>In a free 15-minute call, we'll walk through your results and show you exactly how
+            the CEO Operating System&trade; makes these numbers live, daily, and trustworthy.</p>
+          <div class="result-actions">
+            <a class="btn btn-white" href="contact.html"><span>Book a 15-minute call</span><span class="arrow">&rarr;</span></a>
+            <button class="btn btn-outline" onclick="window.print()">Save / print my results</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap" style="text-align:center;padding-bottom:40px;margin-bottom:40px;border-bottom:1px solid var(--line);">
+    <p style="font-family:var(--font-display);font-weight:600;font-size:clamp(17px,1.6vw,22px);letter-spacing:-0.02em;line-height:1.35;color:var(--ink);max-width:32ch;margin:0 auto;">We don't believe CEOs need more dashboards. <span style="color:var(--accent);">We believe they need better decisions.</span></p>
+  </div>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <img class="brand-logo footer" src="assets/logo-aligned-kpis.svg" alt="Aligned KPIs" onerror="this.onerror=null; this.src='assets/logo-primary-light.svg';" />
+      <p class="footer-tag">Align Your Team. Accelerate Growth.</p>
+      <p class="footer-sub">Executive Visibility Platform for CEOs.<br/>Powered by the CEO Operating System&trade;.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-h">Explore</div>
+      <ul>
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="examples.html">Examples</a></li>
+        <li><a href="assessment.html">KPI Assessment</a></li>
+        <li><a href="index.html#customers">Customers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-h">Contact</div>
+      <ul>
+        <li><a href="mailto:info@1to100advisors.com">info@1to100advisors.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-legal">
+    <div>&copy; <span id="yr"></span> 1 to 100 Advisors, Inc. All rights reserved.</div>
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-tm">Aligned KPIs&trade; and the CEO Operating System&trade; are trademarks of 1 to 100 Advisors, Inc.</div>
+  </div>
+</footer>
+
+<script>
+  // ============================================================
+  // GOOGLE SHEET WEBHOOK CONFIG
+  // Same Apps Script web app as the contact form. The script routes
+  // by the `formType` field to the "KPIAssessments" tab.
+  // See KPI_ASSESSMENT_SETUP.md for the updated Apps Script code.
+  // ============================================================
+  const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyT9atQgyssV6NcLJsbEjIXhmka4I1VoFysyekNpHWc5wlGUgco16uCj9l-MNE4zB3Bqw/exec';
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ============================================================
+  // QUESTION BANK + SCORING MODEL
+  // weight = strategic leverage of the item (3 = core, 2 = important, 1 = supporting)
+  // Scoring per answer:  Yes = full weight | No = 0 | Not sure = 0 | N/A = excluded
+  // Category score = earned / applicable-max * 100.  Overall = same, all items.
+  // ============================================================
+  const CATEGORIES = [
+    { key: 'financial', name: 'Financial Metrics', short: 'Financials',
+      questions: [
+        { w:3, t:'Is the current bank balance readily available?' },
+        { w:3, t:'Is the cash runway (months of expenses covered by current balance) known?' },
+        { w:3, t:'Is there a 3+ month revenue and expense forecast that includes cash ending balance?' },
+        { w:2, t:'Is the gross and net monthly cash burn known?' },
+        { w:2, t:'Are all financial transactions recorded and available electronically?' },
+        { w:1, t:'Are bank statements available electronically?' },
+        { w:3, t:'Are financials reconciled to bank statements monthly?' },
+        { w:2, t:'Do you use a finance-specific software system, such as QuickBooks?' },
+        { w:2, t:'Can a balance sheet be produced?' },
+        { w:3, t:'Can a profit and loss statement be produced?' },
+        { w:2, t:'Can a profit and loss by revenue stream be produced?' },
+        { w:2, t:'Can a statement of cash flows be produced?' },
+        { w:1, t:'Can a statement of accounts receivable be produced?' },
+        { w:1, t:'Can a statement of payables be produced?' },
+        { w:2, t:'Are personnel expenses allocated to revenue streams?' }
+      ] },
+    { key: 'budget', name: 'Budget & Forecasting', short: 'Budget & Forecasting',
+      questions: [
+        { w:3, t:'Is there a 12-month budget?' },
+        { w:1, t:'Is the budget electronically available?' },
+        { w:1, t:'Is the budget in the same system (e.g. QuickBooks) as the financial system?' },
+        { w:3, t:'Can a budget-versus-actual profit and loss statement be produced?' },
+        { w:2, t:'Can a month-ending cash balance be produced?' },
+        { w:2, t:'Is there a 12-month forecast available, similar to the budget?' },
+        { w:2, t:'Are expenses by revenue stream tracked so profitability can be calculated?' },
+        { w:2, t:'Are there profitability goals for each revenue stream?' }
+      ] },
+    { key: 'operating', name: 'Operating Plan Metrics', short: 'Operating Plans',
+      note: 'An operating plan holds the assumptions behind each budgeted revenue number — at minimum units, average price, total dollars invoiced, and cash collected. It may also include lead-to-sales conversion, seasonality, and similar drivers.',
+      questions: [
+        { w:3, t:'Do ALL revenue items have a supporting operating plan with monthly assumptions?' },
+        { w:2, t:'Is there an operating plan for marketing that includes leads and conversion assumptions?' },
+        { w:2, t:'Is there an operating plan for new sales (units, average price, and totals by month)?' },
+        { w:2, t:'Is there an operating plan for member/customer retention (dollar and count retention assumptions)?' },
+        { w:1, t:'Is there an operating plan for events?' }
+      ] },
+    { key: 'market', name: 'Market Metrics', short: 'Market',
+      questions: [
+        { w:2, t:'ICP/IMP — Are the attributes of your ideal member/customer profile known (e.g. location, years in business)?' },
+        { w:1, t:'TAM — Is your Total Addressable Market known (total revenue if every potential member/customer joined and spent)?' },
+        { w:1, t:'SAM — Is your Serviceable Available Market known (the portion of TAM you can realistically serve)?' },
+        { w:1, t:'SOM — Is your Serviceable Obtainable Market known (the portion of SAM you can realistically capture)?' }
+      ] },
+    { key: 'sales', name: 'Marketing & Sales KPIs', short: 'Marketing & Sales',
+      questions: [
+        { w:3, t:'Is there a sales pipeline with stages (leads, qualified leads, wins, losses, forecast close date and amount)?' },
+        { w:2, t:'Are leads by source and date tracked (referral, LinkedIn, website, etc.)?' },
+        { w:2, t:'Is CAC — the all-in cost to acquire a new customer/member — known?' },
+        { w:2, t:'Is the sales win rate known?' },
+        { w:1, t:'Is the days-to-close a win known?' },
+        { w:2, t:'Are marketing campaigns tracked for cost and results?' },
+        { w:1, t:'Are sales activities such as meetings tracked?' },
+        { w:2, t:'Are there sales goals for dollars and count?' },
+        { w:2, t:'Are monthly sales forecasts being provided?' }
+      ] },
+    { key: 'onboarding', name: 'Onboarding KPIs', short: 'Onboarding',
+      questions: [
+        { w:2, t:'Is time to first engagement being tracked?' },
+        { w:2, t:'Is first-value expectation, and the time to first value, being tracked?' },
+        { w:1, t:'Is onboarding satisfaction (CSAT or NPS) being tracked?' },
+        { w:1, t:'Are referrals being requested during onboarding?' }
+      ] },
+    { key: 'engagement', name: 'Engagement KPIs', short: 'Engagement',
+      questions: [
+        { w:2, t:'Is frequency of engagement being tracked?' },
+        { w:1, t:'Are engagement campaigns being tracked?' },
+        { w:1, t:'Are referrals being requested?' },
+        { w:1, t:'Are inbound requests for services tracked in both units and time expended?' },
+        { w:1, t:'Is inbound request resolution time tracked by member/customer?' }
+      ] },
+    { key: 'retention', name: 'Retention KPIs', short: 'Retention',
+      questions: [
+        { w:3, t:'Is regular satisfaction / likelihood-to-renew (CSAT or NPS) being tracked?' },
+        { w:2, t:'Is days-since-last-contact being tracked?' },
+        { w:2, t:'Is personal engagement (actual human contact via phone or in person) being tracked?' },
+        { w:2, t:'Are all members/customers proactively reached out to ahead of renewal dates?' },
+        { w:1, t:'Are statements of value proactively being provided?' },
+        { w:1, t:'Is communication-coverage (% of upcoming renewals engaged) being tracked?' }
+      ] },
+    { key: 'support', name: 'Support & Team KPIs', short: 'Support & Team',
+      questions: [
+        { w:1, t:'Is the days-to-provide reconciled financials being tracked?' },
+        { w:1, t:'Is the number of full-time and part-time employees tracked by month?' },
+        { w:1, t:'Is employee satisfaction (e.g. eNPS) being tracked?' },
+        { w:2, t:'Does each staff member have a measurable goal (team or individual) that they report on?' },
+        { w:2, t:'Are KPIs part of weekly staff meetings?' }
+      ] },
+    { key: 'board', name: 'Board KPIs', short: 'Board',
+      questions: [
+        { w:1, t:'Is board attendance being tracked?' },
+        { w:1, t:'Are board referrals being tracked?' },
+        { w:1, t:'Are business profiles of each board member (e.g. LinkedIn) provided?' },
+        { w:1, t:'Is overall investment recorded for each board member?' },
+        { w:1, t:'Is board engagement being recorded, such as event attendance?' }
+      ] }
+  ];
+
+  // Answer values and the credit each earns (of the item weight)
+  const ANSWERS = [
+    { v:'Yes',     cls:'yes',    credit:1,    counts:true  },
+    { v:'No',      cls:'no',     credit:0,    counts:true  },
+    { v:'Not sure',cls:'unsure', credit:0,    counts:true  },
+    { v:'N/A',     cls:'na',     credit:0,    counts:false }
+  ];
+
+  // Maturity levels by overall score
+  const LEVELS = [
+    { min:0,  max:20,  name:'Level 1 · Flying Blind',        color:'#b1442f',
+      summary:'Right now you are steering mostly on instinct and lagging financials. The good news: the fastest wins are also the most basic — reliable cash visibility and a clean monthly P&L. Get those in place and everything downstream gets easier.' },
+    { min:21, max:40,  name:'Level 2 · Building Foundations', color:'#c9791f',
+      summary:'You have pieces in place, but the picture is patchy and often out of date. The priority is turning your financial and budget basics into something you can trust and see every month, then extending that discipline into sales and retention.' },
+    { min:41, max:60,  name:'Level 3 · Gaining Visibility',   color:'#b8860b',
+      summary:'You can see a fair amount of what is happening, but it takes effort and the leading indicators are still thin. You are ready to connect budgets to operating plans and start managing the KPIs that predict growth and churn — not just report the past.' },
+    { min:61, max:80,  name:'Level 4 · Aligned & Measuring',  color:'#2178c4',
+      summary:'You are running a genuinely data-informed organization. Financials, budgets and most operating metrics are in place. The opportunity now is to make the numbers live and shared — so the whole team is aligned around the same daily truth.' },
+    { min:81, max:100, name:'Level 5 · Operating-System Ready', color:'#137333',
+      summary:'You have exceptional visibility across the business. Very few CEOs operate at this level. The frontier for you is speed and alignment: real-time, trustworthy numbers in every hand, so decisions get made in hours, not weeks.' }
+  ];
+
+  // Short recommendation shown for low-scoring areas in "opportunities"
+  const RECS = {
+    financial:  'Start here. Reliable cash visibility, monthly reconciliation, and an on-demand P&L are the foundation everything else depends on. Without them, every other number is suspect.',
+    budget:     'A 12-month budget and a monthly budget-vs-actual are what turn financials from a rear-view mirror into a steering wheel. This is usually the highest-leverage next step after clean books.',
+    operating:  'Operating plans expose the assumptions behind your revenue — units, price, conversion. When they are missing, you can hit budget by luck but you cannot diagnose or repeat it.',
+    market:     'Knowing your ideal customer and the size of your market focuses every dollar of sales and marketing. Even rough TAM/SAM/SOM numbers beat none.',
+    sales:      'A staged pipeline, tracked lead sources, and a known win rate turn sales from hope into forecast. This is where growth becomes predictable.',
+    onboarding: 'Time-to-first-value is the strongest early signal of whether a new member/customer will stay. Tracking it lets you fix churn before it happens.',
+    engagement: 'Engagement is the leading indicator of retention. Tracking frequency and inbound activity tells you who is thriving and who is drifting.',
+    retention:  'Renewal likelihood, days-since-contact, and proactive outreach are the difference between predictable retention and surprise cancellations. High leverage for any recurring-revenue model.',
+    support:    'Clear individual goals and KPIs in weekly meetings are how strategy actually reaches the front line. This is where alignment is won or lost.',
+    board:      'Tracking board engagement and referrals turns your board from a formality into a growth asset. Lower urgency than the areas above, but easy wins.'
+  };
+
+  // ============================================================
+  const Assessment = (function () {
+    const answers = {};            // key like "financial-0" -> answer value
+    let step = 0;                  // index into CATEGORIES
+    const totalSteps = CATEGORIES.length;
+
+    function el(id){ return document.getElementById(id); }
+    function show(view){ ['intro','steps','contact','results'].forEach(v => el('view-'+v).style.display = (v===view?'':'none')); }
+    function scrollTop(){ const c = el('card'); const y = c.getBoundingClientRect().top + window.pageYOffset - 90; window.scrollTo({top:y, behavior:'smooth'}); }
+
+    function renderIntro(){
+      el('introChips').innerHTML = CATEGORIES.map(c => '<span class="cat-chip">'+c.short+'</span>').join('');
+    }
+
+    function renderStep(){
+      const cat = CATEGORIES[step];
+      el('stepCat').textContent = cat.name;
+      el('stepCount').textContent = 'Step ' + (step+1) + ' of ' + totalSteps;
+      el('progressFill').style.width = ((step) / totalSteps * 100) + '%';
+      el('progressSub').textContent = cat.questions.length + ' quick questions in this area.';
+      el('stepNote').innerHTML = cat.note ? '<div class="cat-note">'+cat.note+'</div>' : '';
+      el('stepWarn').classList.remove('show');
+
+      let html = '';
+      cat.questions.forEach((q, i) => {
+        const name = cat.key + '-' + i;
+        html += '<div class="q"><div class="q-text"><span class="qnum">'+(i+1)+'.</span>'+q.t+'</div><div class="opts">';
+        ANSWERS.forEach((a, ai) => {
+          const id = name + '-' + ai;
+          const checked = answers[name] === a.v ? 'checked' : '';
+          html += '<div class="opt '+a.cls+'">'
+                + '<input type="radio" id="'+id+'" name="'+name+'" value="'+a.v+'" '+checked+' onchange="Assessment.record(\''+name+'\', this.value)"/>'
+                + '<label for="'+id+'">'+a.v+'</label></div>';
+        });
+        html += '</div></div>';
+      });
+      el('stepQuestions').innerHTML = html;
+
+      el('btnBack').style.visibility = (step === 0) ? 'hidden' : 'visible';
+      el('btnNext').querySelector('.btn-label').textContent = (step === totalSteps-1) ? 'Continue to results' : 'Next';
+    }
+
+    function record(name, val){ answers[name] = val; el('stepWarn').classList.remove('show'); }
+
+    function stepComplete(){
+      const cat = CATEGORIES[step];
+      return cat.questions.every((q,i) => answers[cat.key+'-'+i]);
+    }
+
+    function start(){ step = 0; show('steps'); renderStep(); scrollTop(); }
+
+    function next(){
+      if (!stepComplete()){ el('stepWarn').classList.add('show'); return; }
+      if (step < totalSteps - 1){ step++; renderStep(); scrollTop(); }
+      else { show('contact'); scrollTop(); }
+    }
+
+    function back(){
+      const contactVisible = el('view-contact').style.display !== 'none';
+      if (contactVisible){ show('steps'); renderStep(); scrollTop(); return; }
+      if (step > 0){ step--; renderStep(); scrollTop(); }
+      else { show('intro'); scrollTop(); }
+    }
+
+    // ---- scoring ----
+    function score(){
+      const cats = [];
+      let earnedAll = 0, maxAll = 0;
+      CATEGORIES.forEach(cat => {
+        let earned = 0, max = 0;
+        cat.questions.forEach((q,i) => {
+          const val = answers[cat.key+'-'+i];
+          const a = ANSWERS.find(x => x.v === val);
+          if (!a || !a.counts) return;      // N/A or unanswered excluded from denominator
+          max += q.w;
+          earned += q.w * a.credit;
+        });
+        const pct = max > 0 ? Math.round(earned / max * 100) : null; // null = all N/A
+        cats.push({ key:cat.key, name:cat.name, short:cat.short, pct:pct, max:max });
+        earnedAll += earned; maxAll += max;
+      });
+      const overall = maxAll > 0 ? Math.round(earnedAll / maxAll * 100) : 0;
+      return { overall, cats };
+    }
+
+    function levelFor(s){ return LEVELS.find(l => s >= l.min && s <= l.max) || LEVELS[0]; }
+    function barColor(pct){ if (pct>=75) return 'var(--success)'; if (pct>=50) return 'var(--brand-blue)'; if (pct>=30) return 'var(--warn)'; return '#b1442f'; }
+
+    function renderResults(res){
+      const lvl = levelFor(res.overall);
+      // ring
+      const circ = 2 * Math.PI * 88;
+      const ring = el('ringFill');
+      ring.style.stroke = lvl.color;
+      // animate number + ring
+      let cur = 0; const target = res.overall;
+      const stepInc = Math.max(1, Math.round(target/40));
+      const tick = setInterval(() => {
+        cur += stepInc; if (cur >= target){ cur = target; clearInterval(tick); }
+        el('scoreNum').textContent = cur;
+        ring.style.strokeDashoffset = circ * (1 - cur/100);
+      }, 18);
+
+      const badge = el('levelBadge');
+      badge.textContent = lvl.name;
+      badge.style.background = lvl.color + '1f';
+      badge.style.color = lvl.color;
+      el('levelSummary').textContent = lvl.summary;
+
+      // category bars (sorted high -> low)
+      const sorted = res.cats.slice().sort((a,b) => (b.pct??-1) - (a.pct??-1));
+      el('catScores').innerHTML = sorted.map(c => {
+        const val = c.pct === null ? 'N/A' : c.pct + '%';
+        const width = c.pct === null ? 0 : c.pct;
+        const col = c.pct === null ? '#c7c7cc' : barColor(c.pct);
+        return '<div class="cat-row"><div class="cat-top"><span class="cat-name">'+c.name+'</span>'
+             + '<span class="cat-val">'+val+'</span></div>'
+             + '<div class="cat-bar"><span style="width:'+width+'%;background:'+col+'"></span></div></div>';
+      }).join('');
+
+      // opportunities = lowest scoring applicable areas (<70), up to 4
+      const opps = res.cats.filter(c => c.pct !== null && c.pct < 70).sort((a,b) => a.pct - b.pct).slice(0,4);
+      if (opps.length === 0){
+        el('oppList').innerHTML = '<div class="opp-card"><p>Impressive — no major gaps stood out. The next frontier is making these numbers live and shared across your team every day. That is exactly what the CEO Operating System&trade; is built for.</p></div>';
+      } else {
+        el('oppList').innerHTML = opps.map(c =>
+          '<div class="opp-card"><div class="opp-head"><span class="opp-name">'+c.name+'</span>'
+          + '<span class="opp-score">'+c.pct+'%</span></div><p>'+(RECS[c.key]||'')+'</p></div>'
+        ).join('');
+      }
+      show('results'); scrollTop();
+    }
+
+    // ---- submit / lead capture ----
+    function initLeadForm(){
+      const form = el('leadForm');
+      const submitBtn = el('leadSubmit');
+      const errBox = el('leadError');
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        errBox.classList.remove('show');
+        if (!form.checkValidity()){ form.reportValidity(); return; }
+
+        const res = score();
+        submitBtn.classList.add('loading'); submitBtn.disabled = true;
+
+        // Build payload
+        const fd = new FormData();
+        fd.append('formType', 'kpi-assessment');
+        fd.append('name', el('name').value.trim());
+        fd.append('email', el('email').value.trim());
+        fd.append('company', el('company').value.trim());
+        fd.append('role', el('role').value.trim());
+        fd.append('companySize', el('companySize').value);
+        fd.append('phone', el('phone').value.trim());
+        fd.append('overallScore', res.overall);
+        fd.append('maturityLevel', levelFor(res.overall).name);
+        res.cats.forEach(c => fd.append('cat_' + c.key, c.pct === null ? 'N/A' : c.pct));
+        // full answers as readable JSON
+        const answerDump = {};
+        CATEGORIES.forEach(cat => cat.questions.forEach((q,i) => {
+          answerDump[cat.name + ' :: ' + q.t] = answers[cat.key+'-'+i] || '';
+        }));
+        fd.append('answersJson', JSON.stringify(answerDump));
+        fd.append('submittedAt', new Date().toISOString());
+        fd.append('page', window.location.href);
+
+        try {
+          if (!WEBHOOK_URL || WEBHOOK_URL.indexOf('PASTE_YOUR') === 0) throw new Error('Webhook URL not configured yet.');
+          const r = await fetch(WEBHOOK_URL, { method:'POST', body: fd });
+          if (!r.ok && r.status !== 0) throw new Error('Server returned ' + r.status);
+        } catch (err) {
+          console.error(err);
+          errBox.classList.add('show');   // still show results below
+        } finally {
+          submitBtn.classList.remove('loading'); submitBtn.disabled = false;
+          renderResults(res);
+        }
+      });
+    }
+
+    function init(){ renderIntro(); initLeadForm(); }
+    return { init, start, next, back, record, renderResults, score };
+  })();
+
+  // Expose globally so inline handlers resolve in every browser engine.
+  window.Assessment = Assessment;
+  Assessment.init();
+</script>
+
+</body>
+</html>
