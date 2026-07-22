@@ -13,3 +13,6 @@ Sales Deck — Style Guide.md
 # build/temp junk
 _to_delete/
 .fuse_hidden*
+
+# local dev tools (not part of the website)
+deploy.command
