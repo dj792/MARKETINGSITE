@@ -756,7 +756,16 @@
     const totalSteps = CATEGORIES.length;
 
     function el(id){ return document.getElementById(id); }
-    function show(view){ ['intro','steps','contact','results'].forEach(v => el('view-'+v).style.display = (v===view?'':'none')); }
+    function show(view){
+      ['intro','steps','contact','results'].forEach(v => el('view-'+v).style.display = (v===view?'':'none'));
+      // Keep the hero + credibility band only on the intro. Once the assessment
+      // starts, hide them so the questions and results are the primary focus.
+      const onIntro = (view === 'intro');
+      const hero = document.querySelector('.hero');
+      const cred = document.querySelector('.cred');
+      if (hero) hero.style.display = onIntro ? '' : 'none';
+      if (cred) cred.style.display = onIntro ? '' : 'none';
+    }
     function scrollTop(){ const c = el('card'); const y = c.getBoundingClientRect().top + window.pageYOffset - 90; window.scrollTo({top:y, behavior:'smooth'}); }
 
     function renderIntro(){
