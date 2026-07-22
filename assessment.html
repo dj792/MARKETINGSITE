@@ -185,6 +185,8 @@
   @media (max-width: 600px) { .field-row { grid-template-columns: 1fr; } }
   .privacy-note { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
 
+  /* Honeypot — off-screen field to trap bots. Never visible to humans. */
+  .hp-field { position: absolute !important; left: -9999px !important; top: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
   .form-msg { display: none; margin-top: 16px; padding: 14px 16px; border-radius: 12px; font-size: 14px; line-height: 1.45; }
   .form-msg.show { display: block; }
   .form-msg.error { background: rgba(192,15,12,0.06); color: var(--error); border: 1px solid rgba(192,15,12,0.18); }
@@ -399,6 +401,11 @@
               <input id="phone" name="phone" type="tel" autocomplete="tel" />
             </div>
           </div>
+          <!-- Honeypot: hidden from humans; bots fill it and get silently dropped. -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website_hp">Website</label>
+            <input type="text" id="website_hp" name="website" tabindex="-1" autocomplete="off" />
+          </div>
           <div class="step-nav">
             <button type="button" class="btn btn-ghost" onclick="Assessment.back()">&larr; Back</button>
             <button type="submit" class="btn btn-primary" id="leadSubmit">
@@ -505,6 +512,9 @@
   // See KPI_ASSESSMENT_SETUP.md for the updated Apps Script code.
   // ============================================================
   const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyT9atQgyssV6NcLJsbEjIXhmka4I1VoFysyekNpHWc5wlGUgco16uCj9l-MNE4zB3Bqw/exec';
+
+  // Anti-spam: record when the page loaded, to reject implausibly fast bot submissions.
+  const pageLoadedAt = Date.now();
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -800,6 +810,12 @@
         if (!form.checkValidity()){ form.reportValidity(); return; }
 
         const res = score();
+
+        // Anti-spam (client side): if the hidden honeypot is filled, it's a bot.
+        // Show results but never send the submission.
+        const hp = el('website_hp');
+        if (hp && hp.value){ renderResults(res); return; }
+
         submitBtn.classList.add('loading'); submitBtn.disabled = true;
 
         // Build payload
@@ -822,6 +838,8 @@
         fd.append('answersJson', JSON.stringify(answerDump));
         fd.append('submittedAt', new Date().toISOString());
         fd.append('page', window.location.href);
+        fd.append('website', hp ? hp.value : '');
+        fd.append('elapsedMs', String(Date.now() - pageLoadedAt));
 
         try {
           if (!WEBHOOK_URL || WEBHOOK_URL.indexOf('PASTE_YOUR') === 0) throw new Error('Webhook URL not configured yet.');

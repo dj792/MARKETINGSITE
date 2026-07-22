@@ -251,6 +251,9 @@
   .btn-primary.loading .arrow { display: none; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
+  /* Honeypot — off-screen field to trap bots. Never visible to humans. */
+  .hp-field { position: absolute !important; left: -9999px !important; top: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+
   .form-msg {
     display: none;
     margin-top: 18px;
@@ -457,6 +460,12 @@
           <input id="referredBy" name="referredBy" type="text" maxlength="25" />
         </div>
 
+        <!-- Honeypot: hidden from humans; bots fill it and get silently dropped. -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
         <div class="submit-row">
           <button type="submit" class="btn btn-primary" id="submitBtn">
             <span class="spinner"></span>
@@ -569,6 +578,9 @@
   // ============================================================
   const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyT9atQgyssV6NcLJsbEjIXhmka4I1VoFysyekNpHWc5wlGUgco16uCj9l-MNE4zB3Bqw/exec';
 
+  // Anti-spam: record when the form loaded, to reject implausibly fast bot submissions.
+  const formLoadedAt = Date.now();
+
   // Year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -599,6 +611,15 @@
       return;
     }
 
+    // Anti-spam (client side): if the hidden honeypot is filled, it's a bot.
+    // Show the success state but never send — real users never see this field.
+    var honeypot = document.getElementById('website');
+    if (honeypot && honeypot.value) {
+      form.style.display = 'none';
+      formSuccess.classList.add('show');
+      return;
+    }
+
     // Loading state
     submitBtn.classList.add('loading');
     submitBtn.disabled = true;
@@ -611,6 +632,7 @@
       const formData = new FormData(form);
       formData.append('submittedAt', new Date().toISOString());
       formData.append('page', window.location.href);
+      formData.append('elapsedMs', String(Date.now() - formLoadedAt));
 
       const res = await fetch(WEBHOOK_URL, {
         method: 'POST',
