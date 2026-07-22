@@ -16,14 +16,14 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Aligned KPIs" />
 <meta property="og:title" content="KPI Assessment for CEOs — Aligned KPIs&trade;" />
-<meta property="og:description" content="See how much visibility you really have into the numbers that drive your business. Free 8-minute self-assessment with an instant KPI Maturity score." />
+<meta property="og:description" content="See how much visibility you really have into the numbers that drive your business. Free 8-minute self-assessment with your instant Executive Visibility Score." />
 <meta property="og:url" content="https://alignedkpis.com/assessment.html" />
 <meta property="og:image" content="https://alignedkpis.com/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="KPI Assessment for CEOs — Aligned KPIs&trade;" />
-<meta name="twitter:description" content="See how much visibility you really have into the numbers that drive your business. Free 8-minute self-assessment with an instant KPI Maturity score." />
+<meta name="twitter:description" content="See how much visibility you really have into the numbers that drive your business. Free 8-minute self-assessment with your instant Executive Visibility Score." />
 <meta name="twitter:image" content="https://alignedkpis.com/assets/og-image.png" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="apple-touch-icon" href="assets/logo-app-icon-light.svg" />
@@ -116,6 +116,17 @@
   .hero-meta { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
   .hero-meta div { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 7px; }
   .hero-meta svg { color: var(--accent-2); }
+
+  /* ---------- Credibility band ---------- */
+  .cred { padding: clamp(24px, 4vh, 48px) 0 clamp(8px, 2vh, 20px); text-align: center; }
+  .cred .eyebrow { display: block; margin-bottom: 14px; }
+  .cred-lede { font-size: clamp(15px, 1.2vw, 18px); color: var(--ink-2); line-height: 1.55; max-width: 62ch; margin: 0 auto 30px; }
+  .trust-row { display: flex; flex-wrap: wrap; gap: 22px 48px; justify-content: center; align-items: center; }
+  .trust-logo { height: 46px; width: auto; display: block; opacity: 0.75; transition: opacity .2s ease, transform .2s ease; }
+  .trust-logo:hover { opacity: 1; transform: translateY(-1px); }
+  .trust-badge { width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, #1d1d1f, #424245); display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(0,0,0,0.18); opacity: 0.85; transition: opacity .2s ease, transform .2s ease; }
+  .trust-badge:hover { opacity: 1; transform: translateY(-1px); }
+  .trust-badge img { width: 60%; height: 60%; }
 
   /* ---------- Assessment card ---------- */
   .assess { padding-top: clamp(10px, 3vh, 40px); }
@@ -217,6 +228,22 @@
   .opp-card .opp-name { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink); }
   .opp-card .opp-score { font-size: 12px; font-weight: 600; color: #fff; background: #b1442f; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
   .opp-card p { margin: 0; font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+  .opp-card .opp-cat { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; margin-bottom: 3px; }
+
+  /* Per-area rating chip */
+  .rating { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; padding: 2px 9px; border-radius: 999px; color: #fff; margin-left: 8px; vertical-align: middle; }
+
+  /* Potential-upside panel */
+  .impact { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .impact { grid-template-columns: 1fr; } }
+  .impact > div { border: 1px solid var(--line); border-radius: var(--radius-md); padding: 22px 24px; background: linear-gradient(180deg, #fff, #fafafc); }
+  .impact-label { font-family: var(--font-display); font-weight: 700; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+  .impact-hours { font-family: var(--font-display); font-weight: 700; font-size: 34px; letter-spacing: -0.02em; color: var(--brand-navy); line-height: 1; }
+  .impact-hours .unit { font-size: 15px; font-weight: 600; color: var(--muted); }
+  .impact-note { font-size: 12.5px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+  .impact-gains ul { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .impact-gains li { font-size: 14px; color: var(--ink-2); padding-left: 22px; position: relative; line-height: 1.45; }
+  .impact-gains li::before { content: "\2192"; position: absolute; left: 0; color: var(--brand-green); font-weight: 700; }
 
   .result-cta { margin-top: 40px; text-align: center; background: var(--brand-navy); color: #fff; border-radius: var(--radius-lg); padding: clamp(30px, 5vw, 52px); }
   .result-cta h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 2.6vw, 32px); letter-spacing: -0.02em; margin: 0 0 10px; }
@@ -288,14 +315,35 @@
     <div class="eyebrow reveal">Free CEO Self-Assessment</div>
     <h1 class="display reveal delay-1">How much do you really see as a CEO in your organization?</h1>
     <p class="lede reveal delay-2">
-      Most CEOs run on lagging financials and gut feel. In about 8 minutes, find out
-      how much live, trustworthy visibility you have into the numbers that drive
-      growth, retention, and profitability &mdash; and exactly where your blind spots are.
+      Most CEOs are expected to make critical decisions using financial statements that are
+      weeks old, disconnected reports, and instinct. In about eight minutes, discover how much
+      real-time executive visibility you actually have &mdash; and exactly where the blind spots
+      are that could be slowing growth, retention, and profitability.
     </p>
     <div class="hero-meta reveal delay-2">
       <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg> About 8 minutes</div>
-      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Instant KPI Maturity score</div>
+      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Your Executive Visibility Score&trade;</div>
       <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Your answers stay private</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDIBILITY ================= -->
+<section class="cred">
+  <div class="wrap-narrow">
+    <div class="eyebrow reveal">Trusted by Growth-Focused CEOs</div>
+    <p class="cred-lede reveal delay-1">
+      Designed using decades of executive leadership experience helping chambers, associations,
+      and growing organizations improve financial performance through trusted executive visibility.
+    </p>
+    <div class="trust-row reveal delay-1">
+      <img class="trust-logo" src="assets/PBN-Logo.png" alt="Palm Beach North Chamber of Commerce" />
+      <img class="trust-logo" src="assets/LWRBA-Logo.png" alt="Lakewood Ranch Business Alliance" />
+      <span class="trust-badge" aria-label="MemberShine">
+        <img src="assets/ms-icon-white.svg" alt="MemberShine" />
+      </span>
+      <img class="trust-logo" src="assets/Bloomington-Logo.png" alt="Bloomington Chamber of Commerce" />
+      <img class="trust-logo" src="assets/BocaRatonChamberLogo.png" alt="Boca Raton Chamber of Commerce" />
     </div>
   </div>
 </section>
@@ -313,8 +361,8 @@
             <h2 class="display" style="margin:0 0 14px;">Ten areas. One honest read.</h2>
             <p style="color:var(--ink-2);font-size:16px;line-height:1.55;margin:0;">
               Answer a short set of yes / no questions across the ten areas that determine
-              whether a CEO is flying blind or steering with data. You'll get an instant
-              maturity score, a breakdown by area, and your biggest opportunities.
+              whether a CEO is flying blind or steering with data. You'll get your Executive
+              Visibility Score&trade;, a breakdown by area, and your biggest opportunities.
             </p>
             <ul class="start-list">
               <li><span class="tick">&#10003;</span> Honest is better than generous &mdash; answer for how things actually work today.</li>
@@ -326,7 +374,7 @@
             <div style="font-family:var(--font-display);font-weight:600;font-size:13px;color:var(--ink);margin-bottom:10px;">What we look at</div>
             <div class="cat-chips" id="introChips"></div>
             <button class="btn btn-primary" style="margin-top:26px;width:100%;justify-content:center;" onclick="Assessment.start()">
-              <span class="btn-label">Start the assessment</span><span class="arrow">&rarr;</span>
+              <span class="btn-label">Discover My Executive Visibility Score</span><span class="arrow">&rarr;</span>
             </button>
             <p class="small" style="text-align:center;margin-top:12px;">No account needed. You'll enter your details at the end to unlock your report.</p>
           </div>
@@ -360,8 +408,9 @@
         </div>
         <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
         <p style="color:var(--ink-2);font-size:15px;line-height:1.55;margin:16px 0 26px;">
-          Tell us where to send your results. We'll show your KPI Maturity score on the next
-          screen and email you a copy along with a short set of recommended next steps.
+          Tell us where to send your results. You'll receive your Executive Visibility Score&trade;
+          along with a personalized roadmap showing your biggest blind spots and highest-impact
+          opportunities.
         </p>
         <form id="leadForm" novalidate>
           <div class="field-row">
@@ -427,7 +476,7 @@
       <!-- RESULTS -->
       <div id="view-results" style="display:none;">
         <div class="result-hero">
-          <div class="eyebrow" style="margin-bottom:12px;">Your KPI Maturity Score</div>
+          <div class="eyebrow" style="margin-bottom:12px;">Your Executive Visibility Score&trade;</div>
           <div class="score-ring">
             <svg viewBox="0 0 200 200">
               <circle cx="100" cy="100" r="88" fill="none" stroke="#ececf0" stroke-width="16"/>
@@ -440,14 +489,34 @@
         </div>
 
         <div class="strengths" style="margin-top:34px;">
-          <h3 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin:0 0 14px;letter-spacing:-0.02em;">How you scored, area by area</h3>
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin:0 0 14px;letter-spacing:-0.02em;">How your visibility rates, area by area</h3>
           <div class="cat-scores" id="catScores"></div>
         </div>
 
         <div class="opps">
-          <h3>Your biggest opportunities</h3>
-          <p>The areas below are where more visibility would move the needle fastest.</p>
+          <h3>Your top three opportunities</h3>
+          <p>Your biggest blind spots and highest-impact next moves &mdash; the areas where more visibility moves the needle fastest.</p>
           <div id="oppList"></div>
+        </div>
+
+        <div class="impact-wrap" style="margin-top:44px;">
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin:0 0 6px;letter-spacing:-0.02em;">Your potential upside</h3>
+          <p style="color:var(--muted);font-size:14px;margin:0 0 18px;">What closing these gaps could unlock for you as an executive.</p>
+          <div class="impact">
+            <div class="impact-time">
+              <div class="impact-label">Potential executive time reclaimed</div>
+              <div class="impact-hours"><span id="impactHours">&mdash;</span> <span class="unit">hrs / month</span></div>
+              <div class="impact-note">Estimated from the manual reporting and rework typical at your current visibility level.</div>
+            </div>
+            <div class="impact-gains">
+              <div class="impact-label">What better visibility unlocks</div>
+              <ul>
+                <li>Faster, more confident decisions</li>
+                <li>Stronger board &amp; stakeholder confidence</li>
+                <li>Earlier detection of risk to growth, cash &amp; retention</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="result-cta">
@@ -666,6 +735,20 @@
     board:      'Tracking board engagement and referrals turns your board from a formality into a growth asset. Lower urgency than the areas above, but easy wins.'
   };
 
+  // Short, scannable action headline for each area (shown in the top-3 opportunities).
+  const ACTIONS = {
+    financial:  'Establish reliable cash & P&L visibility',
+    budget:     'Add monthly budget-vs-actual & forecasting',
+    operating:  'Build operating plans behind each revenue line',
+    market:     'Define your ideal customer & market size',
+    sales:      'Stand up a staged, tracked sales pipeline',
+    onboarding: 'Track time-to-first-value for new members',
+    engagement: 'Measure engagement as an early churn signal',
+    retention:  'Add renewal-risk & retention visibility',
+    support:    'Give every team member a reported KPI',
+    board:      'Track board engagement & referrals'
+  };
+
   // ============================================================
   const Assessment = (function () {
     const answers = {};            // key like "financial-0" -> answer value
@@ -753,6 +836,15 @@
 
     function levelFor(s){ return LEVELS.find(l => s >= l.min && s <= l.max) || LEVELS[0]; }
     function barColor(pct){ if (pct>=75) return 'var(--success)'; if (pct>=50) return 'var(--brand-blue)'; if (pct>=30) return 'var(--warn)'; return '#b1442f'; }
+    // Qualitative rating for each area, derived from the CEO's own score.
+    function ratingFor(pct){
+      if (pct === null) return { label:'N/A',     color:'#c7c7cc' };
+      if (pct >= 80)    return { label:'Strong',  color:'var(--success)' };
+      if (pct >= 60)    return { label:'Solid',   color:'var(--brand-blue)' };
+      if (pct >= 40)    return { label:'Average', color:'#b8860b' };
+      if (pct >= 25)    return { label:'Weak',    color:'#c9791f' };
+      return { label:'Poor', color:'#b1442f' };
+    }
 
     function renderResults(res){
       const lvl = levelFor(res.overall);
@@ -775,27 +867,37 @@
       badge.style.color = lvl.color;
       el('levelSummary').textContent = lvl.summary;
 
-      // category bars (sorted high -> low)
+      // category bars (sorted high -> low), each with a qualitative rating chip
       const sorted = res.cats.slice().sort((a,b) => (b.pct??-1) - (a.pct??-1));
       el('catScores').innerHTML = sorted.map(c => {
         const val = c.pct === null ? 'N/A' : c.pct + '%';
         const width = c.pct === null ? 0 : c.pct;
         const col = c.pct === null ? '#c7c7cc' : barColor(c.pct);
+        const r = ratingFor(c.pct);
         return '<div class="cat-row"><div class="cat-top"><span class="cat-name">'+c.name+'</span>'
-             + '<span class="cat-val">'+val+'</span></div>'
+             + '<span class="cat-val">'+val+' <span class="rating" style="background:'+r.color+'">'+r.label+'</span></span></div>'
              + '<div class="cat-bar"><span style="width:'+width+'%;background:'+col+'"></span></div></div>';
       }).join('');
 
-      // opportunities = lowest scoring applicable areas (<70), up to 4
-      const opps = res.cats.filter(c => c.pct !== null && c.pct < 70).sort((a,b) => a.pct - b.pct).slice(0,4);
+      // top three opportunities = lowest scoring applicable areas (<70)
+      const opps = res.cats.filter(c => c.pct !== null && c.pct < 70).sort((a,b) => a.pct - b.pct).slice(0,3);
       if (opps.length === 0){
         el('oppList').innerHTML = '<div class="opp-card"><p>Impressive — no major gaps stood out. The next frontier is making these numbers live and shared across your team every day. That is exactly what the CEO Operating System&trade; is built for.</p></div>';
       } else {
         el('oppList').innerHTML = opps.map(c =>
-          '<div class="opp-card"><div class="opp-head"><span class="opp-name">'+c.name+'</span>'
-          + '<span class="opp-score">'+c.pct+'%</span></div><p>'+(RECS[c.key]||'')+'</p></div>'
+          '<div class="opp-card"><div class="opp-head"><div>'
+          + '<div class="opp-cat">'+c.name+'</div>'
+          + '<div class="opp-name">'+(ACTIONS[c.key]||c.name)+'</div></div>'
+          + '<span class="opp-score">'+c.pct+'%</span></div>'
+          + '<p>'+(RECS[c.key]||'')+'</p></div>'
         ).join('');
       }
+
+      // potential executive time reclaimed — scales with the visibility gap
+      const gap = (100 - res.overall) / 100;
+      const lowH = Math.max(2, Math.round(gap * 16));
+      el('impactHours').textContent = lowH + '–' + (lowH + 4);
+
       show('results'); scrollTop();
     }
 
