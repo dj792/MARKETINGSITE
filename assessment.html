@@ -138,8 +138,10 @@
   .progress-count { font-size: 13px; color: var(--muted); white-space: nowrap; }
   .progress-track { height: 6px; border-radius: 999px; background: #ececf0; overflow: hidden; margin: 14px 0 6px; }
   .progress-fill { height: 100%; width: 0%; border-radius: 999px; background: linear-gradient(90deg, var(--brand-blue), var(--brand-green)); transition: width .4s ease; }
-  .progress-sub { font-size: 12px; color: var(--muted); margin-bottom: 26px; }
+  .progress-sub { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
 
+  /* Executive question that frames each section (from the sheet) */
+  .step-exec { font-family: var(--font-display); font-weight: 600; font-size: clamp(16px, 1.6vw, 18px); color: var(--brand-blue); margin: 0 0 12px; line-height: 1.3; }
   .cat-note { font-size: 13px; color: var(--ink-2); background: rgba(33,120,196,0.06); border: 1px solid rgba(33,120,196,0.15); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 22px; line-height: 1.5; }
 
   /* question */
@@ -183,7 +185,7 @@
   .start-list { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
   .start-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--ink-2); }
   .start-list .tick { flex: 0 0 22px; width: 22px; height: 22px; border-radius: 50%; background: rgba(111,181,44,0.15); color: var(--brand-green); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; margin-top: 1px; }
-  .cat-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .cat-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; min-height: 30px; }
   .cat-chip { font-size: 12px; color: var(--ink-2); background: #f0f0f4; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
 
   /* fields (contact step) */
@@ -224,11 +226,13 @@
   .opps h3, .strengths h3 { font-family: var(--font-display); font-weight: 700; font-size: 20px; margin: 0 0 6px; letter-spacing: -0.02em; }
   .opps > p { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
   .opp-card { border: 1px solid var(--line); border-radius: var(--radius-md); padding: 20px 22px; margin-bottom: 12px; background: linear-gradient(180deg, #fff, #fafafc); }
-  .opp-card .opp-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
-  .opp-card .opp-name { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink); }
-  .opp-card .opp-score { font-size: 12px; font-weight: 600; color: #fff; background: #b1442f; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+  .opp-card .opp-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+  .opp-card .opp-name { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink); line-height: 1.3; }
+  .opp-card .opp-score { font-size: 12px; font-weight: 600; color: #fff; background: #b1442f; padding: 3px 10px; border-radius: 999px; white-space: nowrap; margin-top: 2px; }
   .opp-card p { margin: 0; font-size: 14px; color: var(--ink-2); line-height: 1.55; }
   .opp-card .opp-cat { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; margin-bottom: 3px; }
+  .opp-card .opp-out { margin-top: 8px; font-size: 13px; color: var(--muted); }
+  .opp-card .opp-out span { font-weight: 700; color: var(--ink-2); }
 
   /* Per-area rating chip */
   .rating { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; padding: 2px 9px; border-radius: 999px; color: #fff; margin-left: 8px; vertical-align: middle; }
@@ -254,6 +258,9 @@
   .result-cta .btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
   .result-cta .btn-outline:hover { background: rgba(255,255,255,0.1); }
   .print-only { display: none; }
+
+  /* error state */
+  .load-error { text-align: center; padding: 20px 0; color: var(--ink-2); font-size: 15px; line-height: 1.55; }
 
   /* ---------- Footer ---------- */
   footer { padding: 64px 0 40px; color: var(--muted); border-top: 1px solid var(--line); margin-top: 80px; font-size: 13px; }
@@ -358,11 +365,11 @@
         <div class="start-grid">
           <div>
             <div class="eyebrow" style="margin-bottom:10px;">The Aligned KPIs&trade; Assessment</div>
-            <h2 class="display" style="margin:0 0 14px;">Ten areas. One honest read.</h2>
+            <h2 class="display" style="margin:0 0 14px;">Every area. One honest read.</h2>
             <p style="color:var(--ink-2);font-size:16px;line-height:1.55;margin:0;">
-              Answer a short set of yes / no questions across the ten areas that determine
-              whether a CEO is flying blind or steering with data. You'll get your Executive
-              Visibility Score&trade;, a breakdown by area, and your biggest opportunities.
+              Answer a short set of quick questions across every area that determines whether a
+              CEO is flying blind or steering with data. You'll get your Executive Visibility
+              Score&trade;, a breakdown by area, and your biggest opportunities.
             </p>
             <ul class="start-list">
               <li><span class="tick">&#10003;</span> Honest is better than generous &mdash; answer for how things actually work today.</li>
@@ -373,8 +380,8 @@
           <div>
             <div style="font-family:var(--font-display);font-weight:600;font-size:13px;color:var(--ink);margin-bottom:10px;">What we look at</div>
             <div class="cat-chips" id="introChips"></div>
-            <button class="btn btn-primary" style="margin-top:26px;width:100%;justify-content:center;" onclick="Assessment.start()">
-              <span class="btn-label">Discover My Executive Visibility Score</span><span class="arrow">&rarr;</span>
+            <button class="btn btn-primary" id="startBtn" style="margin-top:26px;width:100%;justify-content:center;" onclick="Assessment.start()" disabled>
+              <span class="btn-label">Loading assessment&hellip;</span><span class="arrow">&rarr;</span>
             </button>
             <p class="small" style="text-align:center;margin-top:12px;">No account needed. You'll enter your details at the end to unlock your report.</p>
           </div>
@@ -385,7 +392,7 @@
       <div id="view-steps" style="display:none;">
         <div class="progress-head">
           <div class="progress-cat" id="stepCat">Category</div>
-          <div class="progress-count" id="stepCount">Step 1 of 10</div>
+          <div class="progress-count" id="stepCount">Step 1</div>
         </div>
         <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
         <div class="progress-sub" id="progressSub"></div>
@@ -576,9 +583,8 @@
 <script>
   // ============================================================
   // GOOGLE SHEET WEBHOOK CONFIG
-  // Same Apps Script web app as the contact form. The script routes
-  // by the `formType` field to the "KPIAssessments" tab.
-  // See KPI_ASSESSMENT_SETUP.md for the updated Apps Script code.
+  // Results are POSTed to this Apps Script web app (routes to the
+  // "KPIAssessments" tab). See KPI_ASSESSMENT_SETUP.md.
   // ============================================================
   const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyT9atQgyssV6NcLJsbEjIXhmka4I1VoFysyekNpHWc5wlGUgco16uCj9l-MNE4zB3Bqw/exec';
 
@@ -594,112 +600,80 @@
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   // ============================================================
-  // QUESTION BANK + SCORING MODEL
-  // weight = strategic leverage of the item (3 = core, 2 = important, 1 = supporting)
-  // Scoring per answer:  Yes = full weight | No = 0 | Not sure = 0 | N/A = excluded
-  // Category score = earned / applicable-max * 100.  Overall = same, all items.
+  // ASSESSMENT CONTENT — loaded live from the Google Sheet
+  // (CategoryDefinitions + KPIQuestions tabs). Edit the sheet and the
+  // live assessment updates — no code change needed.
+  //   Scoring: Yes = full weight | No = 0 | Not sure = 0 | N/A = excluded.
+  //   Weight per question comes from the sheet (higher = more strategic).
   // ============================================================
-  const CATEGORIES = [
-    { key: 'financial', name: 'Financial Metrics', short: 'Financials',
-      questions: [
-        { w:3, t:'Is the current bank balance readily available?' },
-        { w:3, t:'Is the cash runway (months of expenses covered by current balance) known?' },
-        { w:3, t:'Is there a 3+ month revenue and expense forecast that includes cash ending balance?' },
-        { w:2, t:'Is the gross and net monthly cash burn known?' },
-        { w:2, t:'Are all financial transactions recorded and available electronically?' },
-        { w:1, t:'Are bank statements available electronically?' },
-        { w:3, t:'Are financials reconciled to bank statements monthly?' },
-        { w:2, t:'Do you use a finance-specific software system, such as QuickBooks?' },
-        { w:2, t:'Can a balance sheet be produced?' },
-        { w:3, t:'Can a profit and loss statement be produced?' },
-        { w:2, t:'Can a profit and loss by revenue stream be produced?' },
-        { w:2, t:'Can a statement of cash flows be produced?' },
-        { w:1, t:'Can a statement of accounts receivable be produced?' },
-        { w:1, t:'Can a statement of payables be produced?' },
-        { w:2, t:'Are personnel expenses allocated to revenue streams?' }
-      ] },
-    { key: 'budget', name: 'Budget & Forecasting', short: 'Budget & Forecasting',
-      questions: [
-        { w:3, t:'Is there a 12-month budget?' },
-        { w:1, t:'Is the budget electronically available?' },
-        { w:1, t:'Is the budget in the same system (e.g. QuickBooks) as the financial system?' },
-        { w:3, t:'Can a budget-versus-actual profit and loss statement be produced?' },
-        { w:2, t:'Can a month-ending cash balance be produced?' },
-        { w:2, t:'Is there a 12-month forecast available, similar to the budget?' },
-        { w:2, t:'Are expenses by revenue stream tracked so profitability can be calculated?' },
-        { w:2, t:'Are there profitability goals for each revenue stream?' }
-      ] },
-    { key: 'operating', name: 'Operating Plan Metrics', short: 'Operating Plans',
-      note: 'An operating plan holds the assumptions behind each budgeted revenue number — at minimum units, average price, total dollars invoiced, and cash collected. It may also include lead-to-sales conversion, seasonality, and similar drivers.',
-      questions: [
-        { w:3, t:'Do ALL revenue items have a supporting operating plan with monthly assumptions?' },
-        { w:2, t:'Is there an operating plan for marketing that includes leads and conversion assumptions?' },
-        { w:2, t:'Is there an operating plan for new sales (units, average price, and totals by month)?' },
-        { w:2, t:'Is there an operating plan for member/customer retention (dollar and count retention assumptions)?' },
-        { w:1, t:'Is there an operating plan for events?' }
-      ] },
-    { key: 'market', name: 'Market Metrics', short: 'Market',
-      questions: [
-        { w:2, t:'ICP/IMP — Are the attributes of your ideal member/customer profile known (e.g. location, years in business)?' },
-        { w:1, t:'TAM — Is your Total Addressable Market known (total revenue if every potential member/customer joined and spent)?' },
-        { w:1, t:'SAM — Is your Serviceable Available Market known (the portion of TAM you can realistically serve)?' },
-        { w:1, t:'SOM — Is your Serviceable Obtainable Market known (the portion of SAM you can realistically capture)?' }
-      ] },
-    { key: 'sales', name: 'Marketing & Sales KPIs', short: 'Marketing & Sales',
-      questions: [
-        { w:3, t:'Is there a sales pipeline with stages (leads, qualified leads, wins, losses, forecast close date and amount)?' },
-        { w:2, t:'Are leads by source and date tracked (referral, LinkedIn, website, etc.)?' },
-        { w:2, t:'Is CAC — the all-in cost to acquire a new customer/member — known?' },
-        { w:2, t:'Is the sales win rate known?' },
-        { w:1, t:'Is the days-to-close a win known?' },
-        { w:2, t:'Are marketing campaigns tracked for cost and results?' },
-        { w:1, t:'Are sales activities such as meetings tracked?' },
-        { w:2, t:'Are there sales goals for dollars and count?' },
-        { w:2, t:'Are monthly sales forecasts being provided?' }
-      ] },
-    { key: 'onboarding', name: 'Onboarding KPIs', short: 'Onboarding',
-      questions: [
-        { w:2, t:'Is time to first engagement being tracked?' },
-        { w:2, t:'Is first-value expectation, and the time to first value, being tracked?' },
-        { w:1, t:'Is onboarding satisfaction (CSAT or NPS) being tracked?' },
-        { w:1, t:'Are referrals being requested during onboarding?' }
-      ] },
-    { key: 'engagement', name: 'Engagement KPIs', short: 'Engagement',
-      questions: [
-        { w:2, t:'Is frequency of engagement being tracked?' },
-        { w:1, t:'Are engagement campaigns being tracked?' },
-        { w:1, t:'Are referrals being requested?' },
-        { w:1, t:'Are inbound requests for services tracked in both units and time expended?' },
-        { w:1, t:'Is inbound request resolution time tracked by member/customer?' }
-      ] },
-    { key: 'retention', name: 'Retention KPIs', short: 'Retention',
-      questions: [
-        { w:3, t:'Is regular satisfaction / likelihood-to-renew (CSAT or NPS) being tracked?' },
-        { w:2, t:'Is days-since-last-contact being tracked?' },
-        { w:2, t:'Is personal engagement (actual human contact via phone or in person) being tracked?' },
-        { w:2, t:'Are all members/customers proactively reached out to ahead of renewal dates?' },
-        { w:1, t:'Are statements of value proactively being provided?' },
-        { w:1, t:'Is communication-coverage (% of upcoming renewals engaged) being tracked?' }
-      ] },
-    { key: 'support', name: 'Support & Team KPIs', short: 'Support & Team',
-      questions: [
-        { w:1, t:'Is the days-to-provide reconciled financials being tracked?' },
-        { w:1, t:'Is the number of full-time and part-time employees tracked by month?' },
-        { w:1, t:'Is employee satisfaction (e.g. eNPS) being tracked?' },
-        { w:2, t:'Does each staff member have a measurable goal (team or individual) that they report on?' },
-        { w:2, t:'Are KPIs part of weekly staff meetings?' }
-      ] },
-    { key: 'board', name: 'Board KPIs', short: 'Board',
-      questions: [
-        { w:1, t:'Is board attendance being tracked?' },
-        { w:1, t:'Are board referrals being tracked?' },
-        { w:1, t:'Are business profiles of each board member (e.g. LinkedIn) provided?' },
-        { w:1, t:'Is overall investment recorded for each board member?' },
-        { w:1, t:'Is board engagement being recorded, such as event attendance?' }
-      ] }
-  ];
+  const SHEET_ID = '1a6x_UmInMtHqrh0JiMTiSJS7Z2NB_NEu3ZfMTwmxoAc';
 
-  // Answer values and the credit each earns (of the item weight)
+  // Populated at load time from the sheet. Each category:
+  //   { key, name, short, q, def, next, out, questions: [ {t, w} ] }
+  let CATEGORIES = [];
+
+  // Load one sheet tab via gviz JSONP (cross-origin, no CORS or API key).
+  function gvizJsonp(sheet){
+    return new Promise((resolve, reject) => {
+      const cb = '__gv' + Math.random().toString(36).slice(2);
+      const s = document.createElement('script');
+      const to = setTimeout(() => { cleanup(); reject(new Error('timeout')); }, 9000);
+      function cleanup(){ clearTimeout(to); try { delete window[cb]; } catch(e){} if (s.parentNode) s.remove(); }
+      window[cb] = (resp) => { cleanup(); resolve(resp); };
+      s.onerror = () => { cleanup(); reject(new Error('script error')); };
+      s.src = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID +
+              '/gviz/tq?sheet=' + encodeURIComponent(sheet) + '&tqx=responseHandler:' + cb;
+      document.head.appendChild(s);
+    });
+  }
+  // Convert a gviz table into an array of row-objects keyed by column label.
+  function tableToRows(t){
+    const cols = ((t.table && t.table.cols) || []).map(c => (c.label || '').trim());
+    return ((t.table && t.table.rows) || []).map(r => {
+      const o = {};
+      (r.c || []).forEach((cell, i) => { o[cols[i]] = (cell && cell.v != null) ? cell.v : ''; });
+      return o;
+    });
+  }
+  // Build the { categories:[...] } config from the two tabs.
+  function buildConfig(catRows, qRows){
+    const cats = catRows
+      .filter(r => String(r.Name).trim() !== '' && !isNaN(Number(r.Order)))
+      .sort((a,b) => Number(a.Order) - Number(b.Order))
+      .map(r => ({
+        key:   String(r.CategoryKey).trim(),
+        name:  String(r.Name).trim(),
+        short: String(r.ShortName || r.Name).trim(),
+        q:     String(r['Executive Question'] || '').trim(),
+        def:   String(r.Definition || '').trim(),
+        next:  String(r['Recommended Next Step'] || '').trim(),
+        out:   String(r['Desired Outcome'] || '').trim(),
+        questions: []
+      }));
+    const byKey = {}; cats.forEach(c => { byKey[c.key] = c; });
+    qRows.forEach(r => {
+      const k = String(r.CategoryKey).trim();
+      const t = String(r.Question || '').trim();
+      if (!byKey[k] || !t) return;
+      byKey[k].questions.push({ t: t, w: Number(r.Weight) || 1 });
+    });
+    return { categories: cats.filter(c => c.questions.length) };
+  }
+  async function loadConfig(){
+    // Test/override hook.
+    if (window.__ASSESSMENT_CONFIG) return window.__ASSESSMENT_CONFIG;
+    try {
+      const [catsT, qsT] = await Promise.all([gvizJsonp('CategoryDefinitions'), gvizJsonp('KPIQuestions')]);
+      const cfg = buildConfig(tableToRows(catsT), tableToRows(qsT));
+      if (!cfg.categories.length) throw new Error('empty config');
+      return cfg;
+    } catch (e) {
+      console.warn('Assessment: could not load content from the sheet.', e);
+      return { categories: [] };
+    }
+  }
+
+  // Answer values and the credit each earns (of the item weight).
   const ANSWERS = [
     { v:'Yes',     cls:'yes',    credit:1,    counts:true  },
     { v:'No',      cls:'no',     credit:0,    counts:true  },
@@ -707,7 +681,7 @@
     { v:'N/A',     cls:'na',     credit:0,    counts:false }
   ];
 
-  // Maturity levels by overall score
+  // Maturity levels by overall score.
   const LEVELS = [
     { min:0,  max:20,  name:'Level 1 · Flying Blind',        color:'#b1442f',
       summary:'Right now you are steering mostly on instinct and lagging financials. The good news: the fastest wins are also the most basic — reliable cash visibility and a clean monthly P&L. Get those in place and everything downstream gets easier.' },
@@ -721,41 +695,14 @@
       summary:'You have exceptional visibility across the business. Very few CEOs operate at this level. The frontier for you is speed and alignment: real-time, trustworthy numbers in every hand, so decisions get made in hours, not weeks.' }
   ];
 
-  // Short recommendation shown for low-scoring areas in "opportunities"
-  const RECS = {
-    financial:  'Start here. Reliable cash visibility, monthly reconciliation, and an on-demand P&L are the foundation everything else depends on. Without them, every other number is suspect.',
-    budget:     'A 12-month budget and a monthly budget-vs-actual are what turn financials from a rear-view mirror into a steering wheel. This is usually the highest-leverage next step after clean books.',
-    operating:  'Operating plans expose the assumptions behind your revenue — units, price, conversion. When they are missing, you can hit budget by luck but you cannot diagnose or repeat it.',
-    market:     'Knowing your ideal customer and the size of your market focuses every dollar of sales and marketing. Even rough TAM/SAM/SOM numbers beat none.',
-    sales:      'A staged pipeline, tracked lead sources, and a known win rate turn sales from hope into forecast. This is where growth becomes predictable.',
-    onboarding: 'Time-to-first-value is the strongest early signal of whether a new member/customer will stay. Tracking it lets you fix churn before it happens.',
-    engagement: 'Engagement is the leading indicator of retention. Tracking frequency and inbound activity tells you who is thriving and who is drifting.',
-    retention:  'Renewal likelihood, days-since-contact, and proactive outreach are the difference between predictable retention and surprise cancellations. High leverage for any recurring-revenue model.',
-    support:    'Clear individual goals and KPIs in weekly meetings are how strategy actually reaches the front line. This is where alignment is won or lost.',
-    board:      'Tracking board engagement and referrals turns your board from a formality into a growth asset. Lower urgency than the areas above, but easy wins.'
-  };
-
-  // Short, scannable action headline for each area (shown in the top-3 opportunities).
-  const ACTIONS = {
-    financial:  'Establish reliable cash & P&L visibility',
-    budget:     'Add monthly budget-vs-actual & forecasting',
-    operating:  'Build operating plans behind each revenue line',
-    market:     'Define your ideal customer & market size',
-    sales:      'Stand up a staged, tracked sales pipeline',
-    onboarding: 'Track time-to-first-value for new members',
-    engagement: 'Measure engagement as an early churn signal',
-    retention:  'Add renewal-risk & retention visibility',
-    support:    'Give every team member a reported KPI',
-    board:      'Track board engagement & referrals'
-  };
-
   // ============================================================
   const Assessment = (function () {
-    const answers = {};            // key like "financial-0" -> answer value
+    const answers = {};            // key like "<catKey>-<i>" -> answer value
     let step = 0;                  // index into CATEGORIES
-    const totalSteps = CATEGORIES.length;
 
     function el(id){ return document.getElementById(id); }
+    function count(){ return CATEGORIES.length; }
+    function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
     function show(view){
       ['intro','steps','contact','results'].forEach(v => el('view-'+v).style.display = (v===view?'':'none'));
       // Keep the hero + credibility band only on the intro. Once the assessment
@@ -769,22 +716,26 @@
     function scrollTop(){ const c = el('card'); const y = c.getBoundingClientRect().top + window.pageYOffset - 90; window.scrollTo({top:y, behavior:'smooth'}); }
 
     function renderIntro(){
-      el('introChips').innerHTML = CATEGORIES.map(c => '<span class="cat-chip">'+c.short+'</span>').join('');
+      el('introChips').innerHTML = CATEGORIES.map(c => '<span class="cat-chip">'+esc(c.short)+'</span>').join('');
     }
 
     function renderStep(){
       const cat = CATEGORIES[step];
       el('stepCat').textContent = cat.name;
-      el('stepCount').textContent = 'Step ' + (step+1) + ' of ' + totalSteps;
-      el('progressFill').style.width = ((step) / totalSteps * 100) + '%';
+      el('stepCount').textContent = 'Step ' + (step+1) + ' of ' + count();
+      el('progressFill').style.width = ((step) / count() * 100) + '%';
       el('progressSub').textContent = cat.questions.length + ' quick questions in this area.';
-      el('stepNote').innerHTML = cat.note ? '<div class="cat-note">'+cat.note+'</div>' : '';
+      // Executive question + definition frame the section (from the sheet).
+      let noteHtml = '';
+      if (cat.q)   noteHtml += '<div class="step-exec">'+esc(cat.q)+'</div>';
+      if (cat.def) noteHtml += '<div class="cat-note">'+esc(cat.def)+'</div>';
+      el('stepNote').innerHTML = noteHtml;
       el('stepWarn').classList.remove('show');
 
       let html = '';
       cat.questions.forEach((q, i) => {
         const name = cat.key + '-' + i;
-        html += '<div class="q"><div class="q-text"><span class="qnum">'+(i+1)+'.</span>'+q.t+'</div><div class="opts">';
+        html += '<div class="q"><div class="q-text"><span class="qnum">'+(i+1)+'.</span>'+esc(q.t)+'</div><div class="opts">';
         ANSWERS.forEach((a, ai) => {
           const id = name + '-' + ai;
           const checked = answers[name] === a.v ? 'checked' : '';
@@ -797,7 +748,7 @@
       el('stepQuestions').innerHTML = html;
 
       el('btnBack').style.visibility = (step === 0) ? 'hidden' : 'visible';
-      el('btnNext').querySelector('.btn-label').textContent = (step === totalSteps-1) ? 'Continue to results' : 'Next';
+      el('btnNext').querySelector('.btn-label').textContent = (step === count()-1) ? 'Continue to results' : 'Next';
     }
 
     function record(name, val){ answers[name] = val; el('stepWarn').classList.remove('show'); }
@@ -807,11 +758,11 @@
       return cat.questions.every((q,i) => answers[cat.key+'-'+i]);
     }
 
-    function start(){ step = 0; show('steps'); renderStep(); scrollTop(); }
+    function start(){ if (!count()) return; step = 0; show('steps'); renderStep(); scrollTop(); }
 
     function next(){
       if (!stepComplete()){ el('stepWarn').classList.add('show'); return; }
-      if (step < totalSteps - 1){ step++; renderStep(); scrollTop(); }
+      if (step < count() - 1){ step++; renderStep(); scrollTop(); }
       else { show('contact'); scrollTop(); }
     }
 
@@ -836,7 +787,7 @@
           earned += q.w * a.credit;
         });
         const pct = max > 0 ? Math.round(earned / max * 100) : null; // null = all N/A
-        cats.push({ key:cat.key, name:cat.name, short:cat.short, pct:pct, max:max });
+        cats.push({ key:cat.key, name:cat.name, short:cat.short, q:cat.q, next:cat.next, out:cat.out, pct:pct });
         earnedAll += earned; maxAll += max;
       });
       const overall = maxAll > 0 ? Math.round(earnedAll / maxAll * 100) : 0;
@@ -857,11 +808,9 @@
 
     function renderResults(res){
       const lvl = levelFor(res.overall);
-      // ring
       const circ = 2 * Math.PI * 88;
       const ring = el('ringFill');
       ring.style.stroke = lvl.color;
-      // animate number + ring
       let cur = 0; const target = res.overall;
       const stepInc = Math.max(1, Math.round(target/40));
       const tick = setInterval(() => {
@@ -877,29 +826,32 @@
       el('levelSummary').textContent = lvl.summary;
 
       // category bars (sorted high -> low), each with a qualitative rating chip
-      const sorted = res.cats.slice().sort((a,b) => (b.pct??-1) - (a.pct??-1));
+      const sorted = res.cats.slice().sort((a,b) => (b.pct==null?-1:b.pct) - (a.pct==null?-1:a.pct));
       el('catScores').innerHTML = sorted.map(c => {
         const val = c.pct === null ? 'N/A' : c.pct + '%';
         const width = c.pct === null ? 0 : c.pct;
         const col = c.pct === null ? '#c7c7cc' : barColor(c.pct);
         const r = ratingFor(c.pct);
-        return '<div class="cat-row"><div class="cat-top"><span class="cat-name">'+c.name+'</span>'
+        return '<div class="cat-row"><div class="cat-top"><span class="cat-name">'+esc(c.name)+'</span>'
              + '<span class="cat-val">'+val+' <span class="rating" style="background:'+r.color+'">'+r.label+'</span></span></div>'
              + '<div class="cat-bar"><span style="width:'+width+'%;background:'+col+'"></span></div></div>';
       }).join('');
 
-      // top three opportunities = lowest scoring applicable areas (<70)
+      // top three opportunities = lowest scoring applicable areas (<70), using sheet content
       const opps = res.cats.filter(c => c.pct !== null && c.pct < 70).sort((a,b) => a.pct - b.pct).slice(0,3);
       if (opps.length === 0){
         el('oppList').innerHTML = '<div class="opp-card"><p>Impressive — no major gaps stood out. The next frontier is making these numbers live and shared across your team every day. That is exactly what the CEO Operating System&trade; is built for.</p></div>';
       } else {
-        el('oppList').innerHTML = opps.map(c =>
-          '<div class="opp-card"><div class="opp-head"><div>'
-          + '<div class="opp-cat">'+c.name+'</div>'
-          + '<div class="opp-name">'+(ACTIONS[c.key]||c.name)+'</div></div>'
-          + '<span class="opp-score">'+c.pct+'%</span></div>'
-          + '<p>'+(RECS[c.key]||'')+'</p></div>'
-        ).join('');
+        el('oppList').innerHTML = opps.map(c => {
+          const head = c.q ? esc(c.q) : esc(c.name);
+          let card = '<div class="opp-card"><div class="opp-head"><div>'
+            + '<div class="opp-cat">'+esc(c.name)+'</div>'
+            + '<div class="opp-name">'+head+'</div></div>'
+            + '<span class="opp-score">'+c.pct+'%</span></div>';
+          if (c.next) card += '<p>'+esc(c.next)+'</p>';
+          if (c.out)  card += '<p class="opp-out"><span>Outcome:</span> '+esc(c.out)+'</p>';
+          return card + '</div>';
+        }).join('');
       }
 
       // potential executive time reclaimed — scales with the visibility gap
@@ -923,7 +875,6 @@
         const res = score();
 
         // Anti-spam (client side): if the hidden honeypot is filled, it's a bot.
-        // Show results but never send the submission.
         const hp = el('website_hp');
         if (hp && hp.value){ renderResults(res); return; }
 
@@ -940,8 +891,11 @@
         fd.append('phone', el('phone').value.trim());
         fd.append('overallScore', res.overall);
         fd.append('maturityLevel', levelFor(res.overall).name);
-        res.cats.forEach(c => fd.append('cat_' + c.key, c.pct === null ? 'N/A' : c.pct));
-        // full answers as readable JSON
+        // Category scores (name -> percent or N/A) — Apps Script builds columns from these.
+        const catScores = {};
+        res.cats.forEach(c => { catScores[c.name] = (c.pct === null ? 'N/A' : c.pct); });
+        fd.append('categoryScoresJson', JSON.stringify(catScores));
+        // Every answer, keyed by "Category :: Question".
         const answerDump = {};
         CATEGORIES.forEach(cat => cat.questions.forEach((q,i) => {
           answerDump[cat.name + ' :: ' + q.t] = answers[cat.key+'-'+i] || '';
@@ -966,7 +920,37 @@
       });
     }
 
-    function init(){ renderIntro(); initLeadForm(); }
+    function showLoadError(){
+      el('introChips').innerHTML = '';
+      const btn = el('startBtn');
+      if (btn){
+        btn.disabled = false;
+        btn.querySelector('.btn-label').textContent = 'Reload to try again';
+        btn.onclick = function(){ location.reload(); };
+      }
+      const host = el('view-intro');
+      if (host && !document.getElementById('loadErr')){
+        const d = document.createElement('div');
+        d.id = 'loadErr'; d.className = 'load-error';
+        d.style.marginTop = '20px';
+        d.innerHTML = 'Sorry — the assessment couldn\'t load right now. Please reload the page, or email <a href="mailto:info@1to100advisors.com" style="color:var(--accent)">info@1to100advisors.com</a> and we\'ll send it to you.';
+        host.appendChild(d);
+      }
+    }
+
+    // Load content from the sheet, then enable the intro.
+    async function init(){
+      initLeadForm();
+      const cfg = await loadConfig();
+      CATEGORIES = (cfg && cfg.categories) || [];
+      if (!CATEGORIES.length){ showLoadError(); return; }
+      renderIntro();
+      const btn = el('startBtn');
+      if (btn){
+        btn.disabled = false;
+        btn.querySelector('.btn-label').textContent = 'Discover My Executive Visibility Score';
+      }
+    }
     return { init, start, next, back, record, renderResults, score };
   })();
 
