@@ -189,6 +189,13 @@
   .toc-grid a:hover { color: var(--accent); }
   .toc-grid a .n { font-family: var(--font-mono); font-size: 11px; color: var(--accent); flex: none; width: 22px; }
 
+  /* ---------- Part dividers ---------- */
+  .part-divider { padding: 0; }
+  .part-divider .wrap { padding: clamp(40px, 6vh, 72px) 0 clamp(8px, 2vh, 20px); border-top: 2px solid var(--brand-navy); }
+  .part-divider .pnum { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-blue); }
+  .part-divider .pname { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 3.4vw, 46px); letter-spacing: -0.03em; color: var(--ink); margin-top: 8px; line-height: 1.05; }
+  .part-divider .pdesc { color: var(--muted); font-size: 15px; margin-top: 12px; max-width: 62ch; line-height: 1.5; }
+
   /* ---------- Generic content blocks ---------- */
   .block { border-top: 1px solid var(--line); }
   .block .wrap > .eyebrow { display: inline-block; }
@@ -415,7 +422,7 @@
   }
 
   /* back-to-top anchor spacing so sticky nav doesn't cover headings */
-  .block { scroll-margin-top: 96px; }
+  .block, .part-divider { scroll-margin-top: 96px; }
 </style>
 </head>
 <body>
@@ -442,12 +449,13 @@
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wrap hero-inner">
-    <div class="eyebrow reveal">Brand Guide · Internal</div>
+    <div class="eyebrow reveal">Brand Guide · Internal Operating Manual</div>
     <h1 class="display reveal delay-1">The Aligned KPIs™ brand, in one place.</h1>
     <p class="lede reveal delay-2">
-      This is the shared reference for how we talk about who we are, what we do, and why it matters.
-      Use it for copy, messaging, decks, sales conversations, and product decisions. When in doubt,
-      it should ladder back to one idea: <strong>we help CEOs make better decisions.</strong>
+      The internal operating manual for how we think, talk, and build. New here? Read
+      <strong>Start Here</strong> first—it gives you 80–90% of the brand in five minutes. Everything
+      after it is the canonical reference, organized in five parts. When in doubt, it should ladder
+      back to one idea: <strong>we help CEOs make better decisions.</strong>
     </p>
     <div class="hero-meta reveal delay-3">
       <span class="pill"><b>Corporate</b> 1 to 100 Advisors, Inc.</span>
@@ -459,29 +467,76 @@
     <nav class="toc reveal delay-3" aria-label="On this page">
       <h4>On this page</h4>
       <div class="toc-grid">
+        <a href="#start"><span class="n">★</span><span>Start Here (5-min summary)</span></a>
         <a href="#mission"><span class="n">01</span><span>Mission</span></a>
         <a href="#anchor"><span class="n">02</span><span>Brand Anchor</span></a>
         <a href="#category"><span class="n">03</span><span>Executive Visibility</span></a>
         <a href="#northstar"><span class="n">04</span><span>Brand North Star</span></a>
-        <a href="#problem"><span class="n">05</span><span>The Problem</span></a>
+        <a href="#problem"><span class="n">05</span><span>The Problem We Solve</span></a>
         <a href="#enemy"><span class="n">06</span><span>The Enemy</span></a>
-        <a href="#why"><span class="n">07</span><span>Why We Exist</span></a>
-        <a href="#audience"><span class="n">08</span><span>Audience</span></a>
-        <a href="#architecture"><span class="n">09</span><span>Brand Architecture</span></a>
-        <a href="#promise"><span class="n">10</span><span>Brand Promise</span></a>
-        <a href="#philosophy"><span class="n">11</span><span>Our Philosophy</span></a>
-        <a href="#flywheel"><span class="n">12</span><span>Leadership Flywheel</span></a>
-        <a href="#hierarchy"><span class="n">13</span><span>Messaging Hierarchy</span></a>
-        <a href="#competitive"><span class="n">14</span><span>Competitive Position</span></a>
-        <a href="#ai"><span class="n">15</span><span>AI Position</span></a>
-        <a href="#messaging"><span class="n">16</span><span>Messaging Framework</span></a>
-        <a href="#vocabulary"><span class="n">17</span><span>Brand Vocabulary</span></a>
-        <a href="#taglines"><span class="n">18</span><span>Approved Taglines</span></a>
-        <a href="#filter"><span class="n">19</span><span>Decision Filter</span></a>
+        <a href="#audience"><span class="n">07</span><span>Audience</span></a>
+        <a href="#promise"><span class="n">08</span><span>Brand Promise</span></a>
+        <a href="#philosophy"><span class="n">09</span><span>Our Philosophy</span></a>
+        <a href="#competitive"><span class="n">10</span><span>Competitive Position</span></a>
+        <a href="#ai"><span class="n">11</span><span>AI Position</span></a>
+        <a href="#hierarchy"><span class="n">12</span><span>Messaging Hierarchy</span></a>
+        <a href="#messaging"><span class="n">13</span><span>Messaging Framework</span></a>
+        <a href="#vocabulary"><span class="n">14</span><span>Brand Vocabulary</span></a>
+        <a href="#taglines"><span class="n">15</span><span>Approved Taglines</span></a>
+        <a href="#rallying"><span class="n">16</span><span>Internal Rallying Cry</span></a>
+        <a href="#architecture"><span class="n">17</span><span>Brand Architecture</span></a>
+        <a href="#flywheel"><span class="n">18</span><span>Leadership Flywheel</span></a>
+        <a href="#filter"><span class="n">19</span><span>Product Decision Filter</span></a>
         <a href="#vision"><span class="n">20</span><span>Long-Term Vision</span></a>
         <a href="#visual"><span class="n">21</span><span>Visual Brand</span></a>
       </div>
     </nav>
+  </div>
+</section>
+
+<!-- ================= START HERE ================= -->
+<section class="block" id="start" style="background:#fff;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Start Here · 5-Minute Brand Summary</div>
+      <h2 class="display">The whole brand, in five minutes.</h2>
+      <p class="lede">Read this first. It gives a new team member 80–90% of the brand. The full reference follows in five parts.</p>
+    </div>
+    <div class="card-grid cols-2" style="margin-top:clamp(28px,4vw,40px);">
+      <article class="card reveal">
+        <div class="cat">Our Mission</div>
+        <p style="margin-top:8px;"><strong>Create the Executive Visibility category for CEOs.</strong> Every CEO deserves Executive Visibility.</p>
+      </article>
+      <article class="card reveal delay-1">
+        <div class="cat">Brand Anchor</div>
+        <p style="margin-top:8px;">We don't believe CEOs need more dashboards. <strong>We believe they need better decisions.</strong></p>
+      </article>
+    </div>
+
+    <div class="reveal delay-1" style="margin-top:18px; background:linear-gradient(180deg,#16314f,#0f2338); color:#eaf1f8; border-radius:var(--radius-md); padding:clamp(28px,3.5vw,44px);">
+      <div class="eyebrow" style="color:#7aa7ff;">The official definition of Executive Visibility</div>
+      <p style="color:#fff; font-family:var(--font-display); font-weight:600; font-size:clamp(19px,2vw,28px); line-height:1.32; letter-spacing:-0.015em; margin:14px 0 0; max-width:40ch;">Executive Visibility is timely, trustworthy visibility into the financial, operational, and strategic drivers that matter most—giving CEOs the confidence to make better decisions before problems become outcomes.</p>
+    </div>
+
+    <div class="card-grid cols-2" style="margin-top:18px;">
+      <article class="card reveal">
+        <div class="cat">The Brand North Star</div>
+        <p style="margin-top:8px; line-height:1.6;">Trusted Data → Timely, Trustworthy Executive Visibility → Executive Intelligence → Better Decisions → Organizational Growth</p>
+      </article>
+      <article class="card reveal delay-1" style="border-color:rgba(111,181,44,0.35);">
+        <div class="cat">We Don't Sell Dashboards</div>
+        <p style="margin-top:8px;">We deliver Executive Visibility. Our customers aren't buying charts—they're buying <strong>confidence, clarity, and better decisions.</strong></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PART I ================= -->
+<section class="part-divider">
+  <div class="wrap">
+    <div class="pnum">Part I</div>
+    <div class="pname">Brand Foundation</div>
+    <div class="pdesc">Who we are, what we mean by Executive Visibility, and the progression everything ladders into.</div>
   </div>
 </section>
 
@@ -492,7 +547,7 @@
     <p class="lead-statement reveal delay-1">Every CEO deserves <span style="color:var(--brand-blue)">Executive Visibility</span>.</p>
     <div class="prose reveal delay-2" style="margin-top:22px;">
       <p>Large enterprises employ analysts, controllers, consultants, and business intelligence teams to create it. Most chambers, associations, and growing organizations do not.</p>
-      <p><strong>Aligned KPIs™ exists to make Executive Visibility accessible to every CEO</strong>—regardless of organization size.</p>
+      <p><strong>Aligned KPIs™ exists to make Executive Visibility accessible to every CEO</strong>—regardless of organization size. Our mission is to create the Executive Visibility category for CEOs.</p>
     </div>
   </div>
 </section>
@@ -508,25 +563,32 @@
   </div>
 </section>
 
-<!-- ================= 03 CATEGORY ================= -->
+<!-- ================= 03 EXECUTIVE VISIBILITY ================= -->
 <section class="block" id="category">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">03 · What We Mean by Executive Visibility</div>
+      <div class="eyebrow">03 · Executive Visibility</div>
       <h2 class="display">Executive Visibility™</h2>
       <p class="lede">Executive Visibility is more than dashboards or reports. It is <strong>timely, trustworthy</strong> visibility into the financial, operational, and strategic drivers that matter most—giving CEOs the confidence to make better decisions before problems become outcomes.</p>
     </div>
     <div class="prose reveal delay-1" style="margin-top:20px;">
-      <p>Visibility is only valuable when executives trust the data, understand what it means, and receive it early enough to take action. Our mission is to help every CEO achieve Executive Visibility across every critical area of their organization.</p>
+      <p>This is our primary intellectual property and central differentiator: the category we are creating, the foundation of our product, the basis for Executive Intelligence, the driver of Better Decisions—and the reason customers buy Aligned KPIs™.</p>
     </div>
 
-    <!-- Canonical definition -->
+    <!-- Official definition -->
     <div class="reveal delay-1" style="margin-top:clamp(28px,4vw,40px); background:linear-gradient(180deg,#16314f,#0f2338); color:#eaf1f8; border-radius:var(--radius-md); padding:clamp(28px,3.5vw,44px);">
       <div class="eyebrow" style="color:#7aa7ff;">The official definition — use everywhere</div>
       <p style="color:#fff; font-family:var(--font-display); font-weight:600; font-size:clamp(19px,2vw,28px); line-height:1.32; letter-spacing:-0.015em; margin:14px 0 0; max-width:38ch;">Executive Visibility is timely, trustworthy visibility into the financial, operational, and strategic drivers that matter most—giving CEOs the confidence to make better decisions before problems become outcomes.</p>
       <p style="color:var(--brand-ice); margin:16px 0 0; font-size:13px;">Use this exact definition in sales decks, investor presentations, the website, product documentation, and AI responses.</p>
     </div>
 
+    <!-- Why it matters -->
+    <div class="prose reveal delay-1" style="margin-top:clamp(28px,4vw,40px);">
+      <p>Visibility is only valuable when executives trust the data, understand what it means, and receive it early enough to take action. Executive Visibility is the ability to clearly understand what is happening across the organization before outcomes occur.</p>
+      <p>It is not another dashboard. <strong>It is executive confidence.</strong> Executive Visibility gives leaders confidence because they know—not because they hope.</p>
+    </div>
+
+    <!-- Questions it answers -->
     <p class="small reveal" style="margin-top:clamp(28px,4vw,40px); letter-spacing:0.14em; text-transform:uppercase; color:var(--muted);">Executive Visibility answers questions like</p>
     <ul class="q-list reveal delay-1">
       <li><span class="qm">?</span><span>Are we financially healthy?</span></li>
@@ -536,9 +598,11 @@
       <li><span class="qm">?</span><span>Are renewals at risk?</span></li>
       <li><span class="qm">?</span><span>Is our team executing effectively?</span></li>
     </ul>
+
+    <!-- Why we're creating the category / why we're different -->
     <div class="prose reveal delay-2" style="margin-top:26px;">
-      <p>Executive Visibility gives leaders confidence because they know—not because they hope. It is not another dashboard. <strong>It is executive confidence.</strong></p>
-      <p>We are <strong>creating the Executive Visibility category.</strong> Large organizations create it through FP&amp;A, controllers, BI teams, data analysts, and consultants. Aligned KPIs™ delivers the same outcome through one integrated platform.</p>
+      <p>We are <strong>creating the Executive Visibility category.</strong> Large organizations create it through FP&amp;A, controllers, BI teams, data analysts, and consultants. Those functions create Executive Visibility—for everyone else, it doesn't exist.</p>
+      <p><strong>Aligned KPIs™ delivers the same outcome through one integrated platform.</strong></p>
     </div>
   </div>
 </section>
@@ -568,16 +632,27 @@
   </div>
 </section>
 
+<!-- ================= PART II ================= -->
+<section class="part-divider">
+  <div class="wrap">
+    <div class="pnum">Part II</div>
+    <div class="pname">Why We Exist</div>
+    <div class="pdesc">The problem, the enemy, the people we serve, and the promise and philosophy behind the work.</div>
+  </div>
+</section>
+
 <!-- ================= 05 PROBLEM ================= -->
 <section class="block" id="problem">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">05 · The Problem We Solve</div>
-      <h2 class="display">The Visibility Gap</h2>
+      <h2 class="display">The Visibility Gap.</h2>
+      <p class="lede">Most CEOs make million-dollar decisions using yesterday's information.</p>
     </div>
-    <div class="prose reveal delay-1" style="margin-top:8px;">
-      <p>Large organizations employ entire teams to create executive visibility. Most organizations with fewer than 100 employees have none of them. This creates the <strong>Visibility Gap</strong>.</p>
-      <p>Leaders spend too much time collecting information instead of acting on it. <strong>Our mission is to close that gap.</strong></p>
+    <div class="prose reveal delay-1" style="margin-top:20px;">
+      <p>Fragmented systems. Disconnected spreadsheets. Manual reporting. Conflicting metrics. Delayed visibility.</p>
+      <p>Large organizations employ entire teams to create executive visibility. Most organizations with fewer than 100 employees have none of them. This creates the <strong>Visibility Gap</strong>—and leaders spend too much time collecting information instead of acting on it.</p>
+      <p>Large organizations solve this with analysts. <strong>We believe every CEO deserves the same clarity.</strong> Our mission is to close the Visibility Gap—to make Executive Visibility accessible to every CEO, regardless of organization size.</p>
     </div>
   </div>
 </section>
@@ -597,23 +672,11 @@
   </div>
 </section>
 
-<!-- ================= 07 WHY WE EXIST ================= -->
-<section class="block" id="why" style="background:#fff;">
-  <div class="wrap">
-    <div class="eyebrow reveal">07 · Why We Exist</div>
-    <p class="lead-statement reveal delay-1" style="max-width:28ch;">Most CEOs make million-dollar decisions using yesterday's information.</p>
-    <div class="prose reveal delay-2" style="margin-top:22px;">
-      <p>Fragmented systems. Disconnected spreadsheets. Manual reporting. Conflicting metrics. Delayed visibility.</p>
-      <p>Large organizations solve this with analysts. <strong>We believe every CEO deserves the same clarity.</strong></p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 08 AUDIENCE ================= -->
-<section class="block" id="audience">
+<!-- ================= 07 AUDIENCE ================= -->
+<section class="block" id="audience" style="background:#fff;">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">08 · Audience</div>
+      <div class="eyebrow">07 · Audience</div>
       <h2 class="display">Who we build for.</h2>
     </div>
     <div class="card-grid cols-3">
@@ -636,42 +699,10 @@
   </div>
 </section>
 
-<!-- ================= 09 ARCHITECTURE ================= -->
-<section class="block" id="architecture" style="background:#fff;">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">09 · Brand Architecture</div>
-      <h2 class="display">How the names fit together.</h2>
-    </div>
-    <div class="card-grid cols-2">
-      <article class="card arch-card navy reveal">
-        <div class="role">Corporate Company</div>
-        <h3>1 to 100 Advisors, Inc.</h3>
-        <p>The legal entity. Use for contracts, investor communications, corporate filings, the About page, and the footer.</p>
-      </article>
-      <article class="card arch-card reveal delay-1">
-        <div class="role">Customer Brand</div>
-        <h3>Aligned KPIs™</h3>
-        <p>The customer-facing platform that delivers Executive Visibility. Licensed, certified, taught, and marketed.</p>
-      </article>
-      <article class="card arch-card reveal delay-2">
-        <div class="role">Product Category</div>
-        <h3>Executive Visibility Platform for CEOs</h3>
-        <p>Our category. Never lead with "Executive Reporting Platform"—"reporting" is deprecated.</p>
-      </article>
-      <article class="card arch-card green reveal delay-3">
-        <div class="role">Long-Term Vision</div>
-        <h3>Powered by the CEO Operating System™</h3>
-        <p>Our long-term vision for how leaders run their organizations. Aligned KPIs™ is the first platform within that vision.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 10 PROMISE ================= -->
+<!-- ================= 08 PROMISE ================= -->
 <section class="block" id="promise">
   <div class="wrap">
-    <div class="eyebrow reveal">10 · Brand Promise</div>
+    <div class="eyebrow reveal">08 · Brand Promise</div>
     <p class="lead-statement reveal delay-1" style="max-width:24ch;">Every CEO deserves Executive Visibility.</p>
     <div class="card-grid cols-4 reveal delay-2" style="margin-top:34px;">
       <article class="card"><h3 style="font-size:18px;">Technology</h3><p>provides visibility.</p></article>
@@ -682,11 +713,11 @@
   </div>
 </section>
 
-<!-- ================= 11 PHILOSOPHY ================= -->
+<!-- ================= 09 PHILOSOPHY ================= -->
 <section class="block" id="philosophy" style="background:transparent; padding-top:0;">
   <div class="navy-panel reveal">
     <div class="navy-inner">
-      <div class="eyebrow">11 · Our Philosophy</div>
+      <div class="eyebrow">09 · Our Philosophy</div>
       <h2 class="display">Technology is the tailwind. Judgment is the edge.</h2>
       <div class="beliefs">
         <p class="belief">Technology doesn't create better organizations. <span class="aff">Better decisions do.</span></p>
@@ -698,53 +729,20 @@
   </div>
 </section>
 
-<!-- ================= 12 FLYWHEEL ================= -->
-<section class="block" id="flywheel" style="background:#fff;">
+<!-- ================= PART III ================= -->
+<section class="part-divider">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">12 · Leadership Flywheel</div>
-      <h2 class="display">The loop that compounds.</h2>
-      <p class="lede">Each turn produces more trusted data—and the flywheel spins again.</p>
-    </div>
-    <div class="flow green reveal delay-1">
-      <div class="flow-step">Trusted Data</div>
-      <div class="flow-arrow">↓</div>
-      <div class="flow-step">Executive Visibility</div>
-      <div class="flow-arrow">↓</div>
-      <div class="flow-step">Executive Intelligence</div>
-      <div class="flow-arrow">↓</div>
-      <div class="flow-step">Better Decisions</div>
-      <div class="flow-arrow">↓</div>
-      <div class="flow-step">Execution</div>
-      <div class="flow-arrow">↓</div>
-      <div class="flow-step">Growth</div>
-      <div class="flow-arrow">↺</div>
-      <div class="flow-step" style="color:var(--muted); font-weight:500;">More Trusted Data <span class="sub">…and the loop repeats.</span></div>
-    </div>
+    <div class="pnum">Part III</div>
+    <div class="pname">Market Position</div>
+    <div class="pdesc">Where we sit in the market, and how AI fits our strategy.</div>
   </div>
 </section>
 
-<!-- ================= 13 HIERARCHY ================= -->
-<section class="block" id="hierarchy">
+<!-- ================= 10 COMPETITIVE ================= -->
+<section class="block" id="competitive">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">13 · Messaging Hierarchy</div>
-      <h2 class="display">Everything ladders into four levels.</h2>
-    </div>
-    <div class="card-grid cols-4">
-      <article class="card reveal"><div class="cat">Level One</div><h3>Executive Visibility</h3><p class="tm">The category</p></article>
-      <article class="card reveal delay-1"><div class="cat">Level Two</div><h3>Executive Intelligence</h3><p class="tm">The insight</p></article>
-      <article class="card reveal delay-2"><div class="cat">Level Three</div><h3>Better Decisions</h3><p class="tm">The benefit</p></article>
-      <article class="card reveal delay-3" style="border-color:rgba(111,181,44,0.35);"><div class="cat" style="color:var(--brand-green)">Level Four</div><h3>Organizational Growth</h3><p class="tm">The outcome</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 14 COMPETITIVE ================= -->
-<section class="block" id="competitive" style="background:#fff;">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">14 · Competitive Position</div>
+      <div class="eyebrow">10 · Competitive Position</div>
       <h2 class="display">Where we sit in the market.</h2>
       <p class="lede">Others deliver a piece. We deliver the whole outcome.</p>
     </div>
@@ -764,10 +762,10 @@
   </div>
 </section>
 
-<!-- ================= 15 AI POSITION ================= -->
-<section class="block" id="ai">
+<!-- ================= 11 AI POSITION ================= -->
+<section class="block" id="ai" style="background:#fff;">
   <div class="wrap">
-    <div class="eyebrow reveal">15 · AI Position</div>
+    <div class="eyebrow reveal">11 · AI Position</div>
     <p class="lead-statement reveal delay-1" style="max-width:26ch;">AI is a tailwind. <span style="color:var(--brand-green)">Executive experience is the advantage.</span></p>
     <div class="prose reveal delay-2" style="margin-top:22px;">
       <p>As information becomes abundant, clarity becomes scarce. Our mission is not to replace leadership—<strong>it is to help leaders make better decisions.</strong></p>
@@ -775,7 +773,7 @@
     </div>
 
     <article class="card reveal delay-2" style="margin-top:clamp(28px,4vw,40px);">
-      <div class="cat">AI Principle — AI Enhances Executive Visibility</div>
+      <div class="cat">AI Enhances Executive Visibility</div>
       <p style="margin-top:10px;">Artificial intelligence does not replace executive judgment. It accelerates Executive Visibility by:</p>
       <ul class="check-list" style="margin-top:14px;">
         <li><span class="ck">✓</span><span>Identifying trends</span></li>
@@ -789,23 +787,40 @@
   </div>
 </section>
 
-<!-- ================= 16 MESSAGING FRAMEWORK ================= -->
+<!-- ================= PART IV ================= -->
+<section class="part-divider">
+  <div class="wrap">
+    <div class="pnum">Part IV</div>
+    <div class="pname">Messaging</div>
+    <div class="pdesc">How we say it—the hierarchy, the framework, the vocabulary, the taglines, and the rallying cry.</div>
+  </div>
+</section>
+
+<!-- ================= 12 HIERARCHY ================= -->
+<section class="block" id="hierarchy">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">12 · Messaging Hierarchy</div>
+      <h2 class="display">Everything ladders into four levels.</h2>
+    </div>
+    <div class="card-grid cols-4">
+      <article class="card reveal"><div class="cat">Level One</div><h3>Executive Visibility</h3><p class="tm">The category</p></article>
+      <article class="card reveal delay-1"><div class="cat">Level Two</div><h3>Executive Intelligence</h3><p class="tm">The insight</p></article>
+      <article class="card reveal delay-2"><div class="cat">Level Three</div><h3>Better Decisions</h3><p class="tm">The benefit</p></article>
+      <article class="card reveal delay-3" style="border-color:rgba(111,181,44,0.35);"><div class="cat" style="color:var(--brand-green)">Level Four</div><h3>Organizational Growth</h3><p class="tm">The outcome</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 13 MESSAGING FRAMEWORK ================= -->
 <section class="block" id="messaging" style="background:#fff;">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">16 · Messaging Framework</div>
+      <div class="eyebrow">13 · Messaging Framework</div>
       <h2 class="display">How we say it.</h2>
     </div>
 
-    <!-- Messaging Principle -->
-    <div class="reveal" style="margin-top:clamp(28px,4vw,40px); background:linear-gradient(180deg,#16314f,#0f2338); color:#eaf1f8; border-radius:var(--radius-md); padding:clamp(28px,3.5vw,44px);">
-      <div class="eyebrow" style="color:#7aa7ff;">Messaging Principle</div>
-      <h3 class="display" style="color:#fff; font-size:clamp(22px,2.4vw,32px); margin:12px 0 14px;">We don't sell dashboards.</h3>
-      <p style="color:rgba(234,241,248,0.9); font-size:clamp(16px,1.3vw,19px); line-height:1.55; max-width:60ch;">We don't believe CEOs need more dashboards. We believe CEOs need timely, trustworthy Executive Visibility. Dashboards are simply one way we deliver it.</p>
-      <p style="color:#fff; font-family:var(--font-display); font-weight:600; font-size:clamp(17px,1.5vw,21px); line-height:1.4; margin:18px 0 0;">Our customers aren't buying charts. They're buying <span style="color:var(--brand-green)">confidence, clarity, and better decisions.</span></p>
-    </div>
-
-    <div class="card-grid cols-2" style="margin-top:18px;">
+    <div class="card-grid cols-2" style="margin-top:clamp(28px,4vw,40px);">
       <article class="card reveal">
         <div class="cat">Primary Headline</div>
         <h3 style="font-size:clamp(22px,2.4vw,30px);">Align Your Team. <span style="color:var(--brand-green)">Accelerate Growth.</span></h3>
@@ -814,6 +829,13 @@
         <div class="cat">Primary Value Proposition</div>
         <p style="font-size:16px; margin-top:6px;">Aligned KPIs™ gives CEOs Executive Visibility into the numbers that drive growth, profitability, retention, and strategic decisions. <strong>Built by experienced CEOs. Enhanced by AI. Designed for better decisions.</strong></p>
       </article>
+    </div>
+
+    <!-- We Don't Sell Dashboards -->
+    <div class="reveal" style="margin-top:18px; background:linear-gradient(180deg,#16314f,#0f2338); color:#eaf1f8; border-radius:var(--radius-md); padding:clamp(28px,3.5vw,44px);">
+      <div class="eyebrow" style="color:#7aa7ff;">We Don't Sell Dashboards</div>
+      <p style="color:rgba(234,241,248,0.9); font-size:clamp(16px,1.3vw,19px); line-height:1.55; max-width:60ch; margin:14px 0 0;">We don't believe CEOs need more dashboards. We believe CEOs need timely, trustworthy Executive Visibility. Dashboards are simply one way we deliver it.</p>
+      <p style="color:#fff; font-family:var(--font-display); font-weight:600; font-size:clamp(17px,1.5vw,21px); line-height:1.4; margin:18px 0 0;">Our customers aren't buying charts. They're buying <span style="color:var(--brand-green)">confidence, clarity, and better decisions.</span></p>
     </div>
 
     <div class="card-grid cols-2" style="margin-top:18px;">
@@ -835,17 +857,16 @@
           <li><span class="ck">✓</span><span><strong>Lead Better.</strong></span></li>
           <li><span class="ck">✓</span><span><strong>Grow Faster.</strong></span></li>
         </ul>
-        <p class="tm" style="margin-top:18px; font-style:italic;">Internal rallying cry: "We help CEOs see clearly, decide confidently, and grow faster."</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ================= 17 VOCABULARY ================= -->
+<!-- ================= 14 VOCABULARY ================= -->
 <section class="block" id="vocabulary">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">17 · Brand Vocabulary</div>
+      <div class="eyebrow">14 · Brand Vocabulary</div>
       <h2 class="display">The words we use—and the ones we don't.</h2>
     </div>
 
@@ -913,10 +934,10 @@
   </div>
 </section>
 
-<!-- ================= 18 TAGLINES ================= -->
+<!-- ================= 15 TAGLINES ================= -->
 <section class="block" id="taglines" style="background:#fff;">
   <div class="wrap">
-    <div class="eyebrow reveal">18 · Approved Taglines</div>
+    <div class="eyebrow reveal">15 · Approved Taglines</div>
     <p class="tag-primary reveal delay-1">Align Your Team. <span class="g">Accelerate Growth.</span></p>
     <p class="small reveal delay-1" style="margin-top:10px; letter-spacing:0.14em; text-transform:uppercase;">Primary tagline</p>
     <ul class="tag-list reveal delay-2">
@@ -928,6 +949,81 @@
       <li>Less Time Reporting. More Time Leading.</li>
       <li>Visibility Creates Intelligence. Intelligence Creates Better Decisions. Better Decisions Create Growth.</li>
     </ul>
+  </div>
+</section>
+
+<!-- ================= 16 INTERNAL RALLYING CRY ================= -->
+<section class="block" id="rallying">
+  <div class="wrap">
+    <div class="eyebrow reveal">16 · Internal Rallying Cry</div>
+    <p class="lead-statement reveal delay-1" style="max-width:30ch;">We help CEOs <span style="color:var(--brand-blue)">see clearly</span>, decide confidently, and <span style="color:var(--brand-green)">grow faster.</span></p>
+  </div>
+</section>
+
+<!-- ================= PART V ================= -->
+<section class="part-divider">
+  <div class="wrap">
+    <div class="pnum">Part V</div>
+    <div class="pname">Product &amp; Execution</div>
+    <div class="pdesc">Reference material—architecture, the flywheel, the decision filter, the long-term vision, and the visual system.</div>
+  </div>
+</section>
+
+<!-- ================= 17 ARCHITECTURE ================= -->
+<section class="block" id="architecture">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">17 · Brand Architecture</div>
+      <h2 class="display">How the names fit together.</h2>
+    </div>
+    <div class="card-grid cols-2">
+      <article class="card arch-card navy reveal">
+        <div class="role">Corporate Company</div>
+        <h3>1 to 100 Advisors, Inc.</h3>
+        <p>The legal entity. Use for contracts, investor communications, corporate filings, the About page, and the footer.</p>
+      </article>
+      <article class="card arch-card reveal delay-1">
+        <div class="role">Customer Brand</div>
+        <h3>Aligned KPIs™</h3>
+        <p>The customer-facing platform that delivers Executive Visibility. Licensed, certified, taught, and marketed.</p>
+      </article>
+      <article class="card arch-card reveal delay-2">
+        <div class="role">Product Category</div>
+        <h3>Executive Visibility Platform for CEOs</h3>
+        <p>Our category. Never lead with "Executive Reporting Platform"—"reporting" is deprecated.</p>
+      </article>
+      <article class="card arch-card green reveal delay-3">
+        <div class="role">Long-Term Vision</div>
+        <h3>Powered by the CEO Operating System™</h3>
+        <p>Our long-term vision for how leaders run their organizations. Aligned KPIs™ is the first platform within that vision.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 18 FLYWHEEL ================= -->
+<section class="block" id="flywheel" style="background:#fff;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">18 · Leadership Flywheel</div>
+      <h2 class="display">The loop that compounds.</h2>
+      <p class="lede">Each turn produces more trusted data—and the flywheel spins again.</p>
+    </div>
+    <div class="flow green reveal delay-1">
+      <div class="flow-step">Trusted Data</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">Executive Visibility</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">Executive Intelligence</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">Better Decisions</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">Execution</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">Growth</div>
+      <div class="flow-arrow">↺</div>
+      <div class="flow-step" style="color:var(--muted); font-weight:500;">More Trusted Data <span class="sub">…and the loop repeats.</span></div>
+    </div>
   </div>
 </section>
 
@@ -966,7 +1062,7 @@
     <div class="section-head reveal">
       <div class="eyebrow">21 · Visual Brand</div>
       <h2 class="display">Logo, color, and type.</h2>
-      <p class="lede">One consistent identity across Aligned KPIs™, the CEO Operating System™, and the mobile app.</p>
+      <p class="lede">Reference material. One consistent identity across Aligned KPIs™, the CEO Operating System™, and the mobile app.</p>
     </div>
 
     <!-- Logo -->
@@ -1064,7 +1160,8 @@
     <div class="footer-col">
       <div class="footer-h">This page</div>
       <ul>
-        <li><a href="#mission">Mission &amp; anchor</a></li>
+        <li><a href="#start">Start Here</a></li>
+        <li><a href="#category">Executive Visibility</a></li>
         <li><a href="#messaging">Messaging framework</a></li>
         <li><a href="#vocabulary">Brand vocabulary</a></li>
         <li><a href="#visual">Visual brand</a></li>
