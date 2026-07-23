@@ -261,6 +261,12 @@
   .result-cta .btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
   .result-cta .btn-outline:hover { background: rgba(255,255,255,0.1); }
   .print-only { display: none; }
+  .print-summary { margin-top: 32px; padding-top: 22px; border-top: 2px solid var(--brand-navy); text-align: left; }
+  .print-summary .print-logo { height: 32px; width: auto; margin-bottom: 14px; }
+  .print-summary h3 { font-family: var(--font-display); font-weight: 700; font-size: 17px; margin: 0 0 8px; color: var(--ink); }
+  .print-summary p { font-size: 12px; line-height: 1.5; color: var(--ink-2); margin: 0 0 10px; }
+  .print-summary .print-contact { font-size: 13px; font-weight: 700; color: var(--brand-navy); margin-top: 14px; }
+  .print-summary .print-legal { font-size: 10.5px; color: var(--muted); margin-top: 6px; }
 
   /* error state */
   .load-error { text-align: center; padding: 20px 0; color: var(--ink-2); font-size: 15px; line-height: 1.55; }
@@ -538,6 +544,16 @@
             <a class="btn btn-white" href="contact.html"><span>Book a 15-minute call</span><span class="arrow">&rarr;</span></a>
             <button class="btn btn-outline" onclick="window.print()">Save / print my results</button>
           </div>
+        </div>
+
+        <!-- Shown only when the results are saved/printed as a PDF (hidden on screen). -->
+        <div class="print-only print-summary">
+          <img class="print-logo" src="assets/logo-aligned-kpis.svg" alt="Aligned KPIs" onerror="this.onerror=null; this.src='assets/logo-primary-light.svg';" />
+          <h3>About Aligned KPIs&trade;</h3>
+          <p>Built by experienced CEOs and enhanced by AI, Aligned KPIs&trade; is the Executive Visibility Platform for CEOs. We give leaders timely, trustworthy visibility into the numbers that drive growth, retention, and profitability. It's the same executive visibility large organizations get from analysts and BI teams, delivered through one platform, so chambers, associations, and growing organizations can close the Visibility Gap and make better decisions with confidence.</p>
+          <p>This report was produced by the Executive Visibility Assessment&trade;. To review your results with an experienced operator and see what your first 30 days could look like, book a free 15-minute call.</p>
+          <div class="print-contact">alignedkpis.com &nbsp;&middot;&nbsp; DJ@1to100advisors.com &nbsp;&middot;&nbsp; Call or text 317-413-8304</div>
+          <div class="print-legal">Aligned KPIs&trade; &middot; Powered by the CEO Operating System&trade; &middot; 1 to 100 Advisors, Inc.</div>
         </div>
       </div>
 
