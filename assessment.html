@@ -251,6 +251,11 @@
   .impact-gains ul { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
   .impact-gains li { font-size: 14px; color: var(--ink-2); padding-left: 22px; position: relative; line-height: 1.45; }
   .impact-gains li::before { content: "\2192"; position: absolute; left: 0; color: var(--brand-green); font-weight: 700; }
+  .impact-leader { margin-top: 16px; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 22px 24px; background: linear-gradient(180deg, #fff, #fafafc); }
+  .impact-leader ul { list-style: none; margin: 4px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+  @media (max-width: 640px) { .impact-leader ul { grid-template-columns: 1fr; } }
+  .impact-leader li { font-size: 14px; color: var(--ink-2); padding-left: 22px; position: relative; line-height: 1.45; }
+  .impact-leader li::before { content: "\2192"; position: absolute; left: 0; color: var(--brand-green); font-weight: 700; }
 
   .result-cta { margin-top: 40px; text-align: center; background: var(--brand-navy); color: #fff; border-radius: var(--radius-lg); padding: clamp(30px, 5vw, 52px); }
   .result-cta h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 2.6vw, 32px); letter-spacing: -0.02em; margin: 0 0 10px; }
@@ -513,6 +518,17 @@
                 <li>Earlier detection of risk to growth, cash &amp; retention</li>
               </ul>
             </div>
+          </div>
+          <div class="impact-leader">
+            <div class="impact-label">What it means for you as a leader</div>
+            <ul>
+              <li>Walk into board meetings with confidence, backed by numbers you trust</li>
+              <li>Give your team clearer direction, with less friction and stronger alignment</li>
+              <li>Spend less time chasing reports and more time leading</li>
+              <li>Lead proactively instead of firefighting</li>
+              <li>Peace of mind, even while you're away</li>
+              <li>A trusted partner, so you never make big decisions alone</li>
+            </ul>
           </div>
         </div>
 
