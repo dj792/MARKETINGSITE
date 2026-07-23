@@ -211,7 +211,10 @@
   .score-ring .val { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
   .score-ring .num { font-family: var(--font-display); font-weight: 700; font-size: 52px; letter-spacing: -0.03em; line-height: 1; color: var(--ink); }
   .score-ring .pct { font-size: 15px; color: var(--muted); margin-top: 2px; }
-  .level-badge { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.02em; padding: 7px 16px; border-radius: 999px; margin-bottom: 12px; }
+  .ev-score-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(18px, 2vw, 24px); letter-spacing: -0.02em; color: var(--ink); margin: 0 0 16px; line-height: 1.2; }
+  .level-badge { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.02em; padding: 7px 16px; border-radius: 999px; margin-bottom: 10px; }
+  .level-maturity { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 600; margin-bottom: 12px; }
+  .level-maturity:empty { display: none; }
   .result-summary { max-width: 60ch; margin: 0 auto 8px; color: var(--ink-2); font-size: 16px; line-height: 1.55; }
 
   .cat-scores { margin-top: 36px; display: flex; flex-direction: column; gap: 16px; }
@@ -483,15 +486,16 @@
       <!-- RESULTS -->
       <div id="view-results" style="display:none;">
         <div class="result-hero">
-          <div class="eyebrow" style="margin-bottom:12px;">Your Executive Visibility Score&trade;</div>
+          <h3 class="ev-score-title">Overall Executive Visibility Score&trade;</h3>
           <div class="score-ring">
             <svg viewBox="0 0 200 200">
               <circle cx="100" cy="100" r="88" fill="none" stroke="#ececf0" stroke-width="16"/>
               <circle id="ringFill" cx="100" cy="100" r="88" fill="none" stroke="var(--brand-blue)" stroke-width="16" stroke-linecap="round" stroke-dasharray="552.9" stroke-dashoffset="552.9"/>
             </svg>
-            <div class="val"><span class="num" id="scoreNum">0</span><span class="pct">out of 100</span></div>
+            <div class="val"><span class="num" id="scoreNum">0</span><span class="pct">/ 100</span></div>
           </div>
           <div class="level-badge" id="levelBadge">Level</div>
+          <div class="level-maturity" id="levelMaturity"></div>
           <p class="result-summary" id="levelSummary"></p>
         </div>
 
@@ -628,10 +632,15 @@
   }
   // Convert a gviz table into an array of row-objects keyed by column label.
   function tableToRows(t){
-    const cols = ((t.table && t.table.cols) || []).map(c => (c.label || '').trim());
-    return ((t.table && t.table.rows) || []).map(r => {
+    let header = ((t.table && t.table.cols) || []).map(c => (c.label || '').trim());
+    let rows = ((t.table && t.table.rows) || []).map(r =>
+      (r.c || []).map(cell => (cell && cell.v != null) ? cell.v : ''));
+    // If gviz didn't detect a header (all labels blank — happens when every
+    // column is text), use the first row as the header instead.
+    if (!header.some(h => h)) header = (rows.shift() || []).map(v => String(v).trim());
+    return rows.map(r => {
       const o = {};
-      (r.c || []).forEach((cell, i) => { o[cols[i]] = (cell && cell.v != null) ? cell.v : ''; });
+      header.forEach((h, i) => { o[h] = (r[i] != null) ? r[i] : ''; });
       return o;
     });
   }
@@ -659,13 +668,41 @@
     });
     return { categories: cats.filter(c => c.questions.length) };
   }
+  // Red → green ramp so the first level is red and the last is green, for any count.
+  function levelColor(i, n){
+    const palette = ['#b1442f','#c9791f','#b8860b','#2178c4','#137333'];
+    if (n <= 1) return palette[palette.length - 1];
+    return palette[Math.round(i / (n - 1) * (palette.length - 1))];
+  }
+  // Build the maturity levels from the Scoring tab.
+  //   Score (e.g. "0–20") | Level | Executive Visibility Maturity | Description
+  function buildLevels(rows){
+    const levels = rows.map(r => {
+      const nums = String(r.Score || '').match(/\d+/g) || [];
+      if (nums.length < 2) return null;
+      return {
+        min: Number(nums[0]),
+        max: Number(nums[1]),
+        name: String(r.Level || '').trim(),
+        maturity: String(r['Executive Visibility Maturity'] || '').trim(),
+        summary: String(r.Description || '').trim()
+      };
+    }).filter(l => l && l.name).sort((a,b) => a.min - b.min);
+    levels.forEach((l,i) => { l.color = levelColor(i, levels.length); });
+    return levels;
+  }
   async function loadConfig(){
     // Test/override hook.
     if (window.__ASSESSMENT_CONFIG) return window.__ASSESSMENT_CONFIG;
     try {
-      const [catsT, qsT] = await Promise.all([gvizJsonp('CategoryDefinitions'), gvizJsonp('KPIQuestions')]);
+      const [catsT, qsT, scoreT] = await Promise.all([
+        gvizJsonp('CategoryDefinitions'),
+        gvizJsonp('KPIQuestions'),
+        gvizJsonp('Scoring').catch(() => null)   // Scoring tab is optional
+      ]);
       const cfg = buildConfig(tableToRows(catsT), tableToRows(qsT));
       if (!cfg.categories.length) throw new Error('empty config');
+      if (scoreT){ const lv = buildLevels(tableToRows(scoreT)); if (lv.length) cfg.levels = lv; }
       return cfg;
     } catch (e) {
       console.warn('Assessment: could not load content from the sheet.', e);
@@ -681,8 +718,9 @@
     { v:'N/A',     cls:'na',     credit:0,    counts:false }
   ];
 
-  // Maturity levels by overall score.
-  const LEVELS = [
+  // Maturity levels — loaded from the sheet's "Scoring" tab at load time.
+  // The list below is only a fallback if that tab can't be read.
+  let LEVELS = [
     { min:0,  max:20,  name:'Level 1 · Flying Blind',        color:'#b1442f',
       summary:'Right now you are steering mostly on instinct and lagging financials. The good news: the fastest wins are also the most basic — reliable cash visibility and a clean monthly P&L. Get those in place and everything downstream gets easier.' },
     { min:21, max:40,  name:'Level 2 · Building Foundations', color:'#c9791f',
@@ -823,6 +861,8 @@
       badge.textContent = lvl.name;
       badge.style.background = lvl.color + '1f';
       badge.style.color = lvl.color;
+      const mat = el('levelMaturity');
+      if (mat) mat.textContent = lvl.maturity ? ('Executive Visibility Maturity: ' + lvl.maturity) : '';
       el('levelSummary').textContent = lvl.summary;
 
       // category bars (sorted high -> low), each with a qualitative rating chip
@@ -943,6 +983,7 @@
       initLeadForm();
       const cfg = await loadConfig();
       CATEGORIES = (cfg && cfg.categories) || [];
+      if (cfg && cfg.levels && cfg.levels.length) LEVELS = cfg.levels;
       if (!CATEGORIES.length){ showLoadError(); return; }
       renderIntro();
       const btn = el('startBtn');
