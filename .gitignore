@@ -16,3 +16,6 @@ _to_delete/
 
 # local dev tools (not part of the website)
 deploy.command
+
+# preview mockups (not for production)
+mockup-*.html
