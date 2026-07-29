@@ -535,7 +535,7 @@
         <div class="result-cta">
           <h3>Want help closing these gaps?</h3>
           <p>In a free 15-minute call, we'll walk through your results and show you exactly how
-            the CEO Operating System&trade; makes these numbers live, daily, and trustworthy.</p>
+            Aligned KPIs&trade; makes these numbers live, daily, and trustworthy.</p>
           <div class="result-actions">
             <a class="btn btn-white" href="contact.html"><span>Book a 15-minute call</span><span class="arrow">&rarr;</span></a>
             <button class="btn btn-outline" onclick="window.print()">Save / print my results</button>
@@ -549,7 +549,7 @@
           <p>Built by experienced CEOs and enhanced by AI, Aligned KPIs&trade; is the Executive Visibility Platform for CEOs. We give leaders timely, trustworthy visibility into the numbers that drive growth, retention, and profitability. It's the same executive visibility large organizations get from analysts and BI teams, delivered through one platform, so chambers, associations, and growing organizations can close the Visibility Gap and make better decisions with confidence.</p>
           <p>This report was produced by the Executive Visibility Assessment&trade;. To review your results with an experienced operator and see what your first 30 days could look like, book a free 15-minute call.</p>
           <div class="print-contact">alignedkpis.com &nbsp;&middot;&nbsp; DJ@1to100advisors.com &nbsp;&middot;&nbsp; Call or text 317-413-8304</div>
-          <div class="print-legal">Aligned KPIs&trade; &middot; Powered by the CEO Operating System&trade; &middot; 1 to 100 Advisors, Inc.</div>
+          <div class="print-legal">Aligned KPIs&trade; &middot; 1 to 100 Advisors, Inc.</div>
         </div>
       </div>
 
@@ -586,7 +586,7 @@
     <div class="footer-brand">
       <img class="brand-logo footer" src="assets/logo-aligned-kpis.svg" alt="Aligned KPIs" onerror="this.onerror=null; this.src='assets/logo-primary-light.svg';" />
       <p class="footer-tag">Align Your Team. Accelerate Growth.</p>
-      <p class="footer-sub">Executive Visibility Platform for CEOs.<br/>Powered by the CEO Operating System&trade;.</p>
+      <p class="footer-sub">Executive Visibility Platform for CEOs.<br/>Visibility &middot; Intelligence &middot; Partnership.</p>
     </div>
     <div class="footer-col">
       <div class="footer-h">Explore</div>
@@ -611,7 +611,7 @@
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms</a>
     </div>
-    <div class="footer-tm">Aligned KPIs&trade; and the CEO Operating System&trade; are trademarks of 1 to 100 Advisors, Inc.</div>
+    <div class="footer-tm">Aligned KPIs&trade; is a trademark of 1 to 100 Advisors, Inc.</div>
   </div>
 </footer>
 
@@ -911,7 +911,7 @@
       // top three opportunities = lowest scoring applicable areas (<70), using sheet content
       const opps = res.cats.filter(c => c.pct !== null && c.pct < 70).sort((a,b) => a.pct - b.pct).slice(0,3);
       if (opps.length === 0){
-        el('oppList').innerHTML = '<div class="opp-card"><p>Impressive — no major gaps stood out. The next frontier is making these numbers live and shared across your team every day. That is exactly what the CEO Operating System&trade; is built for.</p></div>';
+        el('oppList').innerHTML = '<div class="opp-card"><p>Impressive — no major gaps stood out. The next frontier is making these numbers live and shared across your team every day. That is exactly what Aligned KPIs&trade; is built for.</p></div>';
       } else {
         el('oppList').innerHTML = opps.map(c => {
           const head = c.q ? esc(c.q) : esc(c.name);

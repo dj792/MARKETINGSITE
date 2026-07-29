@@ -1,4 +1,4 @@
-# Brand Kit — Aligned KPIs™ / CEO Operating System™ / 1 to 100 Advisors, Inc.
+# Brand Kit — Aligned KPIs™ / 1 to 100 Advisors, Inc.
 
 A single, shared logo system for the whole product family. Every logo is built on
 the same symbol — **circle = alignment, bars = KPIs, arrow = growth** — so the
@@ -14,8 +14,7 @@ high-resolution **.png** export (for slides, docs, email, and anywhere SVG isn't
 | Logo | Light (for light backgrounds) | Dark (for dark backgrounds) |
 |------|-------------------------------|------------------------------|
 | Shared symbol (icon only) | `symbol-light.svg` | `symbol-dark.svg` |
-| Aligned KPIs™ (customer-facing brand) | `aligned-kpis-light.svg` | `aligned-kpis-dark.svg` |
-| CEO Operating System™ (the product) | `ceo-operating-system-light.svg` | `ceo-operating-system-dark.svg` |
+| Aligned KPIs™ (customer-facing brand + product) | `aligned-kpis-light.svg` | `aligned-kpis-dark.svg` |
 | 1 to 100 Advisors, Inc. (the company) | `1to100-advisors-light.svg` | `1to100-advisors-dark.svg` |
 | App icon (rounded square) | `app-icon-light.svg` | `app-icon-dark.svg` |
 
@@ -41,5 +40,5 @@ Dark-background logos:
 - Give the logo clear space around it (roughly the height of the symbol) and don't
   recolor, rotate, stretch, or add effects.
 - For favicons / app icons, start from `app-icon-*.svg`.
-- Trademarks: Aligned KPIs™, CEO Operating System™. Legal/corporate entity is
+- Trademarks: Aligned KPIs™. ("CEO Operating System™" is retired — do not use.) Legal/corporate entity is
   "1 to 100 Advisors, Inc." (use the company logo for contracts, the About page, and footers).

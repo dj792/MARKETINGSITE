@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1180" role="img" aria-label="The CEO Operating System — one unified decision platform for CEOs">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1180" role="img" aria-label="Aligned KPIs — one unified decision platform for CEOs">
   <defs>
     <!-- Background -->
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
@@ -40,7 +40,7 @@
 
   <!-- ===== Title ===== -->
   <g font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">
-    <text x="800" y="92" font-size="54" font-weight="700" fill="#13314f" letter-spacing="-0.5">The CEO Operating System<tspan font-size="26" dy="-18">&#8482;</tspan></text>
+    <text x="800" y="92" font-size="54" font-weight="700" fill="#13314f" letter-spacing="-0.5">Aligned KPIs<tspan font-size="26" dy="-18">&#8482;</tspan></text>
     <text x="800" y="138" font-size="25" font-weight="400" fill="#6e6e73">One unified decision platform for CEOs</text>
   </g>
 
