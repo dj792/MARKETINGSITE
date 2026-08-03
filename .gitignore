@@ -6,16 +6,32 @@ Aligned KPIs Assessment.xlsx
 1 to 100 - Brand Strategy Summary.pdf
 Brand Strategy.md
 CLAUDE.md
+Product Spec.md
 MasterSalesDeck.pptx
 *.pptx
 Sales Deck — Style Guide.md
 
+# sales decks & proposals (internal — never deploy to the website)
+Sales Presentations/
+
 # build/temp junk
 _to_delete/
 .fuse_hidden*
+slide-*.jpg
+Aligned KPIs — Chamber CEO Sales Deck.pdf
 
 # local dev tools (not part of the website)
 deploy.command
 
 # preview mockups (not for production)
 mockup-*.html
+
+# internal financial summaries (never deploy to the website)
+membershine-pl-summary.html
+*-summary_thru-*.html
+*revenue-summary*.html
+*expense-summary*.html
+
+# summary build tooling (internal dev tools, not the website)
+build_summary.py
+summary.template.html

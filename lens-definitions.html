@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Lens — Aligned KPIs Product Definitions</title>
+<style>
+  :root{
+    --bg:#f5f5f7;--card:#fff;--ink:#1d1d1f;--soft:#6e6e73;--hair:#e8e8ed;
+    --navy:#16314F;--blue:#2178C4;--green:#6FB52C;--ice:#AEC2DA;--pale:#CFE0F2;--purple:#5E4AB7;
+    --shadow:0 4px 24px rgba(0,0,0,.06);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.55;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;}
+  .wrap{max-width:920px;margin:0 auto;padding:60px 24px 90px;}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+  h1{font-size:40px;font-weight:700;letter-spacing:-.02em;margin:0 0 12px;}
+  .lede{font-size:18px;color:var(--soft);max-width:640px;margin:0 0 8px;}
+  .stamp{font-size:12.5px;color:#a2a2a7;margin-bottom:44px;}
+
+  h2{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin:46px 0 16px;}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .card{background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);}
+  .card h3{margin:0 0 6px;font-size:18px;font-weight:700;}
+  .card p{margin:0;font-size:14.5px;color:#3a3a3c;}
+  .card .tag{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;display:inline-block;margin-bottom:10px;}
+  .tag.prop{background:#E6F1FB;color:#0C447C;}.tag.view{background:#EAF3DE;color:#3B6D11;}
+
+  /* spectrum */
+  .spectrum{display:flex;align-items:stretch;gap:0;background:var(--card);border:1px solid var(--hair);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);}
+  .step{flex:1;padding:20px 18px;position:relative;border-right:1px solid var(--hair);}
+  .step:last-child{border-right:none;}
+  .step .ic{width:26px;height:26px;margin-bottom:10px;}
+  .step .nm{font-size:16px;font-weight:700;}
+  .step .who{font-size:12.5px;color:var(--soft);margin-top:3px;}
+  .step.me .ic{color:#5F5E5A;}.step.team .ic{color:#3a4a5a;}.step.board .ic{color:var(--blue);}.step.public .ic{color:#3B6D11;}
+  .arrowbar{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--soft);margin:10px 4px 0;font-weight:600;}
+
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--hair);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);font-size:14.5px;}
+  th,td{text-align:left;padding:13px 18px;border-bottom:1px solid var(--hair);}
+  th{background:#fafbfc;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--soft);}
+  tr:last-child td{border-bottom:none;}
+  td strong{font-weight:600;}
+  .pill{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+  .p-me{background:#F1EFE8;color:#5F5E5A;}.p-team{background:#EAEEF2;color:#3a4a5a;}.p-board{background:#E6F1FB;color:#0C447C;}
+  .p-exec{background:#EEEDFE;color:#3C3489;}.p-public{background:#EAF3DE;color:#3B6D11;}
+
+  ol.principles{margin:0;padding:0;list-style:none;counter-reset:p;}
+  ol.principles li{position:relative;padding:14px 16px 14px 52px;background:var(--card);border:1px solid var(--hair);border-radius:12px;margin-bottom:10px;font-size:15px;color:#3a3a3c;box-shadow:var(--shadow);counter-increment:p;}
+  ol.principles li::before{content:counter(p);position:absolute;left:16px;top:13px;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  ol.principles li strong{color:var(--ink);}
+
+  .nest{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:8px 18px;box-shadow:var(--shadow);}
+  .nest .row{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--hair);font-size:14.5px;}
+  .nest .row:last-child{border-bottom:none;}
+  .nest .row.sub{padding-left:26px;color:var(--soft);}
+  .nest .tick{color:#c7c7cc;}
+  footer{margin-top:50px;font-size:12.5px;color:var(--soft);border-top:1px solid var(--hair);padding-top:18px;}
+  @media(max-width:720px){.twocol{grid-template-columns:1fr;}.spectrum{flex-direction:column;}.step{border-right:none;border-bottom:1px solid var(--hair);}h1{font-size:32px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="brand.html" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--blue);text-decoration:none;margin-bottom:22px;">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Aligned KPIs Brand Guide</a>
+  <div class="eyebrow">Aligned KPIs&trade; · Product definitions</div>
+  <h1>The Lens</h1>
+  <p class="lede">How the platform organizes what a CEO sees and controls who can see it. Canonical reference — use these names and definitions consistently.</p>
+  <p class="stamp">Internal product spec · see “Product Spec.md” · last updated Aug 2026</p>
+
+  <h2>Two concepts, kept separate</h2>
+  <div class="twocol">
+    <div class="card"><span class="tag prop">Property of the asset</span><h3>Visibility</h3><p>The access control on each asset (dashboard, scorecard, analysis, document, folder) — who can open it. Works like a Google Drive share setting and travels with the asset wherever it's linked.</p></div>
+    <div class="card"><span class="tag view">A way of looking</span><h3>The Lens</h3><p>A view the CEO looks through. It filters what's shown by each asset's visibility. The Lens is <strong>not</strong> a permission — switching it never changes who can access anything.</p></div>
+  </div>
+
+  <h2>The privacy spectrum — most closed to most open</h2>
+  <div class="spectrum">
+    <div class="step me"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg><div class="nm">Only me</div><div class="who">The CEO alone — drafts, personal dashboards, pre-decision work.</div></div>
+    <div class="step team"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15.5 14.2c2.6.4 4.5 2.4 4.5 5"/></svg><div class="nm">Team</div><div class="who">Internal staff and key vendors.</div></div>
+    <div class="step board"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-5h6v5"/></svg><div class="nm">Board</div><div class="who">Board of directors and investors.</div></div>
+    <div class="step public"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><div class="nm">Public</div><div class="who">Anyone on the web — world-readable, indexable.</div></div>
+  </div>
+  <div class="arrowbar"><span>← more private</span><span>the same spectrum is also the draft → publish pipeline</span><span>more open →</span></div>
+
+  <h2>Nested groups — a subgroup sees a superset</h2>
+  <div class="nest">
+    <div class="row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12"/></svg><strong>Board of Directors</strong><span style="color:var(--soft)">· sees Board + Public</span></div>
+    <div class="row sub"><span class="tick">└</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M12 3l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V6z"/></svg><strong style="color:var(--ink)">Executive Committee</strong> — subgroup; sees everything the board sees <em>plus</em> exec-only items</div>
+    <div class="row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3a4a5a" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg><strong>All staff (Team)</strong><span style="color:var(--soft)">· sees Team + Public</span></div>
+    <div class="row sub"><span class="tick">└</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3a4a5a" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg><strong style="color:var(--ink)">Finance Team</strong> — subgroup of staff</div>
+  </div>
+
+  <h2>How a Lens maps to what it shows</h2>
+  <table>
+    <thead><tr><th>Lens</th><th>Shows assets whose visibility is…</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill p-me">Only me</span></td><td>Only me</td></tr>
+      <tr><td><span class="pill p-team">Team</span></td><td>Team + Public</td></tr>
+      <tr><td><span class="pill p-board">Board</span></td><td>Board + Public</td></tr>
+      <tr><td><span class="pill p-board">Board</span> <span class="pill p-exec">› Executive Committee</span></td><td>Executive Committee + Board + Public</td></tr>
+      <tr><td><span class="pill p-public">Public</span></td><td>Public only</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Governing principles</h2>
+  <ol class="principles">
+    <li><strong>Visibility is a property of the asset; the Lens is how you look.</strong> Never merge the two — moving an asset between views must not silently re-permission it.</li>
+    <li><strong>Nesting rule:</strong> a subgroup sees a superset of its parent (Executive Committee ⊂ Board; Finance Team ⊂ Team).</li>
+    <li><strong>Default visibility is “Only me.”</strong> New assets start private; the CEO deliberately widens them.</li>
+    <li><strong>Sharing = widening one step outward</strong> (Only me → Team → Board → Public). Promoting to Public is an explicit, confirmed action.</li>
+    <li><strong>The spectrum doubles as the maturation pipeline</strong> — draft privately, then promote outward as content is ready.</li>
+  </ol>
+
+  <footer>Say <strong>visibility</strong> for the per-asset access property and <strong>Lens</strong> for the viewing filter. Executive Committee and Finance Team are subgroups, not top-level Lens values. “Persona” was an early working term these concepts replaced — don’t use it in product copy. Internal reference (noindex). See also the <a href="brand.html" style="color:var(--blue);font-weight:600;text-decoration:none;">Aligned KPIs Brand Guide</a>.</footer>
+</div>
+</body>
+</html>
