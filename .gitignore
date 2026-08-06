@@ -34,4 +34,14 @@ membershine-pl-summary.html
 
 # summary build tooling (internal dev tools, not the website)
 build_summary.py
+build_summary_gs.py
 summary.template.html
+BuildClientSummary.command
+
+# credentials — NEVER commit (service account keys, etc.)
+service-account*.json
+*credentials*.json
+*.pem
+# per-client generated summary folders (internal, not the website)
+Lakeland/
+
