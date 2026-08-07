@@ -237,7 +237,7 @@
   .hero-visual-frame {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 16 / 9;
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow:
@@ -249,19 +249,24 @@
   /* Soft bottom fade so the frame edge reads as the device receding, not a sliced label */
   .hero-visual-frame::after {
     content: "";
+    display: none; /* only for the static image on mobile */
     position: absolute; left: 0; right: 0; bottom: 0;
     height: 15%;
     background: linear-gradient(to bottom, rgba(9,20,36,0) 0%, rgba(9,20,36,0.5) 55%, rgba(9,20,36,0.92) 100%);
     pointer-events: none;
   }
   .hero-visual-frame:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 70px 140px -30px rgba(0,0,0,0.40), 0 34px 68px -30px rgba(22,49,79,0.34); }
+  .hero-anim { display: block; width: 100%; height: 100%; border: 0; }
   .hero-visual {
-    display: block;
+    display: none; /* desktop shows the animation; mobile shows this image */
     width: 100%; height: 100%;
     object-fit: cover;
     object-position: center;
   }
   @media (max-width: 900px) {
+    .hero-anim { display: none; }
+    .hero-visual { display: block; }
+    .hero-visual-frame::after { display: block; }
     .hero-grid { grid-template-columns: 1fr; gap: clamp(28px, 6vw, 44px); text-align: center; }
     .hero-text { text-align: center; }
     .hero-text h1 { margin-inline: auto; max-width: 18ch; }
@@ -962,6 +967,8 @@
     <!-- Product visual -->
     <div class="hero-visual-col reveal delay-2" id="dashboard">
       <div class="hero-visual-frame">
+        <iframe class="hero-anim" src="assets/hero-animated.html" loading="lazy" scrolling="no"
+                title="Aligned KPIs Executive Pacing dashboard, animated — Metro Chamber of Commerce total revenue $248K month-to-date, pacing +4 work days ahead of budget."></iframe>
         <img class="hero-visual" src="assets/hero-mobile-dark.png"
              alt="Executive Pacing view for Metro Chamber of Commerce — total revenue $248K month-to-date, pacing +4 work days ahead of budget, up 6.2% vs budget and 9.1% vs prior year." />
       </div>
