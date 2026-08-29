@@ -166,6 +166,71 @@
   .token .sw { width: 34px; height: 34px; border-radius: 8px; flex: none; border: 1px solid rgba(0,0,0,0.08); }
   .token .tn { font-family: var(--font-display); font-weight: 600; font-size: 13.5px; color: var(--ink); }
   .token .th { font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); }
+
+  /* ---- visual identity / asset library ---- */
+  .mark-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: clamp(24px,4vw,40px); }
+  @media (max-width: 700px){ .mark-hero { grid-template-columns: 1fr; } }
+  .mark-hero > div { border-radius: var(--radius-md); border: 1px solid var(--line); box-shadow: var(--shadow-1);
+    display: flex; align-items: center; justify-content: center; padding: 40px; min-height: 260px; background: var(--surface); }
+  .mark-hero > div.on-navy { background: linear-gradient(180deg,#16314f,#0f2338); border-color: transparent; }
+  .mark-hero img { width: 190px; height: 190px; }
+
+  .asset-group { margin-top: clamp(26px,4vw,42px); }
+  .asset-group > h4 { font-family: var(--font-display); font-weight: 600; font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .asset-grid { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 860px){ .asset-grid { grid-template-columns: 1fr; } }
+  .asset { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md);
+    box-shadow: var(--shadow-1); overflow: hidden; display: flex; flex-direction: column; }
+  .asset .prevs { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+  .asset .prev { display: flex; align-items: center; justify-content: center; padding: 26px 20px; min-height: 132px; background: #fbfbfd; }
+  .asset .prev + .prev { background: linear-gradient(180deg,#16314f,#0f2338); border-left: 1px solid var(--line); }
+  .asset .prev img { max-height: 74px; width: auto; }
+  .asset.sq .prev img { max-height: 84px; }
+  .asset.solo .prevs { grid-template-columns: 1fr; }
+  /* neutral panels: the app icon is a white or navy square, and the favicon
+     recolors itself from the viewer's OS theme — either would vanish against
+     a white or navy panel, so both sit on mid-tone gray. */
+  .asset.solo .prev { background: #8e99a6; }
+  .asset.icon .prev, .asset.icon .prev + .prev { background: #dfe3e8; }
+  .asset.icon .prev img { border-radius: 15px; box-shadow: 0 2px 12px rgba(0,0,0,0.22); }
+  .asset.solo .sizes figcaption { color: #22303f; }
+  .sizes { display: flex; align-items: flex-end; justify-content: center; gap: 30px; }
+  .sizes figure { margin: 0; text-align: center; }
+  .sizes img { display: block; margin: 0 auto 7px; }
+  .sizes figcaption { font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); }
+  .asset .body { padding: 18px 20px 20px; }
+  .asset h5 { margin: 0 0 6px; font-family: var(--font-display); font-weight: 600; font-size: 17px; letter-spacing: -0.015em; color: var(--ink); }
+  .asset .use { margin: 0 0 14px; color: var(--ink-2); font-size: 14.5px; line-height: 1.5; }
+  .asset .use b { color: var(--ink); font-weight: 600; }
+  .fpair { display: grid; gap: 8px; }
+  .fname { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3px 12px; width: 100%;
+    background: rgba(0,0,0,0.04); border: 1px solid var(--line); border-radius: 9px;
+    padding: 9px 11px; cursor: pointer; text-align: left; }
+  .fname .lbl { grid-column: 1 / -1; font-family: var(--font-display); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.11em; text-transform: uppercase; color: var(--muted); }
+  .fname .fn { font-family: var(--font-mono); font-size: 12px; color: var(--ink); word-break: break-all; }
+  .fname:hover { background: rgba(33,120,196,0.09); border-color: rgba(33,120,196,0.35); }
+  .fname .cp { font-family: var(--font-display); font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent); flex: none; }
+  .fname.done { background: rgba(111,181,44,0.12); border-color: rgba(111,181,44,0.45); }
+  .fname.done .cp { color: #4e8a1c; }
+  .asset .also { margin: 9px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+  .asset .also code { font-size: 11.5px; }
+
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: clamp(24px,4vw,40px); }
+  @media (max-width: 760px){ .rules { grid-template-columns: 1fr; } }
+  .rule-list { margin: 0; padding: 0; list-style: none; }
+  .rule-list li { display: flex; gap: 11px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
+  .rule-list li:first-child { border-top: 0; padding-top: 0; }
+  .rule-list .yes, .rule-list .no { flex: none; width: 17px; height: 17px; border-radius: 50%; margin-top: 2px;
+    display: grid; place-items: center; font-size: 11px; font-weight: 700; color: #fff; }
+  .rule-list .yes { background: var(--brand-green); } .rule-list .no { background: var(--brand-red); }
+  .logo-palette { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .chipc { display: flex; align-items: center; gap: 9px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 999px; padding: 6px 14px 6px 7px; font-size: 12.5px; color: var(--ink-2); box-shadow: var(--shadow-1); }
+  .chipc i { width: 20px; height: 20px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.08); flex: none; }
+  .chipc code { background: none; padding: 0; color: var(--muted); }
   code { font-family: var(--font-mono); font-size: 12.5px; background: rgba(0,0,0,0.05); padding: 1px 6px; border-radius: 6px; }
 
   footer { padding: 54px 0 44px; color: var(--muted); border-top: 1px solid var(--line); margin-top: 40px; font-size: 13px; }
@@ -206,6 +271,7 @@
       <span class="pill"><b>Brand &amp; product</b> Aligned KPIs™</span>
       <span class="pill"><b>Category</b> Executive Visibility Platform for CEOs</span>
       <span class="pill"><b>Updated</b> August 29, 2026</span>
+      <span class="pill"><b>Logo files</b> <a href="#logofiles" style="color:var(--accent);font-weight:600;">Part VIII</a></span>
     </div>
     <p class="precedence reveal delay-3">When other messaging or historical materials conflict with this framework, <strong>this framework takes precedence.</strong> The operational appendices (Framework &amp; Assessment, the Lens, retired-name rule, color tokens) support it.</p>
 
@@ -233,6 +299,9 @@
         <a href="#filter"><span class="n">19</span><span>Brand Decision Filter</span></a>
         <a href="#ai"><span class="n">20–25</span><span>AI Brand Instructions</span></a>
         <a href="#summary"><span class="n">26</span><span>Core Brand Summary</span></a>
+        <a href="#visual"><span class="n">D.1</span><span>The Mark</span></a>
+        <a href="#logofiles"><span class="n">D.2</span><span>Logo Files &amp; Which to Use</span></a>
+        <a href="#logorules"><span class="n">D.3</span><span>Using the Logo Correctly</span></a>
         <a href="#appendix"><span class="n">A–D</span><span>Appendices</span></a>
       </div>
     </nav>
@@ -713,6 +782,248 @@
   </div>
 </section>
 
+
+<!-- PART VIII -->
+<section class="part-divider"><div class="wrap"><div class="pnum">Part VIII</div><div class="pname">Visual Identity</div><div class="pdesc">Appendix D in full: the mark, what it means, every logo file we ship, and exactly which one to use where.</div></div></section>
+
+<section class="block" id="visual">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Appendix D.1 · The Mark</div>
+      <h2 class="display">One mark. It never changes.</h2>
+      <p class="lede">The company, the product and the app all use the <strong>identical symbol</strong>—only the name beside it changes. The mark is the constant. Every coordinate in it is solved geometry, so it is never redrawn by hand: scale the SVG.</p>
+    </div>
+
+    <div class="mark-hero reveal delay-1">
+      <div><img src="assets/mark-aligned-kpis.svg" alt="Aligned KPIs mark"></div>
+      <div class="on-navy"><img src="assets/mark-aligned-kpis-dark.svg" alt="Aligned KPIs mark on navy"></div>
+    </div>
+
+    <div class="card-grid cols-3">
+      <article class="card reveal">
+        <div class="cat">Element 01</div><h3>Flywheel</h3>
+        <p>Two equal 147° arcs with openings at the lower left and upper right. <strong>Continual progress.</strong> The circle is broken on purpose so it reads as <em>turning</em>, not closed—momentum that compounds.</p>
+      </article>
+      <article class="card reveal delay-1">
+        <div class="cat">Element 02</div><h3>Four pillars</h3>
+        <p>Ascending bars, rising in height <em>and</em> in tone. Left to right they are our value pillars: <strong>Visibility · Intelligence · Alignment · Better Results.</strong></p>
+      </article>
+      <article class="card reveal delay-2">
+        <div class="cat">Element 03</div><h3>Trend line &amp; plane</h3>
+        <p>Green, climbing above every bar and breaking out through the flywheel opening. <strong>Growth that clears the numbers and keeps going.</strong> Green appears once and only once—here.</p>
+      </article>
+    </div>
+
+    <div class="logo-palette reveal delay-1">
+      <span class="chipc"><i style="background:#16314F"></i>Brand Navy <code>#16314F</code></span>
+      <span class="chipc"><i style="background:#2178C4"></i>Brand Blue <code>#2178C4</code></span>
+      <span class="chipc"><i style="background:#64A1D5"></i>Blue 70 <code>#64A1D5</code></span>
+      <span class="chipc"><i style="background:#9BC2E4"></i>Blue 40 <code>#9BC2E4</code></span>
+      <span class="chipc"><i style="background:#6FB52C"></i>Brand Green <code>#6FB52C</code></span>
+      <span class="chipc"><i style="background:#AEC2DA"></i>Ice Blue <code>#AEC2DA</code> <span style="color:var(--muted)">(dark only)</span></span>
+      <span class="chipc"><i style="background:#FFFFFF"></i>White <code>#FFFFFF</code> <span style="color:var(--muted)">(dark only)</span></span>
+      <span class="chipc"><i style="background:#6E6E73"></i>Muted Gray <code>#6E6E73</code> <span style="color:var(--muted)">(company lockup)</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="logofiles">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Appendix D.2 · Logo Files</div>
+      <h2 class="display">Which file to use.</h2>
+      <p class="lede">Everything lives in <code>assets/</code>. Every file below ships as an <strong>.svg</strong>—use this anywhere it renders—plus a high-resolution <strong>.png</strong> for slides, Word and email. Click any filename to copy it.</p>
+    </div>
+
+    <div class="asset-group">
+      <h4>Product — Aligned KPIs™ · use this by default</h4>
+      <div class="asset-grid">
+      <article class="asset reveal">
+        <div class="prevs">
+          <div class="prev"><img src="assets/lockup-aligned-kpis-horizontal.svg" alt="Horizontal lockup on light" loading="lazy"></div>
+          <div class="prev"><img src="assets/lockup-aligned-kpis-horizontal-dark.svg" alt="Horizontal lockup on dark" loading="lazy"></div>
+        </div>
+        <div class="body">
+          <h5>Horizontal lockup</h5>
+          <p class="use">The workhorse. <b>Site header, footer, email signature, documents, decks.</b> If you are unsure which file to use, it is this one.</p>
+          <div class="fpair">
+            <button class="fname" type="button" data-f="assets/lockup-aligned-kpis-horizontal.svg"><span class="lbl">SVG — web, app, design tools</span><span class="fn">assets/lockup-aligned-kpis-horizontal.svg</span><span class="cp">Copy</span></button>
+            <button class="fname" type="button" data-f="assets/lockup-aligned-kpis-horizontal.png"><span class="lbl">PNG — slides, Word, email</span><span class="fn">assets/lockup-aligned-kpis-horizontal.png</span><span class="cp">Copy</span></button>
+          </div>
+          <p class="also">On dark backgrounds: <code>…-horizontal-dark.svg</code></p>
+        </div>
+      </article>
+      <article class="asset reveal">
+        <div class="prevs">
+          <div class="prev"><img src="assets/lockup-aligned-kpis-stacked.svg" alt="Stacked lockup on light" loading="lazy"></div>
+          <div class="prev"><img src="assets/lockup-aligned-kpis-stacked-dark.svg" alt="Stacked lockup on dark" loading="lazy"></div>
+        </div>
+        <div class="body">
+          <h5>Stacked lockup</h5>
+          <p class="use">For square-ish spaces. <b>Social avatars, slide title cards, sponsor walls, profile images.</b></p>
+          <div class="fpair">
+            <button class="fname" type="button" data-f="assets/lockup-aligned-kpis-stacked.svg"><span class="lbl">SVG — web, app, design tools</span><span class="fn">assets/lockup-aligned-kpis-stacked.svg</span><span class="cp">Copy</span></button>
+            <button class="fname" type="button" data-f="assets/lockup-aligned-kpis-stacked.png"><span class="lbl">PNG — slides, Word, email</span><span class="fn">assets/lockup-aligned-kpis-stacked.png</span><span class="cp">Copy</span></button>
+          </div>
+          <p class="also">On dark backgrounds: <code>…-stacked-dark.svg</code></p>
+        </div>
+      </article>
+      </div>
+    </div>
+
+    <div class="asset-group">
+      <h4>Company — 1 to 100 Advisors, Inc. · corporate identification only</h4>
+      <div class="asset-grid">
+      <article class="asset reveal">
+        <div class="prevs">
+          <div class="prev"><img src="assets/lockup-1to100-advisors-horizontal.svg" alt="Horizontal lockup on light" loading="lazy"></div>
+          <div class="prev"><img src="assets/lockup-1to100-advisors-horizontal-dark.svg" alt="Horizontal lockup on dark" loading="lazy"></div>
+        </div>
+        <div class="body">
+          <h5>Horizontal lockup</h5>
+          <p class="use"><b>Contracts, invoices, the About page, corporate footers.</b> Not for customer-facing marketing—that is always Aligned KPIs™.</p>
+          <div class="fpair">
+            <button class="fname" type="button" data-f="assets/lockup-1to100-advisors-horizontal.svg"><span class="lbl">SVG — web, app, design tools</span><span class="fn">assets/lockup-1to100-advisors-horizontal.svg</span><span class="cp">Copy</span></button>
+            <button class="fname" type="button" data-f="assets/lockup-1to100-advisors-horizontal.png"><span class="lbl">PNG — slides, Word, email</span><span class="fn">assets/lockup-1to100-advisors-horizontal.png</span><span class="cp">Copy</span></button>
+          </div>
+          <p class="also">On dark backgrounds: <code>…-horizontal-dark.svg</code></p>
+        </div>
+      </article>
+      <article class="asset reveal">
+        <div class="prevs">
+          <div class="prev"><img src="assets/lockup-1to100-advisors-stacked.svg" alt="Stacked lockup on light" loading="lazy"></div>
+          <div class="prev"><img src="assets/lockup-1to100-advisors-stacked-dark.svg" alt="Stacked lockup on dark" loading="lazy"></div>
+        </div>
+        <div class="body">
+          <h5>Stacked lockup</h5>
+          <p class="use">Corporate use in square spaces—<b>letterhead marks, corporate slide title cards.</b></p>
+          <div class="fpair">
+            <button class="fname" type="button" data-f="assets/lockup-1to100-advisors-stacked.svg"><span class="lbl">SVG — web, app, design tools</span><span class="fn">assets/lockup-1to100-advisors-stacked.svg</span><span class="cp">Copy</span></button>
+            <button class="fname" type="button" data-f="assets/lockup-1to100-advisors-stacked.png"><span class="lbl">PNG — slides, Word, email</span><span class="fn">assets/lockup-1to100-advisors-stacked.png</span><span class="cp">Copy</span></button>
+          </div>
+          <p class="also">On dark backgrounds: <code>…-stacked-dark.svg</code></p>
+        </div>
+      </article>
+      </div>
+    </div>
+
+    <div class="asset-group">
+      <h4>Symbol &amp; icons</h4>
+      <div class="asset-grid">
+      <article class="asset reveal sq">
+        <div class="prevs">
+          <div class="prev"><img src="assets/mark-aligned-kpis.svg" alt="The mark alone on light" loading="lazy"></div>
+          <div class="prev"><img src="assets/mark-aligned-kpis-dark.svg" alt="The mark alone on dark" loading="lazy"></div>
+        </div>
+        <div class="body">
+          <h5>The mark alone</h5>
+          <p class="use"><b>App tiles, watermarks, and anywhere the name already appears nearby.</b> Never use it as a substitute for the lockup when the brand name is not otherwise present.</p>
+          <div class="fpair">
+            <button class="fname" type="button" data-f="assets/mark-aligned-kpis.svg"><span class="lbl">SVG — web, app, design tools</span><span class="fn">assets/mark-aligned-kpis.svg</span><span class="cp">Copy</span></button>
+            <button class="fname" type="button" data-f="assets/mark-aligned-kpis.png"><span class="lbl">PNG — slides, Word, email</span><span class="fn">assets/mark-aligned-kpis.png</span><span class="cp">Copy</span></button>
+          </div>
+          <p class="also">On dark backgrounds: <code>mark-aligned-kpis-dark.svg</code></p>
+        </div>
+      </article>
+      <article class="asset reveal sq icon">
+        <div class="prevs">
+          <div class="prev"><img src="assets/app-icon.svg" alt="App icon on light" loading="lazy"></div>
+          <div class="prev"><img src="assets/app-icon-dark.svg" alt="App icon on dark" loading="lazy"></div>
+        </div>
+        <div class="body">
+          <h5>App icon</h5>
+          <p class="use">The mark on a rounded square. <b>Touch icons, app stores, desktop shortcuts.</b></p>
+          <div class="fpair">
+            <button class="fname" type="button" data-f="assets/app-icon.svg"><span class="lbl">SVG — web, app, design tools</span><span class="fn">assets/app-icon.svg</span><span class="cp">Copy</span></button>
+            <button class="fname" type="button" data-f="assets/app-icon.png"><span class="lbl">PNG — slides, Word, email</span><span class="fn">assets/app-icon.png</span><span class="cp">Copy</span></button>
+          </div>
+          <p class="also">On dark backgrounds: <code>app-icon-dark.svg</code></p>
+        </div>
+      </article>
+      </div>
+      <div class="asset-grid" style="margin-top:18px">
+      <article class="asset reveal solo">
+        <div class="prevs">
+          <div class="prev">
+            <div class="sizes">
+              <figure><img src="assets/favicon.svg" width="16" height="16" alt="Favicon at 16px"><figcaption>16</figcaption></figure>
+              <figure><img src="assets/favicon.svg" width="32" height="32" alt="Favicon at 32px"><figcaption>32</figcaption></figure>
+              <figure><img src="assets/favicon.svg" width="64" height="64" alt="Favicon at 64px"><figcaption>64</figcaption></figure>
+            </div>
+          </div>
+        </div>
+        <div class="body">
+          <h5>Favicon — simplified</h5>
+          <p class="use"><b>Browser tabs only.</b> Deliberately not the full mark: at 16px four pillars merge into a smear, so this keeps the flywheel, the two tallest pillars and the trend line, with heavier strokes. It recolors itself for dark browser tabs, so there is no separate dark file—one favicon covers both.</p>
+          <div class="fpair">
+            <button class="fname" type="button" data-f="assets/favicon.svg"><span class="lbl">SVG — web, app, design tools</span><span class="fn">assets/favicon.svg</span><span class="cp">Copy</span></button>
+            <button class="fname" type="button" data-f="assets/favicon.png"><span class="lbl">PNG — slides, Word, email</span><span class="fn">assets/favicon.png</span><span class="cp">Copy</span></button>
+          </div>
+          <p class="also">This is the <b>only</b> sanctioned simplification of the mark. Do not invent others.</p>
+        </div>
+      </article>
+      </div>
+    </div>
+
+    <div class="card-grid cols-2">
+      <article class="card navy reveal">
+        <div class="cat">Handing files to someone outside</div><h3>Send the brand kit, not single files</h3>
+        <p>The <code style="background:rgba(255,255,255,0.14);color:#dce9f7">brand-kit/</code> folder holds this same artwork under its own filenames, with a README that explains light vs. dark, clear space and minimum size. Send the whole folder to a partner, printer or agency—it is self-explanatory.</p>
+      </article>
+      <article class="card reveal delay-1">
+        <div class="cat">Legacy filenames</div><h3>Old names still work</h3>
+        <p><code>logo-aligned-kpis*.svg</code>, <code>logo-primary-*.svg</code>, <code>logo-icon-*.svg</code>, <code>logo-app-icon-*.svg</code> and <code>AlignedKPIsLogo*.png</code> still exist and now contain the current artwork, so older decks and links keep working. <strong>Point new work at the canonical names above.</strong></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="logorules">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Appendix D.3 · Using the Logo Correctly</div>
+      <h2 class="display">A few rules, and they matter.</h2>
+      <p class="lede">The mark is drawn to exact geometry and the wordmarks are outlined paths. Both facts mean the same thing in practice: <strong>use the file, don't rebuild it.</strong></p>
+    </div>
+
+    <div class="rules">
+      <article class="card reveal">
+        <div class="cat">Always</div><h3>Do</h3>
+        <ul class="rule-list" style="margin-top:12px">
+          <li><span class="yes">✓</span><span>Prefer the <strong>.svg</strong>—it stays sharp at any size.</span></li>
+          <li><span class="yes">✓</span><span>Leave <strong>clear space of at least 25% of the mark's height</strong> on all sides. Files are cropped tight to the artwork, so measure from the file's edge.</span></li>
+          <li><span class="yes">✓</span><span>Use the <strong>light</strong> files on light backgrounds and the <strong>dark</strong> files on dark ones.</span></li>
+          <li><span class="yes">✓</span><span>Keep the full mark at <strong>24px or larger</strong>. Below that the pillars merge—use the favicon.</span></li>
+        </ul>
+      </article>
+      <article class="card reveal delay-1">
+        <div class="cat">Never</div><h3>Don't</h3>
+        <ul class="rule-list" style="margin-top:12px">
+          <li><span class="no">✕</span><span>Recolor, rotate, stretch, outline, add shadows or effects, or reorder the elements.</span></li>
+          <li><span class="no">✕</span><span>Redraw the mark by hand or trace it from a screenshot.</span></li>
+          <li><span class="no">✕</span><span>Re-typeset a wordmark. The type is <strong>outlined paths in Lato</strong>, not live text—retyping it will not match.</span></li>
+          <li><span class="no">✕</span><span>Put a light logo on a dark background, or the reverse.</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="card-grid cols-3">
+      <article class="card reveal">
+        <div class="cat">Typography</div><h3>Lato, outlined</h3>
+        <p>Wordmarks are outlined paths so the logo renders identically on every machine and in every application—and the PNGs match the SVGs exactly. Set in <strong>Lato</strong> (SIL Open Font License, safe to outline into a mark): Bold for <em>Aligned KPIs</em>, Light and Regular for <em>1 TO 100 / ADVISORS, INC.</em></p>
+      </article>
+      <article class="card reveal delay-1">
+        <div class="cat">Animation</div><h3>Built to move</h3>
+        <p>Every element carries a stable ID, so the mark animates without being rebuilt. The canonical sequence: the plane orbits the flywheel once tracing each arc, the pillars rise, then it banks out and climbs across the bars drawing the trend line behind it. Working demo: <a href="logo-mark-preview.html" style="color:var(--accent);font-weight:600;">logo-mark-preview.html</a>.</p>
+      </article>
+      <article class="card green reveal delay-2">
+        <div class="cat">Source of truth</div><h3>Where this is defined</h3>
+        <p>Full geometry, animation IDs, color tokens and usage rules live in <code>Brand Strategy.md</code> → <strong>Appendix D</strong>. This page mirrors it. If the two ever disagree, the document wins.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- APPENDICES -->
 <section class="part-divider" id="appendix"><div class="wrap"><div class="pnum">Appendices</div><div class="pname">Operational Reference</div><div class="pdesc">Supports the website, product and assessment. Consistent with the framework above.</div></div></section>
 
@@ -734,12 +1045,14 @@
       </article>
       <article class="card reveal delay-1">
         <div class="cat">Appendix D</div><h3>Visual brand — logo &amp; color</h3>
-        <p>Logo: circle = alignment, bars = KPIs, arrow = growth. Navy + blue dominate; green is the single sharp accent; red only for negatives. Never hand-pick off-palette colors. Tokens below.</p>
+        <p>Covered in full in <a href="#visual" style="color:var(--accent);font-weight:600;">Part VIII — Visual Identity</a>: the mark and what it means, every logo file with the one to use for each job, and the usage rules. Color principle: navy + blue dominate, green is the single sharp accent, red only for negatives. Never hand-pick off-palette colors — the full token set is below.</p>
       </article>
     </div>
     <div class="tokens reveal delay-1">
       <div class="token"><span class="sw" style="background:#16314F"></span><div><div class="tn">Brand Navy</div><div class="th">#16314F</div></div></div>
       <div class="token"><span class="sw" style="background:#2178C4"></span><div><div class="tn">Brand Blue</div><div class="th">#2178C4</div></div></div>
+      <div class="token"><span class="sw" style="background:#64A1D5"></span><div><div class="tn">Blue 70</div><div class="th">#64A1D5</div></div></div>
+      <div class="token"><span class="sw" style="background:#9BC2E4"></span><div><div class="tn">Blue 40</div><div class="th">#9BC2E4</div></div></div>
       <div class="token"><span class="sw" style="background:#6FB52C"></span><div><div class="tn">Brand Green</div><div class="th">#6FB52C</div></div></div>
       <div class="token"><span class="sw" style="background:#F5F5F7"></span><div><div class="tn">Background</div><div class="th">#F5F5F7</div></div></div>
       <div class="token"><span class="sw" style="background:#FFFFFF"></span><div><div class="tn">Surface</div><div class="th">#FFFFFF</div></div></div>
@@ -766,6 +1079,22 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
   const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // click a filename to copy it
+  document.querySelectorAll('.fname').forEach(function(b){
+    b.addEventListener('click', function(){
+      var t = b.dataset.f, lbl = b.querySelector('.cp');
+      var done = function(){ b.classList.add('done'); lbl.textContent='Copied'; 
+        setTimeout(function(){ b.classList.remove('done'); lbl.textContent='Copy'; }, 1400); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(t).then(done).catch(function(){ lbl.textContent='Select it'; });
+      } else {
+        var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta);
+        ta.select(); try { document.execCommand('copy'); done(); } catch(e){ lbl.textContent='Select it'; }
+        document.body.removeChild(ta);
+      }
+    });
+  });
 </script>
 
 </body>
