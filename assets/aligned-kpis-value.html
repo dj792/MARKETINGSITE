@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aligned KPIs™ — From Fragmented Data to Confident Leadership</title>
+<style>
+:root{
+  --navy:#16314F; --blue:#2178C4; --green:#6FB52C;
+  --page:#F5F5F7; --surface:#FFFFFF; --ink:#1D1D1F; --body:#424245;
+  --muted:#6E6E73; --ice:#AEC2DA; --pale:#CFE0F2; --border:#E3E6EA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--page)}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);display:flex;justify-content:center;padding:2vmin}
+.stage{position:relative;width:min(100%,1600px);aspect-ratio:16/9;container-type:inline-size;background:var(--page);overflow:hidden;border-radius:1.2cqw}
+.hdr{position:absolute;top:3cqw;left:0;right:0;text-align:center;z-index:3}
+.hdr .eyebrow{margin-bottom:.5cqw}
+.hdr h1{font-size:2.15cqw;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.hdr p{margin-top:.45cqw;font-size:1.02cqw;color:var(--body)}
+.eyebrow{font-size:.75cqw;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+/* ---------- problem column ---------- */
+.probCol{position:absolute;left:5cqw;top:13.5cqw;width:16.5cqw;display:flex;flex-direction:column;gap:1cqw;z-index:2}
+.probCol .eyebrow{color:var(--muted);margin-bottom:.2cqw}
+.tile{display:flex;align-items:center;gap:.75cqw;background:rgba(255,255,255,.72);border:1px dashed var(--ice);border-radius:.7cqw;padding:.8cqw 1.1cqw;font-size:.98cqw;font-weight:500;color:var(--muted);box-shadow:0 .15cqw .5cqw rgba(22,49,79,.04);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.tile svg{width:1.25cqw;height:1.25cqw;flex:none;stroke:var(--ice);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tile:nth-child(2){transform:rotate(-2.2deg) translateX(-.5cqw)}
+.tile:nth-child(3){transform:rotate(1.6deg) translateX(1cqw)}
+.tile:nth-child(4){transform:rotate(-1.2deg) translateX(.2cqw)}
+.tile:nth-child(5){transform:rotate(2.1deg) translateX(1.3cqw)}
+.tile:nth-child(6){transform:rotate(-1.8deg) translateX(-.3cqw)}
+.prob-caption{font-size:.85cqw;color:var(--muted);margin-top:.3cqw;font-style:italic}
+/* ---------- hub ---------- */
+.hubWrap{position:absolute;left:50%;top:13.5cqw;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center}
+.hub{width:15.5cqw;height:15.5cqw;background:var(--surface);border:1px solid var(--border);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.5cqw;padding:2cqw;box-shadow:0 .8cqw 2.4cqw rgba(22,49,79,.08)}
+.hub.glow{animation:breathe 6.5s ease-in-out infinite}
+@keyframes breathe{
+  0%,100%{box-shadow:0 .8cqw 2.4cqw rgba(22,49,79,.08),0 0 0 0 rgba(33,120,196,0)}
+  50%{box-shadow:0 .8cqw 2.6cqw rgba(22,49,79,.10),0 0 2.6cqw .3cqw rgba(33,120,196,.16)}
+}
+.hub .eyebrow{white-space:nowrap;font-size:.68cqw}
+.hub h2{font-size:1.35cqw;font-weight:700;letter-spacing:-.015em;color:var(--navy);line-height:1.2}
+.hub p{font-size:.8cqw;line-height:1.45;color:var(--muted);max-width:12cqw}
+.pillars{margin-top:-1cqw;z-index:1;display:flex;gap:.5cqw}
+.pillars span{background:var(--surface);border:1px solid var(--border);border-radius:99cqw;padding:.32cqw .8cqw;font-size:.66cqw;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);box-shadow:0 .2cqw .7cqw rgba(22,49,79,.06)}
+.pillars span.grn{color:var(--green)}
+.plus{margin:.5cqw 0;font-size:1.5cqw;font-weight:600;color:var(--muted);line-height:1}
+.partner{width:17cqw;display:flex;align-items:center;gap:.9cqw;background:var(--surface);border:1px solid var(--border);border-top:.18cqw solid var(--green);border-radius:1cqw;padding:.95cqw 1.2cqw;box-shadow:0 .4cqw 1.4cqw rgba(22,49,79,.08)}
+.partner .adv{flex:none;width:2.6cqw;height:2.6cqw;border-radius:50%;background:rgba(111,181,44,.12);border:1px solid rgba(111,181,44,.45);display:flex;align-items:center;justify-content:center}
+.partner svg{width:1.4cqw;height:1.4cqw;stroke:var(--green);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.partner h2{font-size:1.3cqw;font-weight:700;color:var(--navy);letter-spacing:-.01em}
+.partner p{font-size:.78cqw;color:var(--muted);margin-top:.15cqw}
+/* ---------- value column ---------- */
+.valCol{position:absolute;right:5cqw;top:12.5cqw;width:20cqw;display:flex;flex-direction:column;gap:1.1cqw;z-index:2}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:1cqw;padding:1.1cqw 1.3cqw;display:flex;gap:1cqw;align-items:flex-start;box-shadow:0 .15cqw .6cqw rgba(22,49,79,.05);transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s cubic-bezier(.22,1,.36,1)}
+.card:hover{transform:translateY(-.22cqw);box-shadow:0 .5cqw 1.4cqw rgba(22,49,79,.10)}
+.card svg{width:1.5cqw;height:1.5cqw;flex:none;stroke:var(--blue);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-top:.15cqw}
+.card.green svg{stroke:var(--green)}
+.card h3{font-size:1.05cqw;font-weight:700;color:var(--navy);letter-spacing:-.01em}
+.card p{font-size:.85cqw;line-height:1.45;color:var(--body);margin-top:.25cqw}
+/* ---------- belief band ---------- */
+.belief{position:absolute;left:0;right:0;bottom:0;height:8.5cqw;background:var(--navy);display:flex;align-items:center;justify-content:center;text-align:center;z-index:2;padding:0 6cqw}
+.belief::before{content:"";position:absolute;top:0;left:0;right:0;height:.22cqw;background:var(--green)}
+.belief.alive::before{animation:edgePulse 4.5s ease-in-out infinite}
+@keyframes edgePulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(111,181,44,0);opacity:.85}
+  50%{box-shadow:0 0 1.2cqw .1cqw rgba(111,181,44,.55);opacity:1}
+}
+.belief p{font-size:1.45cqw;font-weight:600;letter-spacing:-.01em;color:var(--pale);line-height:1.4}
+.belief p strong{color:#fff;font-weight:700}
+.belief p em{font-style:normal;color:var(--green)}
+/* ---------- wires ---------- */
+.wires{position:absolute;inset:0;z-index:1;pointer-events:none}
+.wires path.conn{fill:none;stroke:var(--pale);stroke-width:1.4}
+.wires path.conn.frag{stroke-dasharray:4 5;stroke:var(--ice);stroke-opacity:.75}
+.wires circle.dotIn{fill:var(--ice);filter:drop-shadow(0 0 4px rgba(174,194,218,.9))}
+.wires circle.dotOut{fill:var(--blue);filter:drop-shadow(0 0 5px rgba(33,120,196,.85))}
+/* ---------- entrance ---------- */
+.node{opacity:0;transform:translateY(1cqw)}
+.hubWrap.node{transform:translateX(-50%) translateY(1cqw) scale(.96)}
+.belief.node{transform:translateY(1.5cqw)}
+.node.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.hubWrap.node.in{transform:translateX(-50%)}
+.endpoint{display:flex;align-items:center;justify-content:center;gap:.6cqw;margin-top:.35cqw;font-size:1.05cqw;font-weight:700;letter-spacing:-.01em;color:var(--navy)}
+.endpoint .arr{color:var(--blue);font-weight:600}
+.endpoint .res{color:var(--green)}
+.tile.node{transform:translateY(.8cqw)}
+.tile.node.in{transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.tile.node.in:nth-child(2){transform:rotate(-2.2deg) translateX(-.5cqw)}
+.tile.node.in:nth-child(3){transform:rotate(1.6deg) translateX(1cqw)}
+.tile.node.in:nth-child(4){transform:rotate(-1.2deg) translateX(.2cqw)}
+.tile.node.in:nth-child(5){transform:rotate(2.1deg) translateX(1.3cqw)}
+.tile.node.in:nth-child(6){transform:rotate(-1.8deg) translateX(-.3cqw)}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .node{opacity:1;transform:none}
+  .hubWrap.node{transform:translateX(-50%)}
+  .tile.node:nth-child(2){transform:rotate(-2.2deg) translateX(-.5cqw)}
+  .tile.node:nth-child(3){transform:rotate(1.6deg) translateX(1cqw)}
+  .tile.node:nth-child(4){transform:rotate(-1.2deg) translateX(.2cqw)}
+  .tile.node:nth-child(5){transform:rotate(2.1deg) translateX(1.3cqw)}
+  .tile.node:nth-child(6){transform:rotate(-1.8deg) translateX(-.3cqw)}
+}
+@media (max-width:640px){
+  body{padding:10px}
+  .stage{aspect-ratio:auto;display:flex;flex-direction:column;align-items:stretch;gap:6cqw;padding:7cqw 6cqw 0;border-radius:3cqw}
+  .hdr,.probCol,.valCol{position:static;inset:auto;width:auto}
+  .hubWrap{position:static;transform:none!important;width:100%}
+  .wires{display:none}
+  .eyebrow{font-size:2.7cqw}
+  .hdr h1{font-size:5.6cqw}
+  .hdr p{font-size:3.4cqw;margin-top:1.2cqw}
+  .probCol{gap:2.6cqw}
+  .tile{font-size:3.4cqw;padding:2.8cqw 3.8cqw;border-radius:2.6cqw;gap:2.6cqw}
+  .tile svg{width:4.2cqw;height:4.2cqw}
+  .prob-caption{font-size:3cqw}
+  .hub{width:62cqw;height:62cqw;padding:6cqw;gap:1.8cqw}
+  .hub .eyebrow{font-size:2.4cqw}
+  .hub h2{font-size:4.8cqw}
+  .hub p{font-size:3cqw;max-width:40cqw}
+  .pillars{margin-top:-3.4cqw;gap:1.8cqw}
+  .pillars span{font-size:2.3cqw;padding:1.2cqw 2.8cqw;letter-spacing:.09em}
+  .plus{margin:2cqw 0;font-size:5cqw}
+  .partner{width:min(100%,74cqw);padding:3.4cqw 4cqw;gap:3cqw;border-radius:3cqw;border-top-width:.7cqw}
+  .partner .adv{width:9cqw;height:9cqw}
+  .partner svg{width:4.6cqw;height:4.6cqw}
+  .partner h2{font-size:4.2cqw}
+  .partner p{font-size:2.9cqw}
+  .valCol{gap:3cqw}
+  .card{padding:3.4cqw 4cqw;border-radius:3cqw;gap:3cqw}
+  .card svg{width:5cqw;height:5cqw}
+  .card h3{font-size:3.8cqw}
+  .card p{font-size:3cqw}
+  .endpoint{font-size:3.6cqw;gap:2cqw;margin:1cqw 0 2cqw}
+  .belief{position:static;height:auto;margin:2cqw -6cqw 0;padding:5cqw 6cqw}
+  .belief p{font-size:3.8cqw}
+}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <header class="hdr node" data-seq="0">
+    <div class="eyebrow">Aligned KPIs™</div>
+    <h1>See Clearly. Lead Confidently. Stay Aligned.</h1>
+    <p>From fragmented data to confident leadership.</p>
+  </header>
+
+  <div class="probCol" id="probCol">
+    <div class="eyebrow node" data-seq="1">The Problem — Fragmented Data</div>
+    <div class="tile node" data-seq="1"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7.5 16v-5"/><path d="M12 16V7.5"/><path d="M16.5 16v-7"/></svg>Finance</div>
+    <div class="tile node" data-seq="2"><svg viewBox="0 0 24 24"><circle cx="9" cy="8.2" r="3"/><path d="M3.6 19c.5-3 2.5-4.6 5.4-4.6s4.9 1.6 5.4 4.6"/><circle cx="17" cy="9.2" r="2.3"/><path d="M16.2 14.7c2.3.3 3.7 1.7 4.2 4.3"/></svg>Membership &amp; CRM</div>
+    <div class="tile node" data-seq="2"><svg viewBox="0 0 24 24"><path d="M14 5.5 5 9v6l9 3.5v-13z"/><path d="M18 9.2a4 4 0 0 1 0 5.6"/></svg>Sales &amp; Marketing</div>
+    <div class="tile node" data-seq="3"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.5V6M12 18v2.5M3.5 12H6M18 12h2.5M6 6l1.8 1.8M16.2 16.2 18 18M18 6l-1.8 1.8M7.8 16.2 6 18"/></svg>Operations</div>
+    <div class="tile node" data-seq="3"><svg viewBox="0 0 24 24"><path d="M7 3.5h6.5l4 4v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-15a1 1 0 0 1 1-1z"/><path d="M13.5 3.5V8h4"/><path d="M9.3 12.5h5.4M9.3 15.8h5.4"/></svg>Spreadsheets &amp; Reports</div>
+    <div class="prob-caption node" data-seq="4">Late. Inconsistent. Hard to trust.</div>
+  </div>
+
+  <div class="hubWrap node" id="hubWrap" data-seq="5">
+    <div class="hub glow" id="hub">
+      <div class="eyebrow">Aligned KPIs™</div>
+      <h2>Executive Visibility Platform</h2>
+      <p>One trusted view of organizational performance.</p>
+    </div>
+    <div class="pillars">
+      <span>Visibility</span><span>Intelligence</span><span class="grn">Partnership</span>
+    </div>
+    <div class="plus">+</div>
+    <div class="partner">
+      <div class="adv"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c.8-3.6 3.4-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></div>
+      <div><h2>Executive Partnership</h2><p>Know what to do next.</p></div>
+    </div>
+  </div>
+
+  <div class="valCol" id="valCol">
+    <div class="eyebrow node" data-seq="6">The Value — For CEOs &amp; Boards</div>
+    <div class="card node" data-seq="7">
+      <svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.8 12 5.8 21.5 12 21.5 12 18 18.2 12 18.2 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg>
+      <div><h3>See Clearly</h3><p>Timely, trusted visibility — no more gathering and reconciling numbers.</p></div>
+    </div>
+    <div class="card node" data-seq="8">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m14.8 9.2-1.6 4-4 1.6 1.6-4 4-1.6z"/></svg>
+      <div><h3>Lead Confidently</h3><p>Better, faster decisions — see risks and opportunities sooner.</p></div>
+    </div>
+    <div class="card green node" data-seq="9">
+      <svg viewBox="0 0 24 24"><circle cx="8" cy="8.5" r="2.8"/><circle cx="16" cy="8.5" r="2.8"/><path d="M3.5 19c.5-2.8 2.2-4.3 4.5-4.3s4 1.5 4.5 4.3"/><path d="M13.6 15.2c.8-.4 1.6-.5 2.4-.5 2.3 0 4 1.5 4.5 4.3"/></svg>
+      <div><h3>Stay Aligned</h3><p>CEO, Board, and team govern from the same trusted numbers.</p></div>
+    </div>
+    <div class="endpoint node" data-seq="10"><span>Better Decisions</span><span class="arr">→</span><span class="res">Better Results</span></div>
+  </div>
+
+  <svg class="wires node" id="wires" data-seq="6"></svg>
+
+  <footer class="belief node alive" data-seq="11">
+    <p>We don’t believe CEOs need more dashboards.<br><strong>We believe they need <em>better decisions</em>.</strong></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
+  var stage = document.getElementById('stage'),
+      hub = document.getElementById('hub'),
+      svg = document.getElementById('wires');
+
+  var inPaths = [], outPaths = [], dots = [];
+  function pt(rect, sRect){ return {x: rect.left - sRect.left, y: rect.top - sRect.top, w: rect.width, h: rect.height}; }
+
+  function layout(){
+    var sRect = stage.getBoundingClientRect();
+    svg.setAttribute('viewBox','0 0 '+sRect.width+' '+sRect.height);
+    svg.innerHTML = '';
+    inPaths = []; outPaths = []; dots = [];
+    var hr = pt(hub.getBoundingClientRect(), sRect);
+    var C = {x: hr.x + hr.w/2, y: hr.y + hr.h/2}, R = hr.w/2;
+
+    function connector(sx, sy, ex, ey, frag){
+      var mx = (sx+ex)/2;
+      var p = document.createElementNS(NS,'path');
+      p.setAttribute('class','conn'+(frag?' frag':''));
+      p.setAttribute('d','M'+sx+' '+sy+' C'+mx+' '+sy+', '+mx+' '+ey+', '+ex+' '+ey);
+      svg.appendChild(p);
+      return p;
+    }
+    document.querySelectorAll('#probCol .tile').forEach(function(t){
+      var r = pt(t.getBoundingClientRect(), sRect);
+      var sx = r.x + r.w, sy = r.y + r.h/2;
+      var dx = sx - C.x, dy = sy - C.y, m = Math.hypot(dx,dy);
+      inPaths.push(connector(sx, sy, C.x + dx/m*(R+2), C.y + dy/m*(R+2), true));
+    });
+    document.querySelectorAll('#valCol .card').forEach(function(c){
+      var r = pt(c.getBoundingClientRect(), sRect);
+      var ex = r.x, ey = r.y + r.h/2;
+      var dx = ex - C.x, dy = ey - C.y, m = Math.hypot(dx,dy);
+      outPaths.push(connector(C.x + dx/m*(R+2), C.y + dy/m*(R+2), ex, ey, false));
+    });
+    if(!RM){
+      for(var i=0;i<Math.max(inPaths.length,outPaths.length);i++){
+        var c = document.createElementNS(NS,'circle');
+        c.setAttribute('r', Math.max(2.5, sRect.width*0.0024));
+        c.setAttribute('opacity','0');
+        svg.appendChild(c); dots.push(c);
+      }
+    }
+  }
+
+  var nodes = document.querySelectorAll('.node');
+  if(RM){
+    nodes.forEach(function(n){ n.classList.add('in'); });
+  } else {
+    nodes.forEach(function(n){
+      var seq = +n.dataset.seq || 0;
+      setTimeout(function(){ n.classList.add('in'); }, 150 + seq*160);
+    });
+  }
+
+  layout();
+  if('ResizeObserver' in window){ new ResizeObserver(layout).observe(stage); }
+  else window.addEventListener('resize', layout);
+
+  if(!RM){
+    var PERIOD = 6.0, STAG = 0.55, start = null;
+    function ease(u){ return u<0.5 ? 2*u*u : 1-Math.pow(-2*u+2,2)/2; }
+    function frame(ts){
+      if(start===null) start = ts;
+      var t = (ts - start)/1000;
+      for(var i=0;i<dots.length;i++){
+        var local = ((t - i*STAG) % PERIOD + PERIOD) % PERIOD;
+        var u = local / PERIOD, path = null, seg = 0, cls = '';
+        if(u >= 0.02 && u < 0.46){ path = inPaths[i % inPaths.length]; seg = (u-0.02)/0.44; cls = 'dotIn'; }
+        else if(u >= 0.5 && u < 0.94){ path = outPaths[i % outPaths.length]; seg = (u-0.5)/0.44; cls = 'dotOut'; }
+        var dot = dots[i];
+        if(path){
+          dot.setAttribute('class', cls);
+          var L = path.getTotalLength();
+          var p = path.getPointAtLength(ease(seg)*L);
+          dot.setAttribute('cx', p.x); dot.setAttribute('cy', p.y);
+          var fade = Math.min(1, seg/0.12, (1-seg)/0.12);
+          dot.setAttribute('opacity', (0.9*fade).toFixed(3));
+        } else dot.setAttribute('opacity','0');
+      }
+      requestAnimationFrame(frame);
+    }
+    setTimeout(function(){ requestAnimationFrame(frame); }, 1800);
+  }
+})();
+</script>
+</body>
+</html>

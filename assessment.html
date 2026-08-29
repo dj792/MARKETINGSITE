@@ -547,7 +547,7 @@
         <div class="print-only print-summary">
           <img class="print-logo" src="assets/logo-aligned-kpis.svg" alt="Aligned KPIs" onerror="this.onerror=null; this.src='assets/logo-primary-light.svg';" />
           <h3>About Aligned KPIs&trade;</h3>
-          <p>Built by experienced CEOs and enhanced by AI, Aligned KPIs&trade; is the Executive Visibility Platform for CEOs. We give leaders timely, trustworthy visibility into the numbers that drive growth, retention, and profitability. It's the same executive visibility large organizations get from analysts and BI teams, delivered through one platform, so chambers, associations, and growing organizations can close the Visibility Gap and make better decisions with confidence.</p>
+          <p>Aligned KPIs&trade; is the Executive Visibility Platform for CEOs, supported by Executive Partnership. We give leaders the trusted visibility they need to lead with confidence and keep their boards and teams aligned &mdash; the same executive visibility large organizations get from analysts and BI teams, delivered through one platform and an experienced Executive Partner.</p>
           <p>This report was produced by the Executive Visibility Assessment&trade;. To review your results with an experienced operator and see what your first 30 days could look like, book a free 15-minute call.</p>
           <div class="print-contact">alignedkpis.com &nbsp;&middot;&nbsp; DJ@1to100advisors.com &nbsp;&middot;&nbsp; Call or text 317-413-8304</div>
           <div class="print-legal">Aligned KPIs&trade; &middot; 1 to 100 Advisors, Inc.</div>
@@ -928,7 +928,7 @@
         }).join('');
       }
 
-      // potential executive time reclaimed — scales with the visibility gap
+      // potential executive time reclaimed — scales with the visibility shortfall
       const gap = (100 - res.overall) / 100;
       const lowH = Math.max(2, Math.round(gap * 16));
       el('impactHours').textContent = lowH + '–' + (lowH + 4);
