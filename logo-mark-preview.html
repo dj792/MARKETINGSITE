@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Aligned KPIs — Mark Refinement</title>
+<style>
+  :root{
+    --navy:#16314F; --blue:#2178C4; --green:#6FB52C;
+    --bg:#F5F5F7; --surface:#FFFFFF; --ink:#1D1D1F;
+    --body:#424245; --muted:#6E6E73; --border:#E3E6EA;
+    --blue-40:#9BC2E4; --blue-70:#64A1D5; --ice:#AEC2DA;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:400 17px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:72px 28px 120px}
+  .eyebrow{color:var(--blue);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin:0 0 12px}
+  h1{font-size:44px;line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0 0 14px}
+  .lede{color:var(--body);font-size:20px;max-width:640px;margin:0 0 56px}
+  h2{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+  section{margin-bottom:64px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:36px}
+  .card.dark{background:var(--navy);border-color:var(--navy)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .grid2 .card{display:flex;align-items:center;justify-content:center;min-height:320px}
+  .cap{font-size:13px;color:var(--muted);margin:10px 2px 0}
+  .sizes{display:flex;align-items:flex-end;gap:36px;flex-wrap:wrap}
+  .size{text-align:center}
+  .size .n{font-size:12px;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .compare .card{text-align:center}
+  .compare img,.compare svg{width:200px;height:200px;display:block;margin:0 auto}
+  .legend{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+  .chip{border:1px solid var(--border);border-radius:14px;padding:14px 16px;background:var(--surface)}
+  .sw{width:26px;height:26px;border-radius:7px;margin-bottom:10px}
+  .chip b{display:block;font-size:15px;font-weight:600}
+  .chip span{font-size:13px;color:var(--muted)}
+  .btn{appearance:none;border:0;background:var(--blue);color:#fff;font:inherit;font-size:15px;font-weight:500;
+    padding:11px 22px;border-radius:980px;cursor:pointer}
+  .btn:hover{background:#1b66a8}
+  .notes{color:var(--body);font-size:16px;max-width:720px}
+  .notes li{margin-bottom:10px}
+  @media (max-width:760px){.grid2,.compare,.legend{grid-template-columns:1fr}h1{font-size:34px}}
+
+  /* ---- animation demo ----
+     Timeline (2.9s), paced by the plane's constant speed along its flight path:
+       0.07-0.91s  navy arc draws as the plane passes over it
+       0.90-1.95s  pillars rise, staggered
+       1.14-1.98s  blue arc draws
+       2.05s       plane leaves orbit, banks onto the trend line
+       2.34-2.90s  trend line draws behind it, plane parks at the tip          */
+  #anim #ak-flywheel-navy{stroke-dasharray:206;stroke-dashoffset:206}
+  #anim #ak-flywheel-blue{stroke-dasharray:206;stroke-dashoffset:206}
+  #anim.play #ak-flywheel-navy{animation:draw .84s linear .07s forwards}
+  #anim.play #ak-flywheel-blue{animation:draw .84s linear 1.14s forwards}
+  #anim .ak-pillar{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0)}
+  #anim.play .ak-pillar{animation:rise .6s cubic-bezier(.32,.72,0,1) forwards}
+  #anim.play .ak-pillar:nth-child(1){animation-delay:.90s}
+  #anim.play .ak-pillar:nth-child(2){animation-delay:1.05s}
+  #anim.play .ak-pillar:nth-child(3){animation-delay:1.20s}
+  #anim.play .ak-pillar:nth-child(4){animation-delay:1.35s}
+  #anim #ak-trend-line{stroke-dasharray:137;stroke-dashoffset:137}
+  #anim.play #ak-trend-line{animation:draw .56s linear 2.34s forwards}
+  /* two planes: the parked one is swapped for the flying one during playback */
+  #anim #plane-static{opacity:1}
+  #anim #plane-flying{opacity:0}
+  #anim.play #plane-static{opacity:0}
+  #anim.play #plane-flying{opacity:1}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes rise{to{transform:scaleY(1)}}
+  @media (prefers-reduced-motion:reduce){
+    #anim *{animation:none!important;stroke-dashoffset:0!important;transform:none!important}
+    #anim #plane-static{opacity:1!important}#anim #plane-flying{opacity:0!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Brand · Symbol refinement</p>
+  <h1>The Aligned KPIs mark, rebuilt as true vector.</h1>
+  <p class="lede">Same idea, exact geometry. A flywheel of continual progress, four pillars, and a trend line that
+  rides above them and takes off — every clearance set to one consistent rhythm.</p>
+
+  <section>
+    <h2>The mark</h2>
+    <div class="grid2">
+      <div>
+        <div class="card">
+          <svg viewBox="0 0 200 200" width="240" height="240" role="img" aria-label="Aligned KPIs mark">
+            <g fill="none" stroke-width="13" stroke-linecap="round">
+              <path d="M 40.55 153.53 A 80 80 0 0 1 120.71 22.73" stroke="#16314F"/>
+              <path d="M 165.53 54.11 A 80 80 0 0 1 70.03 174.17" stroke="#2178C4"/>
+            </g>
+            <g>
+              <rect x="53.5" y="115" width="18" height="33" rx="3" fill="#9BC2E4"/>
+              <rect x="78.5" y="103" width="18" height="45" rx="3" fill="#64A1D5"/>
+              <rect x="103.5" y="87" width="18" height="61" rx="3" fill="#2178C4"/>
+              <rect x="128.5" y="64" width="18" height="84" rx="3" fill="#16314F"/>
+            </g>
+            <g fill="#6FB52C">
+              <path d="M 40 110 C 88.21 90.52, 117.22 69.4, 148 30" fill="none" stroke="#6FB52C" stroke-width="9" stroke-linecap="round"/>
+              <path d="M 163.86 17.01 L 121.9 34.99 L 146.62 39.07 Z"/>
+            </g>
+          </svg>
+        </div>
+        <p class="cap">Light — <code>assets/mark-aligned-kpis.svg</code></p>
+      </div>
+      <div>
+        <div class="card dark">
+          <svg viewBox="0 0 200 200" width="240" height="240" role="img" aria-label="Aligned KPIs mark on navy">
+            <g fill="none" stroke-width="13" stroke-linecap="round">
+              <path d="M 40.55 153.53 A 80 80 0 0 1 120.71 22.73" stroke="#AEC2DA"/>
+              <path d="M 165.53 54.11 A 80 80 0 0 1 70.03 174.17" stroke="#2178C4"/>
+            </g>
+            <g>
+              <rect x="53.5" y="115" width="18" height="33" rx="3" fill="#2178C4"/>
+              <rect x="78.5" y="103" width="18" height="45" rx="3" fill="#64A1D5"/>
+              <rect x="103.5" y="87" width="18" height="61" rx="3" fill="#9BC2E4"/>
+              <rect x="128.5" y="64" width="18" height="84" rx="3" fill="#FFFFFF"/>
+            </g>
+            <g fill="#6FB52C">
+              <path d="M 40 110 C 88.21 90.52, 117.22 69.4, 148 30" fill="none" stroke="#6FB52C" stroke-width="9" stroke-linecap="round"/>
+              <path d="M 163.86 17.01 L 121.9 34.99 L 146.62 39.07 Z"/>
+            </g>
+          </svg>
+        </div>
+        <p class="cap">Dark — <code>assets/mark-aligned-kpis-dark.svg</code></p>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="chip"><div class="sw" style="background:#9BC2E4"></div><b>Visibility</b><span>See what's happening</span></div>
+      <div class="chip"><div class="sw" style="background:#64A1D5"></div><b>Intelligence</b><span>Understand what it means</span></div>
+      <div class="chip"><div class="sw" style="background:#2178C4"></div><b>Alignment</b><span>Everyone on the same page</span></div>
+      <div class="chip"><div class="sw" style="background:#16314F"></div><b>Better Results</b><span>The outcome</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Before / after</h2>
+    <div class="compare">
+      <div class="card"><img src="assets/AlignedKPIsLogo-web.png" alt="Current logo">
+        <p class="cap">Current — raster PNG</p></div>
+      <div class="card">
+        <svg viewBox="0 0 200 200" role="img" aria-label="Refined mark">
+          <g fill="none" stroke-width="13" stroke-linecap="round">
+            <path d="M 40.55 153.53 A 80 80 0 0 1 120.71 22.73" stroke="#16314F"/>
+            <path d="M 165.53 54.11 A 80 80 0 0 1 70.03 174.17" stroke="#2178C4"/>
+          </g>
+          <g>
+            <rect x="53.5" y="115" width="18" height="33" rx="3" fill="#9BC2E4"/>
+            <rect x="78.5" y="103" width="18" height="45" rx="3" fill="#64A1D5"/>
+            <rect x="103.5" y="87" width="18" height="61" rx="3" fill="#2178C4"/>
+            <rect x="128.5" y="64" width="18" height="84" rx="3" fill="#16314F"/>
+          </g>
+          <g fill="#6FB52C">
+            <path d="M 40 110 C 88.21 90.52, 117.22 69.4, 148 30" fill="none" stroke="#6FB52C" stroke-width="9" stroke-linecap="round"/>
+            <path d="M 163.86 17.01 L 121.9 34.99 L 146.62 39.07 Z"/>
+          </g>
+        </svg>
+        <p class="cap">Refined — resolution-independent SVG</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Scales down</h2>
+    <div class="card">
+      <div class="sizes">
+        <div class="size"><img src="assets/mark-aligned-kpis.svg" width="16" height="16" alt=""><div class="n">16</div></div>
+        <div class="size"><img src="assets/mark-aligned-kpis.svg" width="24" height="24" alt=""><div class="n">24</div></div>
+        <div class="size"><img src="assets/mark-aligned-kpis.svg" width="32" height="32" alt=""><div class="n">32</div></div>
+        <div class="size"><img src="assets/mark-aligned-kpis.svg" width="48" height="48" alt=""><div class="n">48</div></div>
+        <div class="size"><img src="assets/mark-aligned-kpis.svg" width="64" height="64" alt=""><div class="n">64</div></div>
+        <div class="size"><img src="assets/mark-aligned-kpis.svg" width="96" height="96" alt=""><div class="n">96</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Built to animate</h2>
+    <div class="card" style="display:flex;align-items:center;gap:44px;flex-wrap:wrap">
+      <svg id="anim" viewBox="0 0 200 200" width="240" height="240" role="img" aria-label="Animated mark">
+        <g id="ak-flywheel" fill="none" stroke-width="13" stroke-linecap="round">
+          <path id="ak-flywheel-navy" d="M 40.55 153.53 A 80 80 0 0 1 120.71 22.73" stroke="#16314F"/>
+          <path id="ak-flywheel-blue" d="M 165.53 54.11 A 80 80 0 0 1 70.03 174.17" stroke="#2178C4"/>
+        </g>
+        <g id="ak-pillars">
+          <rect class="ak-pillar" x="53.5" y="115" width="18" height="33" rx="3" fill="#9BC2E4"/>
+          <rect class="ak-pillar" x="78.5" y="103" width="18" height="45" rx="3" fill="#64A1D5"/>
+          <rect class="ak-pillar" x="103.5" y="87" width="18" height="61" rx="3" fill="#2178C4"/>
+          <rect class="ak-pillar" x="128.5" y="64" width="18" height="84" rx="3" fill="#16314F"/>
+        </g>
+        <g id="ak-trend" fill="#6FB52C">
+          <path id="ak-trend-line" d="M 40 110 C 88.21 90.52, 117.22 69.4, 148 30" fill="none" stroke="#6FB52C" stroke-width="9" stroke-linecap="round"/>
+          <path id="plane-static" d="M 163.86 17.01 L 121.9 34.99 L 146.62 39.07 Z"/>
+          <!-- Same plane, drawn in its own frame: nose forward on +x, origin at the
+               trend line's endpoint. animateMotion flies that origin along the path
+               below and rotate="auto" banks it into every turn. -->
+          <path id="plane-flying" d="M 20 4.5 L -20 -17.5 L -8 4.5 Z">
+            <animateMotion id="planeMotion" dur="2.9s" fill="freeze" rotate="auto" begin="indefinite"
+              path="M 54.11 165.53
+                    A 80 80 0 0 1 145.89 34.47
+                    A 80 80 0 0 1 54.11 165.53
+                    C 29.54 148.32, 14.04 120.49, 40 110
+                    C 88.21 90.52, 117.22 69.4, 148 30"/>
+          </path>
+        </g>
+      </svg>
+      <div>
+        <p class="notes" style="margin-top:0">The plane enters at the lower-left opening and orbits the flywheel
+        once, tracing each arc as it passes. The pillars rise beneath it. Coming back around, it banks out of
+        the orbit, climbs across the bars drawing the trend line behind it, and parks at the tip.</p>
+        <p class="notes" style="font-size:14px">One motion path, constant speed, <code>rotate="auto"</code> —
+        the plane banks through every turn on its own.</p>
+        <button class="btn" id="replay">Replay</button>
+      </div>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>The family</h2>
+    <p class="notes" style="margin:-6px 0 22px">One mark, two names. The symbol is identical in both —
+    it's the constant; only the name beside it changes.</p>
+    <div class="grid2">
+      <div><div class="card" style="min-height:0;padding:30px 34px">
+        <img src="assets/lockup-aligned-kpis-horizontal.svg" alt="Aligned KPIs" style="width:100%;max-width:380px;display:block;margin:0 auto">
+      </div><p class="cap">Product — horizontal</p></div>
+      <div><div class="card dark" style="min-height:0;padding:30px 34px">
+        <img src="assets/lockup-aligned-kpis-horizontal-dark.svg" alt="Aligned KPIs on navy" style="width:100%;max-width:380px;display:block;margin:0 auto">
+      </div><p class="cap">Product — horizontal, dark</p></div>
+      <div><div class="card" style="min-height:0;padding:30px 34px">
+        <img src="assets/lockup-1to100-advisors-horizontal.svg" alt="1 to 100 Advisors, Inc." style="width:100%;max-width:420px;display:block;margin:0 auto">
+      </div><p class="cap">Company — horizontal</p></div>
+      <div><div class="card dark" style="min-height:0;padding:30px 34px">
+        <img src="assets/lockup-1to100-advisors-horizontal-dark.svg" alt="1 to 100 Advisors, Inc. on navy" style="width:100%;max-width:420px;display:block;margin:0 auto">
+      </div><p class="cap">Company — horizontal, dark</p></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:20px">
+      <div><div class="card" style="min-height:0;padding:26px;display:flex;align-items:center;justify-content:center">
+        <img src="assets/lockup-aligned-kpis-stacked.svg" alt="" style="height:150px"></div>
+        <p class="cap">Product — stacked</p></div>
+      <div><div class="card" style="min-height:0;padding:26px;display:flex;align-items:center;justify-content:center">
+        <img src="assets/lockup-1to100-advisors-stacked.svg" alt="" style="height:150px"></div>
+        <p class="cap">Company — stacked</p></div>
+      <div><div class="card" style="min-height:0;padding:26px;display:flex;align-items:center;justify-content:center;background:var(--bg)">
+        <img src="assets/app-icon.svg" alt="" style="width:120px;border-radius:27px;box-shadow:0 2px 10px rgba(0,0,0,.10)"></div>
+        <p class="cap">App icon — light</p></div>
+      <div><div class="card" style="min-height:0;padding:26px;display:flex;align-items:center;justify-content:center;background:var(--bg)">
+        <img src="assets/app-icon-dark.svg" alt="" style="width:120px;border-radius:27px;box-shadow:0 2px 10px rgba(0,0,0,.10)"></div>
+        <p class="cap">App icon — dark</p></div>
+    </div>
+
+    <ul class="notes" style="margin-top:30px">
+      <li><b>Wordmarks are outlined paths, not live text</b>, so every lockup renders identically on any
+      machine and in any application — and the PNG exports match the SVGs exactly. Set in
+      <b>Lato</b>, which is OFL-licensed and therefore safe to outline into a mark.</li>
+      <li><b>Tight viewBoxes.</b> Every file is cropped to its true ink bounds — including the comma's
+      descender in <em>ADVISORS, INC.</em> — so you can position them precisely instead of fighting
+      invisible padding.</li>
+      <li><b>Every SVG has a matching high-res PNG</b> in <code>assets/</code>, on transparent
+      background, for slides, Word, and email.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What changed</h2>
+    <ul class="notes">
+      <li><b>Flywheel.</b> Two equal 147° arcs with openings at the lower left and upper right. The break makes it
+      read as turning rather than closed — and gives the plane a doorway on the way out.</li>
+      <li><b>Pillars.</b> Four bars on one baseline, ascending in height <em>and</em> tone
+      (Blue 40% → 70% → Brand Blue → Navy). Heights now accelerate — 33 / 45 / 61 / 84 — so the pillars climb
+      with the trend instead of stepping evenly.</li>
+      <li><b>Trend line.</b> A true accelerating climb: it enters at 22° and steepens smoothly to 52° at the exit,
+      while holding a constant ~6.4px above every pillar. Nothing is crossed or clipped.</li>
+      <li><b>The plane.</b> No lower wing. The trend line's underside runs unbroken into the nose as the keel,
+      with a single wing swept back above it — the profile of a paper plane rather than the barbs of an arrow.
+      The keel carries the same slight curve as the line's own edge, so the join is seamless.</li>
+      <li><b>Palette.</b> Only Brand Strategy Appendix D tokens and tints of them. No off-palette color.</li>
+</ul>
+  </section>
+
+</div>
+<script>
+  var a=document.getElementById('anim'),b=document.getElementById('replay'),
+      m=document.getElementById('planeMotion');
+  function play(){
+    a.classList.remove('play');void a.offsetWidth;a.classList.add('play');
+    if(m&&m.beginElement){try{m.endElement();}catch(e){}try{m.beginElement();}catch(e){}}
+  }
+  b.addEventListener('click',play);
+  if(window.IntersectionObserver){
+    new IntersectionObserver(function(e){if(e[0].isIntersecting){play();}},{threshold:.4}).observe(a);
+  }else{play();}
+</script>
+</body>
+</html>
