@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
 # One-click deploy for the Aligned KPIs marketing website.
-# Double-click this file in Finder (or run: bash deploy.command).
+# Double-click this file in Finder (or run: bash MarketingSiteDeploy.command).
 # It commits your current files and publishes them to GitHub Pages.
 # ============================================================
 

@@ -21,7 +21,7 @@ slide-*.jpg
 Aligned KPIs — Chamber CEO Sales Deck.pdf
 
 # local dev tools (not part of the website)
-deploy.command
+MarketingSiteDeploy.command
 
 # preview mockups (not for production)
 mockup-*.html

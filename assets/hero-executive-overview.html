@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aligned KPIs — Executive Overview</title>
+<style>
+  :root{
+    --navy:#16314F; --navy-2:#0f2338; --blue:#2178C4; --blue-lt:#6fc0ff; --green:#6FB52C; --green-lt:#8fd44a;
+    --ink:#eaf1f8; --muted:#9fb2c9; --line:rgba(255,255,255,.10); --card:rgba(255,255,255,.05); --card-2:rgba(255,255,255,.07);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:linear-gradient(160deg,#16314f 0%,#0f2338 60%,#0b1c30 100%);overflow:hidden}
+  .stage{position:relative;width:100%;height:100%;container-type:size;padding:4.5cqw 4.5cqw 5cqw}
+  .stage::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 45% at 20% 12%,rgba(33,120,196,.28),transparent 60%),radial-gradient(55% 40% at 92% 88%,rgba(111,181,44,.16),transparent 60%);pointer-events:none}
+
+  .app{position:relative;height:100%;display:flex;flex-direction:column;background:rgba(11,26,44,.55);border:1px solid var(--line);border-radius:3.4cqw;box-shadow:0 2cqw 6cqw rgba(0,0,0,.35);backdrop-filter:blur(6px);overflow:hidden}
+  /* window chrome */
+  .chrome{display:flex;align-items:center;gap:2cqw;padding:2.6cqw 3.2cqw;border-bottom:1px solid var(--line)}
+  .dots{display:flex;gap:1.1cqw}
+  .dots i{width:1.7cqw;height:1.7cqw;border-radius:50%;background:rgba(255,255,255,.22)}
+  .chrome .tab{margin-left:1.4cqw;font-size:2.15cqw;font-weight:600;letter-spacing:.02em;color:var(--muted)}
+  .chrome .lens{margin-left:auto;display:flex;align-items:center;gap:1cqw;font-size:1.9cqw;font-weight:600;color:var(--blue-lt);background:rgba(33,120,196,.16);border:1px solid rgba(33,120,196,.35);border-radius:99px;padding:.9cqw 2cqw}
+  .chrome .lens i{width:1.4cqw;height:1.4cqw;border-radius:50%;background:var(--blue-lt)}
+
+  .body{flex:1;display:flex;flex-direction:column;gap:2.6cqw;padding:3.2cqw}
+  /* header */
+  .head{display:flex;align-items:flex-start;gap:2.4cqw}
+  .mark{width:6.6cqw;height:6.6cqw;flex:none}
+  .head .h-txt .org{font-family:inherit;font-weight:700;font-size:2.9cqw;letter-spacing:-.01em;line-height:1.1}
+  .head .h-txt .sub{font-size:1.85cqw;color:var(--muted);margin-top:.4cqw}
+  .badge{margin-left:auto;display:inline-flex;align-items:center;gap:1cqw;font-size:1.75cqw;font-weight:600;color:var(--green-lt);border:1px solid rgba(111,181,44,.5);border-radius:99px;padding:.8cqw 1.8cqw;white-space:nowrap}
+  .badge svg{width:1.9cqw;height:1.9cqw;stroke:var(--green-lt);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+  /* hero KPI */
+  .hero-kpi{background:linear-gradient(180deg,rgba(33,120,196,.16),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:2.6cqw;padding:2.8cqw 3cqw}
+  .hero-kpi .lbl{font-size:1.7cqw;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--blue-lt)}
+  .hero-kpi .big{font-family:inherit;font-weight:800;font-size:8.2cqw;letter-spacing:-.03em;line-height:1;margin-top:.6cqw}
+  .hero-kpi .pace{display:inline-flex;align-items:center;gap:1cqw;margin-top:1.1cqw;font-size:2.1cqw;font-weight:700;color:var(--green-lt)}
+  .hero-kpi .pace svg{width:2.2cqw;height:2.2cqw;stroke:var(--green-lt);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+  .cmp{display:flex;gap:4.5cqw;margin-top:2cqw}
+  .cmp .c .k{font-size:1.6cqw;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+  .cmp .c .v{font-size:2.5cqw;font-weight:700;color:var(--green-lt);margin-top:.3cqw}
+  /* mini bars */
+  .bars{display:flex;align-items:flex-end;gap:1.15cqw;height:9cqw;margin-top:2.4cqw}
+  .bars i{flex:1;background:linear-gradient(180deg,var(--blue-lt),var(--blue));border-radius:1cqw 1cqw 0 0;opacity:.9}
+  .bars i.tgt{background:rgba(255,255,255,.14)}
+
+  /* KPI grid */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:2.2cqw}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:2.2cqw;padding:2.2cqw 2.4cqw}
+  .tile .k{font-size:1.62cqw;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+  .tile .v{font-family:inherit;font-weight:700;font-size:3.9cqw;letter-spacing:-.02em;margin-top:.5cqw;line-height:1}
+  .tile .d{font-size:1.7cqw;font-weight:600;margin-top:.7cqw;color:var(--green-lt)}
+  .tile .d.flat{color:var(--muted)}
+
+  /* footer promise */
+  .foot{margin-top:auto;display:flex;align-items:center;gap:1.6cqw;padding:2.4cqw 3.4cqw;border-top:1px solid var(--line);font-size:1.8cqw;font-weight:600;color:var(--muted);letter-spacing:.02em}
+  .foot .dot{width:1.4cqw;height:1.4cqw;border-radius:50%;background:var(--green);box-shadow:0 0 0 .6cqw rgba(111,181,44,.2)}
+  .foot b{color:var(--ink);font-weight:700}
+
+  /* phone overlay */
+  .phone{position:absolute;right:3.2cqw;bottom:8.5cqw;width:20cqw;background:#0c1a2c;border:1px solid rgba(255,255,255,.14);border-radius:3.2cqw;box-shadow:0 3cqw 7cqw rgba(0,0,0,.5);padding:2.4cqw 2.2cqw;transform:rotate(3deg)}
+  .phone::before{content:"";position:absolute;top:1.4cqw;left:50%;transform:translateX(-50%);width:5cqw;height:.9cqw;border-radius:99px;background:rgba(255,255,255,.18)}
+  .phone .p-lbl{margin-top:2.2cqw;font-size:1.35cqw;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-lt)}
+  .phone .p-big{font-family:inherit;font-weight:800;font-size:5cqw;letter-spacing:-.03em;line-height:1;margin-top:.5cqw}
+  .phone .p-pace{font-size:1.5cqw;font-weight:700;color:var(--green-lt);margin-top:.7cqw}
+  .phone .p-bars{display:flex;align-items:flex-end;gap:.7cqw;height:4cqw;margin-top:1.4cqw}
+  .phone .p-bars i{flex:1;background:linear-gradient(180deg,var(--blue-lt),var(--blue));border-radius:.6cqw .6cqw 0 0}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="app" role="img" aria-label="Aligned KPIs Executive Overview: Metro Chamber of Commerce board view, total revenue $248K month to date, +4 work days ahead of budget, up 6.2% vs budget and 9.1% vs prior year, 1,284 members at 92% retention, 14 months cash runway.">
+    <div class="chrome">
+      <div class="dots"><i></i><i></i><i></i></div>
+      <div class="tab">Executive Overview</div>
+      <div class="lens"><i></i> Board view</div>
+    </div>
+    <div class="body">
+      <div class="head">
+        <svg class="mark" viewBox="0 0 175 175" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M 130.2 32.7 A 70 70 0 0 0 24.2 113.9" fill="none" stroke="#b7c0cf" stroke-width="13" stroke-linecap="round"/>
+          <path d="M 49.8 147.3 A 70 70 0 0 0 155.8 66.1" fill="none" stroke="#5aa9e6" stroke-width="13" stroke-linecap="round"/>
+          <rect x="56" y="92" width="15" height="28" rx="2" fill="#6fc0ff"/>
+          <rect x="77" y="72" width="15" height="48" rx="2" fill="#5aa9e6"/>
+          <rect x="98" y="50" width="15" height="70" rx="2" fill="#8fb8dd"/>
+          <rect x="119" y="30" width="15" height="90" rx="2" fill="#b7c0cf"/>
+          <path d="M 34 132 C 72 124 108 100 142 52" fill="none" stroke="#8fd44a" stroke-width="12" stroke-linecap="round"/>
+          <path d="M 160 24 L 128 38 L 147 55 Z" fill="#8fd44a"/>
+        </svg>
+        <div class="h-txt">
+          <div class="org">Metro Chamber of Commerce</div>
+          <div class="sub">As of Mon, Jul 20 2026 &middot; Work day 14 of 22</div>
+        </div>
+        <span class="badge"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Board-ready</span>
+      </div>
+
+      <div class="hero-kpi">
+        <div class="lbl">Total Revenue &middot; Month to date</div>
+        <div class="big">$248K</div>
+        <div class="pace"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg> +4 work days ahead of budget</div>
+        <div class="cmp">
+          <div class="c"><div class="k">vs Budget</div><div class="v">+6.2%</div></div>
+          <div class="c"><div class="k">vs Prior Year</div><div class="v">+9.1%</div></div>
+          <div class="c"><div class="k">vs Forecast</div><div class="v">+2.4%</div></div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="tile"><div class="k">Members</div><div class="v">1,284</div><div class="d">+3.1% MoM</div></div>
+        <div class="tile"><div class="k">Retention</div><div class="v">92%</div><div class="d">On target</div></div>
+        <div class="tile"><div class="k">Cash Runway</div><div class="v">14 mo</div><div class="d flat">Stable</div></div>
+        <div class="tile"><div class="k">Non-Dues Revenue</div><div class="v">$86K</div><div class="d">+9.0% YoY</div></div>
+      </div>
+
+      <div class="foot"><span class="dot"></span> <span><b>See Clearly.</b> Lead Confidently. Stay Aligned.</span></div>
+    </div>
+  </div>
+
+  <div class="phone" aria-hidden="true">
+    <div class="p-lbl">Executive Pacing</div>
+    <div class="p-big">$248K</div>
+    <div class="p-pace">+4 work days ahead</div>
+    <div class="p-bars"><i style="height:40%"></i><i style="height:55%"></i><i style="height:50%"></i><i style="height:70%"></i><i style="height:64%"></i><i style="height:88%"></i></div>
+  </div>
+</div>
+</body>
+</html>
