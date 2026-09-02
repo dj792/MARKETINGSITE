@@ -45,3 +45,5 @@ service-account*.json
 # per-client generated summary folders (internal, not the website)
 Lakeland/
 
+# brand story — deploy only the clean-URL copy (brand-story.html)
+Aligned KPIs Brand Story (standalone).html
