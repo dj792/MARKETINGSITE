@@ -10,6 +10,7 @@ Product Spec.md
 MasterSalesDeck.pptx
 *.pptx
 Sales Deck — Style Guide.md
+Speaking Notes.md
 
 # sales decks & proposals (internal — never deploy to the website)
 Sales Presentations/
@@ -22,6 +23,14 @@ Aligned KPIs — Chamber CEO Sales Deck.pdf
 
 # local dev tools (not part of the website)
 MarketingSiteDeploy.command
+build_board_deck.js
+build_dropped_summary.py
+
+# client platform screenshots for the board deck (real financials — NEVER deploy)
+board-deck-assets/
+
+# client membership analysis (real member data — NEVER deploy)
+Dropped Membership — Summary.xlsx
 
 # preview mockups (not for production)
 mockup-*.html

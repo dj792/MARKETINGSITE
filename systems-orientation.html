@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<!-- INTERNAL EMPLOYEE REFERENCE — direct link only. Do NOT index, do NOT add to nav or sitemap. -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<title>Systems Orientation (Internal) — 1 to 100 Advisors</title>
+<meta name="description" content="Internal orientation for new 1 to 100 Advisors staff: the Control app, the Aligned KPIs app, and how customer data gets from QuickBooks to a dashboard. Not for public distribution." />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="apple-touch-icon" href="assets/app-icon.svg" />
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  html,body { margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+  img,svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  :root {
+    --bg: #f5f5f7; --surface: #ffffff; --ink: #1d1d1f; --ink-2: #424245; --muted: #6e6e73;
+    --line: rgba(0,0,0,0.08); --accent: #2178c4; --brand-blue: #2178c4; --brand-navy: #16314f;
+    --brand-green: #6fb52c; --brand-ice: #aec2da; --brand-pale: #cfe0f2; --brand-red: #d6455a;
+    --radius-lg: 28px; --radius-md: 18px; --radius-sm: 12px;
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    --shadow-2: 0 2px 6px rgba(0,0,0,0.06), 0 30px 60px -20px rgba(0,0,0,0.18);
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "SF Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+
+  body { font-family: var(--font-text); color: var(--ink); background: var(--bg); line-height: 1.5; letter-spacing: -0.005em; overflow-x: hidden; }
+
+  .display { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.035em; line-height: 1.04; }
+  h1.display { font-size: clamp(38px, 5.6vw, 78px); }
+  h2.display { font-size: clamp(28px, 4.2vw, 48px); }
+  .eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.18em; font-weight: 600; font-size: 12px; color: var(--accent); }
+  .lede { font-size: clamp(18px, 1.4vw, 21px); color: var(--ink-2); max-width: 64ch; line-height: 1.45; }
+  .small { font-size: 13px; color: var(--muted); }
+
+  .wrap { width: min(1120px, 92vw); margin-inline: auto; }
+  section { padding: clamp(46px, 7vh, 88px) 0; position: relative; }
+  section + section { padding-top: clamp(26px, 5vh, 60px); }
+  .section-head { max-width: 66ch; }
+  .section-head h2 { margin: 14px 0 16px; }
+  .section-head .lede { margin: 0; }
+
+  .internal-bar { background: var(--brand-navy); color: #eaf1f8; font-family: var(--font-display); font-size: 12.5px; letter-spacing: 0.02em; }
+  .internal-bar .wrap { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 34px; text-align: center; padding: 6px 0; flex-wrap: wrap; }
+  .internal-bar .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--brand-green); flex: none; box-shadow: 0 0 0 3px rgba(111,181,44,0.25); }
+  .internal-bar strong { color: #fff; font-weight: 700; }
+  .internal-bar span.muted { color: var(--brand-ice); }
+
+  .nav { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); background: rgba(245,245,247,0.72); border-bottom: 1px solid var(--line); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  .brand-logo { height: 30px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 22px; font-size: 13px; color: var(--ink-2); }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 620px){ .nav-links { display: none; } }
+
+  .hero { position: relative; padding-top: clamp(46px, 7vh, 88px); padding-bottom: clamp(20px, 4vh, 40px); overflow: hidden; }
+  .hero::before { content: ""; position: absolute; inset: -20% -10% auto -10%; height: 100%; background: radial-gradient(40% 60% at 20% 30%, rgba(33,120,196,0.16), transparent 60%), radial-gradient(50% 60% at 80% 10%, rgba(111,181,44,0.16), transparent 60%), radial-gradient(40% 50% at 70% 70%, rgba(22,49,79,0.08), transparent 60%); filter: blur(20px); pointer-events: none; z-index: 0; }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero h1 { margin: 16px 0 20px; max-width: 16ch; }
+  .hero .lede { margin: 0; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 10px 12px; margin-top: 28px; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 8px 15px; font-size: 13px; color: var(--ink-2); box-shadow: var(--shadow-1); }
+  .pill b { color: var(--ink); font-weight: 600; }
+
+  .toc { margin-top: 32px; padding: 22px 26px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-1); }
+  .toc h4 { margin: 0 0 14px; font-family: var(--font-display); font-weight: 600; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+  .toc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 28px; }
+  @media (max-width: 820px){ .toc-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px){ .toc-grid { grid-template-columns: 1fr; } }
+  .toc-grid a { display: flex; gap: 10px; align-items: baseline; padding: 7px 0; font-size: 13.5px; color: var(--ink-2); border-top: 1px solid var(--line); }
+  .toc-grid a:hover { color: var(--accent); }
+  .toc-grid a .n { font-family: var(--font-mono); font-size: 11px; color: var(--accent); flex: none; width: 22px; }
+
+  .block { border-top: 1px solid var(--line); }
+  .prose { max-width: 68ch; }
+  .prose p { color: var(--ink-2); font-size: clamp(16px, 1.15vw, 18px); line-height: 1.6; margin: 0 0 16px; }
+  .prose strong { color: var(--ink); font-weight: 600; }
+
+  .card-grid { display: grid; gap: 18px; margin-top: clamp(24px, 4vw, 38px); }
+  .cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .cols-3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 900px){ .cols-3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px){ .cols-2, .cols-3 { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-1); padding: 22px 22px 20px; }
+  .card .cat { font-family: var(--font-display); font-weight: 600; font-size: 12px; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; }
+  .card h3 { margin: 8px 0 6px; font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: -0.015em; color: var(--ink); line-height: 1.2; }
+  .card p { margin: 0; color: var(--ink-2); font-size: 14.5px; line-height: 1.55; }
+  .card.navy { background: linear-gradient(180deg,#16314f,#0f2338); color: #eaf1f8; border: 0; }
+  .card.navy .cat { color: #7aa7ff; } .card.navy h3 { color: #fff; } .card.navy p { color: rgba(234,241,248,0.9); }
+
+  /* App identity panel — what it is, who uses it, how to get in */
+  .app-panel { margin-top: clamp(24px, 4vw, 36px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; }
+  @media (max-width: 820px){ .app-panel { grid-template-columns: 1fr; } }
+  .login-card { background: linear-gradient(180deg,#16314f,#0f2338); color: #eaf1f8; border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-2); display: flex; flex-direction: column; gap: 14px; }
+  .login-card .l { font-family: var(--font-display); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #7aa7ff; }
+  .login-card .url { font-family: var(--font-mono); font-size: clamp(15px, 1.5vw, 18px); color: #fff; word-break: break-all; }
+  .login-card .url a { border-bottom: 1px solid rgba(255,255,255,0.35); }
+  .login-card .url a:hover { border-color: #fff; }
+  .login-card .url.tbd { color: #ffd27a; }
+  .login-card p { margin: 0; font-size: 14px; line-height: 1.55; color: rgba(234,241,248,0.9); }
+  .login-card .go { align-self: flex-start; margin-top: auto; background: #fff; color: var(--brand-navy); font-family: var(--font-display); font-weight: 600; font-size: 14px; border-radius: 999px; padding: 9px 18px; }
+  .login-card .go:hover { background: var(--brand-pale); }
+  .facts { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-1); padding: 6px 22px; }
+  .fact { display: grid; grid-template-columns: 130px 1fr; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); font-size: 14.5px; }
+  .fact:first-child { border-top: 0; }
+  .fact .k { font-family: var(--font-display); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding-top: 2px; }
+  .fact .v { color: var(--ink-2); line-height: 1.5; }
+  .fact .v strong { color: var(--ink); }
+  @media (max-width: 480px){ .fact { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* Big-picture trio */
+  .trio { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; gap: 10px; margin-top: clamp(24px, 4vw, 38px); }
+  .trio .arrow { align-self: center; color: var(--accent); font-size: 22px; }
+  @media (max-width: 820px){ .trio { grid-template-columns: 1fr; } .trio .arrow { justify-self: center; transform: rotate(90deg); } }
+
+  /* How-it-works pipeline */
+  .pipe { margin-top: clamp(26px, 4vw, 40px); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-1); padding: clamp(20px, 3vw, 34px); }
+  .lanes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .lane { padding: 0 10px; }
+  .lane + .lane { border-left: 1px dashed rgba(0,0,0,0.12); }
+  .lane-h { font-family: var(--font-display); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-align: center; padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .lane-h .who { display: block; font-family: var(--font-text); text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 12px; margin-top: 2px; }
+  .node { position: relative; background: #fbfbfd; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 13px 14px 12px 44px; }
+  .node + .node { margin-top: 26px; }
+  .node + .node::before { content: "↓"; position: absolute; top: -23px; left: 50%; transform: translateX(-50%); color: var(--accent); font-size: 16px; line-height: 1; }
+  .node .num { position: absolute; left: 12px; top: 12px; width: 22px; height: 22px; border-radius: 50%; background: var(--brand-blue); color: #fff; font-family: var(--font-display); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .node b { display: block; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--ink); letter-spacing: -0.01em; line-height: 1.25; }
+  .node span { display: block; font-size: 12.5px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+  .node.qb { border-color: rgba(44,160,28,0.45); background: rgba(44,160,28,0.05); }
+  .node.qb .num { background: #2ca01c; }
+  .node.end { border-color: rgba(33,120,196,0.45); background: rgba(33,120,196,0.05); }
+  .node.end .num { background: var(--brand-navy); }
+  .hop { display: none; }
+  /* lane-to-lane connector arrows on wide screens */
+  .lane { position: relative; }
+  .lane:not(:last-child)::after { content: "→"; position: absolute; right: -9px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 18px; background: var(--surface); padding: 2px 0; z-index: 1; }
+  @media (max-width: 900px){
+    .lanes { grid-template-columns: 1fr; gap: 0; }
+    .lane { padding: 0; }
+    .lane + .lane { border-left: 0; margin-top: 30px; }
+    .lane:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -26px; transform: translateX(-50%); }
+  }
+  .pipe-foot { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 13px; color: var(--muted); }
+  .pipe-foot b { color: var(--ink-2); font-weight: 600; }
+
+  .steps { counter-reset: s; list-style: none; margin: clamp(22px, 3vw, 30px) 0 0; padding: 0; display: grid; gap: 12px; max-width: 78ch; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 30px 1fr; gap: 12px; font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+  .steps li::before { content: counter(s); width: 24px; height: 24px; border-radius: 50%; background: var(--brand-pale); color: var(--brand-navy); font-family: var(--font-display); font-weight: 700; font-size: 12.5px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+  .steps li strong { color: var(--ink); }
+
+  .check-list { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+  .check-list li { display: flex; gap: 11px; align-items: flex-start; font-size: 14.5px; line-height: 1.5; color: var(--ink-2); }
+  .check-list .ck { color: var(--brand-green); font-weight: 700; flex: none; }
+
+  .staff-chip { display: inline-flex; align-items: center; gap: 6px; background: #1d1d1f; color: #f5f5f7; border-radius: 6px; padding: 2px 8px; font-family: var(--font-display); font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; vertical-align: 1px; }
+  code { font-family: var(--font-mono); font-size: 0.9em; background: rgba(0,0,0,0.05); padding: 1px 5px; border-radius: 5px; }
+
+  footer { padding: 46px 0 60px; border-top: 1px solid var(--line); }
+  .footer-tag { font-family: var(--font-display); font-weight: 600; font-size: 15px; margin: 0 0 6px; color: var(--ink); }
+  .footer-legal { font-size: 12px; color: var(--muted); margin-top: 16px; }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .delay-1 { transition-delay: .08s; } .delay-2 { transition-delay: .16s; } .delay-3 { transition-delay: .24s; }
+  @media (prefers-reduced-motion: reduce){ .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<div class="internal-bar">
+  <div class="wrap"><span class="dot"></span><span><strong>Internal — 1 to 100 staff only</strong> <span class="muted">· Systems Orientation · Not for public distribution</span></span></div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Aligned KPIs home"><img class="brand-logo" src="assets/lockup-aligned-kpis-horizontal.svg" alt="Aligned KPIs" /></a>
+    <nav class="nav-links">
+      <a href="systems-orientation.html" style="color:var(--ink);font-weight:600;">Systems Orientation</a>
+      <a href="brand.html">Brand Guide</a>
+      <a href="framework-guide.html">Framework Guide</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow reveal">New staff orientation</div>
+    <h1 class="display reveal delay-1">Our systems, in one page.</h1>
+    <p class="lede reveal delay-2">Three things to understand first: the <strong>Control</strong> app where we run our customers, the <strong>Aligned KPIs</strong> app our customers log into, and the <strong>extractions</strong> that carry a customer's numbers from their systems to their dashboard.</p>
+    <div class="hero-meta reveal delay-3">
+      <span class="pill"><b>Audience</b> 1 to 100 Advisors staff</span>
+      <span class="pill"><b>Level</b> Overview — not a manual</span>
+      <span class="pill"><b>Updated</b> October 6, 2026</span>
+    </div>
+
+    <nav class="toc reveal delay-3" aria-label="On this page">
+      <h4>On this page</h4>
+      <div class="toc-grid">
+        <a href="#bigpicture"><span class="n">01</span><span>The Big Picture</span></a>
+        <a href="#control"><span class="n">02</span><span>1 to 100 Control</span></a>
+        <a href="#aligned"><span class="n">03</span><span>Aligned KPIs App</span></a>
+        <a href="#howitworks"><span class="n">04</span><span>How It Works — QuickBooks</span></a>
+        <a href="#habits"><span class="n">05</span><span>Good Habits</span></a>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<!-- 01 -->
+<section id="bigpicture" class="block">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">01 · The Big Picture</div>
+      <h2 class="display">Back office, front door, and the pipes between.</h2>
+      <p class="lede">Every customer is one record that both apps share. Control is where we keep that record; Aligned KPIs is what the customer sees; extractions keep their numbers current.</p>
+    </div>
+    <div class="trio">
+      <div class="card reveal">
+        <div class="cat">Back office · staff only</div>
+        <h3>1 to 100 Control</h3>
+        <p>Who our customers are, their contacts, notes, forecast and settings. Our team's view of the business.</p>
+      </div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="card reveal delay-1">
+        <div class="cat">The pipes</div>
+        <h3>Extractions &amp; jobs</h3>
+        <p>Pull reports out of QuickBooks, GrowthZone and similar systems, then turn them into ready-to-read summaries.</p>
+      </div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="card navy reveal delay-2">
+        <div class="cat">Front door · customers</div>
+        <h3>Aligned KPIs app</h3>
+        <p>The CEO's dashboards: financials, budget, membership, sales, retention — one clear view of the organization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section id="control" class="block">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">02 · 1 to 100 Control</div>
+      <h2 class="display">Our internal command center.</h2>
+      <p class="lede">A staff-only app for running the business behind Aligned KPIs: every prospect and customer, the people at each one, and where they are in their relationship with us. Customers never see it.</p>
+    </div>
+
+    <div class="app-panel reveal">
+      <div class="facts">
+        <div class="fact"><div class="k">Purpose</div><div class="v">One place for <strong>everything we know about each organization</strong> — who they are, who we work with there, and what we've agreed.</div></div>
+        <div class="fact"><div class="k">Who uses it</div><div class="v">1 to 100 staff only. Sign-in is limited to an approved list of team accounts.</div></div>
+        <div class="fact"><div class="k">How it looks</div><div class="v">Pick an organization, then work through its cards. Each card has a small number in its corner (e.g. <code>#10</code>) — use it when asking for a change.</div></div>
+      </div>
+      <div class="login-card">
+        <div class="l">Log in</div>
+        <div class="url tbd">[Control URL — to be added]</div>
+        <p>Sign in with your <strong>1 to 100 Google account</strong>. If you're turned away, ask DJ to add you to the approved list.</p>
+      </div>
+    </div>
+
+    <div class="card-grid cols-3">
+      <div class="card reveal"><div class="cat">Organizations</div><h3>Customer records</h3><p>Name, status, contact details and settings for every prospect and customer.</p></div>
+      <div class="card reveal delay-1"><div class="cat">People</div><h3>Contacts &amp; roles</h3><p>Who works at each organization and how they relate to us.</p></div>
+      <div class="card reveal delay-2"><div class="cat">Relationship</div><h3>CRM, notes &amp; forecast</h3><p>Where each account stands, what was discussed, and what we expect next.</p></div>
+      <div class="card reveal"><div class="cat">Assets</div><h3>Files &amp; links</h3><p>Logos, documents and the customer's confidential data folder.</p></div>
+      <div class="card reveal delay-1"><div class="cat">Activity</div><h3>Who's using the app</h3><p>Which customer users are signing in to Aligned KPIs.</p></div>
+      <div class="card reveal delay-2"><div class="cat">Our team</div><h3>Staff admin</h3><p>The 1 to 100 team list and access.</p></div>
+    </div>
+    <p class="small reveal" style="margin-top:16px;max-width:76ch;">Moved out of Control in October 2026: a customer's data-sheet links and the "Send Invitation" email now live in the <strong>Aligned KPIs Admin</strong> area, next to the jobs that use them.</p>
+  </div>
+</section>
+
+<!-- 03 -->
+<section id="aligned" class="block">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">03 · Aligned KPIs App</div>
+      <h2 class="display">What our customers log into.</h2>
+      <p class="lede">The Executive Visibility Platform for CEOs. It turns an organization's own reports into clear dashboards so the CEO can see clearly, lead confidently and stay aligned with their team.</p>
+    </div>
+
+    <div class="app-panel reveal">
+      <div class="facts">
+        <div class="fact"><div class="k">Purpose</div><div class="v">Give a CEO <strong>one trustworthy view</strong> of their organization's performance — without building a data team.</div></div>
+        <div class="fact"><div class="k">Who uses it</div><div class="v">Customer CEOs and their teams, each seeing what their <strong>role</strong> allows. Staff see every customer and can switch between them from the header.</div></div>
+        <div class="fact"><div class="k">Sign-in</div><div class="v">No passwords. Enter your email and the app sends a one-time sign-in link. Customers get access through <strong>Admin → User Permissions</strong>.</div></div>
+      </div>
+      <div class="login-card">
+        <div class="l">Log in</div>
+        <div class="url"><a href="https://app.alignedkpis.com/" target="_blank" rel="noopener">app.alignedkpis.com</a></div>
+        <p>Use your <strong>1to100Advisors.com</strong> email. Staff accounts can see every customer and the staff-only Admin tools.</p>
+        <a class="go" href="https://app.alignedkpis.com/" target="_blank" rel="noopener">Open Aligned KPIs →</a>
+      </div>
+    </div>
+
+    <div class="card-grid cols-3">
+      <div class="card reveal"><div class="cat">Customer view</div><h3>Overview &amp; Scorecard</h3><p>The opening summary and the Monthly Scorecard the CEO brings to the board meeting.</p></div>
+      <div class="card reveal delay-1"><div class="cat">Customer view</div><h3>What we look at</h3><p>Financial, Budget, Membership Snapshot, Market Place, Sales, Retention and more — one page per area.</p></div>
+      <div class="card reveal delay-2"><div class="cat">Customer view</div><h3>Roles</h3><p>Each person's role decides which pages they see, e.g. a Board role without named member data.</p></div>
+      <div class="card reveal"><div class="cat">Customer admin</div><h3>Their own settings</h3><p>Customer admins manage their own Market Definition today; User Permissions and Manage KPIs open to them next.</p></div>
+      <div class="card navy reveal delay-1"><div class="cat">Staff only</div><h3>Jobs &amp; Data Sources</h3><p>Rebuild a customer's dashboards and maintain the Google Sheets each one reads.</p></div>
+      <div class="card navy reveal delay-2"><div class="cat">Staff only</div><h3>Extractions, Sync Log, Diagnostics</h3><p>Set up the automatic pulls, see what ran, and run safety checks.</p></div>
+    </div>
+    <p class="small reveal" style="margin-top:16px;max-width:76ch;">In the app, staff-only Admin pages sit on a dark bar marked <span class="staff-chip">🔒 1 to 100 Staff</span>. Anything without it, a customer admin may see too.</p>
+  </div>
+</section>
+
+<!-- 04 -->
+<section id="howitworks" class="block">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">04 · How It Works</div>
+      <h2 class="display">From QuickBooks to the CEO's dashboard.</h2>
+      <p class="lede">Most financial numbers start in the customer's QuickBooks Online. Nobody re-types them: QuickBooks emails the reports to us, and the rest happens on its own.</p>
+    </div>
+
+    <div class="pipe reveal" role="img" aria-label="QuickBooks emails scheduled reports to our mailbox; the email extractor saves them into the customer's Google Sheet; Aligned KPIs reads the sheet, builds a summary, and shows it on the CEO's dashboard.">
+      <div class="lanes">
+        <div class="lane">
+          <div class="lane-h">QuickBooks Online<span class="who">The customer's books</span></div>
+          <div class="node qb"><span class="num">1</span><b>Reports scheduled</b><span>P&amp;L, Balance Sheet, Cash Flow, Budget vs. Actuals — set to email on a schedule.</span></div>
+          <div class="node qb"><span class="num">2</span><b>Emailed as Excel</b><span>Sent from Intuit's notification address.</span></div>
+        </div>
+        <div class="lane">
+          <div class="lane-h">Our mailbox<span class="who">api@1to100Advisors.com</span></div>
+          <div class="node"><span class="num">3</span><b>Email extractor</b><span>Checks the sender is allowed, opens the attachment.</span></div>
+          <div class="node"><span class="num">4</span><b>Logs the run</b><span>Success or failure lands in the Sync Log.</span></div>
+        </div>
+        <div class="lane">
+          <div class="lane-h">Google Sheets<span class="who">Customer's data folder</span></div>
+          <div class="node"><span class="num">5</span><b>Sheet updated</b><span>The report replaces last month's copy in that customer's own sheet.</span></div>
+          <div class="node"><span class="num">6</span><b>Date stamped</b><span>The report's "as of" date is recorded.</span></div>
+        </div>
+        <div class="lane">
+          <div class="lane-h">Aligned KPIs<span class="who">app.alignedkpis.com</span></div>
+          <div class="node"><span class="num">7</span><b>Job rebuilds</b><span>Reads the sheet and builds a ready summary.</span></div>
+          <div class="node end"><span class="num">8</span><b>CEO sees it</b><span>Dashboards show the new month, with its source and date.</span></div>
+        </div>
+      </div>
+      <div class="pipe-foot">
+        <span><b>Every morning</b> all dashboards rebuild automatically.</span>
+        <span><b>Need it now?</b> Admin → Jobs → Rebuild.</span>
+        <span><b>Something missing?</b> Check Admin → Sync Log first.</span>
+      </div>
+    </div>
+
+    <ol class="steps reveal">
+      <li><span><strong>Set up once per customer.</strong> In QuickBooks, the customer (or we) schedule their reports to email to our extraction mailbox. In Aligned KPIs, Admin → Extractions records which reports to expect and which sheet each goes to.</span></li>
+      <li><span><strong>Reports arrive by themselves.</strong> The email extractor only accepts mail from approved senders, so a stray email can't overwrite a customer's numbers.</span></li>
+      <li><span><strong>The Google Sheet is the hand-off point.</strong> Each customer has their own sheets in their own confidential folder. Admin → Data Sources shows which sheet each dashboard reads — and refuses a sheet that belongs to another customer.</span></li>
+      <li><span><strong>Jobs turn sheets into dashboards.</strong> A job reads a sheet and saves a finished summary, so dashboards load fast and never touch the raw sheet while a CEO is looking.</span></li>
+    </ol>
+    <p class="small reveal" style="margin-top:18px;max-width:76ch;">Other systems follow the same shape with a different first step: <strong>GrowthZone</strong> reports are downloaded by an automated browser that signs in for us, and some systems will connect <strong>directly by API</strong>. Everything still lands in a Google Sheet, so the jobs and dashboards don't change.</p>
+  </div>
+</section>
+
+<!-- 05 -->
+<section id="habits" class="block">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">05 · Good Habits</div>
+      <h2 class="display">A few rules that keep customers' data safe.</h2>
+    </div>
+    <div class="card-grid cols-2">
+      <div class="card reveal">
+        <h3>Check whose screen you're on</h3>
+        <ul class="check-list">
+          <li><span class="ck">✓</span><span>Staff switch between customers often. Before you save anything, read the organization name in the header.</span></li>
+          <li><span class="ck">✓</span><span>Each customer's sheets belong to that customer only — never reuse a link from another account.</span></li>
+        </ul>
+      </div>
+      <div class="card reveal delay-1">
+        <h3>Passwords are write-only</h3>
+        <ul class="check-list">
+          <li><span class="ck">✓</span><span>System passwords (e.g. GrowthZone) are entered in Admin → Extractions and stored securely. Nobody — including us — can view them afterward.</span></li>
+          <li><span class="ck">✓</span><span>Never put a password in a sheet, an email or a note.</span></li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3>Look before you rebuild</h3>
+        <ul class="check-list">
+          <li><span class="ck">✓</span><span>If a dashboard looks stale, check the source date and the Sync Log first — a rebuild can't fix a report that never arrived.</span></li>
+        </ul>
+      </div>
+      <div class="card reveal delay-1">
+        <h3>Ask early</h3>
+        <ul class="check-list">
+          <li><span class="ck">✓</span><span>Unsure about a customer's numbers or setup? Ask DJ before changing anything. A quick question beats a confused CEO.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="footer-tag">1 to 100 Advisors — Systems Orientation (Internal)</p>
+    <p class="small" style="max-width:70ch;">A high-level overview for new staff. Companion to the <a href="brand.html" style="color:var(--accent);">Brand Guide</a> and <a href="framework-guide.html" style="color:var(--accent);">Framework Guide</a>.</p>
+    <div class="footer-legal">Not for public distribution. &copy; <span id="yr"></span> 1 to 100 Advisors, Inc. Aligned KPIs™ is a trademark of 1 to 100 Advisors, Inc.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
