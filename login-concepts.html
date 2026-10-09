@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<!-- TEMPORARY CUSTOMER FEEDBACK PAGE (2026-10-09) — direct link only. Do NOT index, do NOT add to nav or sitemap.
+     Delete this file and assets/login-concepts/ once the login design is chosen. -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="referrer" content="no-referrer" />
+<title>Design concepts for new login screen — Aligned KPIs™</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="apple-touch-icon" href="assets/app-icon.svg" />
+<style>
+  /* Layout: a short letter-style intro, then the four options as a labelled 2×2 gallery (one column on phones). */
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #16314f;          /* brand navy */
+    --text: #1d1d1f;
+    --muted: #5d6673;
+    --accent: #2178c4;       /* brand blue */
+    --growth: #5f9e23;       /* brand green, darkened for text */
+    --line: #dfe4ea;
+    --promise-bg: #eaf2fb;
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b1625; --surface: #12243b; --ink: #f2f4f8; --text: #e6ebf2; --muted: #a9b8cb;
+      --accent: #4ea2ff; --growth: #8fd05a; --line: #24405f; --promise-bg: #16314f; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1625; --surface: #12243b; --ink: #f2f4f8; --text: #e6ebf2; --muted: #a9b8cb;
+    --accent: #4ea2ff; --growth: #8fd05a; --line: #24405f; --promise-bg: #16314f; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { color-scheme: light; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 var(--font); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 64px; }
+
+  header { display: flex; flex-direction: column; gap: 18px; max-width: 760px; }
+  .brand { display: flex; align-items: center; gap: 10px; font: 700 20px/1 var(--font-display); color: var(--ink); letter-spacing: -0.01em; }
+  .brand svg { width: 36px; height: 36px; flex: none; }
+  .brand .kpis { color: var(--accent); }
+  .brand sup { font-size: 10px; color: var(--accent); }
+  h1 { margin: 6px 0 0; font: 700 clamp(28px, 4.2vw, 42px)/1.12 var(--font-display); color: var(--ink); letter-spacing: -0.02em; text-wrap: balance; }
+  .intro { margin: 0; color: var(--text); max-width: 64ch; }
+
+  .promise { margin: 6px 0 0; padding: 18px 22px; background: var(--promise-bg); border-radius: 14px; display: grid; gap: 6px; }
+  .promise .label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .promise .line { font: 700 clamp(20px, 2.6vw, 26px)/1.25 var(--font-display); color: var(--ink); letter-spacing: -0.01em; }
+  .promise .line em { font-style: normal; color: var(--accent); }
+
+  .ask { display: grid; gap: 8px; }
+  .ask h2 { margin: 0; font: 600 17px/1.3 var(--font-display); color: var(--ink); }
+  .ask ol { margin: 0; padding-left: 1.3em; display: grid; gap: 4px; }
+  .note { margin: 0; font-size: 14px; color: var(--muted); }
+
+  .options { margin-top: 40px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 28px; }
+  @media (max-width: 760px) { .options { grid-template-columns: minmax(0, 1fr); } }
+  figure { margin: 0; display: grid; grid-template-rows: auto 1fr; gap: 12px; min-width: 0; }
+  figcaption { display: grid; gap: 2px; }
+  .tag { display: flex; align-items: baseline; gap: 10px; }
+  .letter { font: 700 15px/1 var(--font-display); color: #fff; background: var(--ink); border-radius: 8px; padding: 6px 9px; }
+  :root[data-theme="dark"] .letter { color: #0b1625; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .letter { color: #0b1625; } }
+  .name { font: 700 19px/1.25 var(--font-display); color: var(--ink); }
+  .desc { margin: 0; color: var(--muted); font-size: 15px; }
+  .shot { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); align-self: start; }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="brand" aria-label="Aligned KPIs">
+      <svg viewBox="10 10 162 152" aria-hidden="true">
+        <defs><linearGradient id="bars" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3f9ad6"/><stop offset="1" stop-color="#16314f"/></linearGradient></defs>
+        <path d="M 130.2 32.7 A 70 70 0 0 0 24.2 113.9" fill="none" stroke="#16314f" stroke-width="13" stroke-linecap="round"/>
+        <path d="M 49.8 147.3 A 70 70 0 0 0 155.8 66.1" fill="none" stroke="#2178c4" stroke-width="13" stroke-linecap="round"/>
+        <rect x="56" y="92" width="15" height="28" rx="2" fill="#4aa3e0"/>
+        <rect x="77" y="72" width="15" height="48" rx="2" fill="#2e86c9"/>
+        <rect x="98" y="50" width="15" height="70" rx="2" fill="url(#bars)"/>
+        <rect x="119" y="30" width="15" height="90" rx="2" fill="#16314f"/>
+        <path d="M 34 132 C 72 124 108 100 142 52" fill="none" stroke="#6fb52c" stroke-width="12" stroke-linecap="round"/>
+        <path d="M 160 24 L 128 38 L 147 55 Z" fill="#6fb52c"/>
+      </svg>
+      <span>Aligned <span class="kpis">KPIs</span><sup>™</sup></span>
+    </div>
+
+    <h1>Design concepts for new login screen</h1>
+
+    <p class="intro">
+      The sign-in screen is the first thing you see each time you open Aligned KPIs. We want it to reflect
+      what we promise you every time you use it.
+    </p>
+
+    <div class="promise">
+      <span class="label">Our brand promise</span>
+      <span class="line">See Clearly. Lead Confidently. <em>Stay Aligned.</em></span>
+    </div>
+
+    <div class="ask">
+      <h2>As you look at the four options below, please consider:</h2>
+      <ol>
+        <li>Which design best says “see clearly, lead confidently, stay aligned” to you?</li>
+        <li>Which one would you most like to see every time you sign in?</li>
+        <li>Is there anything you would change?</li>
+      </ol>
+      <p>Reply with the letter of your favorite (A, B, C or D) and a sentence on why.</p>
+    </div>
+
+    <p class="note">Some wording on these concepts is placeholder. The final screen will use our approved wording; please judge the look and feel.</p>
+  </header>
+
+  <section class="options" aria-label="Login screen options">
+    <figure>
+      <figcaption>
+        <div class="tag"><span class="letter">A</span><span class="name">Sunrise from Orbit</span></div>
+        <p class="desc">Dark and technical. The Earth at sunrise, seen from space, with a frosted sign-in panel.</p>
+      </figcaption>
+      <a class="shot" rel="nofollow noopener" href="assets/login-concepts/option-a.jpg" target="_blank"><img src="assets/login-concepts/option-a.jpg" alt="Option A: a dark sign-in screen over the Earth at sunrise seen from orbit" width="1312" height="1199" loading="lazy"></a>
+    </figure>
+
+    <figure>
+      <figcaption>
+        <div class="tag"><span class="letter">B</span><span class="name">Summit at Dawn</span></div>
+        <p class="desc">Warm and aspirational. A leader on a mountain summit at sunrise, with a rising growth line.</p>
+      </figcaption>
+      <a class="shot" rel="nofollow noopener" href="assets/login-concepts/option-b.jpg" target="_blank"><img src="assets/login-concepts/option-b.jpg" alt="Option B: a photo of a person on a mountain summit at sunrise beside a white sign-in card" width="1536" height="1024" loading="lazy"></a>
+    </figure>
+
+    <figure>
+      <figcaption>
+        <div class="tag"><span class="letter">C</span><span class="name">Horizon, Day</span></div>
+        <p class="desc">Light and calm. An illustrated dawn sky over layered ridges, with a rising growth line.</p>
+      </figcaption>
+      <a class="shot" rel="nofollow noopener" href="assets/login-concepts/option-c.jpg" target="_blank"><img src="assets/login-concepts/option-c.jpg" alt="Option C: an illustrated dawn sky and blue mountain ridges with a white sign-in card" width="1440" height="900" loading="lazy"></a>
+    </figure>
+
+    <figure>
+      <figcaption>
+        <div class="tag"><span class="letter">D</span><span class="name">Horizon, Night</span></div>
+        <p class="desc">The same illustrated horizon at dusk. Deep navy, for those who prefer a darker screen.</p>
+      </figcaption>
+      <a class="shot" rel="nofollow noopener" href="assets/login-concepts/option-d.jpg" target="_blank"><img src="assets/login-concepts/option-d.jpg" alt="Option D: an illustrated dusk sky and dark ridges with a navy sign-in card" width="1440" height="900" loading="lazy"></a>
+    </figure>
+  </section>
+
+  <footer>
+    Thank you for helping shape Aligned KPIs. Select any image to see it full size.<br>
+    Aligned KPIs™ · Executive Visibility Platform for CEOs · 1 to 100 Advisors, Inc.
+  </footer>
+</div>
+</body>
+</html>
